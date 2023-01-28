@@ -1,0 +1,18 @@
+CHROOT="/tmp/chroot"
+
+FILES="/bin/sh /bin/ps /usr/bin/id"
+
+rm -fr ${CHROOT}
+mkdir -p ${CHROOT}/libexec ${CHROOT}/usr/libexec
+
+cp /binexec/ld.elf_so ${CHROOT}
+ln /libexec/ld.elf_so ${CHROOT}/usr/libexec/ld.elf_so
+
+for f in ${FILES}; do
+  mkdir -p ${CHROOT}${f%/*}
+  for lib in $(ldd ${f} | sed -n -e 's/.*> //p'); do
+    mkdir -p ${CHROOT}${lib%/*}
+    test -f ${CHROOT}${lib} || cp ${lib} ${CHROOT}${lib}
+  done
+  cp "${f}" ${CHROOT}/bin/
+done
