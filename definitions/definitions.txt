@@ -1,0 +1,106 @@
+/***
+ *runestone.academy/ns/books/published/cppds
+ */
+
+/*
+  Algorithm: A step-by-step list of instructions for solving any instance of a problem
+  Computable: When an algorithm exists to solve a problem.
+  Abstraction: A logical and physical perspective of problem-solving processes.
+  Interface: A set of functions which refer to the problem to solve.
+  Procedural Abstraction: An outline of the problem to solve before evlauation.
+  Data Type: An interpretation of binary data; Sometimes called primatives.
+  Abstract Data Type (ADT): A logical description of how we view the data and operations
+  Encapsulation: A level of data abstraction which represents processes
+  Information Hiding: Encapsulating the details of implementation to hide from user's view
+  Data Abstraction: A level of analysis about data types.
+  Data Structure: An implementation of an abstract data type
+  Implementation-independent view: A change of user interaction by the programmer without modifying interaction
+                                   by the user.wq
+  Machine code: The language a compiler computers
+  Compiler: A program to modify built-in data types and control structs.wq
+  Class: A description of what the data looks like and what the data can do
+  Objects: A data item
+  Atomic Data Types: [int,float,double,bool,char,pointer] - a unit which cannot be broken down any smaller
+  Numeric Data [int, float, double] with operators: +,-,*,/
+  Boolean Data [bool] with standard operators and (&&), or (||), not (!), including comparator operations
+                      equality (==), and greater than (>), or less than (<).
+  Variable: Declared space in memory set aside to hld a type of value
+  Character Data [char] a data type with double quotes.
+  Pointer [&=reference,*=declaration]: A variable that stores a memory address.
+  Null: a pointer to nothing
+  Collection Data: [array,vector,string,sets,hash tables] A grouping of some number of other data types
+  Array: A data structure consisting of an ordered collection of data elements, of identical type in which are
+         identified by an array index.
+  Statically allocated: A fixed size at compile-time, which cannot change
+  Dynamically allocated: A size which can change at run-time which are allocated with pointers.
+  Vectors: A dynamically allocated array to store elements.
+  Strings: A sequential collection of zero or more characters such as letters, numbers, and other symbols.
+  Hash Table: A collection of associated pairs of items where each pair consists of a key and a value.
+  Unordered Set: A collection of zero or more unique and unordered data values of particular type.
+  Key: An immutable identifier.
+  Array Parameters: Maintain a structured design.
+  Function overloading: ability to create multiple functions with identical names, but different implementation.
+  Object-Oriented Programming Language: A technique with characteristics or attributes as well as a set of behaviors
+  Object: Created class data type
+  Instance: A temporary class
+  Object Attributes: A logical description of a data object
+  Class methods: What an object can do
+  Abstraction: object-oriented programming focued on desired properties and behaviors of objects
+  Encapsulation: object-oriented principle to hide the contents of a class
+  Inheritance:
+  Polymorphism: the ability to process objects or methods differently depending on their data type, class, number of arguments.
+  Constructor: The first method that all classes should provide
+  Access keywords: public and private
+  Overload: an operation provided for STL data types
+  Operator overloading: A method to provide operation to STL data types
+  Friend: A operator of the class to define the operators behavior on objects of the class from a non-class method
+  Friend Function: A class is a function defined outside that of class' scope but with the right access to private nad protected members of the class
+  Inheritance: ability fo one class to be related to another class
+  Subclass/Derived Class: A child class
+  Superclass/Base Class: A parent class 
+  Inheritance Heirarchy: A built-in C++ collection and their relationships to one another
+  Simulation: A construct
+  AND Gate: Two inputs of 0 or 1, representing true or false. If both inputs are 1, then output is 1, otherwise.
+  OR Gate: If either of the inputs of a gate are 1, then the output is 1.
+  Not Gate: A single input, with output revered.
+  Truth Table: The input-to-output mapping that is performed by the gate.
+  Protected Member: A derived class accessible member similar to the private member.
+  IS-A Relationship: A child class is related to a parent class
+  HAS-A Relationship: A relationship not a part of the heirarchy
+  Algorithm: A generic, step-by-step list of instructions for solving a problem.   
+  Big-O Notation ("O"=order): Order of magnitude written as O(f(n)); It provides a useful approximation to the action number of steps in the computation.
+  Bruteforce: a technique for solving a problem typically to exhaust all possibilities
+  Dynamic Size: whenever a new element is inserted or deleted, their size changes automatically.
+  Hash Table: a data structure which is accessed by a key, rather than position. There is also a hash function.
+  Average Case: When an algorithm performs between the worst and best case
+  Brute Force: technique that tries to exhause all possibilites from a problem
+  Contiguous: Adjacent or next to
+  Linear: A functions that grows in a one to one relationship with its input
+  logarithmic: Functions that are the inverse of exponential functions
+  Order of Magnitude: A function describing the part T(n) that increases the fastest as the value of increases
+  Quadratic: A function describing the relationship who's highest order is a number squared
+  Linear Data Structure: A collection described as stack, queue, and dequewhose items are ordered how they are added or removed
+  LIFO, last-in first-out: When the most recently added item is the item removed first.
+  Fully parenthesized: A type of expression when an operator is one pair of parentheses
+  Prefix: Expression notation that precedes the two operands that they work on
+  Postfix: An expression that follows the operator and the corresponding operand
+  Queue: An ordered collection of items where the addition of new items happen at one end, and removal of items at th          other end. A data type defined by an ordered collection of items with FIFO principles.
+  First-in first-out: A principle to remove the first item in a row.
+  Dequeue: A data structure known as an ordered collection of items similar to the queue, except front and rear collect.
+  Palindrome: A string that reads the same forward and backward
+  Linked Data Structure: A data structure which consists of a set of data structures called nodes that are linked together and organized by links created via references or pointers.
+  Linked List: A linear collection of data elements whose order is not determined by the placement of memory.
+  Head of list: An external reference of first item in list
+  Node: A basic building block for the linked list implementation
+  Data Field: The node's listed item
+  Unordered Linked List: A collection of nodes linked by explicit pointers
+  Linked List Traversal: A set of methods; including, size, search, and remove.
+  Ordered Linked List: A linked list structure which the node and link represent relative positioning of items.
+  Ordered List: A collection of integers in ascending order with relative positions based upon an underlying characteristic.
+  Forward Lists: A sequence of containers implemented as ordered singly-linked lists.
+  List: A container which holds a link to the next and previous element in a sequence.
+  Recursion: A method of solving problems that involve break a problem down into small subproblems. until tribially a solution that is trivial. Recursion involves a function calling itself.
+  Recursive Calls: A series of simplifications that reduce the complexity of the problem.
+  Base Case: The simplest case of inductive reasoning.
+  Dynamic Programming: A technique of breaking the main problem in smaller subproblems to construct the answer to the main problem
+  memoization: a method of recycling values in a table rather than recomputing
