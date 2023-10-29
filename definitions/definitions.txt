@@ -103,4 +103,21 @@
   Recursive Calls: A series of simplifications that reduce the complexity of the problem.
   Base Case: The simplest case of inductive reasoning.
   Dynamic Programming: A technique of breaking the main problem in smaller subproblems to construct the answer to the main problem
-  memoization: a method of recycling values in a table rather than recomputing
+i  memoization: a method of recycling values in a table rather than recomputing
+  Exception: An error that occurs at runtime
+  Hand an Exception: To prevent an exception from terminating a program by wrapping the block of code in a try/except construct
+  Immutable Data Type: A data type which cannot be modified, and an assignment causes a runtime error.
+  Infinite recursion: A function that calls itself recursively without ever reaching the base case.
+  Mutable Data Type: A type or element which can be modified.
+  Raise: a function that sends a signal to a program. The signal handler is invoked for SIGABRT,SIGFPE,SIGILL,SIGINT,SIGSEGV,SIGTERM.
+  Stack Frame: A stack that contains a "frame" or group of data.
+  tuple: A data type that contains a sequence of elements of any type.
+  tuple assignment: An assignment to all the elements in a tuple using a signel assignment statement.
+  Searching: An algorithmic process of finding a particular item in a collection of items.
+  Sequential Search: A process to compare adjacent memory locations
+  Binary Search: A type of search that starts in the middle of an array or vector.
+  Hashing: A data structure to search in O(1)
+  Hash Table: A collection of items stored in such a way to make it easy to find them later.
+  Slot: A position of the hash table, that can hold an item and is named by an integer value above 0
+  Hash Function: A mapping between an item and the slot where that item belongs in the hash table
+  Load Factor: the value for a hash table to define current capacity
