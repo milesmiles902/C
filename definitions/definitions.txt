@@ -121,3 +121,15 @@ i  memoization: a method of recycling values in a table rather than recomputing
   Slot: A position of the hash table, that can hold an item and is named by an integer value above 0
   Hash Function: A mapping between an item and the slot where that item belongs in the hash table
   Load Factor: the value for a hash table to define current capacity
+  Collision: A problem for hashing techniques where two or more items need the same slot.
+  Perfect Hash Function: A hash function that maps each item into a unique slot
+  Folding Method: A hash function to divide the item into equal-size pieces
+  Mid-square method: A hash function to square the item, then extract some portion of the resulting digits.
+  Collision Resolution: the systematic method for when two items hash to the same slot in a hash table
+  Open Addressing: an attempt to find the next open slot or address in a hash table
+  Linear Probing: performing open addressing
+  Clustering: The disadvantage to linear probing; more specifically, items clustered in a table.
+  Rehashing: A process to look for another slot after a hashing collision
+  Quadratic Probing: a variation of linear probing that "skips" hashing collisions by an incrementer.
+  Chaining: an alternative method for handling hashing collisions to enable same slot reference
+  Map: A C++ data structure to associate data types by key-data pairs. The key is used to look up associated data values
