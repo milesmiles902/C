@@ -133,3 +133,14 @@ i  memoization: a method of recycling values in a table rather than recomputing
   Quadratic Probing: a variation of linear probing that "skips" hashing collisions by an incrementer.
   Chaining: an alternative method for handling hashing collisions to enable same slot reference
   Map: A C++ data structure to associate data types by key-data pairs. The key is used to look up associated data values
+  Sorting: A process of placing elements from a collection in some kind of order.
+  Bubble Sort: Makes multiple passes to sort an array to exchange adjacent items
+  Short Bubble: A bubble sort that flags no exchanges as the array is sorting
+  Selection Sort: An improvement of bubble sort by recording maximum values per pass for a lower total number of passes. 
+  Insertion Sort: A type of sorting which maintains a sub vector of the total vector
+  Shell Sort: An improvement of insertion sort that breaks the subvector into smaller vectors
+  Merge Sort: An algorithm to sort that applies a divide and conquer strategy, specifically, splitting a vector in half.
+  Quick Sort: A divide and conquer montage of merge sort
+  Pivot Value: The value quick sort first selects and has a role to assist with splitting the list.
+  Split Point: An index to divide the list for subsequent calls to quick sort
+  Paritition: A two point gap of a list to compare

@@ -1,10 +1,14 @@
 #include <iostream>
 #include <string>
+#include <random>
+#include <chrono>
 using namespace std;
+
+//The sorting algorithm bencharked was hashing. There would not be a difference in execution speeds because no other algorithms exist to search.
 
 class HashTable{
   public:
-  static const int size=11;
+  static const int size=1000;
   int slots[size];
   string data[size];
   
@@ -20,10 +24,7 @@ class HashTable{
     if(data[hashvalue]==""){
       slots[hashvalue] = key;
       data[hashvalue] = val;
-    } else {
-      if(slots[hashvalue] = key){
-        data[hashvalue] = val;
-      } else {
+    } else {     
         int nextslot = rehash(hashvalue);
         while(data[nextslot]!="" && slots[nextslot] != key){
           nextslot = rehash(nextslot);
@@ -40,7 +41,7 @@ class HashTable{
           data[nextslot]=val;
         }
       }
-    }
+    
   }
   
   string get(int key){
@@ -66,15 +67,26 @@ class HashTable{
 };
 
 ostream& operator<<(ostream& stream, HashTable& hash){
-  for(int i=0;i<10000000000*hash.size;i++){
+  for(int i=0;i<hash.size;i++){
     stream<<hash.slots[i]<<": "<<hash.data[i]<<endl;
   }
   return stream;
 }
 
 int main(){
-  HashTable h; 
-  cin >> *h;
+  int i,size=500,array[500];
+  for(i=0;i<500;i++){
+    array[i]=(rand()%10);
+  }
+  HashTable h;
   
+  chrono::time_point<std::chrono::system_clock> start, end;
+  start = chrono::system_clock::now();
+  for(i=0;i<size;i++){
+    h.put(i,to_string(array[i]));
+  }
+  end = chrono::system_clock::now();
+  chrono::duration<double> elapsed_seconds = end-start;
+  cout << "The time to insert 500 items into a hash table is: " << elapsed_seconds.count() << " seconds." << endl;
   return 0;
 }
