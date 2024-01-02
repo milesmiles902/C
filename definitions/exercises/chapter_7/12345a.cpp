@@ -126,7 +126,90 @@ Shell Sort (Gap 3):
                 2,3,4,1,6,5,8,7,10,9;
                 2,1,4,3,6,5,8,7,10,9;
                 
-Insertion Sort:
 Selection Sort:
-Merge Sort:
-Quick Sort:
+                10,9,8,7,6,5,4,3,2,1;
+                9,8,7,6,5,4,3,2,1,10;
+                8,7,6,5,4,3,2,1,9,10;
+                7,6,5,4,3,2,1,8,9,10;
+                6,5,4,3,2,1,7,8,9,10;
+                5,4,3,2,1,6,7,8,9,10;
+                4,3,2,1,5,6,7,8,9,10;
+                3,2,1,4,5,6,7,8,9,10;
+                2,1,3,4,5,6,7,8,9,10;
+                1,2,3,4,5,6,7,8,9,10;
+Insertion Sort:
+                10,9,8,7,6,5,4,3,2,1;
+                1,10,9,8,7,6,5,4,3,2;
+                1,2,10,9,8,7,6,5,4,3;
+                1,2,3,10,9,8,7,6,5,4;
+                1,2,3,4,10,9,8,7,6,5;
+                1,2,3,4,5,10,9,8,7,6;
+                1,2,3,4,5,6,10,9,8,7;
+                1,2,3,4,5,6,7,10,9,8;
+                1,2,3,4,5,6,7,8,10,9;
+                1,2,3,4,5,6,7,8,9,10;
+Merge Sort:     
+                10,9,8,7,6,5,4,3,2,1;
+                9,10,7,8,4,5,6,1,2,3;
+                7,10,9,8,1,2,3,4,5,6;
+                1,2,3,4,5,6,7,8,9,10;
+Quick Sort:     
+                10,9,8,7,6,5,4,3,2,1;
+                10,9,8,7,1,5,4,3,2,6;
+                2,9,8,7,1,5,4,3,10,6;
+                2,3,8,7,1,5,4,9,10,6;
+                2,3,4,7,1,5,8,9,10,6;
+                2,3,4,5,1,7,8,9,10,6;
+                2,3,4,5,1,6,8,9,10,7;
+                2,3,1,5,4,6,8,9,10,7;
+                2,1,3,4,5,6,8,9,10,7;
+                1,2,3,4,5,6,8,9,10,7;
+                1,2,3,4,5,6,8,7,10,9;
+                1,2,3,4,5,6,8,7,9,10;
+                1,2,3,4,5,6,7,8,9,10;
+
+Question #4: 
+
+Bubble Sort:    P,Y,T,H,O,N;
+                P,T,Y,H,O,N;
+                P,T,H,Y,O,N;
+                P,T,H,O,Y,N;
+                P,T,H,O,N,Y;
+                P,H,T,O,N,Y;
+                P,H,O,T,N,Y;
+                P,H,O,N,T,Y;
+                H,P,O,N,T,Y;
+                H,O,P,N,T,Y;
+                H,O,N,P,T,Y;
+                H,N,O,P,T,Y;
+Selection Sort: P,Y,T,H,O,N;
+                P,T,Y,H,O,N;
+                P,T,H,O,N,Y;
+                P,O,H,T,N,Y;
+                P,O,H,N,T,Y;
+                O,P,H,N,T,Y;
+                O,N,H,P,T,Y;
+                N,H,O,P,T,Y;
+                H,N,O,P,T,Y;
+Insertion Sort: P,Y,T,H,O,N;
+                P,T,H,O,N,Y;
+                P,H,O,N,T,Y;
+                H,O,N,P,T,Y;
+                H,N,O,P,T,Y;
+Shell Sort (Gap 3):
+                P,Y,T,H,O,N;
+                P,H,T,Y,O,N;
+                P,H,O,Y,T,N;
+                P,H,O,N,T,Y;
+                O,H,P,N,T,Y;
+Merge Sort:     P,Y,T,H,O,N;
+                P,T,Y,H,N,O;
+                H,N,O,P,T,Y;
+Quick Sort:     P,Y,T,H,O,N;
+                N,Y,T,H,O,P;
+                N,O,T,H,Y,P;
+                N,O,H,T,Y,P;
+                H,N,O,P,T,Y;
+                
+Question #5: An alternative strategy for choosing a pivot value in quick sort is picking a median or mean item. The 
+             criteria for better or worse depends on sorted or random list, and strategy of comparison.

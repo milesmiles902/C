@@ -144,3 +144,51 @@ i  memoization: a method of recycling values in a table rather than recomputing
   Pivot Value: The value quick sort first selects and has a role to assist with splitting the list.
   Split Point: An index to divide the list for subsequent calls to quick sort
   Paritition: A two point gap of a list to compare
+  Tree: A data structure with roots, branches, and leaves
+  Subtree: A section of a hierachial tree
+  Node: A fundamental part of a tree. 
+  Edge: A fundamental part of a tree. An edge connects two nodes to show a relationship between them.
+  Root: A root of a tree is the only node in a tree that has no incoming edges.
+  Path: An ordered listof nodes connected by edges
+  Children: A set of nodes c that have incoming edges from the same node
+  Parent: A node is the parent of all the nodes it connects to with outgoing edges
+  Sibling: Nodes in a tree that are children of the same parent are said to be siblings
+  Subtree: A set of nodes and edges comprised of a parent and all teh decendants of that parent
+  Leaf Node: A node that has no children.
+  Height: A tree's height is equal  to the maximum levels of any node in the tree
+  Binary Tree: Each node i nthe tree has a maximum of two children
+  Preorder: A tree traversal that visits the root node first, left subtree, followed by the right subtree
+  Inorder: A tree traversal on the left subtree. root node, then right subtree.
+  PostOrder: A tree tree traversal on the left subtree, right subtree, then root node.
+  Priority Queue: A variation of the queue where highest priority are in the front of the queue and the lowest priority are at the back.
+  Binary Heap: A implementation of a priortiy queue described as a data structure
+  Min Heap: The smallest key in the front of the binary heap
+  Max Heap: The largest key value in the front
+  Heap: A data structure to maintain priority in a tree 
+  Complete Binary Tree: A balanced binary tree with roughly the same number of nodes on the left and right subtrees
+  Heap Order Property: A heap's attribute to store items, while maintaining priority
+  Binary Search trees: Another data structure to map from a key to a value, but is not interested in placement because of the binary tree structure.
+  bst property: A property of a binary search tree that has lowest keys on the left subtree
+  AVL tree: A special kind of binary search tree that remains balanced at all times
+  Balance Factor: A node property defined as the difference between the height of the left subtree and the height of the right subtree
+  Rotation: When an AVL tree requires balancing to perform more efficienly
+  Graph: An abstract data type using multiple internal representations
+  Vertex: A fundamental part of a graph that connects an edge
+  Edge: A fundamental part of a graph that connects two vertices
+  Weight: The cost of an edge to go from one vertex to another
+  Path: A sequences of vertices that are connected by edges
+  Cycle: The path that starts and ends at the same vertex
+  Directed Graph: A one-way graph, or digraph, dictated by pointers, arrows, or vectors
+  Acyclic graph: A graph with no cycls
+  Directed acyclic graph (DAG): A directed graph with no cycles
+  Adjacent: when two vertices are connected by an edge
+  Adjacency Matrix: An n-dimensional table which represents intersections of vertices by weight
+  Adjacency List: An object of graphs or vertices to maintain relationships
+  Breadth first search (BFS): an algorithm that explores edges in the graph to find all the vertices whci hare in a path from s
+  Depth first search (DFS): a search algorithm to solve a symmetric graph where vertex connections fit a rule
+  Depth first forest: a depth first search algorithm that creates a groups of trees
+  Parenthesis property: when starting and finishing times for each node are a property
+  Topological Sort: An algorithm to search toward order or steps in a graph 
+  Strongly connected component: a one graph algorithm that can help find clusters of highly interconnected vertices
+  Uncontrolled flooding: A brute force solution to sort messages across multi-connected or cyclic graph where a timed broadcast is decreased during each successive edge until zero. 
+  Spanning tree: a solution to construct weights on a multi-connected graph  
