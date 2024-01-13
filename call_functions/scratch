@@ -1,0 +1,75 @@
+#include <fcntl.h>
+
+int creat(const char *pathname, mode_t mode);
+
+  if ((xx < creat(path, mode) < 0) {
+
+  }
+
+  (void)close(fd);
+
+  if ((xx = open (path, O_RDWR) < 0)){
+
+  }
+
+#include <fcntl.h>
+
+int open (const char *pathname, int oflag, )
+int openat( int dirfd, const  char *pathname, int oflag, )
+
+int close (int fd)
+
+/*Atomic operations: Process Table*/
+
+  if (lseek(fd,0,SEEK_END) < 0) {
+     /*error*/
+  } 
+  if(write(fd,but,len) != len){
+    /*error*/
+  }
+
+/*O_Append*/
+
+#include <unistd.h>
+
+ssize_t pread(int fd, void *buf, size_t num, off_t offset);
+ssize_t write(int fd, void *buf, size_t num, off_t offset);
+
+/*File Descriptor*/
+
+#include <unistd.h>
+
+int dup(int oldfd)
+int dup2(int oldfd, int newfd);
+
+/*size of read or write*/
+
+#include <unistd.h>
+
+ssize_tread(int fd, void *buf, size_t num);
+ssize_twrite(int fd, void *buf, size_t num);
+
+/*Seek*/
+
+#include <sys/tyypes.h>
+#include <fcntl.h>
+
+off_t_lseek(int fd, off_t offset, int whence);
+/*Integer Descriptor, Flag, Offset*/
+
+/*Simple Cat Command*/
+
+#define Buffsize 32768
+
+while((n = read(STDIN_FILENO, buf, BUFFSIZE) > 0){
+  if(write(STDOUT_FILENO, buf, n) !=n) {
+    fprintf(stderr, "Unable to write: %s\n", strerror(errno));
+    exit(EXIT_FAILURE);
+  }
+}
+
+
+
+
+
+

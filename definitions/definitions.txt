@@ -1,0 +1,194 @@
+/***
+ *runestone.academy/ns/books/published/cppds
+ */
+
+/*
+  Algorithm: A step-by-step list of instructions for solving any instance of a problem
+  Computable: When an algorithm exists to solve a problem.
+  Abstraction: A logical and physical perspective of problem-solving processes.
+  Interface: A set of functions which refer to the problem to solve.
+  Procedural Abstraction: An outline of the problem to solve before evlauation.
+  Data Type: An interpretation of binary data; Sometimes called primatives.
+  Abstract Data Type (ADT): A logical description of how we view the data and operations
+  Encapsulation: A level of data abstraction which represents processes
+  Information Hiding: Encapsulating the details of implementation to hide from user's view
+  Data Abstraction: A level of analysis about data types.
+  Data Structure: An implementation of an abstract data type
+  Implementation-independent view: A change of user interaction by the programmer without modifying interaction
+                                   by the user.wq
+  Machine code: The language a compiler computers
+  Compiler: A program to modify built-in data types and control structs.wq
+  Class: A description of what the data looks like and what the data can do
+  Objects: A data item
+  Atomic Data Types: [int,float,double,bool,char,pointer] - a unit which cannot be broken down any smaller
+  Numeric Data [int, float, double] with operators: +,-,*,/
+  Boolean Data [bool] with standard operators and (&&), or (||), not (!), including comparator operations
+                      equality (==), and greater than (>), or less than (<).
+  Variable: Declared space in memory set aside to hld a type of value
+  Character Data [char] a data type with double quotes.
+  Pointer [&=reference,*=declaration]: A variable that stores a memory address.
+  Null: a pointer to nothing
+  Collection Data: [array,vector,string,sets,hash tables] A grouping of some number of other data types
+  Array: A data structure consisting of an ordered collection of data elements, of identical type in which are
+         identified by an array index.
+  Statically allocated: A fixed size at compile-time, which cannot change
+  Dynamically allocated: A size which can change at run-time which are allocated with pointers.
+  Vectors: A dynamically allocated array to store elements.
+  Strings: A sequential collection of zero or more characters such as letters, numbers, and other symbols.
+  Hash Table: A collection of associated pairs of items where each pair consists of a key and a value.
+  Unordered Set: A collection of zero or more unique and unordered data values of particular type.
+  Key: An immutable identifier.
+  Array Parameters: Maintain a structured design.
+  Function overloading: ability to create multiple functions with identical names, but different implementation.
+  Object-Oriented Programming Language: A technique with characteristics or attributes as well as a set of behaviors
+  Object: Created class data type
+  Instance: A temporary class
+  Object Attributes: A logical description of a data object
+  Class methods: What an object can do
+  Abstraction: object-oriented programming focued on desired properties and behaviors of objects
+  Encapsulation: object-oriented principle to hide the contents of a class
+  Inheritance:
+  Polymorphism: the ability to process objects or methods differently depending on their data type, class, number of arguments.
+  Constructor: The first method that all classes should provide
+  Access keywords: public and private
+  Overload: an operation provided for STL data types
+  Operator overloading: A method to provide operation to STL data types
+  Friend: A operator of the class to define the operators behavior on objects of the class from a non-class method
+  Friend Function: A class is a function defined outside that of class' scope but with the right access to private nad protected members of the class
+  Inheritance: ability fo one class to be related to another class
+  Subclass/Derived Class: A child class
+  Superclass/Base Class: A parent class 
+  Inheritance Heirarchy: A built-in C++ collection and their relationships to one another
+  Simulation: A construct
+  AND Gate: Two inputs of 0 or 1, representing true or false. If both inputs are 1, then output is 1, otherwise.
+  OR Gate: If either of the inputs of a gate are 1, then the output is 1.
+  Not Gate: A single input, with output revered.
+  Truth Table: The input-to-output mapping that is performed by the gate.
+  Protected Member: A derived class accessible member similar to the private member.
+  IS-A Relationship: A child class is related to a parent class
+  HAS-A Relationship: A relationship not a part of the heirarchy
+  Algorithm: A generic, step-by-step list of instructions for solving a problem.   
+  Big-O Notation ("O"=order): Order of magnitude written as O(f(n)); It provides a useful approximation to the action number of steps in the computation.
+  Bruteforce: a technique for solving a problem typically to exhaust all possibilities
+  Dynamic Size: whenever a new element is inserted or deleted, their size changes automatically.
+  Hash Table: a data structure which is accessed by a key, rather than position. There is also a hash function.
+  Average Case: When an algorithm performs between the worst and best case
+  Brute Force: technique that tries to exhause all possibilites from a problem
+  Contiguous: Adjacent or next to
+  Linear: A functions that grows in a one to one relationship with its input
+  logarithmic: Functions that are the inverse of exponential functions
+  Order of Magnitude: A function describing the part T(n) that increases the fastest as the value of increases
+  Quadratic: A function describing the relationship who's highest order is a number squared
+  Linear Data Structure: A collection described as stack, queue, and dequewhose items are ordered how they are added or removed
+  LIFO, last-in first-out: When the most recently added item is the item removed first.
+  Fully parenthesized: A type of expression when an operator is one pair of parentheses
+  Prefix: Expression notation that precedes the two operands that they work on
+  Postfix: An expression that follows the operator and the corresponding operand
+  Queue: An ordered collection of items where the addition of new items happen at one end, and removal of items at th          other end. A data type defined by an ordered collection of items with FIFO principles.
+  First-in first-out: A principle to remove the first item in a row.
+  Dequeue: A data structure known as an ordered collection of items similar to the queue, except front and rear collect.
+  Palindrome: A string that reads the same forward and backward
+  Linked Data Structure: A data structure which consists of a set of data structures called nodes that are linked together and organized by links created via references or pointers.
+  Linked List: A linear collection of data elements whose order is not determined by the placement of memory.
+  Head of list: An external reference of first item in list
+  Node: A basic building block for the linked list implementation
+  Data Field: The node's listed item
+  Unordered Linked List: A collection of nodes linked by explicit pointers
+  Linked List Traversal: A set of methods; including, size, search, and remove.
+  Ordered Linked List: A linked list structure which the node and link represent relative positioning of items.
+  Ordered List: A collection of integers in ascending order with relative positions based upon an underlying characteristic.
+  Forward Lists: A sequence of containers implemented as ordered singly-linked lists.
+  List: A container which holds a link to the next and previous element in a sequence.
+  Recursion: A method of solving problems that involve break a problem down into small subproblems. until tribially a solution that is trivial. Recursion involves a function calling itself.
+  Recursive Calls: A series of simplifications that reduce the complexity of the problem.
+  Base Case: The simplest case of inductive reasoning.
+  Dynamic Programming: A technique of breaking the main problem in smaller subproblems to construct the answer to the main problem
+i  memoization: a method of recycling values in a table rather than recomputing
+  Exception: An error that occurs at runtime
+  Hand an Exception: To prevent an exception from terminating a program by wrapping the block of code in a try/except construct
+  Immutable Data Type: A data type which cannot be modified, and an assignment causes a runtime error.
+  Infinite recursion: A function that calls itself recursively without ever reaching the base case.
+  Mutable Data Type: A type or element which can be modified.
+  Raise: a function that sends a signal to a program. The signal handler is invoked for SIGABRT,SIGFPE,SIGILL,SIGINT,SIGSEGV,SIGTERM.
+  Stack Frame: A stack that contains a "frame" or group of data.
+  tuple: A data type that contains a sequence of elements of any type.
+  tuple assignment: An assignment to all the elements in a tuple using a signel assignment statement.
+  Searching: An algorithmic process of finding a particular item in a collection of items.
+  Sequential Search: A process to compare adjacent memory locations
+  Binary Search: A type of search that starts in the middle of an array or vector.
+  Hashing: A data structure to search in O(1)
+  Hash Table: A collection of items stored in such a way to make it easy to find them later.
+  Slot: A position of the hash table, that can hold an item and is named by an integer value above 0
+  Hash Function: A mapping between an item and the slot where that item belongs in the hash table
+  Load Factor: the value for a hash table to define current capacity
+  Collision: A problem for hashing techniques where two or more items need the same slot.
+  Perfect Hash Function: A hash function that maps each item into a unique slot
+  Folding Method: A hash function to divide the item into equal-size pieces
+  Mid-square method: A hash function to square the item, then extract some portion of the resulting digits.
+  Collision Resolution: the systematic method for when two items hash to the same slot in a hash table
+  Open Addressing: an attempt to find the next open slot or address in a hash table
+  Linear Probing: performing open addressing
+  Clustering: The disadvantage to linear probing; more specifically, items clustered in a table.
+  Rehashing: A process to look for another slot after a hashing collision
+  Quadratic Probing: a variation of linear probing that "skips" hashing collisions by an incrementer.
+  Chaining: an alternative method for handling hashing collisions to enable same slot reference
+  Map: A C++ data structure to associate data types by key-data pairs. The key is used to look up associated data values
+  Sorting: A process of placing elements from a collection in some kind of order.
+  Bubble Sort: Makes multiple passes to sort an array to exchange adjacent items
+  Short Bubble: A bubble sort that flags no exchanges as the array is sorting
+  Selection Sort: An improvement of bubble sort by recording maximum values per pass for a lower total number of passes. 
+  Insertion Sort: A type of sorting which maintains a sub vector of the total vector
+  Shell Sort: An improvement of insertion sort that breaks the subvector into smaller vectors
+  Merge Sort: An algorithm to sort that applies a divide and conquer strategy, specifically, splitting a vector in half.
+  Quick Sort: A divide and conquer montage of merge sort
+  Pivot Value: The value quick sort first selects and has a role to assist with splitting the list.
+  Split Point: An index to divide the list for subsequent calls to quick sort
+  Paritition: A two point gap of a list to compare
+  Tree: A data structure with roots, branches, and leaves
+  Subtree: A section of a hierachial tree
+  Node: A fundamental part of a tree. 
+  Edge: A fundamental part of a tree. An edge connects two nodes to show a relationship between them.
+  Root: A root of a tree is the only node in a tree that has no incoming edges.
+  Path: An ordered listof nodes connected by edges
+  Children: A set of nodes c that have incoming edges from the same node
+  Parent: A node is the parent of all the nodes it connects to with outgoing edges
+  Sibling: Nodes in a tree that are children of the same parent are said to be siblings
+  Subtree: A set of nodes and edges comprised of a parent and all teh decendants of that parent
+  Leaf Node: A node that has no children.
+  Height: A tree's height is equal  to the maximum levels of any node in the tree
+  Binary Tree: Each node i nthe tree has a maximum of two children
+  Preorder: A tree traversal that visits the root node first, left subtree, followed by the right subtree
+  Inorder: A tree traversal on the left subtree. root node, then right subtree.
+  PostOrder: A tree tree traversal on the left subtree, right subtree, then root node.
+  Priority Queue: A variation of the queue where highest priority are in the front of the queue and the lowest priority are at the back.
+  Binary Heap: A implementation of a priortiy queue described as a data structure
+  Min Heap: The smallest key in the front of the binary heap
+  Max Heap: The largest key value in the front
+  Heap: A data structure to maintain priority in a tree 
+  Complete Binary Tree: A balanced binary tree with roughly the same number of nodes on the left and right subtrees
+  Heap Order Property: A heap's attribute to store items, while maintaining priority
+  Binary Search trees: Another data structure to map from a key to a value, but is not interested in placement because of the binary tree structure.
+  bst property: A property of a binary search tree that has lowest keys on the left subtree
+  AVL tree: A special kind of binary search tree that remains balanced at all times
+  Balance Factor: A node property defined as the difference between the height of the left subtree and the height of the right subtree
+  Rotation: When an AVL tree requires balancing to perform more efficienly
+  Graph: An abstract data type using multiple internal representations
+  Vertex: A fundamental part of a graph that connects an edge
+  Edge: A fundamental part of a graph that connects two vertices
+  Weight: The cost of an edge to go from one vertex to another
+  Path: A sequences of vertices that are connected by edges
+  Cycle: The path that starts and ends at the same vertex
+  Directed Graph: A one-way graph, or digraph, dictated by pointers, arrows, or vectors
+  Acyclic graph: A graph with no cycls
+  Directed acyclic graph (DAG): A directed graph with no cycles
+  Adjacent: when two vertices are connected by an edge
+  Adjacency Matrix: An n-dimensional table which represents intersections of vertices by weight
+  Adjacency List: An object of graphs or vertices to maintain relationships
+  Breadth first search (BFS): an algorithm that explores edges in the graph to find all the vertices whci hare in a path from s
+  Depth first search (DFS): a search algorithm to solve a symmetric graph where vertex connections fit a rule
+  Depth first forest: a depth first search algorithm that creates a groups of trees
+  Parenthesis property: when starting and finishing times for each node are a property
+  Topological Sort: An algorithm to search toward order or steps in a graph 
+  Strongly connected component: a one graph algorithm that can help find clusters of highly interconnected vertices
+  Uncontrolled flooding: A brute force solution to sort messages across multi-connected or cyclic graph where a timed broadcast is decreased during each successive edge until zero. 
+  Spanning tree: a solution to construct weights on a multi-connected graph  
