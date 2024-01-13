@@ -1,6 +1,0 @@
-*.exe
-paket.lock
-.paket/paket.exe
-packages
-*.dll
-!.paket/paket.bootstrapper.exe

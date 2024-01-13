@@ -232,7 +232,7 @@ Graph knightGraph(int bdSize, vector<int> v) {
             int nodeId = coordToNum(row, col, bdSize);
             vector<int> newPositions = genLegalMoves(nodeId, bdSize,v);
             for (int i = 0; i < newPositions.size(); i++) {
-              cout << newPositions[i] << endl;
+              cout << "New position: " << newPositions[i] << endl;
               int newId = newPositions[i];
               ktGraph.addEdge(nodeId, newId);
             }
