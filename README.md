@@ -1,4 +1,4 @@
-Advanced Programming in the UNIX Environment
+<ins>Advanced Programming in the UNIX Environment</ins>
 
 Cite: W. Richard Stevens and Stephen A. Rago. 2013. Advanced Programming in the UNIX Environment (3rd. ed.). Addison-Wesley Professional.
 
