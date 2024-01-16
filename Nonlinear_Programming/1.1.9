@@ -1,0 +1,20 @@
+Question 1.1.9
+
+Function: m||y||^2 <= y'*deldel[f(x)*y] <= M||y||^2   
+
+Suggested Expansion: min{ delf(x)'(y-x) + (a/2)*||y-x||^2 } = (-1/2a)*||delf(x)||^2
+
+An equivalent function: f(x*)-f(x)
+
+Proposing an inequality and absolute: | min{ delf(x)'(y-x) + (a/2)*||y-x||^2 } | <= | (-1/2a)*||delf(x)||^2 |
+
+Substituting an equivalent function:  (1/2M)*||delf(x)||^2 <= f(x*)-f(x)  <= (1/2m)*||delf(x)||^2
+
+Evaluating at a point: (m/2)*||x-x*||^2 <= f(x*)-f(x)  <= (M/2)*||x-x*||^2
+
+Rule: Necessary Conditions for Optimality
+      f(x*+dx)-f(x*)=delf(x*)'dx
+                    =delf(x*)'dx+(1/2)dx'*deldelf(x*)dx
+                    >=0 : Positive Semidefinite
+
+

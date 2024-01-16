@@ -1,0 +1,27 @@
+Question 1.1.10
+
+Function: f(x) = (x2)^2 - a*(x2)*||x||^2 + ||x||^4   where 0<a<2
+
+Positive Evaluation: df(x)/dx = 2*a*(x2)*||x|| + 4||x||^3 
+                              = 0
+ 
+                       ||x*|| = sqrt[(1/2)*a*(x2)] 
+
+                       A positive range, and positive ||x||.
+
+Proving Unique Global Minimum: f(x*)=(3/4)*(a^2+1)*(x2)^2
+                               
+Proposing minimum error:  error = 1 > ||x-x*||
+                  
+Evaluating function with error-shift: f(x*-1) = (x2)^2 - a*(x2)*[sqrt[(1/2)*a*(x2)]-1]^2 + [sqrt[(1/2)*a*(x2)]-1]^4
+
+Therefore, f(x*)<f(x), which implies a global minimum.
+
+A level set, L = { x | f(x) <= gam }, proven by variable-shift fronts a non-convex function.
+
+Such as, f(x|p) = (x2)^2 - a*(x2)*||x-p||^2 + ||x-p||^4    
+         f(x*|p) = (x2)^2 - a*(x2)*||x*-p||^2 + ||x*-p||^4
+         f(x*|p)<f(x|p), which an example of a global level set.                 
+
+Rules: Unique Global Minimum
+       f(x*)<f(x) for all x with ||x-x*|| < error 
