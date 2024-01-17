@@ -1,0 +1,23 @@
+Question 1.1.11
+
+                 { x*x*[sqrt(2)-sin(5*pi/6-sqrt(3)*ln(x^2)] if x!=0
+Function: f(x) = { 
+                 { 0                                         if x=0
+
+1st Differentiation: 2x(-sin(sqrt(3)*log(x^2)+pi/6)-sqrt(3)*cos(sqrt(3)*log(x^2)+pi/6)+sqrt(2))
+
+2nd Differentiation: 2(5sin(sqrt(3)*log(x^2)+pi/6)-3*sqrt(3)*cos(sqrt(3)*log(x^2)+pi/6)+sqrt(2))
+                     = 0
+                   
+                   x*=+-exp((n*pi-arctan(5-5sqrt(2)+4*sqrt(3)-2*sqrt(6)))/sqrt(3))
+                     =+-exp((n*pi+arctan(5-5sqrt(2)-4*sqrt(3)+2*sqrt(6)))/sqrt(3))
+
+Proving x* is an isolated stationary point: n is a real number, so x* is singular minimum till n+1
+
+Proving x*=0 is a unique (singular) global minimum: f(x*=0)=0 < f(x*!=0)
+
+Proving x^k is a nonsingular local minimum: lim(x^k->x*=0)f(x^k)=0
+
+Rules: Unique (singular) global minimum
+       f(x*)<f(x) for x*-x < error
+

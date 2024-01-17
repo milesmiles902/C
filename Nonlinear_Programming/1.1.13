@@ -1,0 +1,16 @@
+Question 1.1.13
+
+Function: G(f(x),g(x)) = f(x)+E*g(x)
+
+Proving an eta > 0 and d > 0 for G(f(x),g(x)): del[phi(x)]=-del_eta*[G(f(x),g(x))]/del_x[G(f(x),g(x))]
+                                               
+                                                 phi(eta) = phi(0) + eta*del[phi(0)] + o(eta)
+
+                                                 If x=phi(eta), x*=phi(0), del[phi(0)]=del[g(x*)]/deldel[f(x*)]
+                                 
+                                                 x=x* - eta*del[g(x*)]/deldel[f(x*)] + o(eta)
+
+Rule: Prop. A.25: 1) f(~x,~y)=0
+                  2) f is continuous, has a continous, and nonsingular gradient matrix del_y[f(x,y)]
+                  
+                  del[phi(x)]=-del_x*[f(x,phi(x))]/del_y[f(x,phi(x))] 

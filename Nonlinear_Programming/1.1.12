@@ -1,0 +1,24 @@
+Question 1.1.12
+
+Function: f(x^k) -> f(x*)   ||x^k-x*|| < d
+
+a) Proving x* is locally stable: lim(k->inf)f(x^k) = f(x*)
+                                 lim(k->inf)f(x^k) - f(x*) = 0 < d
+
+b) Function: f(x)+E*g(x), where E>0
+     
+   Proving strict local minimum: f(x)-E*const <= f(x)+E*g(x) <= f(x)+E*const
+                                 If f(x)+E*const describes radius of a sphere from minimum (x*),
+                                 then f(x)-E*g(x) decreases as f(x)+E*const reduces. 
+
+
+
+Rules: Stability Analysis vs Sensitivy Analysis
+       
+       Stability Analysis:
+                          
+                           Descrption: optimal solutions when perturbations radically change the minimum
+       Sensitivy Analysis: minimize f(x,a)
+                           subject to x|Real Number
+                           delx(a)=-del_x*del_a[f(x(a),a)]/(del_x*del_x[f(x(a),a))
+                           Description:: a ratio of second derivatives showing the change of optimal solutions
