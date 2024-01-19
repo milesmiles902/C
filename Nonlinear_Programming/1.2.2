@@ -1,0 +1,21 @@
+Question 1.2.2
+
+Function: f(x) = ||x||^{2+b}
+
+An assumption: stepsize = s = constant, and b >= 0
+
+The steepest decent method by one iteration terminates because x* is x0. An initial conditions provides an amount of iterations from a steepest decent methods, but no conditions are in the description.
+
+Prop 1.2.2. relates to a constant step size toward a functions minimum, and a threshold to terminate the iterative function. 
+
+
+Rule:  Steepest Decent Method:
+       D^k=1, k=0,1,...,
+       Normalized Negative Gradient: d^k=-delf(x*)/||delf(x^k)||
+       Iteration: x^{k+1} = x^k-alpha*(D^k)*delf(x^k) where d^k=-D^k*del(f^k)
+
+       Prop 1.2.2: (Constant Stepsize)
+                   e < alpha^k < (2-e)*alpha^k
+                  
+                   where alpha^k = |delf(x^k)'*d^k|/{L||d^k||} 
+                   and e(0,1]

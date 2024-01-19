@@ -1,0 +1,56 @@
+Question 1.2.1
+
+Function: f(x,y) = 3x^2+y^4
+
+a) Starting Point: (1,-2)
+   Stepsize: s=1, sigma=0.1, and b=0.5
+
+   An assumption: Stepsize alpha = 1, and Direction Vectors = x or y 
+ 
+   Fixed Point (x*): df(x,y)/dx = 6x
+                                = 0
+                             x* = 0
+    
+   Fixed Point (y*): df(x,y)/dy = 4y^3
+                                = 0
+                             y* = 0
+
+   One iteration (m): f(x^{k+1}, y^{k+1}) - f(x^k+(b^m)*s*(d^k), y^k+(b^m)*s*(d^k))  
+                       = f(x^k-alpha*(D^k)*delf(x^k), y^k-alpha*(D^k)*delf(y^k)) - f(x^k+(b^m)*s*(d^k), y^k+(b^m)*s*(d^k))
+                       = 3*(1-1*delf(0)/||delf(x)||)^2 + (-2-1*delf(0)/||delf(y)||)^4 - 3*(1+(0.5)*1)-(-2+(0.5)*1))^4
+                       = [3*(1)]x+[(-2)^4]y-[3*(3/2)]x-[(5/2)^4]y
+                       = [-3/2]x+[-55]y
+
+b) New Parameters: s=1, sigma=0.1,b=0.1
+        
+   One iteration (m): f(x^{k+1}, y^{k+1}) - f(x^k+(b^m)*s*(d^k), y^k+(b^m)*s*(d^k))
+                       = [-3/10]x+[-29]y
+
+   Notes: The decrease of reduction factor (b) is not as steep.
+   
+   Secondary Note: No sigma implementation in the input because of Armijo's Rule and Steepest Decent Methods contradict. Armijo's rule has a step size, so does Steepest Decent, which represents part a and b. 
+
+c) An assumption: stepsize: s=1, sigma=0.1, and b=0.5
+   
+   One iteration (m) f(x^{k+1}, y^{k+1}) - f(x^k+(b^m)*s*(d^k), y^k+(b^m)*s*(d^k))
+                     = f(x^k-delf(x)/deldelf(x), y^k-delf(y)/deldelf(y)) - f(x+(b)*s*(d), y+(b)*s*(d))
+                     = f(1-1, -2+2/3)-(-2-1*delf(0)/||delf(y)||)^4 - 3*(1+(0.5)*1)-(-2+(0.5)*1))^4
+                     = [-9/2]x+[-19/10]y
+
+  Notes: The cost function contains no minimization and less work.
+
+Rules: Armijo Rule (Successive reduction rule)
+       f(x^k)-f(x^k+(b^m)*s*(d^k))>=-sigma*(b^m)*s*delf(x*)'*(d^k) 
+       Reduction factor: b
+       Step sizes: (b^m)*s
+       Scaling factor: (d^k)
+       Trials: m
+       Change of the Quadratic Interpolation: delf(x*)'*(d^k)
+  
+       Steepest Decent Method:
+       D^k=1, k=0,1,...,
+       Normalized Negative Gradient: d^k=-delf(x*)/||delf(x^k)||    
+       Iteration: x^{k+1} = x^k-alpha*(D^k)*delf(x^k) where d^k=-D^k*del(f^k)
+
+       Newton's Method: 
+       x^{k+1}=x^k-delf(x^k)/deldelf(x^k)
