@@ -6,7 +6,7 @@ Question 1.2.4
 
 Function: f(x,y) = x^2+y^2+b*x*y+x+2*y
 
-Proving gradient descent of Lipschits condition: ||delf(x)-delf(y)|| <= L||x-y||
+Proving gradient descent of Lipschitz condition: ||delf(x)-delf(y)|| <= L||x-y||
 
 Rule:  Steepest Decent Method:                                                                                              D^k=1, k=0,1,...,                                                                                                    Normalized Negative Gradient: d^k=-delf(x*)/||delf(x^k)||                                                            Iteration: x^{k+1} = x^k-alpha*(D^k)*delf(x^k) where d^k=-D^k*del(f^k)       
 
@@ -46,10 +46,10 @@ void SteepestDecentMethod(RealFunc f, RealFuncDerivative d, double x0, double y0
   for(int i=0;;i++){
     x=x-alpha*f(x,y,b)/d(f,xEval,x,y,b);
     y=y-alpha*f(x,y,b)/d(f,!xEval,x,y,b);
-    
+    std::cout << "Iteration: " << i << std::endl;
     if(abs(f(x,y,b)<precision)){
-      std::cout << "x: " << x << std::endl;
-      std::cout << "y: " << y << std::endl;
+      std::cout << "Function Local Minimum x: " << x << std::endl;
+      std::cout << "Function Local Minimum y: " << y << std::endl;
       return;
     }
   }
@@ -59,8 +59,16 @@ int main(){
   RealFunc f{Func};
   RealFuncDerivative d{computeDerivative};
   
-  SteepestDecentMethod(f, d, 2.0, 0.0, 1.0, 1.0, 10e-4);
+  double x0=5.0, y0=0.0, alpha=1.0, L=1;
   
-  //To do: Lipschitz condition using prior functions.
+  std::cout << "Initial x: " << x0 << std::endl;
+  std::cout << "Initial y: " << y0 << std::endl;
+  std::cout << "Initial alpha: " << alpha << std::endl; 
+    
+  SteepestDecentMethod(f, d, x0, y0, 1.0, alpha, 10e-3);
+  
+  std::cout << "Proving Lipschitz condition: " << std::endl;
+  std::cout << "||delf(x)-delf(y)|| = " << d(f,true,x0,y0,1.0)-d(f,false,x0,y0,1.0) << " <= L||x-y|| = " << x0-y0 <<  std::endl;
+  
   return 0;
 }

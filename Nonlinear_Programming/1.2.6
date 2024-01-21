@@ -1,0 +1,37 @@
+Question 1.2.6
+
+Function: f(x) = (1/2)*x'*Q*x-b'*x , where Q>0 and symmetric
+
+a) A Lipschitz condition proven with above function:
+       
+       ||delf(x)-delf(y)|| = ||x*Q-b|| <= L||x-y|| <= L||x-y||
+
+       A proposition of Q=1, then ||x-b|| <= L||x-y||
+
+b) If the gradient method x^{k+1} = x^k - s*D*delf(x^k)
+  
+   The fixed points:  df(x^k)/dx = x*Q-b 
+                                 = 0
+                              x* = b*Q^{-1}
+
+   If s(0,2/L), then x^{k+1} = x^k - s*D*delf(x^k)
+                             = x^k - 2/L*D*delf(x^k)
+                             = x^k - 2/(D*Q)*D*0
+                             = x^k
+   
+
+Rule:  Lipshitz Condition: ||delf(x)-delf(y)|| <= L||x-y|| 
+ 
+       Armijo Rule (Successive reduction rule)
+       f(x^k)-f(x^k+(b^m)*s*(d^k))>=-sigma*(b^m)*s*delf(x*)'*(d^k)
+       Reduction factor: b
+       Step sizes: (b^m)*s
+       Scaling factor: (d^k)
+       Trials: m
+       Change of the Quadratic Interpolation: delf(x*)'*(d^k)
+
+       Prop 1.2.1 (Stationarity of Limit Points for Gradient Methods)
+         If x^k, then x^{k+1} = x^k + alpha^k*d^k 
+         where alpha^k = Armijo's rule, and d^k = gradient descent
+         lim(k->inf) x^k = Stationary Pont
+
