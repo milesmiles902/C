@@ -1,0 +1,9 @@
+Question 1.2.10: Alternative Assumptions for Convergence
+
+Function: x^{k+1} = x^k + (alpha*d)^k
+
+
+
+Rules: 1) lim(k->inf) delf(x^k)'*d^k < 0
+
+       2) |delf(x^k)'*d^k| >= c * ||delf(x^k)|| * ||d^k||

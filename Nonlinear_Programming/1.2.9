@@ -1,0 +1,28 @@
+Question 1.2.9
+
+Function: f''>0
+
+Suppose, x* is a minimum in an open sphere S centered at x*
+
+For some m > 0: m||d||^2 <= d'*del(delf(x))*d
+                 ||d||^2 <= d'*del(delf(x))*d/m
+
+An expansion of delf(y)-delf(x) = (y-x)'delf(x)+(1/2)*(y-x)'del(delf(z)(y-x))
+
+The expansion is an arranged hint: delf(y)-delf(x) = (y-x)'delf(x)+(1/2)*(y-x)'del(delf(z)(y-x))
+
+The inequality inserted into the expansion: 
+ 
+                 ||d||^2 <= d'del(delf(x))*d
+              f(x)-f(x*) <= [(y-x)'delf(x)+(1/2)*(y-x)'*||delf(x)||^2(y-x)/2m]
+              f(x)-f(x*) <= ||delf(x)||^2/2m
+                         and
+                    x-x* <= ||delf(x)||/m
+
+The inequality minimized:
+ 
+                 f(x*)        
+
+
+
+Rule: delf(y) = delf(x) + Integral_0_to_1 {del(delf(x+t(y-x))) * (y-x) }dx
