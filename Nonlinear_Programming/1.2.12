@@ -1,0 +1,13 @@
+Question 1.2.12 (Convergence of Steepest Descent to a Single Limit)
+
+Function: x^{k+1} = x^k - alpha^k*delf(x^k) where f is convex, f''>0, 
+
+Conditions: ||delf(x) - delf(y)|| <= L||x-y||
+
+
+
+Rules: Steepest Decent Method:                                                                                              D^k=1, k=0,1,...,                                                                                                    Normalized Negative Gradient: d^k=-delf(x*)/||delf(x^k)||                                                            Iteration: x^{k+1} = x^k-alpha*(D^k)*delf(x^k) where d^k=-D^k*del(f^k)    
+ 
+       i) error <= alpha*k <= (2-error)/L
+ 
+       ii) alpha^k -> 0 and sum_0_inf alpha^k = inf

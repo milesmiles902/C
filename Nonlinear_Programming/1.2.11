@@ -1,0 +1,71 @@
+Question 1.2.11 (Behavior of Steepest Descent Near a Saddle Point)
+
+Function: f(x) = (1/2)*x'*Q*x where Q is symmetric, invertible and real eigenvalues.
+
+If a starting point x^0, then the point's a subspace of eigenvectors in Q:
+
+       f(x)= (1/2)*x'*Q*x = (1/2)*x'(lambda)*x
+  
+         0 = (1/2)*x'*(Q-lambda)*x
+    
+Evaluated at x^0: 
+   
+         0 = (1/2)*x^0'*(Q-lambda)*x^0
+          
+           = Q-lambda
+
+An equation for Q, and positive eigenvalues:
+ 
+         Q = lambda
+ 
+           = l_1*l_2*l_3...*l_n for l_n >= 0
+
+The eigenvectors:
+  
+                   |    l1    |         
+                   |    0     |
+                   |    0     |
+           v_1 =   |    .     |
+                   |    .     |
+                   |    .     |
+                   |    0     |
+
+                   |    0     |
+                   |    l2    |
+                   |    0     |
+           v_2 =   |    .     |
+                   |    .     |
+                   |    .     |
+                   |    0     |
+
+                        .
+                        .
+                        .
+ 
+                   |    0     |
+                   |    0     |
+                   |    0     |
+           v_n =   |    .     |
+                   |    .     |
+                   |    .     |
+                   |    ln    |
+     
+             
+If each eigenvector is positive, then a step of x^k to x^{k+1} is positive and divergent:
+
+      f(x^{k+1}) = f(x^k) - alpha*delf(x*)/||delf(x^k||
+ 
+                 = (1/2)*x^k'*Q*x^k
+ 
+                 = (1/2)*x^k'*l_1*l_2*l_3...*l_n*x^k
+        
+                 >= 0
+  
+
+Rules: Steepest Decent Method:                                                                                              D^k=1, k=0,1,...,                                                                                                    Normalized Negative Gradient: d^k=-delf(x*)/||delf(x^k)||                                                            Iteration: x^{k+1} = x^k-alpha*(D^k)*delf(x^k) where d^k=-D^k*del(f^k)   
+ 
+
+
+
+
+

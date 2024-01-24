@@ -2,8 +2,32 @@ Question 1.2.10: Alternative Assumptions for Convergence
 
 Function: x^{k+1} = x^k + (alpha*d)^k
 
+An application of rule #1 by derivative of x^{k+1}:
+      
+       df(x^{k+1})/dx = df(x^k)/dx
+    
+                      = lim(k->inf) delf(x^&k)/dx * d^k
+               
+                      = lim(k->inf) delf(x^k)'*d^k
+      
+                    0 > lim(k->inf) delf(x^k)'*d^k
 
+An application of rule #2 by Armijo's rule:
+  
+       df(x^{k+1})/dx = df(x^k)/dx + d((alpha*d)^k)/dx
+ 
+       df(x^{k+1})/dx - df(x^k)/dx = d((alpha*d)^k)/dx
+    
+       (f(x^{k+1})/dx - f(x^k))/dx = sigma*alpha*||delf(x^k)|| * ||d^k||
+  
+       || delf(x^k)' * d^k || >= c * ||delf(x^k)|| * ||d^k||
 
 Rules: 1) lim(k->inf) delf(x^k)'*d^k < 0
 
        2) |delf(x^k)'*d^k| >= c * ||delf(x^k)|| * ||d^k||
+
+       Prop 1.2.1 (Stationarity of Limit Points for Gradient Methods)
+       If x^k, then x^{k+1} = x^k + alpha^k*d^k 
+       where alpha^k = Armijo's rule, and d^k = gradient descent
+       lim(k->inf) x^k = Stationary Pont
+
