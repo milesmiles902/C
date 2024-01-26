@@ -13,11 +13,11 @@ Proving convergence size: x* = 0
 
 -Constant stepsize:       e < |(x*d)^k| < (2-e)*|(x*d)^k|/{L|d^k|}    
 
--Steepest Decent Method:  lim(k->inf) x^{k+1} = lim(k->inf) x^k-alpha*delf(x*)/||delf(x^k)|| = lim(k->inf) x^k 
+-Steepest Descent Method:  lim(k->inf) x^{k+1} = lim(k->inf) x^k-alpha*delf(x*)/||delf(x^k)|| = lim(k->inf) x^k 
 
 -Where, Prop 1.2.2. is an iterative threshold for a operational function: (2-e)*|(x*d)^k|/{L|d^k|}. Otherwise, non-convergent lim(k->inf) x^{k+1} = lim(k->inf) x^k 
                                                                              
-Rule:  Steepest Decent Method:                                                                                                                                                                                                               
+Rule:  Steepest Descent Method:                                                                                                                                                                                                               
        D^k=1, k=0,1,...,                                                                                                                                                                                                                     
        Normalized Negative Gradient: d^k=-delf(x*)/||delf(x^k)||                                                                                                                                                                             
        Iteration: x^{k+1} = x^k-alpha*(D^k)*delf(x^k) where d^k=-D^k*del(f^k)       

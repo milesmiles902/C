@@ -60,7 +60,12 @@ If each eigenvector is positive, then a step of x^k to x^{k+1} is positive and d
                  = (1/2)*x^k'*l_1*l_2*l_3...*l_n*x^k
         
                  >= 0
-  
+
+A confirmation about divergence:
+
+      lim(k->inf) f(x^{k+1}) = lim(x->inf) (1/2)*x^k'*l_1*l_2*l_3*...*l_n*x^k  
+         
+                             = inf
 
 Rules: Steepest Decent Method:                                                                                              D^k=1, k=0,1,...,                                                                                                    Normalized Negative Gradient: d^k=-delf(x*)/||delf(x^k)||                                                            Iteration: x^{k+1} = x^k-alpha*(D^k)*delf(x^k) where d^k=-D^k*del(f^k)   
  

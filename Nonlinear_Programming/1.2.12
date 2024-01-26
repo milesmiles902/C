@@ -6,7 +6,43 @@ Conditions: ||delf(x) - delf(y)|| <= L||x-y||
 
 
 
-Rules: Steepest Decent Method:                                                                                              D^k=1, k=0,1,...,                                                                                                    Normalized Negative Gradient: d^k=-delf(x*)/||delf(x^k)||                                                            Iteration: x^{k+1} = x^k-alpha*(D^k)*delf(x^k) where d^k=-D^k*del(f^k)    
+Steepest Descent Methods appled to rule #1
+
+By combining euqations (1.25) and (1.28):
+
+       f(x^{k+1}) <= f(x^k) - alpha^k*(1-alpha^k*L/2)*||delf(x^k)||^2
+
+An application of rule #1 from f(x*):
+
+       f(x*) <= f(x^0) - sum_0_inf [alpha^k*(1-alpha^k*L/2)*||delf(x^k)||^2]
+
+If f(x*) = f(x^0), then the right term is less than infinity:
+  
+       sum_0_inf [alpha^k*(1-alpha^k*L/2)*||delf(x^k)||^2] < inf
+       
+       sum_0_inf ||delf(x^k)||^2 < inf
+ 
+       sum_0_inf ||x^{k+1}-x^k||^2 < inf
+
+Equation (1.34) introduced in a proof of Proposition 1.24 (Capture Theorem)
+
+       ||x^{k+1}-x*||^2 <= ||x^k-x*||^2 + ||x^{k+1}-x^k||^2
+
+                        <= ||x^0-x*||^2 + sum_0_k ||x^{k+1}-x^k||^2
+          
+A reiteration of equation (1.34) to show convergence is <=2*error:
+
+       ||x^k-x||^2 <= error           sum_k_inf || x^{i+1} -x^i ||^2 <= error
+
+       ||x^k-x||^2 <= ||x^k-x||^2 + sum_k_{k-1} ||x^{k+1}-x^i||^2 <= 2*error
+
+A case of Rule #2: 
+
+If alpha^k->0 and sum_0_inf alpha^k = inf, then goes to delf(x^k)->0
+
+       sum_0_inf ||x^{k+1}-x^k||^2 < inf      
+
+Rules: Steepest Descent Method:                                                                                              D^k=1, k=0,1,...,                                                                                                    Normalized Negative Gradient: d^k=-delf(x*)/||delf(x^k)||                                                            Iteration: x^{k+1} = x^k-alpha*(D^k)*delf(x^k) where d^k=-D^k*del(f^k)    
  
        i) error <= alpha*k <= (2-error)/L
  

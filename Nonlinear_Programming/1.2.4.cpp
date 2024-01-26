@@ -8,7 +8,7 @@ Function: f(x,y) = x^2+y^2+b*x*y+x+2*y
 
 Proving gradient descent of Lipschitz condition: ||delf(x)-delf(y)|| <= L||x-y||
 
-Rule:  Steepest Decent Method:                                                                                              D^k=1, k=0,1,...,                                                                                                    Normalized Negative Gradient: d^k=-delf(x*)/||delf(x^k)||                                                            Iteration: x^{k+1} = x^k-alpha*(D^k)*delf(x^k) where d^k=-D^k*del(f^k)       
+Rule:  Steepest Descent Method:                                                                                              D^k=1, k=0,1,...,                                                                                                    Normalized Negative Gradient: d^k=-delf(x*)/||delf(x^k)||                                                            Iteration: x^{k+1} = x^k-alpha*(D^k)*delf(x^k) where d^k=-D^k*del(f^k)       
 
        Prop 1.2.2: (Constant Stepsize)                                                                                                  e < alpha^k < (2-e)*alpha^k      
                    where alpha^k = |delf(x^k)'*d^k|/{L||d^k||} 

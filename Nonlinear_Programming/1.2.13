@@ -1,0 +1,19 @@
+Question 1.2.13
+
+a) The convexity of f is shown by:
+
+   If f(y)<=f(x^k), then f(x^k)-f(y) <= 0
+
+   Where, f(x^k)-f(y) evaluated by independent variables is less than delf(x^k):
+   
+     ||x^k-y||^2 - ||x^{k+1}-y||^2 - 2*alpha^2*(f(x^k)-f(y)) <= alpha^k*||delf(x^k)||^2 
+
+   An arrangement of the previous equation:
+
+     ||x^{k+1}-x^k||^2 <= ||x^k-y||^2 - 2*alpha^2*(f(x^k)-f(y)) + alpha^k*||delf(x^k)||^2
+
+b) 
+ 
+
+Rules: Steepest Descent Method:                                                                                              D^k=1, k=0,1,...,                                                                                                    Normalized Negative Gradient: d^k=-delf(x*)/||delf(x^k)||                                                            Iteration: x^{k+1} = x^k-alpha*(D^k)*delf(x^k) where d^k=-D^k*del(f^k)    
+
