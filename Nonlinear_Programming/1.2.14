@@ -1,0 +1,33 @@
+Question 1.2.14 (Divergence with Diminish Stepsize)
+
+Function: f(x) = (2/3)*|x|^3 + (1/2)*x^2
+
+a) If gamma = 1 and |x^0| >= 1:
+      
+      f(x^{k+1}) = f(x^k) - alpha^k
+
+                 = f(x^k) - 1/(k+1)
+  Inductive Step:
+        
+     (2/3)*|x|^{3(k+1)} + (1/2)*x^{2(k+1)} = (2/3)*|x|^3k + (1/2)*x^2k - 1/(k+1)
+ 
+  Inductive hypothesis:
+ 
+     ((2/3)*|x|-1)*|x|^3k + (1/2)(x-1)*x^2k = 1/(k+1)
+
+  Base Case k=0;
+    
+     (2/3)*|x|-1-(1/2)(x-1) = 1
+     (2/3)*|x|-(1/2)-(1/2)x = 1
+  
+     x = 3 or -3/7         
+     
+b)
+
+c)
+
+
+
+Rule: Steepest Descent Method:                                                                                              
+       D^k=1, k=0,1,...,                                                                                                    
+       Iteration: x^{k+1} = x^k+alpha^k where alpha^k = gamma/(k+1)
