@@ -20,14 +20,25 @@ a) If gamma = 1 and |x^0| >= 1:
      (2/3)*|x|-1-(1/2)(x-1) = 1
      (2/3)*|x|-(1/2)-(1/2)x = 1
   
-     x = 3 or -3/7         
+     x = 3 o        
      
-b)
+b) f(x*) = 0 = (2/3)*|x|^3 + (1/2)*x^2
+   
+     lim(k->inf) f(x^{k}) = 0 = (2/3)*|x|^3 + (1/2)*x^2 - gamma/(k+1)
+                    
+                     gamma = 0, x = 0;
 
-c)
+c) Prop 1.2.3 (Diminishing Stepsize) terminates iteration for part a and b in a real-world case, such as programmed iteration. 
 
+Rule: Steepest Descent Method:                                                                                              D^k=1, k=0,1,...,                                                                                                    Iteration: x^{k+1} = x^k+alpha^k where alpha^k = gamma/(k+1)
 
+      Prop 1.2.3: Diminishing Stepsize
+        x^{k+1} = x^k + alpha^k*d^k
+        c||delf(x^k)||^2 <= -delf(x^k)'*d^k 
+        ||d^k||^2 <= c||delf(x^k||^2
+        If alpha^k->0, sum_0_inf [alpha^k] = inf
+        then, f(x^k)->-inf or f(x^k) converges to a finite value and delf(x^k)->0
+        Also, x^k is a stationary point of f
 
-Rule: Steepest Descent Method:                                                                                              
-       D^k=1, k=0,1,...,                                                                                                    
-       Iteration: x^{k+1} = x^k+alpha^k where alpha^k = gamma/(k+1)
+      Lipschitz Condition
+        ||delf(x)-delf(y)|| <= L||x-y||

@@ -1,0 +1,17 @@
+Question 1.2.16
+
+Function: x^{k+1} = x^k - alpha^k*(delf(x^k)+eta^k)    where ||eta^k|| <= delta
+
+
+
+
+
+Rule: Lipschitz Condition:
+        ||delf(x)-delf(y)|| <= L||x-y||
+
+      Prop 1.2.2: (Constant Stepsize)
+        e < alpha^k < (2-e)*alpha^k
+
+        where alpha^k = |delf(x^k)'*d^k|/{L||d^k||}
+        and e(0,1]
+

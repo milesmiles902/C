@@ -1,0 +1,39 @@
+Question 1.2.15 (Wolf Conditions for Line Search Accuracy)
+
+Function: f(x^k) - f(x^k+(alpha*d)^k) >= -sigma*alpha^k*delf(x^k)'*d^k,
+          delf(x^k+(alpha*d)^k)'*d^k >= beta*delf(x^k)'*d^k
+          where {sigma|(0,(1/2))} {beta|(sigma,1)}
+  
+          If alpha^k->0, then delf(x^k+(alpha*d)^k) = d*g(alpha^k)/dalpha = 0
+          g(alpha)=f(x^k+alpha*d^k)
+
+a) If the functions are gradient methods at each iteration and gradient directions, then 
+          
+          f(x*) - f(x*+(alpha*d)^k) >= -sigma*alpha^k*delf(x*)'*d^k
+                              
+                                 0  >= -sigma*alpha^k*d^k
+
+          A solution which satisfies every x^k.
+
+   In the second equation:
+       
+          delf(x*+(alpha*d)^k)'*d^k >= beta*delf(x*)'*d^k
+                                
+                                0 >= beta     
+  
+          A solution which satisfies every x^k
+ 
+b) If f(x) >= b, the interval [c1, c2] where 0 < c1 < c2 and {alpha|[c1,c2]}
+
+          f(x^k) - f(x^k+(alpha*d)^k) >= -sigma*alpha^k*delf(x^k)'*d^k 
+ 
+          f(x^k) - f(x^k+(c2*d)^k) >= f(x^k) - f(x^k+(c1*d)^k) >= -sigma*c1*delf(x^k)'*d^k
+
+   And for the second eqation:
+
+          delf(x^k+(alpha*d)^k)'*d^k >= beta*delf(x^k)'*d^k
+
+          delf(x^k+(c2*d)^k) >= delf(x^k+(c1*d)^k)'*d^k >= beta*delf(x^k)'*d^k
+
+          
+      
