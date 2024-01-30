@@ -2,9 +2,35 @@ Question 1.2.16
 
 Function: x^{k+1} = x^k - alpha^k*(delf(x^k)+eta^k)    where ||eta^k|| <= delta
 
+An evaluation between delta < delta':
+      
+      x^{k+1} = x^k - alpha^k*(delf(x^k)+eta^k)
+ 
+              = x^k - alpha^k*(delf(x^k)+delta^{2/k})
+ 
+              < x^k - alpha^k*(delf(x^k)+delta'^{2/k})
+ 
+The stepsize range [alpha_,alpha~] is:
+ 
+     x^{k+1} < x'^{k+1}
+ 
+     x^k - alpha^k*(delf(x^k)+delta^{2/k}) < x^k - alpha^k*(delf(x^k)+delta'^{2/k})
 
+     x^k - alpha^k*(delf(x^k)+delta^{2/k}) < x^k - alpha~^k*(delf(x^k)+delta'^{2/k})
 
+     where alpha is below the equality from alpha_ to alpha~
 
+A limit of k approaching infinity:
+
+     lim(k->inf) x^{k+1} = lim(k->inf) x^k - alpha^k*(delf(x^k)+eta^k)
+  
+                         = lim(k->inf) x^k - alpha^k*(delf(x^k)+delta^{2/k})
+
+     lim(k->inf) f(x^k)  = -alpha^k*(delf(x^k)+delta^{2/k})
+ 
+                         = -infinity
+ 
+                         < alpha^k*(delf(x^k)+delta'^{2/k})
 
 Rule: Lipschitz Condition:
         ||delf(x)-delf(y)|| <= L||x-y||

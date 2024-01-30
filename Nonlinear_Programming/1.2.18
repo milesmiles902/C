@@ -1,0 +1,35 @@
+Question 1.2.18
+
+Function: f(x) = F(x,g(x))
+
+a) Future method: x^{k+1} = x^k - alpha^k*delfF(x,g(x))
+
+                          = x^k - alpha^k*(del_x*F(x,g(x))+delg(x)*delF(x,g(x))
+
+                          = 
+
+
+
+
+- alpha^k*del_x*F(x^k,g(x^k))
+  
+                 
+
+
+b)
+
+
+
+c)
+
+
+
+Rules: Unconstrained Minimization
+
+       Armijo Rule (Successive reduction rule)
+       f(x^k)-f(x^k+(b^m)*s*(d^k))>=-sigma*(b^m)*s*delf(x*)'*(d^k)
+       Reduction factor: b
+       Step sizes: (b^m)*s
+       Scaling factor: (d^k)
+       Trials: m
+       Change of the Quadratic Interpolation: delf(x*)'*(d^k)
