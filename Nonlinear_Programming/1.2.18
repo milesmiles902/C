@@ -2,27 +2,17 @@ Question 1.2.18
 
 Function: f(x) = F(x,g(x))
 
-a) Future method: x^{k+1} = x^k - alpha^k*delfF(x,g(x))
+a) Future method: x^{k+1} = x^k - alpha^k*delF(x,g(x))
 
                           = x^k - alpha^k*(del_x*F(x,g(x))+delg(x)*delF(x,g(x))
 
-                          = 
+                          = x^k - alpha^k*(del_x*F(x,g(x))+const*delF(x,g(x)))
 
+   So, ||delg(x)*delF(x,g(x))|| <= const*||del_xF(x,g(x))|| where {const|(0,1)}
 
+b) Minimize f(x,y) subject to h(x,y) = 0
 
-
-- alpha^k*del_x*F(x^k,g(x^k))
-  
-                 
-
-
-b)
-
-
-
-c)
-
-
+   The constrained method about x^{k+!} = x^k - alpha^k*del_xf(x^k,y^k) relates to part a because the constraint g(x)   A minimization constant appears from g(x) similar to y, such as ||dely*delF(x,g(x))|| <= const*||del_xf(x,y)||
 
 Rules: Unconstrained Minimization
 

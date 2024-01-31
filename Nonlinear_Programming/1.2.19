@@ -1,0 +1,30 @@
+Question 1.2.19 (Stepsize Reduction Rule for Convex Problems)
+
+Function: f is convex
+
+a) A reference of Figure 1.2.10 aids convexity analysis by a series of comparisons. If delf(alpha) = 0, then delf(x^{k+1})'*d^k > 0 because the increasing steps on a convex function inside interval I^k. The next steps become reduced because the derivative is more positive along the convex function.
+
+b) A finite number of iterations shows a convergent step size.
+
+       delf(x^{k+1})'*d^k <= delf(x^k)'*d^k + alpha^k*d^k
+
+                          <= delf(x^k)'*d^k + alpha^k*c2||delf(x^k)||^2
+
+                          <= -c1*||delf(x^k)||^2 + alpha^k*c2||delf(x^k)||^2
+
+                          <= -(c1-alpha^k*c2)*||delf(x^k)||^2
+  
+c) The result from part b shows the limit of x^k and f(x^k) converge.  
+
+Rules: Gradient Method: x^{k+1} = x^k +alpha^k*d^k
+
+       Prop 1.2.3: Diminishing Stepsize
+       x^{k+1} = x^k + alpha^k*d^k
+       c||delf(x^k)||^2 <= -delf(x^k)'*d^k
+       ||d^k||^2 <= c||delf(x^k)||^2
+       If alpha^k->0, sum_0_inf [alpha^k] = inf
+       then, f(x^k)->-inf or f(x^k) converges to a finite value and delf(x^k)->0
+       Also, x^k is a stationary point of f
+
+       alpha-scaling rule: alpha^{k+1} = { alpha^k         if delf(x^{k+1})'*d^k <= 0
+                                         { beta*alpha^k    otherwise 
