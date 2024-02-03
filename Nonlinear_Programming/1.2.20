@@ -1,3 +1,52 @@
 Question 1.2.20
 
+Function: x^{k+1} = x^k + alpha^k*(d^k+e^k)
 
+An evaluation of f(x^{k+1}) - f(x^k):
+
+       f(x^{k+1}) - f(x^k) <= alpha^k*delf(x^k)(d^k+e^k) + (alpha^{2k}*L/2*||d^k+e^k||^2
+                 
+                           <= -c1*||delf(x^k)||^2 + alpha^k*(q + p||delf(x^k)||) + (c2(1+||delf(x^k)||))^2 + 2*c2(1+||delf(x^k)||))*(alpha^k*(q + p||delf(x^k)||)) + (alpha^k*(q + p||delf(x^k)||))^2
+
+                           <= -alpha^k(c1-1-p-2*L(c2^2+p^2))||delf(x^k)||^2+alpha^{2k}*(q^2+2L(c2^2+q^2))
+
+                           <= -alpha^k*(b1)*||delf(x^k)||^2+(alpha^k)^2*b2;
+
+An evaluation of f(x^{k+1}) by a limit):
+
+       lim(k->inf) f(x^{k+1}) <= lim(k->inf) f(x^k) - alpha^k*(b1)*||delf(x^k)||^2+(alpha^k)^2*b2;
+                              <= -inf
+
+An evaluation of f(x^{k+1}) - f(x^k) per step:
+  
+       ||delf(x^{k+1}) - delf(x^k)|| <= || L*alpha^k*(||d^k|| + ||e^k||) ||
+                           
+                                     <= || L(c2+p)*alpha^k*[1 + delf(x^k)] ||
+
+                                     <= || 0 ||
+
+Rules: 1) delf satisfies Lipshitz condition
+       2) d^k satisfies: 
+  
+          c1||delf(x^k)||^2 <= -delf(x^k)'^k, ||d^k|| <= c2(1+||delf(x^k)||)
+       
+       3) The stepsize alpha^k satifies:
+
+          sum_0_inf [alpha^k] = inf,  sum_0_inf[alpha^k]^2 < inf
+
+       4) The error e^k satisfies:
+ 
+          ||e^k|| <= alpha^k*(q + p||delf(x^k)||)
+
+       Prop 1.2.3: Diminishing Stepsize
+       x^{k+1} = x^k + alpha^k*d^k
+       c||delf(x^k)||^2 <= -delf(x^k)'*d^k
+       ||d^k||^2 <= c||delf(x^k)||^2
+       If alpha^k->0, sum_0_inf [alpha^k] = inf
+       then, f(x^k)->-inf or f(x^k) converges to a finite value and delf(x^k)->0
+       Also, x^k is a stationary point of f
+
+       Prop A.24 (Descent Lemma)
+          
+           ||delf(x+ty) - delf(x)|| <= Lt||y|| 
+           where f(x+y) <= delf(x) + y'delf(X) + (L/2)*||y||^2
