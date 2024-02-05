@@ -1,0 +1,29 @@
+Question 1.3.3
+
+Function: f is stringly convex
+          
+a) A mapping G(x) = x - alpha*delf(x) 
+
+   ||G(x)-G(y)||^2 = ||(x - alpha*delf(x)) - (y - alpha*delf(y))||^2
+
+                   <= ||x-y||^2 - 2*alpha*[delf(x)-delf(y)]'*(x-y) + alpha^2*||delf(x)-delf(y)||^2
+ 
+                   <= ||x-y||^2 - 2*alpha*[sigma*L||x-y||^2-||delf(x)-delf(y)||^2]/(sigma+L) + alpha^2*||delf(x)-delf(y)||^2
+                   <= (1-2*alpha*sigma*L/(sigma+L))*||x-y||^2 + alpha*(alpha-2/(sigma_L))*||delf(x)-delf(y)||^2
+ 
+                   <= (1-2*alpha*sigma*L/(sigma+L))*||x-y||^2 + alpha*max[L^2(alpha-2/(sigma+L), sigma^2(alpha-2/(sigma+L)]||x-y||^2
+ 
+                   = max[(1-alpha*L)^2,(1-alpha*sigma)^2]||x-y||^2    
+  
+  An alternative solution contains eigenvalues max[(1-lambda*L)^2,(1-lambda*sigma)^2]
+
+b) The steepest descent method x^{k+1} = G(x^k)
+
+   ||x^{k+1} - x*|| <= ||x^{k+1}-x*||^2 - 2*alpha*[delf(x^{k+1})-delf(x*]'*(x-x*) + alpha^2*||delf(x^{k+1})-delf(x*)||^2
+                    <= max[|1-alpha*L|,|1-alpha*L|]*||x^{k+1}-x*||
+
+   The equation above relates Equation 1.38 through max eigenvalues. The conditional number for the derived equatio nis L/sigma and for the book, M/m.
+
+Rules: Lipschitz condition: ||delf(x)-delf(y)|| <= L||x-y||
+
+       Convexity: (delf(X)-delf(y))'(x-y) >= sigma*||x-y||^2

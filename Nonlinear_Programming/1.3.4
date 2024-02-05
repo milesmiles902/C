@@ -1,0 +1,24 @@
+Question 1.3.4
+
+Function: f is twice continuously differentiable
+
+When the function x^{k+1} = x^k +alpha^k*d^k with a nonsingular x*, delf(X^k)!=0, and d^k=d(x^k), considering:
+
+   lim(x->x*) ||d(x) + [del[delf(x)]^-1]*delf(x)||/||delf(x)|| = 0
+   
+   and alpha^0=1 and sigma < 0.5
+
+a) When an error exists greater than zero, such that ||x^0-x*|| < error, then:
+
+   ||x^{k+1}-x*|| <= ||x-x*-del[delf(x)]^-1*delf(x)|| + ||d(x)+del[del(X)]^-1*delf(x)||
+   
+                  <= ||d
+
+
+Rules: Armijo Rule (Successive reduction rule)
+       f(x^k)-f(x^k+(b^m)*s*(d^k))>=-sigma*(b^m)*s*delf(x*)'*(d^k)
+       Reduction factor: b
+       Step sizes: (b^m)*s
+       Scaling factor: (d^k)
+       Trials: m
+       Change of the Quadratic Interpolation: delf(x*)'*(d^k)
