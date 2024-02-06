@@ -8,12 +8,25 @@ When the function x^{k+1} = x^k +alpha^k*d^k with a nonsingular x*, delf(X^k)!=0
    
    and alpha^0=1 and sigma < 0.5
 
-a) When an error exists greater than zero, such that ||x^0-x*|| < error, then:
+a) When an error existing greater than zero, such that ||x^0-x*|| < error, then:
 
    ||x^{k+1}-x*|| <= ||x-x*-del[delf(x)]^-1*delf(x)|| + ||d(x)+del[del(X)]^-1*delf(x)||
    
-                  <= ||d
+                  <= ||del[delf(x)]^-1*[del[delf(x)]*(x-x*)-delf(x)|| + const*||delf(x)||
 
+                  <= const*||x-x*||
+
+b) A solution showing alpha^k = 1 for all k from part a at k=0:
+   
+   ||x^k-x*|| <= const*||x^0-x*||
+
+c) The limit from k equal 0 to infinity about the ratio of steps becomes zero:
+
+   lim (k->inf) ||x^{k+1}-x*||/||x^k-x*|| = lim (k->inf) ||delf(x^{k+1})-delf(x*)||/||delf(x^k)-delf(x*)||
+
+                                          = lim (k->inf) ||del[delf(x^{k+1})]||/||del[delf(x^k)||
+
+                                          = 0
 
 Rules: Armijo Rule (Successive reduction rule)
        f(x^k)-f(x^k+(b^m)*s*(d^k))>=-sigma*(b^m)*s*delf(x*)'*(d^k)
