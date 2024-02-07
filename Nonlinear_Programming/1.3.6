@@ -1,11 +1,26 @@
 Question 1.3.6 (Convergence Rate Characterizations)
 
-a) A convergence by limit (k->inf) for faster than linearly with convergence ratio beta
+a) {e^k} converges by a limit (k->inf) faster than linearly with convergence ratio beta
 
-   A convergence by limit (k->inf) for slower than linearly with convergence ratio beta
+       lim(k->inf) e^k = infinity, but the lim(k->inf) sup(e^k)^{1/k} = e_lower_limit <= beta <= q*{1/k}*beta
 
-   A convergence by limit (k->inf) equal to linear with convergence ratio beta
+   {e^k} converges by a limit (k->inf) slower than linearly with convergence ratio beta
 
+       lim(k->inf) e^k = infinity, but the lim(k->inf) inf(e^k)^{1/k} = e_upper_bound >= q^{1/k}*beta >= beta
+
+   {e^k} converges by limit (k->inf) equal to linearlu with convergence ratio beta
+
+       lim(k->inf) e^k = infinity, but lim(k->inf) (e^k)^{1/k} = e = q^{1/k}*beta = beta
+
+b) If e^k != 0 for all k, and beta1 = lim(k->inf) inf[e^{k+1}/e^k], also beta2 = sup[e^{k+1}/e^k]
+
+   If 0 < beta1 <= beta2 < 1, then {e^k} converges as:
+ 
+       0 < lim(k->inf) inf[e^{k+1}/e^k] <= lim(k->inf) sup[e^{k+1}/e^k] < 1
+
+       0 < e_lower_bound <= e_upper_bound < 1
+
+   If beta1 = beta2 = 0, the convergence is superlinear.
 
 Conditions: Converges faster than linearly with convergence ratio beta: e^k <= q*beta^k
   
@@ -13,4 +28,8 @@ Conditions: Converges faster than linearly with convergence ratio beta: e^k <= q
 
             Converges linearly with convergence ratio beta: e^k = q*beta^k
 
- 
+            Limit Inferior: lim[inf(X)] or _lim_ X
+  
+            Limit Superior: lim[sup(X)] or -lim- X
+
+            lim[inf(X)] <= lim[sup(X)], the lower and upper bounds of an oscillating limit at infinity
