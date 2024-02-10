@@ -22,7 +22,7 @@ Rule:  Steepest Descent Method:                                                 
 #include <cmath>
 #include <functional>
 #include <limits>
-
+#include <vector>
 
 typedef std::function<double(double, double, double)> RealFunc;
 typedef std::function<double(std::function<double(double,double,double)>,bool,double,double,double)> RealFuncDerivative;
