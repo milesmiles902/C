@@ -1,0 +1,24 @@
+Question 1.4.1 (Scale-Free Character of Newton's Method)
+
+Function: x = Sy
+
+The problem demonstrates Newton's Method with an uneffected scale and invertible direction.
+
+A scale example, x^{k+1} = S*y^{k+1}
+    
+                         = S*[y^k - alpha^k*delf(y^k)/del[delf(y^k)]
+  
+                         = S*y^k - S*alpha^k*delf(y^k)/del[delf(y^k)]
+ 
+                         = x^k - alpha^k*delf(x^k)/del[delf(x^k)]
+
+An invertible example, y^{k+1} = S^-1 * x^{k+1}
+ 
+                               = S^-1 * [x^k - alpha^k*delf(x^k)/del[delf(x^k)]
+
+                               = S*x^k - S*alpha^k*delf(x^k)/del[delf(x^k)]
+
+                               = y^k - alpha^k*delf(y^k)/del[delf(y^k)]
+
+Rules: Newton's Method 
+        x^{k+1} = x^k - alpha^k*delf(x^k)/del[delf(x^k)]

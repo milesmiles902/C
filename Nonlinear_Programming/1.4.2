@@ -1,0 +1,29 @@
+Question 1.4.2
+
+Function: M(x) = integral_0_1 [delg(x*+t(x-x*)]'dt
+
+Constraint: g(x) = M(x)*(x-x*)
+
+A proof for Proposition 1.4.2 using Lipschitz condition |delf(x)-delf(y)|| <= L||x-y||
+
+        ||delf(x)-delf(y)|| = ||x^{k+1}-alpha^k*delf(x*) - x*+alpha^k*delf(x*) || 
+
+                            <= L||x^k-x*|| 
+                            
+                            where L is a constant and the constant r. 
+  
+The M(x) function is an inversion of g(x), so minimum and maximum eigenvalues match. Also, M(x) and g(x) have similar indepdent variables, x. 
+
+        ||x^{k+1} - x*|| <= const*||x^k-x*||
+
+        ||g(x^{k+1})/M(x^{k+1})|| <= const*||g(x^k)/M(x^k)||
+
+        ||g(x^{k+1})|| <= ||M(x^{k+1})/M(x^k)||*const*||g(x^k)||
+                  
+                       <= r*||g(x^k)||
+
+Rules: Proposition 1.4.2
+        ||x^{k+1} - x*|| <= r||x^k-x*||
+        ||g(x^{k+1})|| <= r||g(x^k)||
+ 
+ 
