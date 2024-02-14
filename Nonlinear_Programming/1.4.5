@@ -1,0 +1,22 @@
+Question 1.4.5
+
+Function: lim(k->inf) ||H^k - del[delf(x^k)]|| = 0
+
+          lim(k->inf) ||H^k*d^k + delf(x^k)||/||delf(x^k)|| = 0
+
+A twice differentiable function converges to a nonsingular local minimum, x^k = x*.
+
+
+
+Rules: Newton's Method:
+        x^{k+1} = x^k - delf(x)/del[delf(x)]
+
+       Armijo Rule (Successive reduction rule)
+        f(x^k)-f(x^k+(b^m)*s*(d^k))>=-sigma*(b^m)*s*delf(x*)'*(d^k)
+        Reduction factor: b
+        Step sizes: (b^m)*s
+        Scaling factor: (d^k)
+        Trials: m
+        Change of the Quadratic Interpolation: delf(x*)'*(d^k)
+
+

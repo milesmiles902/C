@@ -1,6 +1,47 @@
 Question 1.4.3 (Combination of Newton and Steepest Descent Methods)
 
-Rule: Newton's Method:
+Function:   x^{k+1} = x^k +alpha^k*d^k
+ 
+            d^k = -delf(x^k)/del[delf(x^k)]
 
+Constraint: c1||delf(x^k)||^{p1} <= -delf(x^k)'*d^k
+
+            ||d^k||^{p1} <= c2||delf(x^k)||
+
+            otherwise, d^k = -D*delf(x^k)
+
+            c1>0; c2>0; p1>2; p2>1;
+
+The step d^k relates gradients by Newton's method: 
+
+            x^{k+1} = x^k + alpha^k*d^k
+ 
+                    = x^k - alpha^k*delf(x^k)/del[delf(x^k)]
+
+Also by Prop 1.2.3: Diminishing Stepsize
+         x^{k+1} = x^k + alpha^k*d^k
+         c1||delf(x^k)||^2 <= -delf(x^k)'*d^k
+         ||d^k||^2 <= c1||delf(x^k)||^2
+         If alpha^k->0, sum_0_inf [alpha^k] = inf
+         then, f(x^k)->-inf or f(x^k) converges to a finite value and delf(x^k)->0
+         Also, x^k is a stationary point of f
+
+Question 1.4.3 justifies a stepsize scalar which converges in a limit.
+
+Rule: Newton's Method:
+        x^{k+1} = x^k - alpha^k*delf(x^k)/del[delf(x^k)]        
  
       Steepest Descent Method:
+       D^k=1, k=0,1,...,
+       Normalized Negative Gradient: d^k=-delf(x*)/||delf(x^k)||
+       Iteration: x^{k+1} = x^k-alpha*(D^k)*delf(x^k) where d^k=-D^k*del(f^k)
+
+      Armijo Rule (Successive reduction rule)
+       f(x^k)-f(x^k+(b^m)*s*(d^k))>=-sigma*(b^m)*s*delf(x*)'*(d^k)
+       Reduction factor: b
+       Step sizes: (b^m)*s
+       Scaling factor: (d^k)
+       Trials: m
+       Change of the Quadratic Interpolation: delf(x*)'*(d^k)
+
+      
