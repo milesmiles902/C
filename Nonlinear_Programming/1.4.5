@@ -4,9 +4,14 @@ Function: lim(k->inf) ||H^k - del[delf(x^k)]|| = 0
 
           lim(k->inf) ||H^k*d^k + delf(x^k)||/||delf(x^k)|| = 0
 
-A twice differentiable function converges to a nonsingular local minimum, x^k = x*.
+A twice differentiable function converges at a nonsingular local minimum, x^k = x*.
 
+When Proposition 1.3.2 assumed the slope of zero near the local minimum, then also the equivalent function:
 
+         lim (k->inf) ||d^k+delf(x^k)/del[delf(x*)]||/||delf(x^k)|| = lim(k->inf) |H^k*d^k + delf(x^k)||/||delf(x^k)||
+               
+                                                                    = 0
+So, ||x^k-x*|| is a superlinear convergence.
 
 Rules: Newton's Method:
         x^{k+1} = x^k - delf(x)/del[delf(x)]
@@ -19,4 +24,8 @@ Rules: Newton's Method:
         Trials: m
         Change of the Quadratic Interpolation: delf(x*)'*(d^k)
 
-
+       Proposition 1.3.2 (Superlinear Convergence of Newton-Like Methods)
+        Function: x^{k+1} = x^k + alpha^k*d^k
+        Conditions: x^k -> x* ; delf(x*) = 0 ; del[delf(x*)] = positive definite
+        Assumption: lim (k->inf) ||d^k+delf(x^k)/del[delf(x*)]||/||delf(x^k)|| = 0
+        If true: lim(k->inf) ||x^{k+1}-x*||/||x^k-x*|| = 0
