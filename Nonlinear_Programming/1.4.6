@@ -4,24 +4,18 @@ Function: f(x) = ||x||^2
 
 Example: 
 
-          f(x^{k+1}) = f(x^k - delf(x)/del[delf(x)])
+          f(x^{k+1}) = f(x^k - alpha^k(delf(x)/del[delf(x)]))
 
-                     = ||x^k - delf(x)/del[delf(x)]||^2
+                     = f(x^k - alpha^k(delf(x)/del[delf(x)]))
+   
+                     = f(x^k - alpha^k(3||x||x / [3||x||*2*(2||x|| - xx')]))
 
-              f(x^1) = ||1 - delf(x)/del[delf(x)]||^2
+                     = f(x^k - alpha^k(x^k-1/2*x^k))
+                
+                     = f((1-alpha^k/2)x^k)
 
-              f(x^2) = || ||1-delf(x)/del[delf(x)]||^2 - ||delf(x)/del[delf(x)]||^2
- 
-                     = || 1 - delf(x)/del[delf(x)] + delf(x)/del[delf(x)]^2||^2
-              
-              f(x^3) = || || 1 - delf(x)/del[delf(x)] + delf(x)/del[delf(x)]^2||^2  - delf(x)/del[delf(x)] ||^2
+Range of Steps: 0 < alpha^k < 2
 
-                     = || 1 - 7*delf(x)/del[delf(x)] + 11*delf(x)/del[delf(x)]^2 - 6*delf(x)/del[delf(x)]^3 + delf(x)/del[delf(x)]^4  ||^2
-
-Range: 
-
-Unit Stepsize:
-
-Convergence with Unit Stepsize:
+Convergence with Unit Stepsize: lim(k->inf) f(x^{k+1}) = 0, when 0 < alpha^k < 2
 
 Rules: Newton's Method: x^{k+1} = x^k - delf(x)/del[delf(x)]
