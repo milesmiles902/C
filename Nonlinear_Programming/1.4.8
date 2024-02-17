@@ -1,0 +1,21 @@
+Question 1.4.8 (Necessary and Sufficient Conditions for Convergence of Iterative Methods for Linear Equations)
+
+Function: x^{k+1} = x^k - alpha*D*(Ax^k-b) 
+            where D[nxn], b[nx1], and with a single-valued soluion
+          
+I) Each eigenvalue pf DA either has a positive real part of is equal to 0
+
+          If D = | 0 N | and A = | U V |, where N = U*DA*V and H = V*DA*V
+                 | 0 H |
+
+          Then, DA = [UV]| 0 N |[U V]' when UV is a lower and VU an upper diagnol matrix, also an orthonormal basis
+                         | 0 H |
+
+          
+
+II) The dimension of the nullspace of DA is equal to the multiplicity of the 0 eigenvalue of DA
+
+III) The nullspace of A is euqal to the nullspace of DA
+
+Rules: Newton's Method: 
+        x^{k+1} = x^k - delf(x)/del[delf(x)]

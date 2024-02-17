@@ -1,9 +1,25 @@
 Question 1.4.7
 
-Function: Quadratic Cost Function
+Function: Quadratic Cost Function - f(x)= a*x^2
 
+Example of termination: 
+  
+        1) The derivative, delf(x) = 2*a*x
+    
+        2) The second derivative del[delf(x)] = 2*a
+ 
+        3) Successive iterations with initial condition x^0=2:
+        
+           f(x^{k+1}) = f(x^k - delf(x)/del[delf(x)]) 
+            
+                      = a*(x^k - delf(x)/del[delf(x)])^2 
 
+                      = a*(x^k - x^k))^2
 
+              f(x^1)  = b
+
+The trust region in a simple quadratic cost function has a single eigenvalue and one-step convergence. Extensive quadratic functions with two real (or complex) eigenvalues converge between the respective roots.
+                  
 Rules: Netwon's Method:
         x^{k+1} = x^k - delf(x)/del[delf(x)]
   
