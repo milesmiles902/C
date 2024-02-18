@@ -1,0 +1,33 @@
+Question 1.4.10 (Iterative Solutions of Nonlinear Equations)
+
+Function: x^{k+1} = x^k - D^k*g(x^k)
+
+Solution: g(x) = 0
+
+a) (linear convergence)
+
+  Suppose, L = lim(k->inf) sup||I-D^k*delg(x*)'||
+
+  If L < 1, then:
+         
+           lim(k->inf) sup||I-D^k*delg(x*)'|| < 1
+ 
+           lim(k->inf) 1/D^k = delg(x*) = 0
+
+  A nonlinear (or simultaneous) system of equations converge with am increasingly small step-size or zero derivative. 
+b) (local convergence)
+
+  Suppose, lim(x->x*) ||1 - D(x)*delg(x*)'|| < 1
+
+  A shift (b) applied to the equation:
+
+           lim(x->x*) 1/D(x) < delg(x*)
+        
+           lim(x->x*) 1/D(x-b) < delg(x*-b)
+
+  A nonlinear (or simultaneous) system of equations converge at an integer no matter the case because translation about the input.
+         
+          
+
+
+

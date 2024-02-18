@@ -1,0 +1,49 @@
+Question 1.4.8 (Necessary and Sufficient Conditions for Convergence of Iterative Methods for Linear Equations)
+
+Function: x^{k+1} = x^k - alpha*D*(Ax^k-b) 
+            where D[nxn], b[nx1], and with a single-valued soluion
+          
+I) Each eigenvalue pf DA either has a positive real part of is equal to 0
+
+          If D = | 0 N | and A = | U V |, where N = U*DA*V and H = V*DA*V
+                 | 0 H |
+
+          Then, DA = [UV]| 0 N |[U V]' when UV is the lower and VU an upper diagnol matrix, also an orthonormal basis
+                         | 0 H |
+
+          So, x^{k+1} = x^k - alpha*D*r, where r = AX-b = AVz for a complete function.
+
+          Two equations appear from the original equation by substitution of a matrix:
+     
+              x^{k+1} = x^k - alpha*N*z   and   x^{k+1} = x^k - alpha*H*z 
+
+          The two derived equations symbolize separate convergences about individual eigenvalues. 
+
+          Section 1.3: Rates of convergence bounds eigenvalues by small (a) and large(b), min{2a/(a^2+b^2)}. The interval of eigenvalues becomes 0 to 2a/(a^2+b^2):
+
+              0 < eigenvalue < 2a/(a^2+b^2)
+
+          When rearranged about a finite boundary and unit circle: 
+
+              |1-eigenvalue(a+b*i)| < 1
+
+          The normal bound is a convergent series for one of the two equations above.
+
+II) The dimension of the nullspace of DA is equal to the multiplicity of the 0 eigenvalue of DA
+
+          The eigenvalues of D = | 0 N | describe the nullspace of DA.
+                                 | 0 H |
+        
+          Further, DA = (D-lambda)A = (D-lambda) = | -lambda      N    | = (-lambda)(H-lambda) = lambda^2-H*lambda = 0
+                                                   |    0     H-lambda |
+          Real and imaginary eigenvalues show multiplicity, say multiplicity 2 for a two by two matrix, also the nullspace.
+         
+          When the multiplicity of the eigenvalue and DA's nullspace are zero, then lambda = 0;               
+
+
+III) The nullspace of A is equal to the nullspace of DA
+
+         A zero property defined in multiplcation. Eigenvalues for a matrix equal the nullspace across multiplication. 
+
+Rules: Newton's Method: 
+        x^{k+1} = x^k - delf(x)/del[delf(x)]

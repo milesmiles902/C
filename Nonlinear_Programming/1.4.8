@@ -1,21 +1,21 @@
-Question 1.4.8 (Necessary and Sufficient Conditions for Convergence of Iterative Methods for Linear Equations)
+Question 1.4.8
 
-Function: x^{k+1} = x^k - alpha*D*(Ax^k-b) 
-            where D[nxn], b[nx1], and with a single-valued soluion
-          
-I) Each eigenvalue pf DA either has a positive real part of is equal to 0
+Function: f(x) = ||x||^beta        
 
-          If D = | 0 N | and A = | U V |, where N = U*DA*V and H = V*DA*V
-                 | 0 H |
+          where beta > 1
 
-          Then, DA = [UV]| 0 N |[U V]' when UV is a lower and VU an upper diagnol matrix, also an orthonormal basis
-                         | 0 H |
+a) A value of x^0 = 0 substitutes for an initial condition. The function converges to an optimal solution whenever beta is even. The initial condition is more important when beta is odd. In all situations, Armijo's rule thresholds the convergence when satisfactory or between local minima. 
 
-          
+b) The function never converges by Newton's Method when beta <= 1. 
 
-II) The dimension of the nullspace of DA is equal to the multiplicity of the 0 eigenvalue of DA
+Rules: Newton's Method:
+        x^{k+1} = x^k - delf(X)/del[delf(x)]
 
-III) The nullspace of A is euqal to the nullspace of DA
+       Armijo Rule (Successive reduction rule)
+        f(x^k)-f(x^k+(b^m)*s*(d^k))>=-sigma*(b^m)*s*delf(x*)'*(d^k)
+        Reduction factor: b
+        Step sizes: (b^m)*s
+        Scaling factor: (d^k)
+        Trials: m
+        Change of the Quadratic Interpolation: delf(x*)'*(d^k)
 
-Rules: Newton's Method: 
-        x^{k+1} = x^k - delf(x)/del[delf(x)]
