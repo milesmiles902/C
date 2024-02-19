@@ -23,7 +23,7 @@ b) (local convergence)
 
            lim(x->x*) 1/D(x) < delg(x*)
         
-           lim(x->x*) 1/D(x-b) < delg(x*-b)
+           lim(x-b->x*-b) 1/D(x-b) < delg(x*-b)
 
   A nonlinear (or simultaneous) system of equations converge at an integer no matter the case because translation about the input.
          
