@@ -1,0 +1,33 @@
+Question 2.2
+
+Interval: |a,b|, |a + del, b + del|
+
+Function: f(x^2) <= [(b-a)/(b+a)]^2 * f(x0)
+
+Derivation: A polynomial exists for a set of eigenvalues (lambda1, lambda2...] greater than b. The conjugate gradient method is the polynomial with a first term, alpha^0*x^0 = 1.
+
+              1+d*Q*d = 1 + lambda*P^k(lambda)
+ 
+                      = (1-const)*(lambda1-const)*...*(lambdaK-const)/(lambda1*lambda2...lambdaK)
+ 
+                      = 2/(a+b)*((a+b)/2-const)*(lambda1-const)*...*(lambdaK-const)/(lambda1*lambda2...lambdaK)
+
+                      = 0
+
+           The polynomial squared is larger than the original function.
+
+               f(x^{k+1}) <= max (1+d*Q*d)^2 * f(x^0) 
+
+                          <= max (2/(a+b)*((a+b)/2-const)*(lambda1-const)*...*(lambdaK-const)/(lambda1*lambda2...lambdaK))^2 * f(x^0)
+
+           A truncated series shows the original function.
+
+               f(x^{k+1}) <= max [(const-(a+b)/2)/((a+b)/2)]^2 * f(x^0)
+
+                   f(x^2) <= [(b-a)/(b+a)]^2 *  f(x^0)
+
+Rules: Conjugate Gradient Method: 
+         d*Q*d = 0
+         d = alpha*d + ... + alpha^{k-1}*d^{k-1}
+         d*Q*d = alpha*d + ... + alpha^{k-1}*d^{k-1} = 0
+         A successive iterate minimizes the function over a progressibly expanding linear manifold.

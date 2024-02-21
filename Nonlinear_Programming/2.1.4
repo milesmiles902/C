@@ -1,0 +1,21 @@
+Question 2.1.4
+
+Function: f(x) = (1/2)*x'*Q*x - b'x    where Q is positive definite and symmetric
+
+A minimizes f(x):
+         
+          f'(x) = x'*Q - b
+
+The conjugate gradient method expands the function and function's derivative.
+
+
+
+
+Rules: Conjugate Gradient Method: 
+         d*Q*d = 0
+         d = alpha*d + ... + alpha^{k-1}*d^{k-1}
+         d*Q*d = alpha*d + ... + alpha^{k-1}*d^{k-1} = 0
+         A successive iterate minimizes the function over a progressibly expanding linear manifold.
+
+
+

@@ -1,0 +1,25 @@
+Question 2.3 (Hessian with Clustered Eigenvalues)
+
+Interval: |z_i-delta, z_i+delta| for i=1....k
+
+Proposition: 0 < z1 < z2 < ... < zK  
+             z+delta <= z-delta
+
+From the conjugate gradient method an unknown polynomial probably exists:
+
+         1+d*Q*d = (z_1-const)/z_1 * (z_2-const)/z_2 *...* (z_k-const)/z_k
+
+The equation shown above signifies the roots about the conjugate gradient method. The square of the polynomial is less than or equal to the solution at the largest eigenvalue.
+
+         (1+d*Q*d)^2 <= max(1+d*P*d)^2
+
+                     <= [(z_1-const)/z_1 * (z_2-const)/z_2 *...* (z_k-const)/z_k]^2
+
+                     <= R = [(delta)/z_1 * (delta)/z_2 *...* (delta)/z_k]^2
+
+Rules: Conjugate Gradient Method: 
+         d*Q*d = 0
+         d = alpha*d + ... + alpha^{k-1}*d^{k-1}
+         d*Q*d = alpha*d + ... + alpha^{k-1}*d^{k-1} = 0
+         A successive iterate minimizes the function over a progressibly expanding linear manifold.
+
