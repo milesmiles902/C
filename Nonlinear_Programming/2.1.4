@@ -8,8 +8,17 @@ A minimizes f(x):
 
 The conjugate gradient method expands the function and function's derivative.
 
+          f'(x) = (x^0+sum_0_k-1 [Q*delf(x^0)])*Q - b 
+ 
+                = (x^0)*Q - b + sum_0_k-1 [Q*delf(x^0)]
+ 
+                where (x^0)*Q - b is the first term of the conjugate gradient method 
 
+By example, successive terms from the expansion show term two, three, and up to k-1.
 
+The first inductive step remains for each step till k-1 and the subspace span:
+
+          x^0 + (subspace spanned by g^0, Qg^0, ... , Q^{k-1}*g^0)
 
 Rules: Conjugate Gradient Method: 
          d*Q*d = 0

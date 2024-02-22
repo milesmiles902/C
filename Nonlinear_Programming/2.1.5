@@ -1,0 +1,26 @@
+Question 2.1.5 (Conjugate Gradient Method by Extrapolation)
+
+Function: f(x) = (1/2)*x'*Q*x - b'*x
+
+Method: x^{k+1} = x^k - alpha^k*g^k + beta^k*(x^k-x^{k-1})
+
+Manifold: x^k + (subspace spanned by g^k and x^k - x^{k-1})
+
+If g^k is the beta term in the Heavy Step Method, then the last term is similar to Newton's method.
+
+In the analogy above, the span or manifold in the Heavy Step is equal to Newton's Method:
+
+         x^k + (subspace spanned by g^k and x^k - x^{k-1}) = span {d^{k-1} + d^k}
+
+Also, a similar span found in Question 2.1.4, which is the Conjugate Gradient Method.
+
+
+Rules: Conjugate Gradient Method: 
+         d*Q*d = 0
+         d = alpha*d + ... + alpha^{k-1}*d^{k-1}
+         d*Q*d = alpha*d + ... + alpha^{k-1}*d^{k-1} = 0
+         A successive iterate minimizes the function over a progressibly expanding linear manifold.
+ 
+       Newton's Method: 
+         x^{k+1} = x^k - alpha^k*d^k
+
