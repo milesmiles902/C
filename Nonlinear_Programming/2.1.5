@@ -2,6 +2,7 @@ Question 2.1.5 (Conjugate Gradient Method by Extrapolation)
 
 Function: f(x) = (1/2)*x'*Q*x - b'*x
 
+
 Method: x^{k+1} = x^k - alpha^k*g^k + beta^k*(x^k-x^{k-1})
 
 Manifold: x^k + (subspace spanned by g^k and x^k - x^{k-1})
@@ -22,5 +23,5 @@ Rules: Conjugate Gradient Method:
          A successive iterate minimizes the function over a progressibly expanding linear manifold.
  
        Newton's Method: 
-         x^{k+1} = x^k - alpha^k*d^k
+         x^{k+1} = x^k - alpha^k*delf(x)/del[delf(x)]
 

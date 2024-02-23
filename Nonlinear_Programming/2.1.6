@@ -5,3 +5,27 @@ Function: f(x) = (1/2)*x'*Q*x - b'*x
 Manifold: x^k + (subspace spanned by g^k + x^k - x^{k-1})
 
 a) A line y = x^k - alpha*g^k
+
+   An example vector on a line passing through point (x,y), with step alpha, or in Calculus III, a degree of freedom:
+ 
+        y = y^k + alpha (x^{k-1}-y^{k})
+
+          = alpha*x^{k-1} + (1-alpha)*y^{k}
+
+   The gradient of the vector:
+   
+        delf(y) = delf(alpha*x^{k-1} + (1-alpha)*y^{k})
+
+                = Q*(alpha*x^{k-1} + (1-alpha)*y^{k-1}) - b
+
+                = alpha*(Q*x^{k-1} - b) + (1-alpha)(Q*y^k - b)
+
+                = alpha*g^{k-1} + (1-alpha)*delf(y^k)
+
+   The vector is the minimum over the line, y^k. Also, a review about vectors passing through two points from a line.
+
+b) A vector on a line and point (x,y) is orthogonal to delf(x) or delf(y) directions, the normals. So, delf(y)=delf(alpha*x^{k-1} + (1-alpha)*y^{k}) is orthogonal to delf(x^{k+1}). 
+
+
+
+           
