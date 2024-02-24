@@ -1,0 +1,5 @@
+Question 2.1.10
+
+Function: f(x) = (1/2)*x'*Q*x - b'*x
+
+          where Q = M + sum_1_k [v*v']
