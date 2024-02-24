@@ -1,0 +1,80 @@
+Question 2.1.9
+
+Supposition: d^0,...,d^k are Q-conjugate directions.
+             x^0,...,x^k are corresponding conjugate vectors
+             x^{i+1} != x^i for i=0,...,k
+
+
+a) Show d^{k+1} is Q-conjugate to the directions, if not equal to zero. 
+
+   The vector v = |x^0| generates a quadratic function: (1/2)*v'*Q*v - b'*x 
+                  |x^1|
+                  |...|
+                  |x^k|
+
+   A conjugate gradient method's minimal solution is not a derivative, but a system of equations:
+ 
+         v'Q*v - b'*v = 0
+ 
+               is 
+
+        | x^1*Q*v - b'v | = |0|
+        |               |   | |
+        | x^2*Q*v - b'v | = |0|
+        |               |   |.|
+        |      ...      |   |.|
+        |               |   |.|
+        | x^k*Q*v - b'v | = |0|
+
+   Each of the terms in a conjugate gradient method, d*Q*d or d*Q*v, equal zero.
+
+          x^1*Q*v = 0
+          x^2*Q*v = 0
+            ...
+          x^k*Q*v = 0
+
+   These steps show an addition step, x^{k+1}, or otherwise, d^{k+1}, orthogonal vector set.
+
+b)Show d^{k+1} is orthogonal to the gradient differences g^{i+1}-g^i
+
+   The vector v = |x^0| generates a quadratic function: (1/2)*v'*Q*v - b'*x
+                  |x^1|
+                  |...|
+                  |x^k|
+
+   A conjugate gradient method's minimal solution is not a derivative, but a system of equations:
+
+         v'Q*v - b'*v = 0
+ 
+               is
+
+        | x^1*Q*v - b'v | = |0|
+        |               |   | |
+        | x^2*Q*v - b'v | = |0|
+        |               |   |.|
+        |      ...      |   |.|
+        |               |   |.|
+        | x^k*Q*v - b'v | = |0|
+
+   Each of the terms in a conjugate gradient method, d*Q*d or d*Q*v, equal zero.
+
+          x^1*Q*v = 0
+          x^2*Q*v = 0
+            ...
+          x^k*Q*v = 0
+
+   A orthogonal solution appears through row by row subtraction.
+ 
+         (x^1-x^2)'*Q*v = 0
+         (x^2-x^3)'*Q*v = 0
+            ...
+         (x^k-x^{k-1})'*Q*v = 0
+
+   These steps show an addition step, x^{k+1}, or otherwise, d^{k+1}, orthogonal vector subtraction.
+
+ Gradient Method: 
+         d*Q*d = 0
+         d = alpha*d + ... + alpha^{k-1}*d^{k-1}
+         d*Q*d = alpha*d + ... + alpha^{k-1}*d^{k-1} = 0
+         A successive iterate minimizes the function over a progressibly expanding linear manifold.
+

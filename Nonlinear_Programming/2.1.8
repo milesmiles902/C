@@ -1,0 +1,25 @@
+Question 2.1.8
+
+Function: f(x) = (1/2)*x'*Q*x - b'*x
+
+If vector, v = | x1 |, then (1/2)*v'*Q'*v - b'v becomes a form for conjugate gradient methods
+               | x2 |
+
+The cost function above when a system of equations:
+
+         x1'*Q*v' - b'v = 0
+
+         x2'*Q*v' - b'v = 0
+
+When x1 != x2 and x1-x2 is Q-conjugate to all vectors in the intersection of S1 and S2:
+
+         (x1-x2)'*Q*v = 0 
+
+The function appeals not for gradient methods because the indifferent manifold and span. A line method in a singla direction is an optimal strategy.
+
+Rules: Conjugate Gradient Method: 
+         d*Q*d = 0
+         d = alpha*d + ... + alpha^{k-1}*d^{k-1}
+         d*Q*d = alpha*d + ... + alpha^{k-1}*d^{k-1} = 0
+         A successive iterate minimizes the function over a progressibly expanding linear manifold.
+

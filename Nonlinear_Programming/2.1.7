@@ -1,0 +1,25 @@
+Question 2.1.7
+
+Function: f(x) = (1/2)*x'*Q*x - b'*x
+
+An example Conjugate Gradient Method:
+ 
+         x'*Q*x = 0
+  
+         x = alpha*x + ... + alpha^{k-1}*x^{k-1}
+
+         x'*Q*x = alpha*x + ... + alpha^{k-1}*x^{k-1}
+
+         Minimal solutions: x = 0, roots{(alpha + ... + (k-1)*alpha^{k-1}*x^{k-2}-2*Q*x)
+
+         The general solution includes imaginary values and an nth root polynomial. 
+
+         Also, extensive solutions in conjugate gradient method literature involve further m-dimensional spaces (x,y,z,++), mutual directionals (x1,x2,...xn), and multi-directional systems (x1, x2, x3,...).
+
+Rules: Conjugate Gradient Method: 
+         d*Q*d = 0
+         d = alpha*d + ... + alpha^{k-1}*d^{k-1}
+         d*Q*d = alpha*d + ... + alpha^{k-1}*d^{k-1} = 0
+         A successive iterate minimizes the function over a progressibly expanding linear manifold.
+
+
