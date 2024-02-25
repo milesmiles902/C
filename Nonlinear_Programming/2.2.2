@@ -1,0 +1,15 @@
+Question 2.2.2
+
+The quasi-Newton method from page 138:
+
+  D^{k+1} = D^k + p^k*p^k'/p^k'*q^k - D^k*q^k*q^k'*D^k/q^k'*D^k*q^k + eta^k*tau^k*v^k*v^k'
+
+  where v^k = p^k/p^k'*q^k - D^k*q^k/tau^k
+   
+        tau^k = q^k'*D^k*q^k
+
+        0 <= eta^k <= 1
+
+When v^k enters the equation:
+
+  D^{k+1} = D^k + (1+q'*D*q/p'*q)*p*p'/p'q - (D*q*p'+pq'*D)/p'q

@@ -1,0 +1,44 @@
+Question 2.2.1
+
+Function: D^{k+1} = D^k + y^k*y^k'/q^k'*y^k
+
+          where y^k = p^k - D^k*q^k
+
+The Quasi-Newton method - steps in two or more orthogonal directions. Iterative parameters determine the number of steps and what direction throughout the algorithm.
+
+Also an entire minimization algorithm multiplies by a new orthogonal axes. 
+
+          D^{k+1}*q^k = D^k*q^k + y^k*y^k'*q^k/q^k'*y^k
+
+                      = D^k*q^k + y^k
+
+                      = D^k*q^k + p^k - D^k*q^k
+
+                      = p^k
+
+Although, the step amount is not equivalent along every axes. 
+
+          D^{k+1}*q^i = D^k*q^i + y^k*y^k'*q^i/q^k'*y^k
+
+                      = D^k*q^k + y^k*(p^k-D^k*q^k)'*q^i/q^k'*y^k
+
+                      = p^k + y^k*(p^k'*q^i-q^k'*p^i)/q^k'*y^k
+
+                      = p^i
+
+The two or more orthogonal directions from Quasi-Newton Method do arrive to similar minimizations.
+
+An example for a cost function:
+
+          D^n = [p^0....p^(n-1)]*[q^0...q^(n-1)]^-1
+
+              = Q^-1
+
+A Q*p^i equation from the book: 
+ 
+          Q*p^i = delf(x^{i+1})-delf(x^i) = q^i
+
+          Q*[p^0 ... p^{n-1}] = [q^0 ... q^{n-1}]
+
+          Q = [q^0 ... q^{n-1}]/[p^0 ... p^{n-1}]
+
