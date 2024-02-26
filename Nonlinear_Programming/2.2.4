@@ -1,0 +1,19 @@
+Question 2.2.4:
+
+Function: D^{k+1}*q^i = D^{k+1}*Q*p^i = p^i 
+ 
+          H^{k+1}*p^i = H^{k+1}*Q^-1*q^i = q^i
+
+A proof D^{k+1} updates with H^{k+1}:
+
+       D^{k+1} = D^k + (1+q'*D*q/p'*q)*p*p'/p'q - (D*q*p'+pq'*D)/p'q
+
+               = H^-k + (1+q'*H^-1*q/p'*q)*p*p'/p'q - (H^-1*q*p'+pq'*H^-1)/p'q
+         
+Rules: 2.2.2: D^{k+1} = D^k + (1+q'*D*q/p'*q)*p*p'/p'q - (D*q*p'+pq'*D)/p'q
+
+       x^{k+1} = x^k + alpha^k*d^k
+                            d^k = -D^k*delf(x^k)
+                            D^k = 1/Q 
+                                = [p^0....p^(n-1)]*[q^0...q^(n-1)]^-1 
+                                = del[delf(x^n)]^-1 

@@ -1,0 +1,28 @@
+Question 2.2.3:
+
+Equation: D^{k+1} = D^{k+1} = D^k + (1+q'*D*q/p'*q)*p*p'/p'q - (D*q*p'+pq'*D)/p'q
+ 
+
+a) If V^k = I - ro^k*q^k*p^k' and ro = 1/q^k'*p^k
+
+   D^{k+1} = D^k + (1+q'*D*q/p'*q)*p*p'/p'q - (D*q*p'+pq'*D)/p'q
+
+           = D^k*V^k + (1+q'*D*q/p'*q)*p*p'/p'q - pq'*D/p'q
+
+           = V^k'*D^k*V^k + p^k*p^k'/p^k'*q^k
+  
+           = V^k'*D^k*V^k + ro*p^k*p^k'
+
+b) The direction d^k=-D^k*delf(x^k) from D^0 and past vectors: p^i, and q^i, with i=0,1,...,k-1
+
+   d^k = -D^k*delf(x^k)
+ 
+       = -(V^{k-1}'*D^{k-1}*V^{k-1} + ro*p^{k-1}*p^{k-1}')*delf(x^k)
+
+       where V^k = I - ro^k*q^k*p^k' and ro = 1/q^k'*p^k
+
+Rules: Quasi-Newton Method: x^{k+1} = x^k + alpha^k*d^k
+                            d^k = -D^k*delf(x^k)
+                            D^k = 1/Q 
+                                = [p^0....p^(n-1)]*[q^0...q^(n-1)]^-1 
+                                = del[delf(x^n)]^-1 
