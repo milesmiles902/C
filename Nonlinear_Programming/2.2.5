@@ -4,9 +4,49 @@ Function x^{k+1} = x^k - alpha^k*D^k*delf(x^k)
 
 Condition Number: R^k = Q^(1/2)*D^k*Q^(1/2)
 
-a) 
+a) Supposition: lambda1 <= .... <= lambdaN
+                
+   The eigenvalues of R^{k+1} contain R^k's eigenvalues:
 
+   When r^k = Q^{1/2}*p^k and q^k = Q^{1/2}*r, both equations reduce Davidson-Fletcher-Powell (DFP) Method. The equation contains ratios of like-terms because non-symmetric matrices.
+
+   D^{k+1} = D^k + p^k*p^k'/p^k'*q^k - D^k*q^k*q^k'*D^k/(q^k'*D^k*q^k)
+
+           = D^k + r^k*r^k'/r^k'Q*r^k - D^k*Q^{1/2}*r^k*Q^{1/2}*r^k'*D^k/(r^k*Q^{1/2}*D^k*Q^{1/2}*r^k)
+
+   The condition number, R requires Q^{1/2}*D^k*Q^{1/2}:
+
+   Q^{1/2}*D^{k+1}*Q^{1/2} = Q^{1/2}*D^kQ^{1/2} + Q^{1/2}*r^k*r^k'*Q^{1/2}/r^k'Q*r^k - Q^{1/2}*D^k*Q^{1/2}*r^k*Q^{1/2}*r^k'*D^k*Q^{1/2}/(r^k*Q^{1/2}*D^k*Q^{1/2}*r^k)
+ 
+   R^{k+1} = R^k + r^k*r^k'/r^k'*r^k - R^k*r^k*r^k'*R^k/(r^k'*R*r^k)
+
+   Each term from R^{k+1} above has eigenvalues:
+   
+             R^k = Eigenvalues A
+
+             r^k*r^k'/r^k'*r^k = Eigenvalues B
+ 
+             R^k*r^k*r^k'*R^k/(r^k'*R*r^k) = Eigenvalues C
+
+   The second termm shows R^{k+1} = 1 and an eigenvalue of one.
+
+   An eigenvalue is zero because the polynomial in the third term.
+
+   Eigenvalue solutions come from a matrix or term-by-term comparison.
+
+b) Equation 2.58 scales the initial step, D^0. An equivalent relationship is r^0'*r^0/r^0'*R*r^0 with a value of one. The scaling law fits the second term's eigenvalue at one. Numerical iteration models a polynomial and matrix mixtur for simpler analysis and pre-defined eigenvalues before the final solution. 
+
+c) 
 
 Rules: Davidson-Fletcher-Powell (DFP) Method
         D^{k+1} = D^k + p^k*p^k'/p^k'*q^k - (D^k*q^k*q^k'*D^k)/(q^k'*D^k*q^k)
  
+       Proposition A.18(d): lim(k->inf) A^k = 0
+
+       Scaling (Equation 2.58):
+        ~D^0 = [p^0'*q^0/(q^0'*D^0*q^0)]*D^0
+             = constant*D^0
+
+       Broyden-Fletcher-Goldfarm-Shanno (BFGS) Method
+        D^{k+1} = D^k + p^k*p^k'/p^k'*q^k - (D^k*q^k*q^k'*D^k)/(q^k'*D^k*q^k) + (eta*tau*v*v')^k
+       
