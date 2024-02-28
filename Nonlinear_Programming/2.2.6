@@ -1,0 +1,25 @@
+Question 2.2.6
+
+Function: x^{k+1} = x^k - alpha^k*d^k
+              d^0 = -g^0
+          d^{k+1} = -D^{k+1}*g^{k+1}
+
+a) From line 3 of the provided information:
+
+          d^{k+1} = -D^{k+1}*g^{k+1}
+
+                  = -(I + (1+q^k'*q^k/p^k'*q^k)*p^k'*p^k'/p^k'*q^k - (q^k*p^k'+p^k*q^k')/p^k'*q^k)*g^{k+1}
+
+                  = -g^{k+1} + p^k*q^k'*g^{k+1}*d^k/p^k'*q^k
+
+                  = -g^{k+1} + (g^{k+1} - g^k)'*g^{k+1}*q^k/d^k'/q^k
+
+b) If d^0 = -D*g^0
+          
+          D^{k+1} = -(I + (1+q^k'*q^k/p^k'*q^k)*p^k'*p^k'/p^k'*q^k - (q^k*p^k'+p^k*q^k')/p^k'*q^k)*g^{k+1}
+
+                  = D^k + (1+q'*D*q/p'*q)*p*p'/p'q - (D*q*p'+pq'*D)/p'q
+ 
+Rules:  Broyden-Fletcher-Goldfarm-Shanno (BFGS) Method
+        D^{k+1} = D^k + p^k*p^k'/p^k'*q^k - (D^k*q^k*q^k'*D^k)/(q^k'*D^k*q^k) + (eta*tau*v*v')^k
+

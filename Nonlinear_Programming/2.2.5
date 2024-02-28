@@ -34,9 +34,13 @@ a) Supposition: lambda1 <= .... <= lambdaN
 
    Eigenvalue solutions come from a matrix or term-by-term comparison.
 
-b) Equation 2.58 scales the initial step, D^0. An equivalent relationship is r^0'*r^0/r^0'*R*r^0 with a value of one. The scaling law fits the second term's eigenvalue at one. Numerical iteration models a polynomial and matrix mixtur for simpler analysis and pre-defined eigenvalues before the final solution. 
+b) Equation 2.58 scales the initial step, D^0. An equivalent relationship is r^0'*r^0/r^0'*R*r^0 with a value of one. The scaling law fits the second term's eigenvalue at one. Numerical iteration models a polynomial and matrix mixture before the final solution for pre-defined eigenvalues in small terms. 
 
-c) 
+c) The Broyden-Fletcher-Goldfarm-Shanno method updates:
+
+   D^{k+1} = D^k + p^k*p^k'/p^k'*q^k - (D^k*q^k*q^k'*D^k)/(q^k'*D^k*q^k) + (eta*tau*v*v')^k
+
+           = R^k + (1+r^k'*R*r^k/r^k'r^k)r^k*r^k'/r^k'*r^k - R^k*r^k*r^k'*R^k/(r^k'*R*r^k)
 
 Rules: Davidson-Fletcher-Powell (DFP) Method
         D^{k+1} = D^k + p^k*p^k'/p^k'*q^k - (D^k*q^k*q^k'*D^k)/(q^k'*D^k*q^k)
