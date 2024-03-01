@@ -1,0 +1,27 @@
+Question 2.3.1
+
+Function: f : R3
+          p_1, p_2,...,p_n
+          x*, alpha = 0
+          g(alpha) = f(x* + alpha*p_i) from i = 1...n
+
+       To be continued...
+
+Rules: Forward Difference
+         df(x^k)/dx_i = (1/h)*[f(x^k+h*e_i) - f(x^k)]]
+
+       Central Difference
+         df(x^k)/dx_i = (1/2h)*[f(x^k+h*e_i) - f(x^k-h*e_i)]
+
+       Coordinate Descent
+         x^{k+1} = argmin f(x_1^{k+1},...(x_i-1)^{k+1}, eta, (x_i+1)^k,...,(x_n)^k)
+
+       Convergence and Convergence Rate for a Constant Stepsize
+         f(x^{k+1}) = f(x^k) - 1/2L * |delf(x^k)|^2
+          E[f(x^{k+1})] - f(x^k) <= (1 - sigma/L)*(f(x^k)-f(x*))
+
+       Nelder-Mead Simplex Method
+         1. Reflection (min, intermediate and max cost)
+         2. Attempt Expansion
+         3. Use Reflection
+         4. Perform Contraction
