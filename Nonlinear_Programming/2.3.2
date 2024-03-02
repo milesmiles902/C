@@ -1,0 +1,27 @@
+Question 2.3.2 (Stepsizes in Jacobi Methods)
+
+Function: f : R3
+          x_i E argmin f(x_1,...,x_{i-1}, eta, x_{i+1},...,xn)
+
+a) Jacobi's Method terminates when alpha = 1/n.
+
+       f(x) = f(x+alpha*(x_bar-x))
+
+            = f(x+(x_bar-x)/n)
+ 
+            = f(x)
+
+b) x never minimizes at all forms of f, especially when alpha = 1/n. 
+
+   If f(x) = sum_j=i_J[ f_j*(sum_i=1_n[ a_ji *x_i ]) ]
+   
+           = sum_j=i_J[ f_j*(sum_i=1_n[ a_ji *x_i*+(x_bar-x_i)/n ]) ]
+
+           = sum_j=i_j[ f_j*(sum_i=1_n[ a_ji *x_i]) ]
+
+           != f(x*)
+ 
+ 
+Rules: Jacobi Method:
+        x = x + alpha*(x_bar-x) where alpha > 0
+

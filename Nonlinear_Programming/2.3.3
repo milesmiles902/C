@@ -1,0 +1,52 @@
+Question 2.3.3
+
+Function: f is convex
+
+Two cases:
+
+  f(x_max) decreases in Step #2 when replaced by f(x_new)
+ 
+  f(x^i) = f(x_max) decreases vertices one because of x^i != x_max. Every iteration lowers f(x^i) and f(x_max).
+
+Step #1 (Reflection)
+  
+  x_ref = 2x' - x_max
+
+  I) (x_ref has min cost)
+ 
+      If f(x_min) > f(x_ref), enter step #2
+
+  II) (x_ref has intermediate cost)
+
+      If max{f(x^i) | x^i != x_max} > f(x_ref) >= f(x_min), enter step #3      
+
+  III) (x_ref has max cost)
+
+      If f(x_ref) >= max {f(x^i) | x^i ~= x_max}, enter step #4
+
+Step #2 (Attempt Expansion)
+ 
+      x_exp = 2*x_ref - x'
+
+      x_new = {x_exp if f(x_exp) < f(x_ref)
+              {x_ref otherwise
+
+      Upon x_max replacement with x_new
+
+Step #3 (Use Reflection)
+
+      x_new = x_ref forming a new simplex
+
+Step #4 (Perform Contraction)
+
+      x_new = { (1/2)*(x_max+x') if f(x_max) <= f(x_ref)
+              { (1/2)*(x_ref+x'), otherwise
+
+
+
+Rules: Nelder-Mead Simplex Method
+         1. Reflection (min, intermediate and max cost)
+         2. Attempt Expansion
+         3. Use Reflection
+         4. Perform Contraction
+

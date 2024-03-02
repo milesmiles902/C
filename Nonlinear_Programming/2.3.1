@@ -5,7 +5,9 @@ Function: f : R3
           x*, alpha = 0
           g(alpha) = f(x* + alpha*p_i) from i = 1...n
 
-       To be continued...
+x* is a stationary point of f(x*+alpha*p_i) because g_i(0) = f(x*)
+
+A minimization method without derivatives involves Nelder-Mead Simplex. The simplex averages the maximum input and the remainder inputs for a direction in the global space. A Nelder-Mead simplex benefits the problem because the input averages with the global minimum.  
 
 Rules: Forward Difference
          df(x^k)/dx_i = (1/h)*[f(x^k+h*e_i) - f(x^k)]]
