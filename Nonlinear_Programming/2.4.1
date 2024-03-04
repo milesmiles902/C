@@ -1,0 +1,30 @@
+Question 2.4.1
+
+Function: f(x) = (1/2)*||g(x)||^2 
+               = (1/2)*sum_i_m[||g_i(x)||^2]
+
+Subject to: x ∈ Rⁿ
+
+a) When g(x*) = 0, an optimal solution x* is singular for the Hessian Matrix:
+   
+        H = ∂/∂x[∂/∂x((1/2)*||g(x)||^2)]
+          = 0
+
+b) When g becomes linear in the form g(x) = z-Ax, then infinite optimal solutions satisfy g(x).
+        
+        g(x*) = g(x)' 
+              = 0 
+              = A
+
+   As A = 0, then any zero determinant becomes a solution.
+
+   Also, A has linearly independent rows because the definition is solution with linearly coefficients about row or column vectors:
+  
+        x* = A'(A*A')^-1 is a solution.
+ 
+        x* = a₁*v₁ + ... + an*vn is many other solutions.
+
+Rules: Hessian Matrix:
+        H=∂/∂x[∂f/∂x]
+
+
