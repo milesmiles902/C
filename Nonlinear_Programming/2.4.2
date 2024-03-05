@@ -1,13 +1,33 @@
 Question 2.4.2:
 
-Function: (1/2){ (z1-x)^2 + (z2-x)^2 }
+Function: f(x,z1,z2) = (1/2)*{(z1-x)^2 + (z2-x)^2}
 
 subject: x ∈ R
 
-Increment: x^{k+1} = y^k -alpha(y^k-z2)
+Increment: x^{k+1} = y^k - alpha(y^k-z2)
            
            where y^k = x^k - alpha(x^k-z1)
 
-The limits of x^k and y^k converge to x(alpha) and y(alpha):
+The limits of x^k and y^k converge to x(alpha) and y(alpha), respectively, because Proposition 2.4.1:
 
-           
+           lim (k->inf) f(y^k) = lim(k->inf) f(x^k - alpha*(x^k-z1))
+                               = lim(k->inf) f(x^k + alpha*(sum_0_inf[z1-x^{k}])
+                               = lim(k->inf) f(alpha*z1)
+                               = z1*f(alpha)
+
+           lim (k->inf) f(x^{k+1}) = lim (k->inf) f(y^k-alpha*(y^k-z2))
+                                   = lim (k->inf) f(y^k-alpha*(sum_0_inf[z2-y^{k}]))
+                                   = lim (k->inf) f(alpha*z2);
+                                   = z2*f(alpha)
+
+A solution, x* appears in limit of x(alpha) and y(alpha).
+
+           lim (alpha->0) f(alpha) = f(x*)
+
+Rules: Proposition 2.4.1:
+         f(x) = (1/2)*x'*Q*x-bx
+         x^{k+1} = x^k + alpha^k*sum_1_m[b-Q*psi]
+         psi = psi_{i-1} + alpha^k*(b-Q*psi_{i-1})
+         a) ||x^k-x(alpha)|| = 0
+         b) alpha^k->0, sum_0_inf[alpha^k]=inf, then x^k->x*
+     

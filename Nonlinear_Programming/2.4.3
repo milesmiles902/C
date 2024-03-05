@@ -1,0 +1,18 @@
+Question 2.4.3 (Computational Problem)
+
+Data pairs: (y,z) = (1.165,1), (0.626,-1), (0.075,-1), (0.351,1), (-0.696,1)
+
+
+
+Rules Gauss-Newton Method:
+        x^{k+1} = x^k - x^k/delf_i(x^k) 
+      
+      Extended Kalman Filter:
+        psi = argmin sum_1_i [lambda^{i-j}*||g(x,psi)||^2]
+        g(x,psi)=g(psi)+delg(psi)'x-psi)
+      
+      Incremental Gradient Method:
+       x^{k+1} = x^k - alpha^k*delf_i(x^k)
+      
+      Incremental Aggregated Gradient Method:
+       x^{k+1} = x^k - alpha^k*sum_0_m-1 [delf(x^{k-l}]
