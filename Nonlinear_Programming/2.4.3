@@ -2,7 +2,7 @@ Question 2.4.3 (Computational Problem)
 
 Function: f(y,z) = (1/2)*sum_1_5[ z_i - phi(u1*y_i-u0))^2 ]
 
-Sigmoidal Function: f(eta) = 1/(1+e^-eta)
+Sigmoidal Function: phi(eta) = 1/(1+e^-eta)
 
 Data pairs: (y,z) = (1.165,1), (0.626,-1), (0.075,-1), (0.351,1), (-0.696,1)
 
@@ -30,13 +30,11 @@ Gauss-Newton Method:
 
        x^{k+1} = x^k-f(x^k)*[-0.46269-1.85212]*[1.165+0.626+0.075+0.351-0.696])/((-0.46269)*(-1.85212)-1.12237[1.165+0.626+0.075+0.351-0.696])
  
-               = x^k-4.14133*f(x^k)
-
-       The solution varies with u0 and u1 parameters, so an incomplete comprehension or example problem.
+               = x^k-4.14133*f(x^k).
 
 Extended Kalman Filter:
 
-
+       
 
 Incremental Gradient Method:
 
