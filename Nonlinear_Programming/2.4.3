@@ -1,6 +1,6 @@
 Question 2.4.3 (Computational Problem)
 
-Function: f(y,z) = (1/2)*sum_1_5[ z_i - phi(u1*y_i-u0))^2 ]
+Function: f(y,z) = (1/2)*sum_1_n[ (z_i - phi(u1*y_i-u0))^2 ]
 
 Sigmoidal Function: phi(eta) = 1/(1+e^-eta)
 
@@ -8,33 +8,62 @@ Data pairs: (y,z) = (1.165,1), (0.626,-1), (0.075,-1), (0.351,1), (-0.696,1)
 
 The constants (u0,u1)=(0,1)
 
+********
+A function minimization is possible and an answer. An alternative solution provides an average step for the each data point. Lastly, a third solution extrapolates the difference about the previous two solutions for error. 
+********* 
+
 Gauss-Newton Method:
         
-       df(y,z)/dy = d/dy[(1/2)*sum_1_5[ z_i - phi(u1*y_i-u0))^2 ]]
+       A minimized function in y- and z-directions:
 
-                  = -u1*sum_1_5*e^{u1*y+u0}*((z_i*(e^{u1*y_i}+e^u0)-e^{u1*y_i}))/(e^{u1*y_i}+e^u0)^3
-
-                  = sum_1_5*e^{y_i}*(z_i*(e^{y_i}+1)-e^y_i)/(e^{y_i}+1)^3
+           y^{k+1} = y^k - f(z,y^k)*delf(y^k)/del[delf(y^k)]
        
-                  = -0.46269
+                   = y^k - f(z,y^k)*(e^y+1)*((e^y+1)z-e^y)/(-e^{2y}(z-1)-2*e^y+z)
+
+
+           z^{k+1} = z^k - f(y,z^k)*delf(z^k)/del[delf(z^k)]
+ 
+                   = z^k - f(y,z^k)
+
+       Average change per k-step:
+
+           df(y,z)/dy = d/dy[(1/2)*(z - phi(u1*y-u0))^2 
+
+                      = -u1*e^{u1*y+u0}*((z_i*(e^{u1*y}+e^u0)-e^{u1*y}))/(e^{u1*y}+e^u0)^3
+
+                      = e^{y_i}*(z*(e^{y}+1)-e^y)/(e^{y}+1)^3
+ 
+           d/dy[df(y,z)/dy] = (e^y+1)*((e^y+1)z-e^y)/(-e^{2y}(z-1)-2*e^y+z)
+
+           df(y,z)/dz = d/dz[(1/2)*[ z - phi(u1*y-u0))^2 ]] 
+
+                      = z_i-phi(u1*y-u0]
   
-       df(y,z)/dz = d/dz[(1/2)*sum_1_5[ z_i - phi(u1*y_i-u0))^2 ]] 
+           d/dz[df(y,z)/dz] = 1         
 
-                  = sum_1_5[z_i-phi(u1*y_i-u0]]
+       Error between continuous and discrete minimization:
 
-                  = -1.85212
-
-       d/dy[df(y,z)/dz] = -sum_1_5[e^{-y_i}*phi(-y_i)^2]
+           Change in the y-direction:                    
  
-                        = -1.12237
+                      Continuous        Discrete         Difference
+           Step #1:      1.50             
+           Step #2:      1.96
+           Step #3:      2.43
+           Step #4:      2.91
+           Step #5:      3.40
 
-       x^{k+1} = x^k-f(x^k)*[-0.46269-1.85212]*[1.165+0.626+0.075+0.351-0.696])/((-0.46269)*(-1.85212)-1.12237[1.165+0.626+0.075+0.351-0.696])
+           Change in the z-direction:                    
+
+                      Continuous        Discrete         Difference
+           Step #1:      0.57
+           Step #2:      0.61
+           Step #3:      0.63
+           Step #4:      0.65
+           Step #5:      0.66
  
-               = x^k-4.14133*f(x^k).
+Something is odd in the problem because the original equation for Figure 1.4.3 already answers itself by summation.
 
 Extended Kalman Filter:
-
-       
 
 Incremental Gradient Method:
 
@@ -48,9 +77,9 @@ Rules Gauss-Newton Method:
         x^{k+1} = x^k - f(x)*delf(x^k)/del[delf(x)]
       
       Extended Kalman Filter:
-        psi = argmin sum_1_i [lambda^{i-j}*||g(x,psi)||^2]
-        g(x,psi)=g(psi)+delg(psi)'x-psi)
-      
+        x^{k+1} = x^k - sum_1_n[delg*g]/H
+        H = sum_0_k[sum_1_n[delg*g]]     
+ 
       Incremental Gradient Method:
        x^{k+1} = x^k - alpha^k*delf_i(x^k)
       
