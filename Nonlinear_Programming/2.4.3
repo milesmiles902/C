@@ -9,8 +9,8 @@ Data pairs: (y,z) = (1.165,1), (0.626,-1), (0.075,-1), (0.351,1), (-0.696,1)
 The constants (u0,u1)=(0,1)
 
 ********
-A function minimization is possible and an answer. An alternative solution provides an average step for the each data point. Lastly, a third solution extrapolates the difference about the previous two solutions for error. 
-********* 
+The data pairs brought confusion. An assumption about the purpose is simple initial conditions. I chose one pair, the first.
+********
 
 Gauss-Newton Method:
         
@@ -23,7 +23,7 @@ Gauss-Newton Method:
 
            z^{k+1} = z^k - f(y,z^k)*delf(z^k)/del[delf(z^k)]
  
-                   = z^k - f(y,z^k)
+                   = z^k - f(y,z^k)*[z^k-phi(y)]
 
        Average change per k-step:
 
@@ -37,33 +37,33 @@ Gauss-Newton Method:
 
            df(y,z)/dz = d/dz[(1/2)*[ z - phi(u1*y-u0))^2 ]] 
 
-                      = z_i-phi(u1*y-u0]
+                      = z_i-phi(u1*y-u0)
   
            d/dz[df(y,z)/dz] = 1         
 
-       Error between continuous and discrete minimization:
+       Error between steps:
 
-           Change in the y-direction:                    
+           Steps of y^{k+1}:                    
+                  
+           k-step:       Discrete         Difference
+              0th:         1.165             ----     
+	      1st:         1.187             0.02
+              10th:        1.478             0.03 
+	      100th:       2.022             0.01
+              200th:       2.653             0.00
+
+           Steps of z^{k+1}:                    
+
+           k-step        Discrete         Difference
+              0th:         1.000             ----
+              1st:        -0.028            -0.02
+              10th:        0.385             0.01
+              100th:       0.497             0.00
+              200th:       0.500             0.00
  
-                      Continuous        Discrete         Difference
-           Step #1:      1.50             
-           Step #2:      1.96
-           Step #3:      2.43
-           Step #4:      2.91
-           Step #5:      3.40
-
-           Change in the z-direction:                    
-
-                      Continuous        Discrete         Difference
-           Step #1:      0.57
-           Step #2:      0.61
-           Step #3:      0.63
-           Step #4:      0.65
-           Step #5:      0.66
- 
-Something is odd in the problem because the original equation for Figure 1.4.3 already answers itself by summation.
-
 Extended Kalman Filter:
+
+
 
 Incremental Gradient Method:
 
