@@ -59,17 +59,19 @@ Gauss-Newton Method:
  
 Extended Kalman Filter:
 
+      With no noise from the dataset, the problem's linearization simplified into n^{k+1}=n^k-f(n)*df(n)/dy.
+
       A minimized function in the y- and z-directions:
 
-          y^{k+1} = y^k - sum_1_n[delg*g]/H
+          y^{k+1} = y^k - [delg*g]/H
 
                    = y^k - [df(y^k,z)/dy]*[f(y^k,z)]/H
      
                    = y^k - [df(y^k,z)/dy]*[f(y^k,z)]/H
 
-                   = y^k - [(e^(y)*(z*(e^{y}+1)-e^y)/(e^{y}+1)^3)*((1/2)*(z - phi(y))^2)]/[sum_1_k[(e^{y}*(z*(e^{y}+1)-e^y)/(e^{y}+1)^3)*((1/2)*(z - phi(y))^2)]]
+                   = y^k - [(e^(y)*(z*(e^{y}+1)-e^y)/(e^{y}+1)^3)*((1/2)*(z - phi(y))^2)]
 
-          z^{k+1} = z^k - sum_1_n[delg*g]/H
+          z^{k+1} = z^k - [delg*g]/H
 
                   = z^k - [df(y,z^k)/dy]*[f(y,z^k)]/H
 
@@ -77,7 +79,7 @@ Extended Kalman Filter:
 
                   = z^k - [z-phi(y)]*[(1/2)*(z - phi(y))^2]/H
 
-                  = z^k - [z-phi(y)]*[(1/2)*(z - phi(y))^2]/[sum_1_k[[z-phi(y)]*[(1/2)*(z - phi(y))^2]]]
+                  = z^k - [z-phi(y)]*[(1/2)*(z - phi(y))^2]
 
       Average change per step:
                      
@@ -90,6 +92,100 @@ Extended Kalman Filter:
            df(y,z)/dz = d/dz[(1/2)*[ z - phi(u1*y-u0))^2 ]]
 
                       = z-phi(u1*y-u0)
+
+      Error between steps:
+
+           Steps of y^{k+1}:
+
+           k-step:       Discrete         Difference
+              0th:         1.165             ----
+              1st:         1.163             0.00
+              10th:        1.154             0.00
+              100th:       1.019             0.00
+              200th:       0.773             0.00
+
+           Steps of z^{k+1}:
+
+           k-step        Discrete         Difference
+              0th:         1.000             ----
+              1st:         0.779             0.08
+              10th:        0.510             0.01
+              100th:       0.336             0.00
+              200th:       0.308             0.00
+
+       The convergence plot (k vs difference) approaches zero. A graph shows a minimum when z and y near zero.
+ 
+Incremental Gradient Method:
+
+      alpha^k set at 0.99 for two hundred k-steps. 
+
+      A minimized function in the y- and z-directions:
+
+          y^{k+1} = y^k - alpha^k*df_i(y^k,z)
+
+                   = y^k - alpha^k*(e^(y_i)*(z*(e^{y_i}+1)-e^y_i)/(e^{y_i}+1)^3)
+
+          z^{k+1} = z^k - alpha^k*df_i(y,z^k)
+
+                  = z^k - alpha^k*[z^k-phi(y)]
+
+      Average change per ith-step:
+
+           df_i(y,z)/dy = d/dy[(1/2)*(z - phi(u1*y_i-u0))^2]
+
+                     = -u1*e^{u1*y_i+u0}*((z*(e^{u1*y_i}+e^u0)-e^{u1*y_i}))/(e^{u1*y_i}+e^u0)^3
+
+                     = e^{y_i}*(z*(e^{y_i}+1)-e^y_i)/(e^{y_i}+1)^3
+
+           df_i(y,z)/dz = d/dz[(1/2)*[ z_i - phi(u1*y-u0))^2 ]]
+
+                      = z_i-phi(u1*y-u0)
+
+      Error between steps:
+
+           Steps of y^{k+1}:
+
+           k-step:       Discrete         Difference
+              0th:         1.165             ----
+              1st:         1.122             0.04
+              10th:        0.697             0.07
+              100th:      -3.524             0.01
+              200th:      -4.020             0.00
+
+           Steps of z^{k+1}:
+
+           k-step        Discrete         Difference
+              0th:         1.000             ----
+              1st:         0.245             0.75
+              10th:        0.238             0.00
+              100th:       0.238             0.00
+              200th:       0.237             0.00
+
+Incremental Aggregated Gradient Method:
+
+      alpha^k set at 0.99 for two hundred k-steps.
+
+      A minimized function in the y- and z-directions:
+
+          y^{k+1} = y^k - alpha^k*sum_0_m-1[delf(y^{k-l,z}]
+
+                   = y^k - alpha^k*(e^(y^{k-l})*(z*(e^{y^{k-l}}+1)-e^y^{k-l})/(e^{y^{k-l}}+1)^3)
+
+          z^{k+1} = z^k - alpha^k*sum_0_m-1[delf(y,z^{k-l}]
+
+                  = z^k - alpha^k*sum_0_m-1[z^{k-l}-phi(y)]
+
+      Average change per ith-step:
+
+           df(y,z)/dy = d/dy[(1/2)*(z - phi(u1*y-u0))^2]
+
+                     = -u1*e^{u1*y+u0}*((z*(e^{u1*y}+e^u0)-e^{u1*y}))/(e^{u1*y}+e^u0)^3
+
+                     = e^{y}*(z*(e^{y}+1)-e^y)/(e^{y}+1)^3
+
+           df(y,z)/dz = d/dz[(1/2)*[z - phi(u1*y-u0))^2 ]]
+
+                      = z-phi(y)
 
       Error between steps:
 
@@ -111,17 +207,12 @@ Extended Kalman Filter:
               100th:       -----             ----
               200th:       -----             ----
 
- 
-Incremental Gradient Method:
-
-Incremental Aggregated Gradient Method:
-
 Rules Gauss-Newton Method:
         x^{k+1} = x^k - f(x)*delf(x^k)/del[delf(x)]
       
       Extended Kalman Filter:
         x^{k+1} = x^k - sum_1_n[delg*g]/H
-        H = sum_0_k[sum_1_n[delg*g]]     
+        H = sum_0_k[sum_1_n[delg*g]]+Noise     
  
       Incremental Gradient Method:
        x^{k+1} = x^k - alpha^k*delf_i(x^k)
