@@ -1,0 +1,22 @@
+Question 2.4.5
+
+Function: f is real
+
+When Lipschitz constant ||delf(x)-delf(y)||<= L||x-y|| and lim(k->inf)alpha^k = inf
+                                                       and lim(k->inf)(alpha^k)^2 < inf
+
+A proof f(x^k)->-inf or f(x^k) converges:
+
+         x^{k+1} = x^k + alpha^k*(delf(x^k)+w^k)
+
+         f(x^{k+1}) = f(x^k) - alpha^k*delf(x^k)(delf(x^k)+w^k) + (alpha^k)^2*(L/2)||delf(x^k)+w^k||^2
+
+                    <= f(x^k) - alpha^k*c||delf(x^k)||^2+(alpha^k)^2*d*||delf(x^k)|| + (alpha^k)^4*q^2*L
+
+The orignal limits about alpha^k and (alpha^k)^2 show f(x^k)->-inf or a constant value.      
+
+
+
+Rules: General Method:
+         x^{k+1} = x^k - alpha^k*(delf(x^k)+w^k)
+         where ||w^k|| <= alpha^k*(q+p||delf(x^k)||

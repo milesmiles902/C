@@ -1,0 +1,61 @@
+Question 2.4.4
+
+Function = eta_i = 1/(1+mu+...+mu^{m-i})
+
+Initial Conditions: h0=0
+
+a) When mu=0, the method coincides with the incremental gradient method:
+     
+     eta_i = 1/(1+mu+...+mu^{m-i})
+
+           = 1
+
+     Psi_i = x^k - alpha^k*h_i
+
+           = x^k - alpha^k*[mu*h_{i-1}+sum__1_i[eta(mu)*delg_j(psi_j-1)*g(psi_j-1)]]
+
+           = x^k - alpha^k*delg_j(psi_j-1)
+
+   As mu becomes infinity, the general method coincides with steepest descent:
+
+     eta_i = 1/(1+mu+...+mu^{m-i})
+
+           = 0
+
+     Psi_i = x^k - alpha^k*h_i
+
+           = x^k - alpha^k*[mu*h_{i-1}+sum__1_i[eta(mu)*delg_j(psi_j-1)*g(psi_j-1)]]
+
+           = x^k + alpha^k*[delf(x*)/||delf(x^k)||
+
+b) When mu>0, then the model fits steepest descent. 
+      
+       lim (k->inf) f(x^{k+1}) = lim (k->inf) f(x^k + alpha^k*[delf(x*)/||delf(x^k)||)
+                               
+                               = alpha*k*f(x*)      
+
+       A solution, x* appears in limit of x(alpha) and y(alpha).
+
+           lim (alpha->0) f(x^{k+1}) = f(x*)
+     
+c) Please answer the question using part b.
+
+Rules: Generalized increments:
+         Psi_i = x^k-alpha^k*h_i
+         h_i=mu*h_{i-1}+sum__1_i[eta(mu)*delg_j(psi_j-1)*g(psi_j-1)]
+
+       Incremental Gradient Method:
+       x^{k+1} = x^k - alpha^k*delf_i(x^k)
+
+       Steepest Descent Method:
+         D^k=1, k=0,1,...,
+         Normalized Negative Gradient: d^k=-delf(x*)/||delf(x^k)||
+         Iteration: x^{k+1} = x^k-alpha*(D^k)*delf(x^k) where d^k=-D^k*del(f^k)
+
+       Proposition 2.4.1:
+         f(x) = (1/2)*x'*Q*x-bx
+         x^{k+1} = x^k + alpha^k*sum_1_m[b-Q*psi]
+         psi = psi_{i-1} + alpha^k*(b-Q*psi_{i-1})
+         a) ||x^k-x(alpha)|| = 0
+         b) alpha^k->0, sum_0_inf[alpha^k]=inf, then x^k->x*
+ 
