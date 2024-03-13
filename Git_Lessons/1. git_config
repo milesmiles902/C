@@ -1,0 +1,100 @@
+Commands: pull.ff only
+          pull.rebase true
+          merge.conflictstyle zdiff3
+          rebase.autosquash true
+          rebase.autostash true
+          push.default simple
+          push.default current
+          push.autoSetupRemote true
+          init.defaultBranch main
+          commit.verbose true
+          rerere.enabled true
+          help.autocorrect 10
+          core.pager delta
+          diff.algoritm historgram
+          core.excludesfile
+          includeIf
+          url "git@github.com"
+          fsckobjects
+          status.submoduleSummary true
+          diff.submodule log
+          submodule.recurse true
+
+Important functions accessed by .git_config or git config --global <command>
+
+man git-config for further information.
+          
+pull.ff only AND pull.rebase true
+= Notes: The commands avoid accidental collisions for a merge commit
+= pull.rebase true is git pull --rebase
+= pull.ff only is git pull --ff-only
+
+merge.conflictstyle zdiff3
+= Notes: The command eliminates unreadable merge conflicts.
+= merge.conflictstyle is git checkout --conflict=diff3
+
+rebase.autosquash true
+= Notes: A command feature for changing commit types 
+= rebase.autosquash true is git rebase --autosquash main
+
+push.default simple AND push.default current AND push.autoSetupRemote true
+= Notes: An option pushing a commit into a remote branch with the same name
+= simple is default
+= current is a local branch
+= true is a push tracks the first branch
+= push.default is git push
+
+init.defaultBranch main
+= Notes: A git config option for creating a main instead of a master branch
+= init.defaultBranch main has similarities with git init
+
+commit.verbose true
+= Notes: The command for a verbose difference when committing
+= commit.verbose true is git add -v
+
+rerere.enabled true
+= Notes: A note for merge conflicts during rebase for later resolution
+= rerere.enabled true is git rerere
+
+help.autocorrect 10
+= Notes: A setting for suggesting autocorrect every one-, two- or n-seconds
+= help.autocorrect 10 is a setting at git checkout master when git cheeekekeout master
+
+core.pager delta
+= Notes: A fancy viewing tool for commit differences at git diff, git log, and git show
+= core.pager delta changes git add -p
+
+diff.algorithm.histogram
+= Notes: A setting or command about altering viewers in a commit
+= diff.algorithm.histogram is git diff --diff-algorithm=<type>
+
+core.excludesfile
+= Notes: A setting about ignoring file types when at a final stage
+= core.excludesfile alters git push
+
+includeIf
+= Notes: A configuration for different email address in a work repository
+= includeIf happens with git config, but ultimately, alters git push
+
+url "git@github.com"
+= Notes: An alternative toward not altering .git/config by setting a git remote link
+= url "git@github.com is git remote add insteadof="mysite"
+
+fsckobjects
+= Notes: A detection for data corruption 
+= fsckobjects is git config --local <transfer,fetch,receive>.fsckobjects true
+
+submodule stuff
+= Notes: A setting for listing commit differences
+= submodule stuff occurs with git config --local <status.submoduleSummary true>, <diff.submodule log>, <submodule.recurse true>
+
+Common git config commands:
+git config --global init.defaultBranch main
+git config --global push.autoSetupRemote true
+git config --global merge.tool meld
+git config --global diff.colorMoved default
+
+git config --global diff.algorithm histogram
+git config --global branch.sort -committerdate
+git config --global merge.conflictstyle zdiff3
+
