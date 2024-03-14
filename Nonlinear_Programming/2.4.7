@@ -1,0 +1,41 @@
+Question 2.4.7:
+
+Function: f is a quadratic with eigenvalues within an interval [a,b] where a > 0.
+
+Constraint: ||delf_k(x^k)|| < error ; The absolute change is less than a threshold.
+
+The quadratic function symbolized by a cost function is many formula with polynomial order greater than two. A verbal slang:
+       
+       f(x) = (1/2)*x'*Q*x+b*x
+
+A derivative about the cost function:
+ 
+       delf(x) = x'*Q + b
+ 
+               = 0
+
+            x* = b/Q
+      
+When the steps approach x*:
+
+       x^{k+1} - x* = x^{k} - alpha^k*delf_k(x^k) - x* 
+                    
+                    = x^{k} - alpha^k*(x'Q+b) - x* - alpha^k*delf_k(x*)
+ 
+                    = x^{k} - alpha^k*x'Q + alpha^k*Q*x* - x* - alpha^k*delf_k(x*)
+            
+                    = (1-alpha^k*Q)(x^{k}-x*) - alpha^k*delf_k(x*)  <------The last term is zero because the derivative at the minimum.
+
+...
+
+
+
+Rules: Gradient Method:
+        x^{k+1} = x^k-alpha*delf_k(x^k)
+
+        Proposition 1.3.2 (Superlinear Convergence of Newton-Like Methods)
+          Function: x^{k+1} = x^k + alpha^k*d^k
+          Conditions: x^k -> x* ; delf(x*) = 0 ; del[delf(x*)] = positive definite
+          Assumption: lim (k->inf) ||d^k+delf(x^k)/del[delf(x*)]||/||delf(x^k)|| = 0
+          If true: lim(k->inf) ||x^{k+1}-x*||/||x^k-x*|| = 0
+

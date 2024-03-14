@@ -2,8 +2,42 @@ Question 2.4.6
 
 Function: f(x) = sum_1_m [f_i(x)]
 
+Constraints: ||delf_i(x)-delf_i(y)|| <= L||x-y||
+             ||delf_i(x)|| <= C + D||delf(x)||
 
+The similiarities between Question 2.4.5 and this example are large:
 
+A cost function has errors per step:
+ 
+       f(x^k) = sum_1_m [f_i(x^k)]
+         
+       f(x^{k+1}) = sum_1_m [f_i(x^{k+1})]
+ 
+                  = sum_1_m [f_i(x^k - alpha^k*(delf(x^k)+w^k)))]
+
+Error per measurement, w is the quantity away from an actual step, possibly an instrument's increment error:
+  
+       w^k = delf_i(x^k)-delf_i(x^k-alpha^k*(delf(x^k)))
+
+The absolute error is less than an accummulated error, possibly an instrument's accumulated error:
+
+      ||w^k|| <= L*||alpha^k*(delf(x^k))|| 
+
+              <= L*alpha^k*(C + D||delf(x^k)||)
+
+The rest of the problem was the limit from Question 2.4.5.
+ 
 Rules: Incremental Gradient Method:
          x^{k+1} = x^k - alpha^k*delf_i(x^k)
  
+       Convergence Gradient Method with Errors:
+         x^{k+1} = x^k - alpha^k*(delf(x^k)+w^k)) 
+         ||w^k||<=alpha^k*(q+p||delf(x^k)||)
+
+       Proposition 2.4.1:
+         f(x) = (1/2)*x'*Q*x-bx
+         x^{k+1} = x^k + alpha^k*sum_1_m[b-Q*psi]
+         psi = psi_{i-1} + alpha^k*(b-Q*psi_{i-1})
+         a) ||x^k-x(alpha)|| = 0
+         b) alpha^k->0, sum_0_inf[alpha^k]=inf, then x^k->x*
+
