@@ -1,0 +1,32 @@
+Question 2.4.8
+
+Function: sum_1_m [||g_i(x)||^2]
+
+Constraint: lambda = 1
+
+A stationary convergence occurs in an Extended Kalman Filter with a constraint coefficient.
+
+If x^k describes psi, then in an Extended Kalman Filter:
+
+      x^k=psi
+ 
+      x^{k+1} = x^k - sum_1_m[delg*g]/H
+
+      H = sum_0_k[sum_1_m[delg*g]] + Noise 
+
+A large k simplifies the sums about slope into coefficients (pg 183):
+
+      x^{k+1} = x^k - m[delg*g]/[m(k+1)delg*g]
+ 
+              = x^k - 1/(k+1)
+
+The stepsize diminishes with the limit of k in a denominator and converges!
+
+Rules: Simple Kalman Filter:
+         psi=argmin[sum_1_i*lambda^{i-j}||g_j(x,psi)||^2] 
+         g_j(psi)=g_j(psi)+delg_j(x)*(x-psi)
+       
+       Extended Kalman Filter:
+         x^{k+1} = x^k - sum_1_m[delg*g]/H
+         H = sum_0_k[sum_1_n[delg*g]]+Noise     
+
