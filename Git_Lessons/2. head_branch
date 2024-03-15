@@ -1,0 +1,19 @@
+Commands: git show HEAD
+          git status
+          git diff HEAD
+          git rebase -i HEAD^^^^
+          git log
+          
+An information set about the ,git/HEAD file
+
+1. The command (git show HEAD) accesses the ,git folder, specifically the HEAD file.
+
+2. Inside of .git/HEAD is the name of a branch (/main) and commit ID (f828db5e36fda558054d1c7d9c2ced6e60b16c84).
+
+3. The reference from (git status) is this file.
+
+4. A (git log) command shows information about branch conflicts from .git/HEAD.
+
+4. An .git/HEAD error requires a search for a branch (git log main) or checkout (git checkout main). As example, an empty HEAD file having no information because deletion.
+
+
