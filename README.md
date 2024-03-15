@@ -2,6 +2,9 @@
 
 Cite: W. Richard Stevens and Stephen A. Rago. 2013. Advanced Programming in the UNIX Environment (3rd. ed.). Addison-Wesley Professional.
 
+<ins>Git Lessons</ins>
+Cite: Miles Taylor (2024)
+
 <ins>Nonlinear Programming</ins>
 
 Cite: Bertsekas, D. P. (1995). Nonlinear Programming. Belmont, MA: Athena Scientific. 
