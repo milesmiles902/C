@@ -1,7 +1,7 @@
 Commands:  git cat-file -p <commit ID>
            git ls-files --stage
 
-The files within the ,git folder are human readable. On Unux (cat) or Windows (type) accesses a .git/<file>.
+The files within the .git folder are human readable. On Unux, (cat), or Windows, (type), accesses a .git/<file>.
 
 A limited list:
 
