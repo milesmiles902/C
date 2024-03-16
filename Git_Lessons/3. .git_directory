@@ -1,0 +1,32 @@
+Commands:  git cat-file -p <commit ID>
+           git ls-files --stage
+
+The files within the ,git folder are human readable. On Unux (cat) or Windows (type) accesses a .git/<file>.
+
+A limited list:
+
+.git/HEAD
+= Notes: A file with <branch> and sometimes <commit ID> inside.
+
+.git/refs/heads/<branch>
+= Notes: The main branches <commit ID>.
+
+.git/objects/<folder>
+= Notes: A directory relating parent, author, tree, and blob folders. Each file relates a <commit ID> by a command (git cat-file -p <commit ID>).
+
+.git/logs/refs/heads/<branch>
+= Notes: A file holding history about <commit ID>, user, timestamp, and log.
+
+.git/refs/remotes/origin/<branch>
+= Notes: The recent identification code known as <commit ID>.
+
+.git/config
+= Notes: A location where every local commit associates for local settings and configurations.
+
+.git/hooks/pre-commit
+= Note: A file set with scripts and personal commands run at local commit. The scripts run in #!/bin/bash.
+
+.git/index
+= Notes: The command (git ls-files --stage) prints .git/index for recent file alterations.
+
+

@@ -1,0 +1,7 @@
+Question 2.4.11
+
+Rules: Proposition 2.4.5:
+         Full Rank: delg_i(x)
+         ||delg_i(x)*g(x)-delg_i(y)*(y)|| <= L||x-y||
+         The update formulate within the kth cycle:
+           0 <= 1-(lambda(k))^m <= c/k

@@ -1,0 +1,30 @@
+Question 2.4.10:
+
+Initial Condition: x0=x^k; 
+                   H0=0;
+
+Constraints: lim(k->inf ) alpha^k = constant
+             0 < alpha < 2
+
+a) lim(k->inf) x^{k+1} = lim(k->inf) x^k - alpha^k*delg*g/H
+  
+                       = lim(k->inf) x^k - alpha^k*delg*g/(lambda*H0+delg*g)
+ 
+                       = lim(k->inf) x^k - alpha^k 
+
+                       = x^k - constant
+
+b) If sum_k_inf [alpha^k] = inf and sum_0_inf [(alpha^k)^2] < inf, then every limit point is a stationary point. The diminishing stepsize from part (a) is Proposition 1.2.3. x^k is a stationary point of f.  
+
+Rules: Modification about an Extended Kalman Filter:
+         x^{k+1} = x^k - alpha^k*delg*g/H
+         H = lambda*H_{i-1}+delg*g
+
+       Prop 1.2.3: Diminishing Stepsize
+        x^{k+1} = x^k + alpha^k*d^k
+        c||delf(x^k)||^2 <= -delf(x^k)'*d^k 
+        ||d^k||^2 <= c||delf(x^k||^2
+        If alpha^k->0, sum_0_inf [alpha^k] = inf
+        then, f(x^k)->-inf or f(x^k) converges to a finite value and delf(x^k)->0
+        Also, x^k is a stationary point of f
+        
