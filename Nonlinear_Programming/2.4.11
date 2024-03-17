@@ -1,6 +1,40 @@
 Question 2.4.11
 
-Rules: Proposition 2.4.5:
+Interval Constraint for Extended Kalman Filter: [c1*k,c2*k]
+
+The derivation for the eigenvalue bounds in the constraint relate to Proposition 2.4.5. 
+
+         0 <= 1-lambda^m <= c/k
+
+There exists positive scalars c1 and c2 such that for all k, the eigenvalues of the matrix H lie within the interval [c1*k,c2*k].
+
+         H = lambda*H_{i-1}+lambda^{m-i}*delg*g
+
+The lowest eigenvalue (v_k) is shifted from the lowest boundary:
+ 
+        c1 < v_k+mb < v_{k} < c2 
+
+A coefficient (k) multiplied through the interval:
+ 
+        c1*k < k*v_k+k*mb < v_{k+1}*k < c2*k
+
+An inductive step from Proposition 2.4.5:
+
+        0 <= 1-lambda^m <= c/k
+ 
+        0 <= 1-c/(k+1) <= lambda_{k+1}
+
+The final step assumes the largest eigenvalue is a multiple of 1-c/(k+1).
+
+        c1*k <= (1-c/(k+1)*v_k + (1-c/(k+1))*mb <= v_{k+1} <= c2*k
+
+An interval with eigenvalues.
+
+Rules: Extended Kalman Filter:
+         x^{k+1} = x^k - sum_1_m[delg*g]/H
+         H = lambda*H_{i-1}+delg*g+Noise  */
+
+       Proposition 2.4.5:
          Full Rank: delg_i(x)
          ||delg_i(x)*g(x)-delg_i(y)*(y)|| <= L||x-y||
          The update formulate within the kth cycle:

@@ -1,0 +1,31 @@
+Commands: git log --oneline <branch>
+          git log --all --online --graph
+          git switch <branch>
+          git rebase main
+          git reset --hard <commit ID>
+          git merge-base main <branch>
+          git checkout main
+          git rebase <branch>
+          git diff <branch #1>...<branch #2>
+
+The main commit has branches with parents, children, annd root bases. A parent connects a child at a root.
+
+History:
+= Notes: A list showing past commits (git log --oneline <branch>). A graph showing past commits (git log --all --oneline <branch>). 
+
+Commit ID:
+= Notes: .git/refs/heads/ is a directory with each branch's commit ID command.
+
+Rebases:
+= Notes: Rebase changes a branches root in the main repository tree. A copy and paste from a branch label to another branch label. (git switch <branch #2>, git rebase <branch #1>, git log --oneline <branch #2>
+
+Merges:
+= Notes: A merge compares commits and branches. (git switch mybranch, git reset --hard <commit ID>, git merge-base <branch #1> <branch #2>
+
+Checkout:
+= Notes: Checkout is the branch to alter (git checkout <branch #1>) with rebase (git rebase <branch #2>.
+
+Differences:
+= Notes: The command (git diff <branch #1>...<branch #2>) compares repositories.
+
+
