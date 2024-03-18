@@ -1,0 +1,6 @@
+Commands: git clone <web_page>
+
+A repository download requires a command (git clone <web_page>)
+
+git clone
+=Notes: Git's command, "git clone" enables not only a repository download, but also logs and branch information inside a directory.

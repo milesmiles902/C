@@ -1,0 +1,76 @@
+Question 2.5.1
+
+Function: f(x)=(1/2)*x'*Q*x
+
+Constraints: x in the set of R2
+ 
+             Q = |  1 -b |
+                 | -b  c |
+
+a) With an assumption b*b < c, so Q > 0, an asynchronous gradient method converges toward zero:
+
+       df(x)/dx = Q*x
+
+       x^{k+1} = { x^k                    if k is not in subset time
+                 { x^k-alpha^k*df_i/dx_i  if k is in subset time
+
+               = { x^k                    if k is not in subset time
+                 { x^k-alpha^k*Q*x^k  if k is in subset time
+
+               = { x^k                    if k is not in subset time
+                 { (1-alpha^k*Q)*x^k  if k is in subset time
+ 
+   A convergence necessitates decreasing steps for a contraction; a weighted sup-norm ||*||.
+
+         eta_i = x^k
+ 
+         (1-alpha^k*Q)*eta_i <= eta_i
+
+          eta_i*alpha^k*Q >= 0
+
+          eta_i*Q >= 0
+
+   Also, Diminishing Stepsize (Proposition 1.2.3) has an error region less and greater than the minimum, or two errors:
+ 
+          eta_1/(1) <= ||delf(x*)||
+
+          ||delf(x*)|| <= eta_2/(eta_i*Q)
+ 
+   So, the contraction relationship becomes:
+
+           0 < alpha < min(2*eta_1 ; 2*eta_2/(eta_i*Q))
+  
+   The problem shows a predetermined alpha for a convergence or gradient problem. In earlier attempts with an algorithm, I proposed alpha=0.99, but maybe there is a region of intuition.
+
+b) When c=b=1, multiple minimums about asynchronous convergences, x1*=x2*, the problem needs an alpha=1/2. 
+
+   x1 describes processor #1, and x2 for processor #2. 
+
+   A total time delay (T) are the processors constraint.
+
+            x1^{k+1} = (1/2)^T*x1^k + (1-(1/2)^T)*x2^k
+
+            x2^{k+1} = (1-(1/2)^T)*x1^k + (1/2)^T*x2^k
+
+   The limit of time delay up to infinity converges each processor into no change.
+
+            lim(T->inf) x1^{k+1} = lim(T->inf) (1/2)^T*x1^k + (1-(1/2)^T)*x2^k
+
+                                 = x2^k
+
+            lim(T->inf) x2^{k+1} = lim(T->inf) (1-(1/2)^T)*x1^k + (1/2)^T*x2^k
+
+                                 =x1^k
+
+Rules: Gradient Method:
+        x^{k+1} = { x^k                    if k is not in subset time
+                  { x^k-alpha^k*df_i/dx_i  if k is in subset time
+   
+       Prop 1.2.3: Diminishing Stepsize
+         x^{k+1} = x^k + alpha^k*d^k
+         c||delf(x^k)||^2 <= -delf(x^k)'*d^k
+         ||d^k||^2 <= c||delf(x^k)||^2
+         If alpha^k->0, sum_0_inf [alpha^k] = inf
+         then, f(x^k)->-inf or f(x^k) converges to a finite value and delf(x^k)->0
+         Also, x^k is a stationary point of f
+        
