@@ -1,0 +1,14 @@
+Commands: git init <project directory>
+          git add .
+          git commit -m "patch"
+          git remote add origin git@github.com:username/repo_name
+          git push -u origin master         
+
+An initialization command (git init <project directory>) prepares a new repository from scratch.
+
+git init:
+= Notes: 1) The routine is initialization (git init), then never initialize again.
+         2) A website submission (git remote add origin git@github.com:username/repo_name) requires an origin address found when on the website in the top-right. 
+         3) Successive submissions are finalized by a command (git add., git commit -m "patch", git push -u origin master).
+
+

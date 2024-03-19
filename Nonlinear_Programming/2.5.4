@@ -1,0 +1,34 @@
+Question 2.5.4:
+
+Mapped Set: H_i(x,y) <= H_i(xbar,u) for all u with x <= xbar
+
+Function: f_i(x) = min H(x,u)
+
+          F(x) = (f_1, f_2, ..., f_n)
+
+Weighted sup-norm: |H_i(x,u)-H_i(xbar,u)|/eta <= ||x-xbar||
+
+Again, if the inequality becomes exact:
+
+       H_i(x,y) = H_i(xbar,u)
+
+       |H_i(x,u)-H_i(xbar,u)|/eta <= ||x-xbar||
+
+                                   = 0
+
+Both conditions in Proposition 2.5.1 are satisfied for every initial condition's convergence.
+
+Rules: Totally Asynchronous Fixed Point Iteration:
+         x^{k+1} = F_i(x1^k,...,xm^k)
+         x^{k+1} = {F_i(x1^tau,...,xm^tau)    k is real
+                   {x_i^k                     k is not real
+
+       Proposition 2.5.1:
+         S(k+1) is a subset of S(k)
+         1) Synchronous Convergence Conditions:
+              F(x) is an element of S(k+1)
+         2) Box Condition:
+              S(k) = S1(k) x .... x S_m(k)
+         Then every initial condition converges
+~                                                                                                                    
+
