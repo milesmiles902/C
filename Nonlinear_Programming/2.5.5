@@ -5,6 +5,26 @@ Function: x^{k+1} = f_i(x_1^tau,...,x_n^tau)
 Time delay in a processor: k-tau <= B
                            k-tau <= b where 0 < b < B
 
+Induction Hypothesis:
+
+            |x_{k+1} - x*| <= max{alpha*max|x-x*|, A*max|x-x*|}
+
+                           <= {alpha*ro^{t-b}, A*ro^{t-B}}*||x(0)-x*||
+
+                            = ro^{t+1}*||x(0)-x*||
+
+Convergence for b < B:
+
+            lim(k->inf) |x_{k+1} - x*| = lim(k->inf) ro^{t+1}*||x(0)-x*||
+
+                                       = alpha*ro^-b
+
+Convergence for b = B:
+
+            lim(k->inf) |x_{k+1} - x*| = lim(k->inf) ro^{t+1}*||x(0)-x*||
+
+                                       = 2*alpha*ro^-b
+
 Conditions: 1) |f_i(x) - x*| <= max{alpha*max|x-x*|, A*max|x-x*|}
             
             2) |f_i(x) - x*| <= alpha*max|x-x*| + A*max|x-x*|
