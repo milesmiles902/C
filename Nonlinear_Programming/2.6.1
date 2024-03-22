@@ -1,0 +1,30 @@
+Question 2.6.1
+
+Cost Function: f(x,u) = x^2+sum_0_{N-1} [u^2]
+
+Scalar System x_{i+1} = a*x_i+u_i
+
+A solution into the new system's eigenvalues:
+
+     | f(x,u)  | = | 2x    2*sum_0_{N-1} u | | f(x,u) |
+     | x_{i+1} |   | a              1      | | x_{i}  |
+
+The rate of convergence for f(x,u) is:
+
+      f(x^{k+1},u^{k+1})/f(x^k,u^k) = ((M-m)/(M+m))^2
+
+The eigenvalues, m and M, from f(x,u):
+
+      Q = (2-lambda)*(1-lambda)-(2*sum_0_{N-1}[u])(a)
+
+      m = [3-sqrt(16a*sum_0_{N-1}[u]+1)]/2 , and M = [3+4*sqrt(16a*sum_0_{N-1}[u]+1)]/2
+
+The first instance when a function's root is a summation or expansion. An eigenvalue as a summation is rare by authors.
+
+
+
+
+
+
+
+
