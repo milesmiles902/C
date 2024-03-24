@@ -4,22 +4,26 @@ Cost Function: f(x,u) = x^2+sum_0_{N-1} [u^2]
 
 Scalar System x_{i+1} = a*x_i+u_i
 
-A solution into the new system's eigenvalues:
+Partial Conjugate Gradients limit the number of iterations well below infinity. The guideline is a maximum number of cycles at zero curvature in the cost function. 
 
-     | f(x,u)  | = | 2x    2*sum_0_{N-1} u | | f(x,u) |
-     | x_{i+1} |   | a              1      | | x_{i}  |
+A model into the system's eigenvalues, Bertesekes (1974):
 
-The rate of convergence for f(x,u) is:
+      h(x,u) = x^2
+      
+          x* = 0;
+ 
 
-      f(x^{k+1},u^{k+1})/f(x^k,u^k) = ((M-m)/(M+m))^2
+      G(u) = sum_0_{N-1} [u^2]
 
-The eigenvalues, m and M, from f(x,u):
+      max[x'*d/dx[dG/dx(x*)]*x / x*S^-1*x
 
-      Q = (2-lambda)*(1-lambda)-(2*sum_0_{N-1}[u])(a)
+             = 2*x'*x/x*x
 
-      m = [3-sqrt(16a*sum_0_{N-1}[u]+1)]/2 , and M = [3+4*sqrt(16a*sum_0_{N-1}[u]+1)]/2
+             = 2
 
-The first instance when a function's root is a summation or expansion. An eigenvalue as a summation is rare by authors.
+The model presents a solution where control sequence's optimal number of cycles is two.
+
+
 
 
 
