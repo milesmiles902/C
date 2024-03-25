@@ -1,0 +1,46 @@
+Question 2.6.3:
+
+System Equation: x_{i+1} = f_i(x_{i+1}, x_i, u_i)
+
+Steepest Descent Method:
+
+      x_0 = | 0 |
+            | 0 |
+
+      x_i = | x_i |
+            | x_0 |
+
+      x_{i+1} = | f_i(x_{i+1}, x_i, u_i) |
+                |      x^i           |
+       
+              = | -alpha*(D^i)*delf(x*)/||delf(x^i)|| |
+                |                x^i                  |
+
+
+Conjugate Gradient Method:
+
+       x_0 = | 0 |
+             | 0 |
+
+       x_i = | x_i |
+             | x_0 |
+
+       x_{i+1} = | f_i(x_{i+1}, x_i, u_i) |
+                 |          x^i           |
+
+               = | sum_0_{i-1}[alpha^k,x^k] |
+                 |          x^i             | 
+
+Rules: Steepest Descent Method:
+         D^i=1, i=0,1,...,
+         Normalized Negative Gradient: d^i=-delf(x*)/||delf(x^i)||
+         Iteration: x^{i+1} = x^i-alpha*(D^i)*delf(x^i) where d^i=-D^i*del(f^i)
+
+       Conjugate Gradient Method: 
+         d*Q*d = 0
+         d = alpha*d + ... + alpha^{i-1}*d^{i-1}
+         d*Q*d = alpha*d + ... + alpha^{i-1}*d^{i-1} = 0
+         A successive iterate minimizes the function over a progressibly expanding linear manifold.
+
+
+

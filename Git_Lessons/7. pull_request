@@ -1,0 +1,14 @@
+Commands: git clone <repo_url>
+          git checkout -b <new_branch>
+          git commit -a -m "Version"
+          git push origin <new_branch>
+          git status
+          git pull <new_branch>
+
+A command about versions (git checkout -b <new_branch>) prepares a new branch where other repository owners download (git pull).
+
+git checkout:
+= Notes: 1) A repository fork through clone command (git clone <repo_url>
+         2) After modifications, two commands prepare (git checkout -b <new_branch>) and finalize the repository (git commit -a -m "Version label")
+         3) The signal for online features happens by a push (git push origin <new_branch>)
+         4) Other users confirm a repository status (git status) which a command downloads (git pull <new_branch>), sometimes labeled "upstream."
