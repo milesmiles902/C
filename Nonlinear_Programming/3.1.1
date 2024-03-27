@@ -1,0 +1,37 @@
+Question 3.1.1:
+
+Two-dimensional plane: a(y-y0) + b(z-z0) = 0
+
+Two points z1, z2
+
+Function: f(x,z)=||z1-x||+||z2-x||
+
+History: Heron of Alexandria lived about 10-75 C.E., shortest distance problem, similarities in China, and India. The original "Metrica's" alphabet looks Greek, except some characters which share other Greek roots or dialects in Mediterrarean.
+
+The Proposition characterizing the vector x* wnen X = {x|x>=0}:
+
+       a) df(x,z)/dx = (x-z1)/|x-z1| + (x-z2)/|x-z2|
+
+                     = 0
+
+                  x* = {x| (z1<=x)^(z2>x) | (z1>x)^(z2<=x)} 
+
+          f(x*)(x-x*) >= [||z1-x*||+||z2-x*||](x-x*)
+               
+                      >= c*(x-x*) where c = {c|[0,inf)}
+
+                      >= c*(x-z1) or c*(x-z2)
+
+                      >= 0
+
+        b) The limit as x approaches infinity shows an infinite solution, so x* minimizes x with most numbers.  
+
+           lim(x->inf) f(x,z) = lim(x->inf) ||z1-x||+||z2-x||
+
+                              = infinity
+
+            lim(x->inf) f(x,z) >= f(x*,z)
+
+Rules: Proposition 3.1.1:
+         a) If x*, then f(x*)(x-x*)>=0
+         b) If f is convex over X, then x* minimizes f over X
