@@ -1,0 +1,33 @@
+Question 3.1.3 (Keplars Planimetric Problem)
+
+Area Circle = pi*r*r ; r=radius
+
+Area of a rectangle = x*y; x=width; y=length;
+
+Constraint: r*r=x*x+y*y
+
+History: Johannes Keplar (1571-1630), German, styled by a neck ruff, frill, and crimped or pleated collar. The style usually worn in the mid-16th century by European and Spanish individuals. Elizabeth. The man discovered a supernove in 1604 and majors laws of planetary motion.
+
+A rectangle constrainted into a circle:
+
+  Area of a rectangle = x*y
+  
+                      = sqrt(r*r-y*y)*y
+
+The maximal length within the circle:
+
+  dArea/dy = d/dx [sqrt(r*r-y*y)*y]
+
+           = (1/2)*(-2y*y)/sqrt(r*r-y*y)+sqrt(r*r-y*y)
+
+           = 0
+
+        y* = r/sqrt(2)
+
+        r* = sqrt(2)*y
+
+Area of an optimal rectangle shows a square:
+
+   Area = sqrt(r*r-y*y)*y
+
+        = y*y

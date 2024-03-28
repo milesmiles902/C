@@ -1,0 +1,44 @@
+Question 3.1.6:
+
+Maximize f(x_i)=(x_1^a_1)*(x_2^a_2)*...*(x_n^a_n)
+
+subject to: sum_1_n [x_i] = 1
+
+The function looks multinomial and Lagrangian. 
+
+Lagrangian: lambda = 1-sum_1_n [x_i]
+
+The function under additional constraints:
+
+  f(x_i) = Π*(x_i^a_i) + lambda*[1-sum_1_n [x_i]]
+
+A derivative with the constraint term:
+ 
+  df(x_i)/dx_i = d/dx_i[Π*(x_i^a_i) + lambda*[1-sum_1_n [x_i]]
+
+               = 0
+
+  df(x_i)/dx_i = lambda*d/dx_i[1-sum_1_n [x_i]]
+
+        lambda = sum_1_n [a_i/x_i]
+
+A lambda re-entry in the constraint:
+
+  sum_1_n [x_i] = sum_1_n [a_i/lambda]
+ 
+                = 1
+
+         lambda = n
+
+  sum_1_n[x_i]  = (1/n)*sum_1_n[a_i]
+
+The average a-value maximizes the original function.
+
+
+
+ 
+
+     
+
+
+

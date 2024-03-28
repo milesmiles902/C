@@ -1,0 +1,5 @@
+Commands: git config --global user.name "Zues"
+          git config --global user.name
+
+git config --global user.name
+Notes: The config file in the first lesson stores a username (git config user.name "Mercury"). An optional feature (--global) assigns the username with every directory and not only the current working directory.

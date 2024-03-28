@@ -1,1 +1,29 @@
-Question 3.1.2
+Question 3.1.2 (Euclids Problem)
+
+Parallelogram: Area=x*y*sin(theta); x=base; y=height; theta=angle
+
+Triangle: Area=(1/2)*x*y*sin(theta); x=base; y=height; theta=angle
+
+Constraint: x+y=alpha. x>=0, y>=0
+
+The parallelogram's optimal solution has an angle exactly the triangle's angle.
+
+Area of a parallelogram with affine adjustment:
+ 
+  Area = (Triangle total area)-(Triangle A area)-(Triangle B area)
+
+       = (Triangle total area)-(Square ratio x/alpha)*(Triangle total area)-(Square ratio (x-alpha)/alpha)*(Triangle total area)
+       = [1-(x/alpha)*(x/alpha)-(x-alpha)*(x-alpha)/(alpha*alpha)]*(Triangle Total area)
+
+Maximal Area of a parallelogram:
+
+  dArea/dx = 2*(alpha-2*x)/(alpha*alpha)
+
+        x* = alpha/2
+
+Parallelogram area compared to a triangle:
+
+  Area = [1-(x*/alpha)*(x*/alpha)-(x*-alpha)*(x*-alpha)/(alpha*alpha)]*(Triangle Total area)
+
+       = (1/2)*(Triangle Total Area)
+
