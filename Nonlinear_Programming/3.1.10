@@ -1,0 +1,15 @@
+Question 3.1.10:
+
+Function: f(x) = x*x
+
+Proof of a minimum by convexity:
+
+  df(x)/dx = 2x
+ 
+  d/dx[df(x)/dx] = 2 > 0;
+
+An evaluation about (x-x*)*d/dx[df(x)/dx](x-x*) >= 0
+
+                    (2x*)*x = 0; True;
+
+...
