@@ -1,0 +1,34 @@
+Commands: ssh-keygen -t rsa -b 4096 -C "email@server.com"
+          cat /home/user/.ssh/id_rsa.pub.
+          ssh -T git@github.com
+
+ssh-keygen -t rsa -b 4096 -C "email@server.com"
+Notes: I ran a command (ssh-keygen -t rsa -b 4096 -C "email@server.com") with features: [-b, Number of bits], [-C, a comment] and [-t, encryption type: dsa | ecdsa | ed25519 | rsa | rsa1]. This came up:
+
+	Generating public/private rsa key pair.
+1)	Enter file in which to save the key (/home/user/.ssh/id_rsa): 
+2)	Created directory '/home/user/.ssh'.
+3)	Enter passphrase (empty for no passphrase): 
+4)	Enter same passphrase again: 
+	Your identification has been saved in /home/user/.ssh/id_rsa.
+5)	Your public key has been saved in /home/user/.ssh/id_rsa.pub.
+	The key fingerprint is:
+	SHA256:9h32h/CWBjI7RppUNHz7sgusMjh6odJV6pGpA/Fs5ps email@server.com
+	The key's randomart image is:
+	+---[RSA 4096]----+
+	|         .o      |
+	|         ....    |
+	|          .. .   |
+	|.     .  .  .    |
+	| +   =  S + =.   |
+	|. = B  o * *.*.o |
+	| * = +  o B .oB .|
+	|. *.= o  o o.o . |
+	| .E= . o.   ..   |
+	+----[SHA256]-----+
+
+The lines (1),(2),(3), and (4), I disregarded by the <Enter> key. Github's website associates a code with output above in Settings. Line (5) describes a file location for further credentials (cat /home/user/.ssh/id_rsa.pub).
+
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC3oBea9vsVAXHUOwthHhkI3k01xqZUHau4gF26A3D7u90v1a1rXFWLH7BCM3PbMwoU0po/hbfOmBrBcgMs1+fWAt9MSh/EGi3REiCIriIn9En2eyDmYhl5afTeKfjDs/hf6SudSTKhyiX22yMHLKDVtCRzILt3Drb4iVRvh9aOvXq/ws8wJa9CfZvDsiFiAdLJXisHZNxM7XeaPvPL1mnKLLbCxUSj6tQaXe/HdkeVa7llbeXyYBU6WWfAWUbYVg6th0idt3bM2yCOwZmIuY8zauNDk0qDUO6dPRCIxSM+46s57JIOZPLyLzQXs10LEhrdC+3t0VCtK0FpkFaB5BEcW6jTbNcgYk98wXg+qLAdc5wiLzgFY9lBID5wvBkq62o5FNOt3l86wgyltaOz6YyaMEFm2VFw5oppONuz3ABqCc4LozCMEBQfo8prUDb2+bEN1a+ZvKqbnPybIIi0AtLuOHZmDSouXErWPpfkLGhT1yjoCU3tT/NIqgLtfmCiFuNnSaBLpdHWEyqsIBY9qjuw2iYjBJPB/9p8TFy27EbBuG/pHLrLagNp0JuQPRCYqY0/vbOmhXPv0vhmnqRubmESLKrEgqmN3wkp/2yku5KATkSQgwVXzzNMjsuw4B3KBti/ufoCyJtv+L0jsW2mw7yDU+MRVybBjPxU6gQ0fSwdZw== email@server.com
+
+Copy and paste the extensive code onto Github. Sequentially, login (ssh -T git@github.com) as usual.
