@@ -10,6 +10,6 @@ Proof of a minimum by convexity:
 
 An evaluation about (x-x*)*d/dx[df(x)/dx](x-x*) >= 0
 
-                    (2x*)*x = 0; True;
+                    x*(2x*)*x = 0; True;
 
-...
+

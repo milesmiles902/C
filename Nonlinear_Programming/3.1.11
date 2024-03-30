@@ -1,0 +1,28 @@
+Question 3.1.11
+
+Function: f(x)=x*x
+
+Local Minimum: delf(x*)'(x-x*)>=0
+
+Proof of a minimum by convexity:
+
+  df(x)/dx = 2x 
+ 
+  d/dx[df(x)/dx] = 2 > 0;
+
+The minimum value: 
+
+  df(x)/dx = 2x
+
+        x* = 0
+
+An evaluation about f(x*)(x-x*) >= 0
+
+                    (x*)(x*)*x = 0;
+
+Part (I) holds true, too:
+
+       (x-x*)d/dx[df(x)/dx](x-x*) = 2x^4  
+
+                                  > 0 when x!=x* because a positive squared is positive and negative squared is positive.
+      (x-x*)d/dx[df(x*)/dx](x-x*) = 0  
