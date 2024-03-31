@@ -89,7 +89,7 @@ int main(){
   beta = {0,0,0,0,0};
   Calculation(alpha,beta,x,precision);
 
-  std::cout <<"A finalizationist, tomorrow." << std::endl;
+  std::cout <<"A final, tomorrow." << std::endl;
   return 0;
 }
 
