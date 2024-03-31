@@ -1,0 +1,14 @@
+Commands: git log --stat
+          git log --patch
+          git log --graph --decorate
+
+The repository log records history in the directory. For further help, visit git log --help with considerations.
+
+git log --stat
+Notes: A list about every file change with a histogram, including date, and a count of insertions, and deletions.
+
+git log --patch
+Notes: An exact representation by character showing each commit "patch".
+
+git log --oneline --graph --decorate
+Notes: The exhaustive commit list by shortened Commit ID. The command (git log --oneline..) removes dates and usernames in a simple format.  
