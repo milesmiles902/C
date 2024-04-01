@@ -1,0 +1,15 @@
+Question 3.1.13
+
+Vector: a1, a2,...,am
+
+Function: f(x,a) = sum_1_m[ || X-a ||^2 ]
+
+The function projected onto a convex set X:
+
+     sum_1_m[ || X-a ||^2 ] = sum_1_m [x-a]
+
+                            = x - sum_1_m [a]
+
+Rule: Projection Rule:
+       ||z||^2 = ||X||^2 + ||Z-X||^2
+
