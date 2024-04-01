@@ -1,0 +1,13 @@
+Commands: git rm <file>
+          git reset HEAD
+          git checkout .
+          git reflog
+
+A files removal updates with a command (git rm <file>), otherwise, the file's absent in the update. Normal file removal never appears in the current HEAD without git's aid.
+
+git rm <file>
+Notes: Unlike normal file structures, a file reversion exists with Github (git reset HEAD, git checkout). If a commit already occured, then a reference log (git reflog) is the reversion method.
+
+
+
+

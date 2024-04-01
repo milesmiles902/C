@@ -53,7 +53,7 @@ void Calculation(vector<int> alpha, vector<int> beta, std::vector<double> x, dou
   for(i=0;i<x.size();i++){
     x[i] = alpha[i]*x[i]+(1/2)*beta[i]*x[i]*x[i];
   }
-  std::cout <<"The minimum is: " << Projection(x) << std::endl;
+  cout <<"The minimum is: " << Projection(x) << endl;
   return;
 }
 
@@ -61,35 +61,35 @@ int main(){
   int n = 5;
   std::vector<int> alpha = {1,2,3,4,5};
   std::vector<int> beta = {2,4,6,8,10};
-  std::vector<double> x = {11,22,33,55,44};
+  std::vector<double> x = {10/100,30/100,9/100,50/100,1/100};
  
   double precision = 10e-3;
  
-  std::cout <<"Initial alpha: "<< std::endl;
+  cout <<"Initial alpha: "<< endl;
   for(int i=0;i<n;i++){
-    std::cout << alpha[i] << " ";
-  } std::cout << std::endl;
+    cout << alpha[i] << " ";
+  } cout << endl;
 
-  std::cout <<"Initial beta: "<< std::endl;
+  cout <<"Initial beta: "<< endl;
   for(int i=0;i<n;i++){
-    std::cout << beta[i] << " ";
-  } std::cout << std::endl;
+    cout << beta[i] << " ";
+  } cout << endl;
 
-  std::cout <<"Initial x: "<< std::endl;
+  cout <<"Initial x: "<< endl;
   for(int i=0;i<n;i++){
-    std::cout << x[i] << " ";
-  } std::cout << std::endl;
+    cout << x[i] << " ";
+  } cout << endl;
  
-  std::cout <<"Initial precision: " << precision << std::endl;
+  cout <<"Initial precision: " << precision << endl;
  
-  std::cout <<"Case #1: Beta > 0 " << std::endl;
+  cout <<"Case #1: Beta > 0 " << endl;
   Calculation(alpha,beta,x,precision);
 
-  std::cout <<"Case #2: Beta = 0 " << std::endl;
+  cout <<"Case #2: Beta = 0 " << endl;
   beta = {0,0,0,0,0};
   Calculation(alpha,beta,x,precision);
 
-  std::cout <<"A final, tomorrow." << std::endl;
+  cout <<"A final, tomorrow." << endl;
   return 0;
 }
 
