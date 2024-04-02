@@ -1,3 +1,5 @@
+#include "nr3.h"
+
 void gaussj(MatDoub_IO &a, MatDoub_IO &b) {
   Int i,icol,irow,j,k,l,ll,n=a.nrows(),m=b.ncols();
   Doub big,dum,pivinv;
@@ -22,7 +24,7 @@ void gaussj(MatDoub_IO &a, MatDoub_IO &b) {
       for (l=0;l<n;l++) SWAP(a[irow][l],a[icol][l]);
       for (l=0;l<m;l++) SWAP(b[irow][l],b[icol][l]);
     }
-    indxr[i]=row; //Index to divide pivot row by the pivot element, located at irow and icol.
+    indxr[i]=irow; //Index to divide pivot row by the pivot element, located at irow and icol.
     indxc[i]=icol;
     if (a[icol][icol] == 0.0) throw("gaussj: Singular Matrix");
     pivinv=1.0/a[icol][icol];
@@ -34,14 +36,14 @@ void gaussj(MatDoub_IO &a, MatDoub_IO &b) {
         dum=a[ll][icol];
         a[ll][icol]=0.0;
         for (l=0;l<n;l++) a[ll][l] -= a[icol][l]*dum;
-        fpr (l=0;l<m;l++) b[ll][l] -= b[icol][l]*dum;
+        for (l=0;l<m;l++) b[ll][l] -= b[icol][l]*dum;
       }
     }
   }
   for (l=n-1;l>=0;l--) {
     if (indxr[l] != indxc[l])
       for (k=0;k<n;k++)
-        SWAP(a[k][indxr[l]],a[k][indxc[l]i]);
+        SWAP(a[k][indxr[l]],a[k][indxc[l]]);
   }
 }
 
@@ -49,3 +51,4 @@ void gaussj(MatDoub_IO &a) {
   MatDoub b(a.nrows(), 0);
   gaussj(a,b);
 }
+
