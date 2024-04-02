@@ -6,9 +6,27 @@ Function #1: g(x_n) = sum_0_{N-1} [g(x_i,u_i]
 
 Constraints: x_{i+1} = f_i(x,u) where u is real
 
-Hamiltonian: H(x,u,p_{i+1}) = g(x,u) + p*f(x,u)
+Hamiltonian: H(x,u,p_{i+1}) = g(x,u) + p'*f(x,u)
 
 Terminal Condition: p_i*=d/dx[H(x*,u*,p*)]
+
+Proof:
+
+  delH(x,u,p)(u-u*)>=0
+
+  1) A solution about u*:
+               
+      u* = argmin(H(x*,u,p*)
+    
+         = 0
+
+  delH(x,u,p)(u-u*) = d/du[H(x,u,p)](u-u*)
+
+                    = d/du[g(x,u)+p'f(x,u)](u-u*)
+         
+                    = [0+d/du[0*f(x,u)]](u-0)
+
+                   >= 0
 
 Rule: Proposition 3.1.1:
         a) f(x*)(x-x*) >= 0

@@ -1,0 +1,23 @@
+Question 3.1.15:
+
+Function: x_{i+1} = x_i + w*u_i*x_i
+
+Constraint: min_u[ x_N + sum_0_{N-1}[ (1-u)x_i ] ]
+
+1) If w > 1, prove u = 1:
+ 
+   H(x,u,w) = x_{i+1} + lambda*min[ x_N + sum_0_{N-1}[ (1-u)x_i ] ]
+
+            = x_i + w*u_i*x_i + lambda*min[ x_N + sum_0_{N-1}[ (1-u)x_i ] ]
+
+   d/dx[H(x,u,w)] = d/dx[x_i + w*u_i*x_i + lambda*min_u[ x_N + sum_0_{N-1}[ (1-u)x_i ] ]
+]
+ 
+   d/du[H(x,u,w)] = d/du[x_i + w*u_i*x_i + lambda*min_u[ x_N + sum_0_{N-1}[ (1-u)x_i ] ]
+]
+ 
+   ...a couple hours spent about domain and range in Lagrange multipliers.
+                 
+2) If 1/N > w > 0, prove u = 0;
+
+3) If 1 >= w >= 1/N, prove u = 1 or 0
