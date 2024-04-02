@@ -48,7 +48,7 @@ double Projection(vector<float> y){
   return x;
 }
 
-/*b) The books wants a cost function. Example, business costs per cycle with an adjusted coefficient for operating sales or expense. Another example is between minimum wage cycles with an adjustment coefficent about city operating expense. The Lagrangian coeffcieint maintains a function close-to minimum changes. Also, the coefficient is almost arithmetic in nature.  */
+/*b) The books wants a cost function. Example, business costs per cycle with an adjusted coefficient for operating sales or expense. Another example is between minimum wage cycles with an adjustment coefficent about city operating expense. The Lagrange multiplier maintains a function close-to minimum changes. Also, the coefficient is almost arithmetic in nature.  */
 
 /*Cost Function: f(x) = sum_1_n[alpha_i*x_i+(1/2)*beta_i*x_i^2)] */
 
