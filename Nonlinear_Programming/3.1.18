@@ -1,0 +1,11 @@
+Question 3.1.18:
+
+Function: m||y||^2 <= y'*del[delf(x)]y <= M||y||^2
+
+Rules: Proposition A.23 (Second Order Expansion)
+         f(x), twice differentiable
+         A) f(x+y) = f(x)+y'delf(x) + (1/2)y'(integral(integralf(x+dy)dd)dt)y
+         B) f(x+y) = f(x) + y'delf(x) + (1/2)y'del[delf(x+alpha*y)]y
+         C) f(x+y) = f(x) + y'delf(x) + (1/2)del[delf(x)y] + O(||y||^2)
+
+

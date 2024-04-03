@@ -16,7 +16,6 @@ Constraint: min_u[ x_N + sum_0_{N-1}[ (1-u)x_i ] ]
    d/du[H(x,u,w)] = d/du[x_i + w*u_i*x_i + lambda*min_u[ x_N + sum_0_{N-1}[ (1-u)x_i ] ]
 ]
  
-   ...a couple hours spent about domain and range in Lagrange multipliers.
                  
 2) If 1/N > w > 0, prove u = 0;
 

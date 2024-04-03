@@ -1,0 +1,33 @@
+Question 3.1.17:
+
+Function #1: min[f(x)/g(x)]
+
+Constraint x is set in X
+
+Function #2: Q(lambda) = inf{f(x)-lambda*g(x)}
+
+             Q(lambda*) = 0
+
+A hint provided: x* is argmin{f(x)-lambda**g(x)}
+
+The problem shows x* is zero and Function #1 too.
+
+A look further with steps:
+
+               x* = argmin{f(x)-lambda**g(x)}
+
+                  = f'(x)-lambda**g'(x)
+
+                  = 0
+
+          lambda* =  f'(x)/g'(x) 
+
+When inserted into Function #1:
+
+          min[f(x)/g(x)] = [f'(x)g(x)-f(x)g'(x)]/[g(x)*g(x)]
+
+                         = lambda**g'(x)/g(x) - lambda**g'(x)/g(x)
+
+                         = 0
+
+The middle-steps were about the problem's note: a quick glance solution.

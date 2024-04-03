@@ -1,0 +1,29 @@
+Question 3.1.16:
+
+Function #1: x_{i+1} = (1-d)x_i + u_i*g*x_i
+
+Function #2: y_{i+1} = (1-d)y_i + (1-u_i)*g*x_i
+
+Constraints: 0 < alpha <= u_i <= beta < 1
+
+             0 < g
+     
+             0 < d < 1
+
+The set of u* derivations is from self-consistent equations:
+
+    |x_{i+1}| = | df/dx      df/dy ||x_i|
+    |y_{i+1}|   | dg/dx      dg/dy ||y_i|
+
+              = | 1-d+u*g       0  ||x_i|
+                | 1-d       (1-u)g ||y_i|
+
+The root equations becomes:
+
+    [1-d+u*g](1-u)g - 0 = 0
+
+                     u* = (d+1)/g and not 1 because constraints
+
+
+
+           
