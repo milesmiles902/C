@@ -1,0 +1,23 @@
+Commands: git add
+          git stash save "The files in storage"
+          git stash list
+          git status
+          git stash pop
+
+The benefits of the command (git stash) are version labels, file storage, and personal workflow.
+
+git stash save "message in a bottle"
+Notes: The command (git stash) stores a file away from a future commit. An example is:
+       
+         1) File alteration 
+         2) git add
+         3) git stash save "label." 
+         4) git status
+   
+         A careful note, the file vanishes.
+
+git stash list:
+Notes: The hidden files (git stash list) are in storage for later. 
+
+git stash pop:
+Notes: A command (git stash pop) that restores the stashed repository files. 
