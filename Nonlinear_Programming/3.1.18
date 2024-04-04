@@ -1,11 +1,38 @@
-Question 3.1.18:
+tion 3.1.18:
 
 Function: m||y||^2 <= y'*del[delf(x)]y <= M||y||^2
 
-Rules: Proposition A.23 (Second Order Expansion)
+The books notation when written, "'" isn't a derivative. These bounds are the minimum and maximum eigenvalues.
+
+         f(x-y) = f(x)-f(y) + delf(x)(y-x) + (1/2)(y-x)del[delf(x)](y-x)
+
+         f(y)-f(x) + f(x-y) - delf(x)(y-x) = (1/2)(y-x)del[delf(x)](y-x)
+
+         m||y-x||^2 <= (y-x)'*del[delf(x)]y <= M||y-x||^2 
+
+The (1/2) absorbs into the constants m,M. 
+
+         m||y||^2 <= f(y) - f(x) + f(x-y) - delf(x)(y-x) <= M||y||^2
+
+         m||y||^2 + f(x-y) + delf(x)(y-x) <= f(y)-f(x) <= M||y||^2 + f(x-y) + delf(x)(y-x)
+
+With an unknown or dummy variable, y becomes x* when minimized.
+
+         min{m||y||^2 + f(x-y) + delf(x)(y-x)} <= f(y)-f(x) <= min{M||y||^2 + f(x-y) + delf(x)(y-x)}
+
+         min{ m||y||^2 + delf(x)(y-x) } <= f(x*)-f(x) <= min{ M||y||^2 + delf(x)(y-x) }
+
+A negative multiplied through an inequality alternates direction.
+
+         -min{ m||y||^2 + delf(x)(y-x) } >= f(x)-f(x*) <= -min{ M||y||^2 + delf(x)(y-x) }
+
+Again, a function's distance toward a minimum is constant multiple or square eigenvalues.  
+
+Rules:  Proposition A.22: (Mean Value Theorem)
+         f(y)-f(x)=delf(const)*(y-x)
+
+        Proposition A.23 (Second Order Expansion)
          f(x), twice differentiable
-         A) f(x+y) = f(x)+y'delf(x) + (1/2)y'(integral(integralf(x+dy)dd)dt)y
+         A) f(x+y) = f(x) + y'delf(x) + (1/2)y'(integral(integralf(x+dy)dd)dt)y
          B) f(x+y) = f(x) + y'delf(x) + (1/2)y'del[delf(x+alpha*y)]y
-         C) f(x+y) = f(x) + y'delf(x) + (1/2)del[delf(x)y] + O(||y||^2)
-
-
+         C) f(x+y) = f(x) + y'delf(x) + (1/2)del[delf(x)]y + O(||y||^2)
