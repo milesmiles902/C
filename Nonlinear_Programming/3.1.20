@@ -1,0 +1,30 @@
+Question 3.1.20:
+
+Function: g(x)=f(Ax)+cx
+
+Constraint: f is convex
+
+            lim inf(||y||->infinity)inf{f(y)/||y||} = infinity
+
+An optimal solution:
+
+       g(x) = f(Ax)+cx
+
+       dg(x)/dx = d/dx[f(Ax)+cx]
+
+                = f'(Ax)*A +c
+
+                = 0
+
+             x* = (1/A)*f'^-1(-c/A)
+ 
+       f'^-1(c/A) is an inverse limit, a subgroup below infinity and a set.
+
+       An optimal solution exists.
+
+Rules: Proposition 3.1.3: (Existence of Solutions of Linear and Quadratic Programming Problems)
+         x*Q*x>0
+         minimize: x*Q*x+c*x
+         subject to: ax+b <= 0
+         An optimal solution exists.
+ 

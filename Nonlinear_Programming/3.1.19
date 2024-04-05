@@ -1,0 +1,40 @@
+Question 3.1.19:
+
+Function: f(x) = x*Q*x+c*x  
+
+Constraints: Q is symmetric
+
+i) X specified by linear inequalities as in Proposition 3.1.3:
+      
+       f(x) = x*Q*x+c*x
+      
+       df(x)/dx = d/dx[x*Q*x+c*x]
+  
+                = 2*Q*x+c
+
+                = 0
+
+             x* = c/2Q
+
+               <= -b/a
+
+ii) X is the vector sum of a compact set and closed cone:
+
+       The vector X = <x1, x2, x3, ..., xN>
+
+       A cone: X = {x: Ax>=0 && Cx=0 }
+
+                   or
+              
+                 = {x: Ax<=0 && A>=0 }
+
+                   or
+
+                 = {x: sum_1_n[A_i*x_i]<=0 && A>=0 }       
+
+Rules: Proposition 3.1.3: (Existence of Solutions of Linear and Quadratic Programming Problems)
+         x*Q*x>0
+         minimize: x*Q*x+c*x
+         subject to: ax+b <= 0
+         An optimal solution exists.
+         

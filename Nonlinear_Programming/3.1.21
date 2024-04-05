@@ -1,0 +1,11 @@
+Question 3.1.21:
+
+Function: f is convex 
+
+          X is a vector sum of a compact set and closed cone
+
+            = {x| sum_1_n[A_i*x_i]<=0 && A_i>=0 }
+
+Constraint: f* is an optimal value
+
+            Asymptotic direction: {x| f(x) <= gamma^k}
