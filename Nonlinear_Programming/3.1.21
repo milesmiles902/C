@@ -1,7 +1,7 @@
 Question 3.1.21:
 
-Function: f is convex 
-
+Function: f is convex
+         
           X is a vector sum of a compact set and closed cone
 
             = {x| sum_1_n[A_i*x_i]<=0 && A_i>=0 }
@@ -9,3 +9,22 @@ Function: f is convex
 Constraint: f* is an optimal value
 
             Asymptotic direction: {x| f(x) <= gamma^k}
+
+An optimal solution:
+
+       If a set encloses the step or iterative sequence, then an optimal solution too.
+
+       X = {x| x < gamma^k}
+
+       S = {X| f(x) < gamma^k}
+
+         = {X| f(x^k-alpha^k*d) < gamma^k}
+
+       x^k-alpha^k*d in the set of X, so
+
+       x^k-alpha^k*d in the set of S
+
+Rules: Proposition 3.1.2:
+         S^k is a sequence
+         S^{k+1} is a subset of S^k
+         S^k is nonempty

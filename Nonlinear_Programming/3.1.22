@@ -1,0 +1,28 @@
+Question 3.1.22: (Linear Transformations of Closed Sets)
+
+Function: S is a nonempty and real set.
+
+          A is a mxn matrix with each possible iteration
+
+Show A*S is a closed set:
+
+       X = {x|x<gamma} 
+
+       S = {X|f(x)<gamma}
+
+       S is nonempty set...it has f(x) values. The gamma relates to countable or a finite set.
+
+       W = {z| ||z-Ax||<=||AS-Ax|| }
+
+         = {z| ||z||<=||AS|| }
+
+         = {z| ||z/A|| <= ||S|| }
+
+       With S as a bound, then A is closed. Also, the set AS is closed.
+
+Rules: Proposition 3.1.2:                                                                                            
+         S^k is a sequence                                                                                           
+         S^{k+1} is a subset of S^k                                                                                  
+         S^k is nonempty  
+
+
