@@ -44,10 +44,11 @@ void SteepestDecentMethod(RealFunc f, RealFuncDerivative d, double x0, double y0
   double x = x0, y = y0;
   bool xEval = true;
   for(int i=0;;i++){
+    x0=x;
+    y0=y;
     x=x-alpha*f(x,y,b)/d(f,xEval,x,y,b);
     y=y-alpha*f(x,y,b)/d(f,!xEval,x,y,b);
-    std::cout << "Iteration: " << i << std::endl;
-    if(abs(f(x,y,b)<precision)){
+    if(abs(x-x0)<precision && abs(y-y0)<precision){
       std::cout << "Function Local Minimum x: " << x << std::endl;
       std::cout << "Function Local Minimum y: " << y << std::endl;
       return;
@@ -59,16 +60,18 @@ int main(){
   RealFunc f{Func};
   RealFuncDerivative d{computeDerivative};
   
-  double x0=5.0, y0=0.0, alpha=1.0, L=1;
+  double x0=1.0, y0=0.0, alpha=0.1, L=1;
   
   std::cout << "Initial x: " << x0 << std::endl;
   std::cout << "Initial y: " << y0 << std::endl;
   std::cout << "Initial alpha: " << alpha << std::endl; 
-    
+ i   
   SteepestDecentMethod(f, d, x0, y0, 1.0, alpha, 10e-3);
   
   std::cout << "Proving Lipschitz condition: " << std::endl;
   std::cout << "||delf(x)-delf(y)|| = " << d(f,true,x0,y0,1.0)-d(f,false,x0,y0,1.0) << " <= L||x-y|| = " << x0-y0 <<  std::endl;
   
   return 0;
-}
+} 
+
+//Note: The convergence works with an error (+-1 increment). A line step minimization was not in the earlier chapters. An alpha adjustment would increase accuracy. I guess comprehensive iteration immediately scans stepsize per step.

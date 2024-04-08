@@ -108,7 +108,6 @@ void SteepestDescentMethod(RealFunc1 f1, RealFunc2 f2, RealFunc1Derivative d1, R
     xn=xk-alpha*d1(f1,xk,gamma)+beta*(xk-xkm);
     xkm=xk;
     xk=xn;
-    std::cout << "Iteration: " << i << std::endl;
     if(abs(f1(xn,gamma)<precision)){
       end = chrono::system_clock::now();
       elapsed_seconds = end-start;
@@ -124,7 +123,6 @@ void SteepestDescentMethod(RealFunc1 f1, RealFunc2 f2, RealFunc1Derivative d1, R
     xn=xk-alpha*d2(f2,xk,y,z,5)+beta*(xk-xkm);
     xkm=xk;
     xk=xn;
-    std::cout << "Iteration: " << i << std::endl;
     if(abs(f2(xn,y,z,5))<precision){
       end = chrono::system_clock::now();
       elapsed_seconds = end-start;
