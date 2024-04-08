@@ -1,1 +1,16 @@
-Question 3.2.2
+Question 3.2.2: (Termination Criterion for the Conditional Gradient Method)
+
+Function: f is convex
+
+Bounds: f(x^k) >= minf(x) >= f(x^k)+f(x)(xavg^k-x^k)
+
+         f(x)(xavg^k-x^k) <= f(x)(x-x^k)
+ 
+         lim(k->inf) sup[f(x)(xavg^k-x^k)] <= f(x)(x-x^k)
+
+         lim(k->inf) sup[f(x)(xavg^k-x^k)] <= min[f(x)(x-x^k)] <= 0 <= f(x^k)
+
+Rules: Proposition 3.2.1: (Stationary of Limit Points for Feasible Direction Methods)
+         x^{k+1}=x^k+alpha^k*d^k
+         If d^k is a gradient and alpha^k by limited minimization rule, then x^k stationary
+         
