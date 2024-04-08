@@ -16,11 +16,11 @@ Show the global minimum [x*=(0.5,0.5,0)] by a conditional gradient and line mini
 
 using namespace std;
 
-typedef std::function<double(double,double,double)> RealFunc;
-typedef std::function<double(std::function<double(double,double,double)>,double,double,double,int)> RealFuncDerivative;
+typedef std::function<double(double,double,double,double)> RealFunc;
+typedef std::function<double(std::function<double(double,double,double,double)>,double,double,double,int)> RealFuncDerivative;
 
-double Func(double x1, double x2, double x3){
-  double val = (x1*x1 + x2*x2 + x3*x3/10)/2+0.55*x3;
+double Func(double x1, double x2, double x3, double lambda){
+  double val = (x1*x1 + x2*x2 + x3*x3/10)/2 +0.55*x3 + lambda*(1-x1-x2-x3);
   return val;
 }
 
@@ -29,13 +29,13 @@ double computeDerivative(RealFunc f, double x1, double x2, double x3, int val){
   double fx = 0;
   switch(val) {
     case 1:
-      fx = (f(x1+h,x2,x3)-f(x1,x2,x3))/h;
+      fx = (f(x1+h,x2,x3,x1+h)-f(x1,x2,x3,x1))/h;
       return fx;
     case 2:
-      fx = (f(x1,x2+h,x3)-f(x1,x2,x3))/h;
+      fx = (f(x1,x2+h,x3,x2+h)-f(x1,x2,x3,x2))/h;
       return fx;
     case 3:
-      fx = (f(x1,x2,x3+h)-f(x1,x2,x3))/h;
+      fx = (f(x1,x2,x3+h,0.11*(x3+h)+0.61)-f(x1,x2,x3,0.1*x3+0.61))/h;
       return fx;
     default:
       std::cout << "A wrong val in derivative." << std::endl;
@@ -45,13 +45,13 @@ double computeDerivative(RealFunc f, double x1, double x2, double x3, int val){
 }
 
 double lineMin(RealFunc f,double d, double x1, double x2, double x3, int term){
-  double h=0,alpha=0.01,idx=1,min=0;
+  double x=0,h=0,alpha=0.01,idx=1,min=0;
   switch(term) {
     case 1:
-      min=f(x1+alpha*d,x2,x3);
+      min=f(x1+alpha*d,x2,x3,x1);
       for(int k=2;k<=100;k++){
         alpha+=0.01;
-        h=f(x1+alpha*d,x2,x3);
+        h=f(x1+alpha*d,x2,x3,x1);
         if(h<min){
           min=h;
           idx=k;
@@ -59,10 +59,10 @@ double lineMin(RealFunc f,double d, double x1, double x2, double x3, int term){
       }
       return idx/100;
     case 2:
-     min=f(x1,x2+alpha*d,x3); 
+     min=f(x1,x2+alpha*d,x3,x2); 
      for(int k=2;k<=100;k++){
         alpha+=0.01;
-        h=f(x1,x2+alpha*d,x3);
+        h=f(x1,x2+alpha*d,x3,x2);
         if(h<min){
           min=h;
           idx=k;
@@ -70,10 +70,10 @@ double lineMin(RealFunc f,double d, double x1, double x2, double x3, int term){
       }
       return idx/100;
     case 3:
-      min=f(x1,x2,x3+alpha*d);
-      for(int k=2;k<=10;k++){
+      min=f(x1,x2,x3+alpha*d,0.11*x3+0.61);
+      for(int k=2;k<=100;k++){
         alpha+=0.01;
-        h=f(x1,x2,x3+alpha*d);
+        h=f(x1,x2,x3+alpha*d,0.11*x3+0.61);
         if(h<min){
           min=h;
           idx=k;
@@ -93,10 +93,10 @@ double evaluate(RealFunc f, RealFuncDerivative d, double x1, double x2, double x
     case 1:
       x=x1;
       for(int j=0;;j++){
-        dx=f(x,x2,x3)/d(f,x,x2,x3,term);
+        dx=f(x,x2,x3,x)/d(f,x,x2,x3,term);
         alpha=lineMin(f,dx,x,x2,x3,term);
         x=x-alpha*dx;
-        if(abs(d(f,x,x2,x3,term))<precision){
+        if(abs(dx)<precision){
           std::cout <<"Function Local Minimum x: " << x << std::endl;
           return x;
         }
@@ -105,10 +105,10 @@ double evaluate(RealFunc f, RealFuncDerivative d, double x1, double x2, double x
     case 2:
       x=x2;
       for(int j=0;;j++){
-        dx=f(x1,x,x3)/d(f,x1,x,x3,term);
+        dx=f(x1,x,x3,x)/d(f,x1,x,x3,term);
         alpha=lineMin(f,dx,x1,x,x3,term);
         x=x-alpha*dx;
-        if(abs(d(f,x1,x,x3,term))<precision){
+        if(abs(dx)<precision){
           std::cout <<"Function Local Minimum x: " << x << std::endl;
           return x;
         }
@@ -117,7 +117,7 @@ double evaluate(RealFunc f, RealFuncDerivative d, double x1, double x2, double x
     case 3:  
       x=x3;
       for(int j=0;;j++){
-        dx=f(x1,x2,x)/d(f,x1,x2,x,term);
+        dx=f(x1,x2,x,0.11*x+0.61)/d(f,x1,x2,x,term);
         alpha=lineMin(f,dx,x1,x2,x,term);
         x=x-alpha*dx;
         if(abs(dx)<precision){
@@ -147,10 +147,13 @@ int main(){
   x1 = evaluate(f,d,x1,x2,x3,1,precision);
   x2 = evaluate(f,d,x1,x2,x3,2,precision);
   x3 = evaluate(f,d,x1,x2,x3,3,precision);
-  
-  std::cout <<"The book proposed a wrong minimum, x*=(1/2,1/2,0). The spheroid f(x1,x2,x3) in a plot has a minimum at x*=(0,0,-5.5)" << std::endl;
+
+  std::cout << std::endl; 
+  std::cout << "The implementation contains a pre-defined Langrangian multipler. This solution considering the constraint is semi-quantitative [(+/-) 3/4 increments]. An exact minimum is x*=(1/2, 1/2, 0). I moved onward!" << std::endl; 
   return 0;
 }
+
+ 
 
 
 
