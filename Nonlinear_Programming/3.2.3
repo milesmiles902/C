@@ -6,6 +6,20 @@ subject to: A) -1 <= x1 <= 1
             B)  0 <= x2
             C)  x* = (0,0)
 
+The solution relates the x1 angle between x2 because their orthogonal axis. 
+
+       f(x^k) - f(x*) = 2*cos(theta)^2 - 1
+
+                      = sin(2*alpha^k)
+
+                      = 1
+
+       f(x^{k+1}) = f(x^k)
+
+       f(x^{k+1}) -f(x*) = 1
+
+       lim(k->inf) [f(x^{k+1}-f(x*)]/[f(x^k)-f(x*)] = 1
+
 Rules: Conditional Gradient Method:
          lim(k->inf) [f(x^{k+1})-f(x*)]/[f(x^k)-f(x*)] = 1
 

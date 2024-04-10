@@ -1,0 +1,49 @@
+Question 3.2.4 (Another Convergence Proof of the Conditional Gradient Method)
+
+a) From the Proposition that iteration is less than a Taylor expansion:
+   
+       f(x+alpha*d)<=f(x)+alpha*f(x)*d+alpha^2*L*d/2
+
+       min[f(x+alpha*d] <= f(x) + f(x)*d + alpha*L*d
+ 
+                        <= f(x)+D
+
+                        where D = |f(x)*d/2 if successive terms less than zero
+                                  |(f(x)+alpha^2*L)*d*d otherwise
+
+                                = |f(x)*d/2 if successive terms less than zero
+                                  |(f(x)+alpha^2*(delf(x)-delf(y)]/||x-y||))*d*d otherwise
+
+                                = |f(x)*d/2 if successive terms less than zero
+                                  |((||x-y||f(x)+alpha^2*(delf(x)-delf(y)]))/||x-y||)*d*d otherwise
+
+                                = |f(x)*d/2 if successive terms less than zero
+                                  |((||x-y||f(x)+alpha^2*(delf(x)-delf(y)]))(delf(x)-delf(y))/(L*||x-y||)*d*d otherwise
+
+                               = |f(x)*d/2 if successive terms less than zero
+                                 |f(x)*f(x)/(2*L*||x-y||)*d*d otherwise
+                            
+                                 The last step approximated an expansion from the first, second, and third terms.
+
+                               = |f(x)*d/2 if successive terms less than zero
+                                 |f(x)*f(x)/(2*L*R^2)*d*d otherwise
+                               
+b) Conditional Gradient Method: x^{k+1} = x^k + alpha^k*d^k
+ 
+   Limited Minimization Stepsize Rule: min[f(x^k+alpha_i^k*d^k)] where 0<alpha<1
+  
+   lim(k->inf)f(x^k)*d^k <= f(x^k)(x-x^k)
+
+                         <= f(x^k)(x-x*)
+
+                         <= f(x^k)*x-f(x^k)*x*
+
+                         <= f(x^k)*x-0
+
+                         The change per step nears zero about a functions minimum.
+       
+Rules: Lipschitz Condition:
+         ||delf(x)-delf(y)|| <= L||x-y||
+
+       Proposition A.24:
+         f(x+alpha*d)<=f(x)+alpha*f(x)*d+alpha^2*L*d/2

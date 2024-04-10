@@ -161,7 +161,7 @@ int main(){
   x3 = evaluate(f,d,x1,x2,x3,3,precision);
 
   std::cout << std::endl; 
-  std::cout << "Ths implementation contains a pre-defined Langrangian multipler (lambda = 0.541167). Would more digits sublime the constraint sum toward one? "<< std::endl; 
+  std::cout << "Ths implementation contains a pre-defined Langrangian multipler (lambda = 0.541167)."<< std::endl; 
   return 0;
 }
 
