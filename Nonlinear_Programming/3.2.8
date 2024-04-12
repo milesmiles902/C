@@ -1,0 +1,29 @@
+Question 3.2.8 (A Variation of the Simplicial Decomposition Method):
+
+Closed Set: X^k = {x| x=beta*x0 + sum_0_k[gamma_i*xbar^i], beta>=0, beta + sum_0_k[gamma_i=1]}
+
+Armijo's Rule prepares an upper limit and an argument for a stationary point within bounds through a scalar in the step-size:
+
+       f(x^k)-f(x^{k+1}) = f(x^k)-f(x^k+alpha^k*d^k)
+  
+                         >= f(x^k)-f(x^k+(b^m)*s*(d^k))
+
+Proposition 1.2.1 and 3.2.1 utilize a gradient descent and an upper limit about stepsize.
+
+Rules: Armijo Rule (Successive reduction rule)
+       f(x^k)-f(x^k+(b^m)*s*(d^k))>=-sigma*(b^m)*s*delf(x*)'*(d^k)
+       Reduction factor: b
+       Step sizes: (b^m)*s
+       Scaling factor: (d^k)
+       Trials: m
+       Change of the Quadratic Interpolation: delf(x*)'*(d^k)
+
+       Prop 1.2.1 (Stationarity of Limit Points for Gradient Methods)
+         If x^k, then x^{k+1} = x^k + alpha^k*d^k 
+         where alpha^k = Armijo's rule, and d^k = gradient descent
+         lim(k->inf) x^k = Stationary Point
+ 
+       Proposition 3.2.1: (Stationary of Limit Points for Feasible Direction Methods)
+         x^{k+1}=x^k+alpha^k*d^k
+         If d^k is a gradient and alpha^k by limited minimization rule, then x^k stationary
+

@@ -10,6 +10,14 @@ Constraint: x is a bounded set
 
 Convex Hull: X^k = {x| x=beta+sum_i_k[gamma_i*x], gamma_i>=0, beta+sum_0_k[gamma_i]=1 }
 
-THe stationary point of f on X:
+The stationary point of f on X:
 
+     x^k = argmin[f(x^k)(x-x^k]
 
+     x^{k+1} = x^k + alpha^k*(fbar^k - f^k)
+
+     alpha^k = argmin G(x^{k+1})
+           
+             = argmin G(x^k + alpha^k*(fbar^k - f^k)
+
+)

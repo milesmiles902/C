@@ -1,0 +1,34 @@
+Question 3.2.9 (Min-H Method for Optimal Control)
+
+Sequence: u = (u0, u1, ... , u_{n-1})
+          x = (x1, x2, ... , x_N)
+
+Function: g_N(x_N) + sum_0_{N-1}[g_i(x_i,u_i]]
+
+Constraint: u_i predefines a set
+            x_{i+1} = phi_i(x_i) + B_i*u_i
+ 
+Sequence generation: u_i^{k+1} = u_i^k + alpha^k(u_i^k-y_i^k)
+
+Subset: u_i^k = argmin H_i(x_i^k, u_i, p_{i+1}^k)
+
+        with H_i(x_i, u_i, p_{i+1}) = g_i(x_i,u_i) + p'_{i+1}*f_i(x_i, u_i)
+
+The feasible direction method:
+
+Rules:  Armijo Rule (Successive reduction rule)
+         f(x^k)-f(x^k+(b^m)*s*(d^k))>=-sigma*(b^m)*s*delf(x*)'*(d^k)
+         Reduction factor: b
+         Step sizes: (b^m)*s
+         Scaling factor: (d^k)
+         Trials: m
+         Change of the Quadratic Interpolation: delf(x*)'*(d^k)
+
+        Line Minimization Rule:       |    0     |
+                                      |    .     |
+                                      |    0     |
+                              d^k = - |df(x^k)/dx|
+                                      |    0     |
+                                      |    .     |
+                                      |    0     |
+ 
