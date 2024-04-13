@@ -1,12 +1,22 @@
 Question 3.3.1 (Scaled Gradient Projection Method):
 
-Function: f(x,s,H) = x - (x^k-s^k/(H^k)*delf(x^k)
+Function: f(x,s,H) = x - x^k - s^k*delf(x^k)/H^k
 
-Constraint X is in a set X
+Constraint x is in a set, X
 
 The positive definite matrix: xbar^k = argmin{ f(x^k)(x-x^k) + (x-x^k)*H^k*(x-x^k)/(2s^k) }
 
 The proof xbar^k is a solution:
+
+     argmin{f(x,s,H)^2} = argmin {||x - x^k - s^k*delf(x^k)/H^k||^2}
+
+                        = argmin {||x-x^k||^2 - 2*s^k*f(x^k)*(x-x^k)/H^k + (s^k)^2*||delf(x^k)||^2}
+
+The (s^k)^2*||delf(x^k||^2 term neglecting in the equation because zero evaluation. Also, a division across argmin by 2*s^k/H^k:
+
+                        = argmin {f(x^k)*(x-x^k) + (x-x^k)*H^k*(x-x^k)}
+   
+Bertesekes iterated, reiterated, or collected important topics in iteration's history. 1) Lipschitz Rule 2) Armijo's Rule 3) Line Minimization 4) Global iteration and average both find stationary points. 5) A function's square also finds a stationary point.
 
  
 
