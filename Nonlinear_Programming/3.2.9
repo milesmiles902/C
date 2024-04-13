@@ -14,7 +14,21 @@ Subset: u_i^k = argmin H_i(x_i^k, u_i, p_{i+1}^k)
 
         with H_i(x_i, u_i, p_{i+1}) = g_i(x_i,u_i) + p'_{i+1}*f_i(x_i, u_i)
 
-The feasible direction method:
+The feasible direction method with alpha = 1:
+
+                   = f(ubar_i^k)
+
+                   = f(argmin{H_i(x_i, u_i, p_{i+1})})
+
+                   = f(argmin{g_i(x_i,u_i) + p'_{i+1}*f_i(x_i, u_i)})
+
+                   = f(argmin{g_i(x_i,u_i))
+
+                   = f(argmin{g_N(x_N) + sum_0_{N-1}[g_i(x_i,u_i]]}))
+
+                   = f(g_N(x_N)'*(x_{i+1})') 
+ 
+                   = f(g_N(x_N)'*(phi_i(x_i) + B_i*u_i)')
 
 Rules:  Armijo Rule (Successive reduction rule)
          f(x^k)-f(x^k+(b^m)*s*(d^k))>=-sigma*(b^m)*s*delf(x*)'*(d^k)
