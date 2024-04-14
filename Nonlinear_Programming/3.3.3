@@ -1,0 +1,20 @@
+Question 3.3.3 (Gradient Projection with Diagnol Scaling)
+
+Constraint: X = {x| eta_i<=x<=xi_i, i=1,...,n}
+
+a) What is xbar?
+
+     xbar = | eta_i  ,xbar < eta_i
+            | xi_i   ,xbar > xi_i
+            | xbar   ,otherwise
+
+b) The "simple" algorithm for calculating xbar^k in the case of a simplex constraint: xbar^k = x^k
+
+Rule: Gradient Projection Method:
+
+      A) Constrained Newton's Method:
+           x^{k+1} = x^k + alpha^k(xbar^k-x^k)
+
+      B) Average step (Equation 3.4.1):
+           xbar^k = argmin{ x^k - s^k*delf(x^k)/H }
+

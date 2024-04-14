@@ -1,0 +1,37 @@
+Question 3.3.2:
+
+Function: f; twice differentiable, positive definite Hessian
+
+Constraints: s^k=1 and Armijo's rule 
+                  or 
+             alpha^k=1 and s^k by Armijo's Rule
+
+An example, ||x^k-x*|| converges superlinearly in second condition:
+
+       lim(k->inf) ||x^{k+1}-x*|| = lim(k->inf) ||x^k + alpha^k(xbar^k-x^k) - x*||
+
+                                  = lim(k->inf) ||xbar^k-x*||
+
+                                  = lim(k->inf) ||argmin{ f(x^k)(x-x^k) + (x-x^k)*H^k*(x-x^k)/(2s^k) } - x*||
+
+                                  = lim(k->inf) ||x*-x*||
+
+                                  = 0
+
+Rules: Newton's Method:
+         x^{k+1}=x^k-f(x)/delf(x)
+
+       Constrained Newton's Method:
+         x^{k+1} = x^k + alpha^k(xbar^k-x^k)
+
+       Average step:
+         xbar^k = argmin{ f(x^k)(x-x^k) + (x-x^k)*H^k*(x-x^k)/(2s^k) }
+
+       Armijo Rule (Successive reduction rule)
+         f(x^k)-f(x^k+(b^m)*s*(d^k))>=-sigma*(b^m)*s*delf(x*)'*(d^k)
+         Reduction factor: b
+         Step sizes: (b^m)*s
+         Scaling factor: (d^k)
+         Trials: m
+         Change of the Quadratic Interpolation: delf(x*)'*(d^k)
+
