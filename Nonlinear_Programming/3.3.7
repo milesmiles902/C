@@ -1,0 +1,44 @@
+Question 3.3.7:
+
+Proposition 3.3.2 replacement:
+
+  i)  ||delf(x)-delf(y)|| <= L||x-y||, ∀ x,y ∈ A
+
+  ii) {x ∈ X | f(x) <= c} is bounded for every c ∈ R
+
+An equation from the book two lines below the proposition written:
+
+  f(x^{k+1}) - f(x^k) <= (L/2-1/s)||xbar^k-x^k||^2
+
+                      <= f(x^k)
+
+A perspective about the maximum and lower bounds of s show bound:
+
+  Case 1: s = 0
+
+       f(x^{k+1}) - f(x^k) <= infinity
+
+  Case 2: s = 2/L
+
+       f(x^{k+1}) - f(x^k) <= 0 and stationary
+
+In-between the inequality a stepsize evaluates:
+
+  f(x^{k+1}) - f(x^k) <= (L/2-1/s)*||xbar^k-x^k||^2 
+                      
+                      <= -(1/s)*||xbar^k-x^k||^2 + (L/2)*||xbar^k-x^k||^2
+
+                      <= f(x^k)*||xbar^k-x^k||^2 + (L/2)*||xbar^k-x^k||^2
+
+Where the step-by-step change in the left term:
+
+       f(x^k)*||xbar^k-x^k||^2 <= -(1/s)*||xbar^k-x^k||^2
+
+The left side is a constant (c) at a stationary point, so the replacement ii) too.
+
+Rules: Proposition 3.3.2 (Lipschitz condition): 
+         If alpha^k=1 and s^k=s for all k
+         For L>0, ||delf(x)-delf(y)|| <= L||x-y||, ∀ x,y ∈ X
+         Then, if 0<s<2/L, the set {x^k} is stationary
+    
+            
