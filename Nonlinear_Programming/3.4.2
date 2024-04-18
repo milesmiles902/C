@@ -1,0 +1,65 @@
+Question 3.4.2 (Simplex Constraints)
+
+Function: f(x)
+
+          h(y)=f(x1,...,x{n-1},1-sum[x_i])
+
+          I(y)={i|y=0,dh(y)/dy>0}
+
+          y(alpha)=[y-alpha*D*delh(y)]
+
+          x(alpha)=|  y(alpha)       |
+                   |1-sum[y_i(alpha)]
+
+Constraints x>=0
+            sum[x_i]=1
+
+a) x is a stationary point when x=x(alpha) for all alpha>=0
+
+   f(x) = f(x(alpha))
+
+        = f(x( |  y(alpha)       | ))
+               |1-sum[y_i(alpha)|]
+
+        = f(x( |[y-alpha*D*delh(y)]       |  ))
+               |1-sum[[y-alpha*D*delh(y)]]|
+
+        = f(x( |[y-alpha*D*0]       |  ))
+               |1-sum[[y-alpha*D*0]]|
+
+        = f(x( |y| ))
+               |1|
+
+        = f(x(y))), stationary
+
+b) If x is not stationary, alpha>0 such that f(x(alpha))<f(x):
+
+   f(x) = f(x(alpha))
+
+        = f(x( |  y(alpha)       | ))
+               |1-sum[y_i(alpha)|]
+
+        = f(x( |[y-alpha*D*delh(y)]       |  ))
+               |1-sum[[y-alpha*D*delh(y)]]|
+
+        = f(x( |[y-alpha*D*0]       |  ))
+               |1-sum[[y-alpha*D*0]]|
+
+        = f(x( |y| ))
+               |1|
+
+        = f(x(y))), stationary
+
+   If y = 0, then
+
+   f(x(y)) <= f(x(0))
+ 
+           <= f(x)
+
+c) Gradient descent method: x^{k+1} = x^k - f(x)/delf(x)
+
+
+
+
+
+
