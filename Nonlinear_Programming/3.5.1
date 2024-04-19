@@ -1,1 +1,40 @@
 Question 3.5.1: 
+
+Function: f(x) = (x1)^2 + 2*(x2)^2 + 3*(x3)^2
+
+Constraint: x1 + x2 + x3 >= 1
+              
+            0<=x1, 0<=x2, 0<=x3
+
+Initial Condition: x^0 = (0,0,1)
+
+The minimization process is below:
+
+1) A constraint definition: A(x) = {x_i| 0<=x_i}
+
+2) Feasible descent direction: x^{k+1}=x^k+alpha^k*d^k
+
+                               {alpha>0|x^k+alpha*d^k is feasible}
+
+3) No feasible descent direction: x^k is stationary over the active constraints. The algorithm stops or relaxes the active set for the next iteration.
+
+Example algorithm: 
+
+  x1=0; 
+  x2=0; 
+  x3=1
+
+  For each i-value:
+     
+     df(x_i)/dx_i = { [(x1+h)^2 -(x1)^2]/h   i=1
+                    { [2(x2+h)^2 -2(x2)^2]/h i=2
+                    { [3(x3+h)^2 -3(x3)^2]/h i=3
+
+     x_i^{k+1} = x_i^k+alpha^k*d^k
+               = x_i^k+alpha^k*f(x_i)/df(x_i)/dx_i
+              
+     if!(0<=x_i|| 0<=x_2||0<=x_3||x1+x2+x3>=1){break;}       
+     
+
+An alternative method throws a flag in iteration avoidance before next x_i.
+    
