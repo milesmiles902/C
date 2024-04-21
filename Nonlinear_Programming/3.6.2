@@ -1,7 +1,18 @@
 Question 3.6.2 (Linear Convergence of Incremental Aggregated Proximal Algorithm):
 
-Algorithm 3.120: x^{k+1} = argmin { f(x) + sum[f(x)(x-x^k)+(x-x^k)/(2alpha^k)]  }
+Algorithm 3.120: x^{k+1} = argmin { f(x) + sum[f(x)(x-x^k)]+(x-x^k)/(2alpha^k)  }
 
 When the function is near a minimum:
 
-                 x^{k+1} = ... 
+                 x^{k+1} = argmin { f(x) + sum[f(x)(x-x^k)]+(x-x^k)/(2alpha^k)  }
+
+                 f_i(x) = f(x) + sum[f(x)(x-x^k)]
+
+                 A linearization coincides with the proximal minimization.
+
+                 where z^k = x^k-alpha^k*sum[delf_i(x)]
+
+                 x^{k+1} = argmin { f_i(x) + (x-z^k)/(2alpha^k)  }
+
+The function in the line above approximates steps with an inner gradient store.
+~                                                                                   

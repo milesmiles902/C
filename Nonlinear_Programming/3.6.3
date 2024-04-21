@@ -1,0 +1,28 @@
+Question 3.6.3 (Mirror Descent and Entropic Descent Algorithm):
+
+Entropy Function: D(x;y) = (1/c^k)(sum[x*ln[x_i]-1)
+
+Constraint: X = {x>=0| sum[xi]=1}
+
+       x^{k+1} = argmin{ f(x^k) + delf(x^k)*(x-x^k) + D(x; x^k) }
+
+               = delf(x^k)*(x-x^k) + del[delf(x^k)*(x-x^k)] + (1/c^k)sum[xln(x_i)-x-1]] 
+                                                        
+               = f(x^{k+1}) + delf(x^{k+1})(x-x^{k+1}) + (1/c^k)sum[ln(x_i)]
+
+               = 0
+
+
+       f(x^{k+1}) = -c^k[delf(x^{k+1})(x-x^{k+1})] + sum[ln(x_i)]
+
+       x^{k+1} = e^{-c^k[delf(x^{k+1})(x-x^{k+1})] + sum[ln(x_i)]}
+
+               = x_i*e^{-c^k[delf(x^{k+1})(x-x^{k+1})]
+
+               = x_i*e^{-c^k[delf(x^k)(x-x^k)]}/sum[x_i*e^{-c^k[delf(x^k)(x-x^k)]}]
+
+Rules: Mirror Descent Algorithm:
+         x^{k+1} = argmin{ f(x^k) + delf(x^k)*(x-x^k) + D(x; x^k) }
+            where D(x; x^k) = (1/(2c^k)||x-x^k||^2
+
+
