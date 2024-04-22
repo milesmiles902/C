@@ -1,0 +1,16 @@
+Question 3.7.1 (Parallel Projections Algorithm):
+
+Function: (1/2)sum[y_i-x]
+
+Constraints: x is real, 
+             y is subset to X
+
+Rules: Block Coordinate Descent Algorithm:
+         A) Initial values: X = {y1^0, y2^0, ... , ym^0}
+         B) The function: f(x)=(1/2)*sum[y_i-x]
+         C) for every step iteration (i), 
+              for each set element (m), 
+                update X_i^{k+1} = argmin f(y1^{k+1}, ... , y_{i-1}^{k+1}, y, y_{i+1}^k, ... , ym^k)
+         D) if(criterion) return set X
+
+

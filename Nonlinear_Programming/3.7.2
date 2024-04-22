@@ -1,0 +1,27 @@
+Question 3.7.2 (Relation of the Proximal and Coordinate Descent Algorithms):
+
+Function: f is real
+
+Constraints: X is a convex set
+             c be a positive scalar
+
+a) This proximal algorithm matches the block coordinate descent method because their input functions, f(x)+!(1/2c)||x-y||^2. Both the algorithm and method normally fit non-smooth functions and in this case, similar.
+
+b) A convergence result for block coordinate descent shows: 
+      
+       f(x1^{k+1}, ... , x_{i-1}^{k+1}, eta, x_{i+1}^k, ..., xm^k) - f(x1^k, ... , x_{i-1}^k, eta, x_{i}^{k-1}, ..., xm^{k-1}) = constant
+
+Rules: Proximal Algorithm:
+         x^{k+1} = argmin{ f(x) + (1/2c)*||x-y||^2 }
+
+       Block Coordinate Descent Method:
+         argmin{ f(x) + (1/2c)||x-y||^2 }
+         subject to: x subset to X, y is a real subset
+
+       Proposition 3.7.1 (Convergence of Block Coordinate Descent):
+         i) f is continously differentiable in set X
+         ii) The function has a unique minimum over X: f(x1, ..., x_{i-1}, eta, x_{i+1}, ..., xm)
+         iii) X changes little (monotonically nonincreasing)
+         iv) Every point of X is stationary
+
+
