@@ -1,0 +1,23 @@
+Question 3.7.4 (Block Coordinate Descent with Nondifferentiable Terms): 
+
+An extension about the block coordinate descent would contain a vector set at each element index. 
+
+Normal Block Coordinate Descent Method:
+         argmin{ f(x) + (1/2c)||x-y||^2 }
+         subject to: x subset to X, y is a real subset
+
+The common function from Proposition 3.7.1: f(x1, ..., x_{i-1}, eta, x_{i+1}, ..., xm).
+
+Extended function with each element replaced by a vector: f(x) = | x1A, x2A,...,eta,x_{i-1}A,...,xmA |
+                                                                 | x1B, x2B,...,eta,x_{i-1}B,...,xmB |
+                                                                 |              .                    |
+                                                                 |              .                    |
+                                                                 |              .                    |
+                                                                 | x1N, x2N,...,eta,x_{i-1}N,...,xmN | (Nxm)
+
+Rules:  Proposition 3.7.1 (Convergence of Block Coordinate Descent):
+         i) f is continously differentiable in set X
+         ii) The function has a unique minimum over X: f(x1, ..., x_{i-1}, eta, x_{i+1}, ..., xm)
+         iii) X changes little (monotonically nonincreasing)
+         iv) Every point of X is stationary
+

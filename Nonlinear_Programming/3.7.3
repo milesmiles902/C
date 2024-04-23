@@ -1,2 +1,21 @@
 Question 3.7.3 (Combination of Coordinate Descent and Proximal Algorithm):
 
+Variation on the block coordinate descent method:
+
+       x_i^{k+1} = argmin{f(x1^{k+1}, ..., x_{i-1}^{k+1}, eta, x_{i+1}^k, ...., x_m^k) + (1/2c)||eta-x_i^k||^2}
+
+The block coordinate descent method generates a set of vectors with every limit point as a global minimum. The criteria for such an event are:
+     
+       i) f(x^{k+1}) is continously differentiable.
+       ii) A unique minimum is within set f(x^{k+1}).
+       iii) Each set element changes a minor or little amount.
+ 
+Rules: Block Coordinate Descent Method:                                                                              
+         argmin{ f(x) + (1/2c)||x-y||^2 }                                                                            
+         subject to: x subset to X, y is a real subset    
+ 
+       Proposition 3.7.1 (Convergence of Block Coordinate Descent):
+         i) f is continously differentiable in set X
+         ii) The function has a unique minimum over X: f(x1, ..., x_{i-1}, eta, x_{i+1}, ..., xm)
+         iii) X changes little (monotonically nonincreasing)
+         iv) Every point of X is stationary    
