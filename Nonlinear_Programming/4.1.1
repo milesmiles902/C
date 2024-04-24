@@ -1,1 +1,41 @@
 Question 4.1.1:
+
+a) Function: f(x)=||x||^2
+   Constraint: h(x) = sum_1_n[x_i]-1
+
+   A) x* = 0
+   B) h(x) = sum_1_n[x_i]-1 
+           = 0
+   C) delf(x*) + sum_1_m[ lambda_i*delh(x*)) ] = 0 + 0
+                                               = 0, lambda* is real
+   D) y'*( del[delf(x*)] + sum_1_m[lambda_i*del[delh(x*)]] )*y = y'*(2)*y
+                                                               >= 0
+   E) V(x*) = {y|0,i=1,...,m}
+                                                  
+b) Function: f(x)=sum_1_n[x_i]
+   Constraint: h(x)=||x||^2-1
+
+   A) x* = 0
+   B) h(x)= ||x||^2-1 = 0
+   C) delf(x*) + sum_1_m[ lambda_i*delh(x*)) ] = 0 + 0
+                                               = 0, lambda* is real
+   D) y'*( del[delf(x*)] + sum_1_m[lambda_i*del[delh(x*)]] )*y = y'*(2)*y
+                                                               >= 0
+   E) V(x*) = {y| 0, i=1,...,m}
+ 
+c) Function: f(x)=||x||^2
+   Constraint: h(x)=x'*Q*x-1, where Q is positive definite
+
+
+Past experience with Lagrange Multipliers solve for lambda. The variable lambda shifts a function and constraint toward zero. I have no truths, except axioms and theorems. What is the x* for part b)? The summation is (1/2)n(n+1), but where go or put or place the x*?
+
+Rules: Lagrange Multiplier Theorem (Regular)
+         A) x* is a minimum on f
+         B) h(x)=0
+         C) A lambda vector weights the constraint: 
+              delf(x*) + sum_1_m[ lambda_i*delh(x*)) ] = 0
+         D) The function f and h are twice differentiable and continuous
+              y'*( del[delf(x*)] + sum_1_m[lambda_i*del[delh(x*)]] )*y >= 0
+         E) A subspace I never knew about:
+              V(x*) = {y| delh(x*)*y=0, i=1,...,m}
+         
