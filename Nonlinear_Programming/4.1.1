@@ -16,7 +16,7 @@ b) Function: f(x)=sum_1_n[x_i]
    Constraint: h(x)=||x||^2-1
 
    A) x* = 0
-   B) h(x)= ||x||^2-1 = 0
+   B) h(x) = ||x||^2-1 = 0
    C) delf(x*) + sum_1_m[ lambda_i*delh(x*)) ] = 0 + 0
                                                = 0, lambda* is real
    D) y'*( del[delf(x*)] + sum_1_m[lambda_i*del[delh(x*)]] )*y = y'*(2)*y
@@ -26,8 +26,13 @@ b) Function: f(x)=sum_1_n[x_i]
 c) Function: f(x)=||x||^2
    Constraint: h(x)=x'*Q*x-1, where Q is positive definite
 
-
-Past experience with Lagrange Multipliers solve for lambda. The variable lambda shifts a function and constraint toward zero. I have no truths, except axioms and theorems. What is the x* for part b)? The summation is (1/2)n(n+1), but where go or put or place the x*?
+   A) x* = 0
+   B) h(x) = x'*Q*x-1 = 0
+   C) delf(x*) + sum_1_m[ lambda_i*delh(x*)) ] = -lambda_i*n
+                                                  lambda_i*=0
+   D) y'*( del[delf(x*)] + sum_1_m[lambda_i*del[delh(x*)]] )*y = y'(0)y
+                                                               >= 0
+   E) V(x*) = {y|0, i=1,...,m}
 
 Rules: Lagrange Multiplier Theorem (Regular)
          A) x* is a minimum on f
