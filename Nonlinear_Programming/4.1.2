@@ -4,33 +4,56 @@ Function: Diagonal -- f(x1,x2,x3) = sqrt(x1^2 + x2^2 + x3^2)
           Surface Area -- h(x1,x2,x3) = 2(x1*x2 + x2*x3 + x1*x3)
           Perimeter -- g(x1,x2,x3) = 4(x1 + x2 +x3) 
          
-Constraints: x1=constant
-             x2=constant
-             x3=constant
+Constraints: x1 = constant value
+             x2 = constant value
+             x3 = constant value
 
- A) The minimum is x* = (0,0,0) because no negative edge lengths. 
+ A) The minimum (x*) is at (0,0,0) for the surface area because no negative edge lengths in a real shape. While the minimum (x*) with perimeter constraints is (a,a,a) where only real values.
 
- B) h(x1,x2,x3) = 2(x1*x2 + x2*x3 + x1*x3) 
+ B) Surface area:
+      
+       h(x1,x2,x3) = 2(x1*x2 + x2*x3 + x1*x3) 
  
-                = 0
-  
-    g(x1,x2,x3) = 4(x1 + x2 +x3)
+                   = 0
+    Perimeter:
+ 
+       g(x1,x2,x3) = 4(x1 + x2 +x3)
 
-                = 0
+                   = 12a, where "a" is real
 
-  C) delf(x*) + sum_1_m[ lambdaA_i*delh(x*)) ] + sum_1_m[ lambdaB_i*delg(x*)) ] = 0
+ C) Surface area:
+ 
+        delf(x*) + sum_1_m[ lambdaA_i*delh(x*)) ] = 0
 
-       lambdaA_i = 0, lambdaB_i = 0
+                                        lambdaA_i = 0
 
-  D) The subspace is: V(x*) = {y| 0, 0, i=1,...,m}
+    Perimeter:
+ 
+        delf(x*) + sum_1_m[ lambdaB_i*delh(x*)) ] = | 4*lambda + x1/sqrt(x1*x1+x2*x2+x3*x3)|
+                                                    | 4*lambda + x2/sqrt(x1*x1+x2*x2+x3*x3)|
+                                                    | 4*lambda + x3/sqrt(x1*x1+x2*x2+x3*x3)|
+                                                   
+                                                  = 0
+ 
+                                        lambdaB_i = -1/(4*sqrt(3)
 
-Rules: Lagrange Multiplier Theorem (Two constraints)
+ D) Surface Area:
+    
+         The subspace is: V(x*) = {y| 0, 0, i=1,...,m}
+
+    Perimeter:
+ 
+         The subspace is: V(x*) = {y| 1/sqrt(3), i=1,...,m}
+
+ Note: The book denotes a parallelepiped's diagnol as x1^2 + x2^2 + x3^2, but Pythagoreas law differentiates the true answer. I 
+
+Rules: Lagrange Multiplier Theorem (Regular - Three variables)
          A) x* is a minimum on f
-         B) h(x)=0, g(x)=0
+         B) h(x)=0
          C) A lambda vector weights the constraint:
-              delf(x*) + sum_1_m[ lambdaA_i*delh(x*)) ] + sum_1_m[ lambdaB_i*delg(x*)) ] = 0
+              delf(x*) + sum_1_m[ lambdaA_i*delh(x*)) ] = 0
          D) The function f and h are twice differentiable and continuous
-              y'*( del[delf(x*)] + sum_1_m[lambdaA_i*del[delh(x*)]] + sum_1_m[ lambdaB_i*delg(x*)) ])*y >= 0
+              y'*( del[delf(x*)] + sum_1_m[lambdaA_i*del[delh(x*)]] >= 0
          E) A subspace I never knew about:
-              V(x*) = {y| delh(x*)*y=0, delg(x*)*y=0, i=1,...,m}
+              V(x*) = {y| y*delh(x*)=0, i=1,...,m}
 
