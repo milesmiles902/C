@@ -1,0 +1,30 @@
+Question 4.1.6 (Arithmetic-Geometric Mean Inequality):
+
+Function: alpha1*x1 + alpha2*x2 +...+ alpha_n*x_n
+
+Constraint: x1^{alpha1}*x2^{alpha2}*...*x_n^{alpha_n} =1,  xi>0, i=1,...,n
+
+            sum[alpha_i] = 1
+
+The arithmetic-geometric mean equation is an induction prof with Jensen Inequality and phi(x)=ln(x):
+
+       Base Case: 
+
+          ln[x1^{alpha1}] <= ln[alpha_i*x*i]
+          alpha1*ln[x1] <= ln[alpha_i*x_i]
+
+       Inductive Hypothesis: 
+
+          sum[alpha_i*ln[x_i]] <= sum[ln[alpha_i*x_i]]
+
+       Inductive Step/Proof: 
+
+          sum[alpha_{i+1}*ln[x_{i+1}] <= sum[ln[alpha_{i+1}*x_{i+1}]]
+
+          alpha1*ln[x1]+alpha2*ln[x2] <= ln[alpha1*x1+alpha2*x2]
+
+
+        Another method toward a proof is by graphical methods.
+
+Rules: Jensen Inequality
+         phi(sum[ x ]) <= sum[ phi(x) ]
