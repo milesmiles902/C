@@ -1,9 +1,23 @@
 Question 4.1.7:
 
-Function: sum_1_m[ ||x-a||^2  ]
+Function: sum_1_m[ ||x-a||^2 ]
 
 ConstraintL ||x||^2 = 1
 
 What is the unique maximum and minimum by Lagrangian? 
+
+  f(x,a) = sum_1_m[ ||x-a||^2 ] + lambda*(1-||x||^2)
+
+  df(x,a)/dx = 2*sum_1_m[ ||x-a|| ] - 2*lambda*||x||
+
+             = 0
+
+  lambda* = sum_1_m[ ||x-a|| ]/||x||    
+
+          = m-sum_1_m[ a ]
+
+  The functions maximum or minimum is f(x,a,lambda*) = sum_1_m[ ||x-a||^2 ] + (m-sum_1_m[ a ])*(1-||x||^2).
+
+  I comprehend the function's maximum when a<=0 and a minimum when a>=0. Also, an a-value at zero has f(x,a=0,lambda*)=m.
 
 What happens when a=0 for a Lagrangian equation?
