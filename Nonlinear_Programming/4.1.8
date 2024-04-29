@@ -2,6 +2,24 @@ Question 4.1.8:
 
 Function: f(x,y,z) = sin(x)sin(y)sin(z)
 
-Constraint: x = y = z = 60 degrees
+Constraint: An equilaterial triangle
+
+The function sin(x)sin(y)sin(z) is concave from [0,pi] and a Jensen inequality, such that phi()=1/3.
+ 
+       [sin(x)+sin(y)+sin(z)]/3 <= sin([x+y+z]/3) = sqrt(3)/2
+
+With the Arithmetic Mean - Geometric Mean, the conclusion became a 3D-cube for a 2D-triangle:
+
+       sin(x)sin(y)sin(z) <= ([sin(x)+sin(y)+sin(z)]/3)^3 <= (sqrt(3)/2)^3
+
+x equals y and z because the middle bounds require similar values. I tried the problem as a Lagrange multiplier with no success.
+
+Rules: Jensen's Inequality:
+         phi(E[x])<=E[phi(x)]
+
+       Arithmetic Mean - Geometric mean:
+         x*y*z<=[(x+y+z)/3]^3
+         
+
 
 
