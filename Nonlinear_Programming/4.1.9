@@ -1,1 +1,43 @@
 Question 4.1.9:
+
+a) What triangle type maximizes area when around a circumscribed circle?
+
+   Function: Circle Area = pi*r^2 where r is radius
+             Triangle Area = ro*(x+y+z) where x, y, z are triangle side lengths, ro as circle radius
+                           = sqrt(xyz(x+y+z)) by Heron's Formula
+
+   Constraint: xyz-ro^2(x+y+z)
+
+   Lagrange Equation:
+ 
+     L(x,y,z) = x+y+z + lambda*(xyz-ro^2(x+y+z))
+
+     dL(x,y,z)/dx = 1+lambda(yz-ro^2)
+ 
+                  = 0
+
+     dL(x,y,z)/dy = 1+lambda(xz-ro^2)
+ 
+                  = 0
+
+     dL(x,y,z)/dz = 1+lambda(xy-ro^2)
+        
+                  = 0
+
+     dL(x,y,z)/dro = lambda(2*ro(x+y+z))
+
+                   = 0
+
+     dL(x,y,z)/dlambda = (xyz-ro^2(x+y+z)
+              
+                       = 0
+
+     1+lambda(yz-ro^2) = 1+lambda(xz-ro^2) = 1+lambda(xy-ro^2) = lambda(2*ro(x+y+z)) = (xyz-ro^2(x+y+z)
+
+     Five equations with five unknowns (x,y,z,lambda,ro) equate x=y=z for a positive ro. 
+
+     The triangle type is an equilateral because the same length sides.
+
+b) What points on a unit circle intersect an inner triangle with maximal area?
+
+     Function: 
