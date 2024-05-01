@@ -1,0 +1,15 @@
+Question 4.1.10 (Fermat's Principle):
+
+a) What triangle in a unit circle has maximal perimeter, and another, minimal perimeter?
+
+   Function: 2(sin(A)+sin(B)+sin(C)) where A,B,C be angles of a triangle    (Fermats Principle)
+
+   Constraint: pi = A+B+C  (Triangle angles)
+
+               Area = (1/2)(sin(2A)+sin(2B)+sin(2C))   (Triangle area)
+                                                                                                          
+   Lagrange Equation:
+
+      L(A,B,C,lambda,mu,area) = 2(sin(A)+sin(B)+sin(C)) + lambda(pi-A-B-C) + mu(2*area-sin(2A)+sin(2B)+sin(2C))
+
+

@@ -3,10 +3,10 @@ Question 4.1.9:
 a) What triangle type maximizes area when around a circumscribed circle?
 
    Function: Circle Area = pi*r^2 where r is radius
-             Triangle Area = ro*(x+y+z) where x, y, z are triangle side lengths, ro as circle radius
+             Triangle Area = ro*(x+y+z) where x, y, z are triangle side lengths, ro as semi-perimeter
                            = sqrt(xyz(x+y+z)) by Heron's Formula
 
-   Constraint: xyz-ro^2(x+y+z)
+   Constraint: xyz = ro^2(x+y+z)
 
    Lagrange Equation:
  
@@ -40,4 +40,63 @@ a) What triangle type maximizes area when around a circumscribed circle?
 
 b) What points on a unit circle intersect an inner triangle with maximal area?
 
-     Function: 
+     Function: f(x,y,a,b) = (x-a)(x-a)+(y-b)(y-b) where x and y are points on the unit circle, while a and b, respective shifts
+
+     Constraint: 1 = x*x+y*y 
+
+     Lagrange Equation:
+
+       L(x,y,a,b) = (x-a)*(x-a)+(y-b)(y-b)+lambda(1-x*x+y*y)
+
+              dL(x,y,a,b)/dx = -2a-2(lambda-1)x
+
+                      = 0
+
+       dL(x,y,a,b)/dy = -2b-2(lambda-1)y
+
+                      = 0
+
+       dL(x,y,a,b)/da = 2(a-x)
+
+                      = 0
+
+       dL(x,y,a,b)/db = 2(b-y)
+
+                      = 0
+
+       dL(x,y,a,b)/dlambda = (1-x*x-y*y)
+
+                           = 0
+
+       Five equations with five unknowns (x,y,a,b,lambda) equate x=y and b=a with lambda!=0.
+
+       The triangle type connects a line through the circle center. A sample coordinate <(x-a),(y-b)> on a unit circle is pi/3 radians, along with the triangle angle across the center.
+
+c) What is the inscribed triangle in a given circle? Equilateral triangle having x=y and a=b.
+
+d) What are the properties of a rectangle in a unit circle?
+
+        Function: f(a,b) = a*a+b*b where a and b are quadrilateral side lengths
+
+        Constraint: Area = a*b
+
+        Lagrange Equation:
+
+           L(a,b) = a*a+b*b + lambda*a*b
+
+           dL(a,b)/da = 2a+lambda
+
+                      = 0
+
+           dL(a,b)/db = 2b+lambda
+
+                      = 0
+
+           dL(a,b)/dlambda = a*b
+
+                           = 0
+
+        The solution equates side lengths, a=b and lambda as (a-2)a. It's a square.
+
+
+    
