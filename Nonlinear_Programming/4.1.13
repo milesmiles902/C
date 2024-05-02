@@ -1,0 +1,28 @@
+Question 4.1.13 (Cauchy Schwarz Inequality:
+
+Function: xy
+
+Constraints: ||x||^2=1
+             ||y||^2=1
+
+Lagrange Equation: L
+
+        L(x,y,lambda,mu) = xy+lambda(1-||x||^2)+mu(1-||y||^2)
+
+        dL(x,y,lambda,mu)/dx = y-2*lambda*x
+   
+                             = 0
+
+        dL(x,y,lambda,mu)/dy = x-2*mu*y
+
+                             = 0
+   
+        dL(x,y,lambda,mu)/dlambda = 1-||x||^2
+
+                                  = 0
+
+        dL(x,y,lambda,mu/dmu = 1-||y||^2
+
+                             = 0
+
+        A possible solution with the Lagrange Equation has x*y=|x||y| and the traditional Cauchy-Schwarz Inequality by x*y<=|x||y|.
