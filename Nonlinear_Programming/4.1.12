@@ -1,0 +1,15 @@
+Question 4.1.12:
+
+Proof by Contrapositive:
+
+   Hypothesis: If a Lagrange multipler's value is above zero in a minimal Lagrange equation.
+
+   Conclusion: Indefinite x-valued solutions exist too at the minimum. 
+
+   Not-Hypothesis: If a Lagrange multiplier equals zero. The Lagrange equation is then L(x) = f(x)+lambda*g(x) = f(x). 
+
+   Not-Conclusion: A minimal L(x) = f'(x) = f(x*) = 0 has only one solution.
+
+   The not-hypothesis and not-conclusion are true, so by condition, hypothesis, and conclusion too.
+
+

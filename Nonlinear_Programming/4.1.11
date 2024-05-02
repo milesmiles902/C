@@ -1,0 +1,7 @@
+Question 4.1.11:
+
+Function: f(x)
+          x* is a local minimum and 
+          I={i|lambda*!=0} as a Lagrange Multiplier
+
+A penalized Lagrange multiple remains positive. The next few lines past Equation 4.8 (pg 351) demonstrate a positive lambda*h(x) when at a local minimum, x*.

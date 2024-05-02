@@ -5,11 +5,32 @@ a) What triangle in a unit circle has maximal perimeter, and another, minimal pe
    Function: 2(sin(A)+sin(B)+sin(C)) where A,B,C be angles of a triangle    (Fermats Principle)
 
    Constraint: pi = A+B+C  (Triangle angles)
-
-               Area = (1/2)(sin(2A)+sin(2B)+sin(2C))   (Triangle area)
                                                                                                           
    Lagrange Equation:
 
-      L(A,B,C,lambda,mu,area) = 2(sin(A)+sin(B)+sin(C)) + lambda(pi-A-B-C) + mu(2*area-sin(2A)+sin(2B)+sin(2C))
+      L(A,B,C,lambda) = 2(sin(A)+sin(B)+sin(C)) + lambda(pi-A-B-C) 
 
+      dL(A,B,C,lambda)/dA = 2cos(A)-lambda
+
+                          = 0
+
+      dL(A,B,C,lambda)/dB = 2cos(B)-lambda
+
+                          = 0
+
+      dL(A,B,C,lambda)/dC = 2cos(C)-lambda
+      
+                          = 0             
+
+      dL(A,B,C,lambda)/dlambda = pi-A-B-C
+      
+                               = 0
+
+      The solution angles, A = B = C equate because four equations and four unknowns with random angle A and lambda = A+2cos(A)+(4n-1)pi where n in the integers. This is an equilateral triangle. It also has the minimal and maximal perimeter with points a=(-sqrt(3)/2,1/2),b = (sqrt(3)/2,-1/2), and x=(0,1).
+
+b) Typo, no b problemset.
+
+c) An inner product where (x-a)(x-b) maximizes the unit circle capability is a solution with x=(a+b)/2 or an average x-value between poimts a and b.
+
+      
 
