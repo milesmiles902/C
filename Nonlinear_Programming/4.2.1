@@ -1,0 +1,51 @@
+Question 4.2.1:
+
+Function: f(x1,x2) = x1+x2
+
+Constraint: x1^2+x2^2 = 2
+
+a) Lagrange Equation: 
+
+        L(x1,x2,lambda) = x1+x2+lambda(2-x1^2-x2^2)
+
+   The unique global maximum and minimum solutions appear from lambda:
+
+        dL(x1,x2,lambda)/dx1 = 1-2*x1*lambda
+ 
+                             = 0
+
+        dL(x1,x2,lambda)/dx2 = 1-2*x2*lambda
+
+                             = 0
+
+        dL(x1,x2,lambda)/dlambda = 2-x1^2-x2^2
+
+                                 = 0
+ 
+    Variable derivation were by substitution. Also, analysis about which are minimums and maximums with lambda. Lambda* is (2x1^2-1)/(2x1) with x1=x2. The Lagrange equation through plugging-in lambda*:
+
+         L(x1*,x2*,lambda) = x1+x2+(2x1^2-1)(2-x1^2-x2^2)/(2x1)
+
+                         = 2x1+(2x1^2-1)(2-2x1^2)/(2x1)
+
+    The minimum equals the maximum, x1=x2=1, for positive side lengths.
+
+b) The primal equation, L(x1,x2,lambda*) shows as:
+
+         L(x1,x2,lambda*) = x1+x2+(2x1^2-1)(2-x1^2-x2^2)/(2x1)
+
+    A gradient for the sensitivity theorem:
+
+         delp(x1) = -lambda(x1)
+
+                  = -(2x1^2-1)/(2x1)
+
+Rules: Proposition 4.2.2 (Sensitivity Theorem): 
+         min{f(x)}
+         subject to h(x)=u
+         x(0)=x* and lambda(0)=lambda*
+         Sensitivity characterizes lambdas as a function of u, delp(u) = -lambda(u)
+    
+    
+         
+     

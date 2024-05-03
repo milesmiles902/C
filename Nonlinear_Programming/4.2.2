@@ -1,0 +1,40 @@
+Question 4.2.2:
+
+Function: A plane described by h(x) = 0
+          h is real
+ 
+Constraint: Euclidean Distance = g(x,y,z) = ||y-x|| + ||z-x||
+
+What are the angles in Figure 4.1.5?
+
+  If g(x,y,z) = 0 at x*, then ||y-x*|| = -||z-x||.
+  
+  An equation about symmetrical and/or reflected angles: ||y-x||*sin(phi1) = ||z-x||*sin(phi2)
+
+  Such words, -||y-x*||/||z-x*|| = sin(phi2)/sin(phi1), and phi1 = phi2.
+
+The problem wants a primal equation:
+
+  Step #1: Lagrange's Equation: L(x,y,z,lambda) = lambda*(-||y-x||sin(phi1)-||z-x||sin(phi2))
+ 
+  Step #2: A minimal solution deriving variables: dL(x,y,z,lambda)/dx = lambda*(sin(ph1)+sin(phi2))
+                                                                      = 0
+                                                  dL(x,y,z,lambda)/dy = lambda*sin(phi1)
+                                                                      = 0
+                                                  dL(x,y,z,lambda)/dz = lambda*sin(phi2)
+                                                                      = 0
+                                                  dL(x,y,z,lambda)/dlambda = -||y-x||sin(phi1)-||z-x||sin(phi2)
+                                                                           = 0
+
+                                                  phi1=phi2, y=z, and lambda!=0
+
+  Step #3: A primate equation: L(x,y,z,lambda*)=-||y-x||sin(phi1)-||z-x||sin(phi2)
+
+  Step #4: The sensitivity about lambda shows delp(y)=0. This means another solutions exists at L(x,y,z,lambda*)=0.
+
+Rules: Proposition 4.2.2 (Sensitivity Theorem): 
+         min{f(x)}
+         subject to h(x)=u
+         x(0)=x* and lambda(0)=lambda*
+         Sensitivity characterizes lambdas as a function of u, delp(u) = -lambda(u)
+
