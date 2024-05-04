@@ -1,0 +1,96 @@
+Question 4.2.3:
+
+a) What rectangular parallelepiped with a sum of side lengths has maximal volume?
+
+   Function: f(l,w,h) = l*w*h
+
+   Constraint: 1 = l+w+h
+
+   Lagrange Equation:  L(l,w,h,lambda) = l*w*h + lambda*(1-l-w-h)
+
+   Parameters: dL(l,w,h,lambda)/dl = w*h-lambda
+  
+                                   = 0
+
+               dL(l,w,h,lambda)/dw = l*h-lambda
+
+                                   = 0
+
+               dL(l,w,h,lambda)/dh = l*w-lambda
+
+                                   = 0
+
+               dL(l,w,h,lambda)/dlambda = (1-l-w-h)
+
+                                        = 0
+
+               with solutions: l=h=w and lambda=h*h+3h-1. Apparently, the rectangular parallelpiped with maximal volume is a cube.
+
+b) What rectangular parallelepiped with a volume qualifies for minimal perimeter? 
+
+   Function: f(l,w,h)=4(l+w+h)
+
+   Constraint: 1=l*w*h
+
+   Lagrange Equation: L(l,w,h,lambda) = 4(l+w+h)+lambda*(1-l*w*h)
+
+   Parameters: dL(l,w,h,lambda)/dl = 4-lambda
+
+                                   = 0
+
+               dL(l,w,h,lambda)/dw = 4-lambda
+
+                                   = 0
+
+               dL(l,w,h,lambda)/dh = 4-lambda
+
+                                   = 0
+
+               dL(l,w,h,lambda)/dlambda = (1-l*w*h)
+
+                                        = 0
+
+               This problem needed a primal equation because no apparent solutions. 
+
+    Primal equation: L(l,w,h,lambda*) = 4(l+w+h)+(l*w*h+3)*(1-l*w*h).
+
+               The side lengths must equate as cube.
+
+b) What rectangular parallelpiped inscribed in an ellipsoid = {(x,y,z) | (x/a)(x/a)+(y/b)(y/b)+(z/c)(z/c)=1} has sides parallel to the major axis and also maximal volume?
+
+   Function: f(x,y,z) = x*y*z
+
+   Constraint: 1 = (x/a)(x/a)+(y/b)(y/b)+(z/c)(z/c)
+ 
+   Lagrange Equation: L(x,y,z,a,b,c,lambda) = x*y*z + lambda[ 1 - (x/a)(x/a)+(y/b)(y/b)+(z/c)(z/c)
+  ]
+
+   Parameters: dL(x,y,z,a,b,c,lambda)/dx = y*z + 2*lambda*x/a^2
+
+                                   = 0
+
+               dL(x,y,z,a,b,c,lambda)/dy = x*z + 2*lambda*y/b^2
+
+                                   = 0
+
+               dL(x,y,z,a,b,c,lambda)/dz = x*y + 2*lambda*z/c^2
+
+                                   = 0
+
+               dL(x,y,z,a,b,c,lambda)/da = -2x*x/a^3
+
+                                        = 0
+
+               dL(x,y,z,a,b,c,lambda)/db = -2y*y/b^3
+
+                                   = 0
+
+               dL(x,y,z,a,b,c,lambda)/dc = -2z*z/c^3
+
+                                   = 0
+
+               dL(x,y,z,a,b,c,lambda)/dlambda = 1 - (x/a)(x/a)+(y/b)(y/b)+(z/c)(z/c)
+
+                                              = 0
+
+   ..the angle-dependency and solution remain without an answer.
