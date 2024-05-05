@@ -1,0 +1,21 @@
+Question 4.2.7 (Hessian of the Primal Function):
+
+Function: A(u) = del[delL(x(u),lambda(u))] +c*del[h(x(u))]*del[h(x(u))]
+
+From equation (4.40), delf(x(u))+delh(x(u))lambda(u) = 0 
+
+From equation (4.43), delp(u)+lambda(u) = 0
+
+From equation (4.42), I = del{h(x(u))} = delx(u)delh(x(u))
+
+With a derivative about equation (4.43), del[delp(u)]+del[lambda(u)] = 0 
+
+Also, another derivative from equation (4.40), delx(u)del[delL(x(u),lambda(u))]+del[lambda(u)]del[h(x(u))] = 0
+
+A multiplication of x*del[h(x(u))] onto equation (4.42) and adding the previous line with a division:
+
+     delx(u)+(del[lambda(u)]-cI)h(x(u))'*delx(u)del[delL(x(u),lambda(u))]+del[lambda(u)]del[h(x(u))]]^-1 = 0
+
+del[delp(u)] = (del(x(u)'A(u)^-1delh(x(u))))^-1-cI
+
+The second derivative about lambda, the Lagrange multiplier weighs the Lagrange equation's sensitivity.  

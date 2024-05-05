@@ -56,14 +56,13 @@ b) What rectangular parallelepiped with a volume qualifies for minimal perimeter
 
                The side lengths must equate as cube.
 
-b) What rectangular parallelpiped inscribed in an ellipsoid = {(x,y,z) | (x/a)(x/a)+(y/b)(y/b)+(z/c)(z/c)=1} has sides parallel to the major axis and also maximal volume?
+b) What rectangular parallelepiped inscribed in an ellipsoid = {(x,y,z) | (x/a)(x/a)+(y/b)(y/b)+(z/c)(z/c)=1} has sides parallel to the major axis and also maximal volume?
 
    Function: f(x,y,z) = x*y*z
 
    Constraint: 1 = (x/a)(x/a)+(y/b)(y/b)+(z/c)(z/c)
  
-   Lagrange Equation: L(x,y,z,a,b,c,lambda) = x*y*z + lambda[ 1 - (x/a)(x/a)+(y/b)(y/b)+(z/c)(z/c)
-  ]
+   Lagrange Equation: L(x,y,z,a,b,c,lambda) = x*y*z + lambda[ 1 - (x/a)(x/a)+(y/b)(y/b)+(z/c)(z/c)]
 
    Parameters: dL(x,y,z,a,b,c,lambda)/dx = y*z + 2*lambda*x/a^2
 
@@ -93,4 +92,12 @@ b) What rectangular parallelpiped inscribed in an ellipsoid = {(x,y,z) | (x/a)(x
 
                                               = 0
 
-   ..the angle-dependency and solution remain without an answer.
+   The seven variables and seven equations had no visible arrangement. A comparison between axis and semi-axes helped:
+
+               y*z = 2*lambda*x/a^2                   x*y = 2*lambda*y/b^2                x*y = 2*lambda*z/c^2
+
+               x*y*z = 2*lambda*x*x/a^2               x*y*z = 2*lambda*y*y/b^2            x*y*z = 2*lambda*z*z/c^2
+
+               y=bx/a and z=cx/a when a,b,c are not zero
+
+    The parallelpiped dimensions relative the ellipsoid are x=a/sqrt(3), y=b/sqrt(3), z=c/sqrt(3). The box dimensions change with semi-axis length.

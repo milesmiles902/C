@@ -1,0 +1,29 @@
+Question 4.2.6 (Alternative Statement of Sufficieny Conditions):
+
+Jacobian Matrix:
+
+         J = | del[delL(x*,lambda()]  delh(x*) |
+             |        del(h*)            0     |
+
+Proposition 4.1.1 holds not for this question. In question is the second derivative's sign, including no sign at all. A value, x* for h(x) is zero and so the second derivative about J. 
+
+Proposition 4.2.1 fails too because line three.  
+
+Rules: Proposition 4.1.1 Lagrange Multiplier Theorem (Regular):
+         A) x* is a minimum on f
+         B) h(x)=0
+         C) A lambda vector weights the constraint: 
+              delf(x*) + sum_1_m[ lambda_i*delh(x*)) ] = 0
+         D) The function f and h are twice differentiable and continuous
+              y'*( del[delf(x*)] + sum_1_m[lambda_i*del[delh(x*)]] )*y >= 0
+         E) A subspace I never knew about:
+              V(x*) = {y| delh(x*)*y=0, i=1,...,m}
+
+       Proposition 4.2.1:
+         dL(x*,lambda*)/dx = 0
+         dL(x*,lambda*)/dlambda = 0
+         ydel(dL(x*,lambda*)/dx)y > 0
+         h(x*)*y=0
+         Then a scalar exists near the minimum:
+         f(x)>=f(x*)+(c/2)||x-x*||^2 where c>0
+
