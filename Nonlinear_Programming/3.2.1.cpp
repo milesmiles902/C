@@ -20,11 +20,14 @@ using namespace std;
 typedef std::function<double(double,double,double,double)> RealFunc;
 typedef std::function<double(std::function<double(double,double,double,double)>,double,double,double,int)> RealFuncDerivative;
 
+//The function: f(x)=(1/2)*[x1^2 + x2^2 + (1/10)*x3^2] + 0.55*x3
 double Func(double x1, double x2, double x3, double lambda){
   double val = (x1*x1 + x2*x2 + x3*x3/10)/2 +0.55*x3 + lambda*(1-x1-x2-x3);
   return val;
 }
 
+
+//A function for computing a derivative
 double computeDerivative(RealFunc f, double x1, double x2, double x3, int val){
   double h = sqrt(std::numeric_limits<double>::epsilon());
   double lambda=0.541667,fx = 0;
@@ -45,6 +48,7 @@ double computeDerivative(RealFunc f, double x1, double x2, double x3, int val){
   return 0;
 }
 
+//A line minimization: https://en.wikipedia.org/wiki/Line_search
 double lineMin(RealFunc f,double d, double x1, double x2, double x3, int term){
   double lambda=0.541667,x=0,h=0,alpha=0.01,idx=1,min=0;
   switch(term) {
@@ -88,6 +92,7 @@ double lineMin(RealFunc f,double d, double x1, double x2, double x3, int term){
   return min;
 }
 
+//A three-variable Lagrangian solved by gradient descent: https://en.wikipedia.org/wiki/Gradient_descent
 double evaluate(RealFunc f, RealFuncDerivative d, double x1, double x2, double x3,int term, double precision){
   double lambda=0.541167,dx=0,x=0,alpha=0;
   switch(term) {
@@ -140,6 +145,7 @@ double evaluate(RealFunc f, RealFuncDerivative d, double x1, double x2, double x
   return 0;
 }
 
+//The main with initial conditions
 int main(){
   RealFunc f{Func};
   RealFuncDerivative d{computeDerivative};
