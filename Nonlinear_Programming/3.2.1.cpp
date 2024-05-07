@@ -17,6 +17,7 @@ Show the global minimum [x*=(0.5,0.5,0)] by a conditional gradient and line mini
 
 using namespace std;
 
+//Define complex variables
 typedef std::function<double(double,double,double,double)> RealFunc;
 typedef std::function<double(std::function<double(double,double,double,double)>,double,double,double,int)> RealFuncDerivative;
 
@@ -92,7 +93,7 @@ double lineMin(RealFunc f,double d, double x1, double x2, double x3, int term){
   return min;
 }
 
-//A three-variable Lagrangian solved by gradient descent: https://en.wikipedia.org/wiki/Gradient_descent
+//A three-variable Lagrange equation solved by conditional gradient descent: https://en.wikipedia.org/wiki/Gradient_descent
 double evaluate(RealFunc f, RealFuncDerivative d, double x1, double x2, double x3,int term, double precision){
   double lambda=0.541167,dx=0,x=0,alpha=0;
   switch(term) {
