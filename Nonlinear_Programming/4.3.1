@@ -1,0 +1,37 @@
+Question 4.3.1
+
+Function: f(x,y) = (x-a)^2 + (y-a)^2 + xy    where a and b are scalars
+
+Constraint: 0 <= x <= 1, 0 <= y <= 1
+
+Lagrange Equation: L(x,y,a,b,lambda,mu) = (x-a)^2 + (y-b)^2 + xy + lambda(1-x) + mu(1-y)
+
+Derivatives by parameter:
+
+                   dL(x,y,a,b,lambda,mu/dx = -2a-lambda+2x+y
+ 
+                                       = 0
+
+                   dL(x,y,a,b,lambda,mu/dy = -2b-mu+2y+x
+
+                                       = 0
+ 
+                   dL(x,y,a,b,lambda,mu/dlambda = -2(x-a)
+
+                                       = 0
+
+                   dL(x,y,a,b,lambda,mu)/db = -2(y-b)
+
+                                       = 0
+
+                   dL(x,y,a,b,lambda,mu)/dlambda = 1-x
+
+                                       = 0
+  
+                   dL(x,y,a,b,lambda,mu)/mu = 1-y
+
+                                       = 0
+
+Derivatives conducted for scalars, a and b because all real values possible. The equated derivated had real solutions, b=a, x=2a-1, y=2a-1, lambda=6a-5, and mu=6a-5.
+
+

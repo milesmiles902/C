@@ -1,0 +1,57 @@
+Question 4.3.2:
+
+Function: f(x,y) = yx
+
+Constraint: xQx <= 1  where xQx > 0 because positive definite Q.
+
+The optimal value is sqrt(yy/Q) not because Lagrange's equation: L(x,y,lambda) = y*x + lambda(1-xQx)
+
+Derivatives by parameter: dL(x,y,lambda)/dx = y - 2lambda*Qx
+
+                                            = 0
+
+                          dL(x,y,lambda)/dy = x
+
+                                            = 0
+
+                          dL(x,y,lambda)/dlambda = (1-xQx)
+
+                                                 = 0
+
+                          Lagrange's equation has no apparent solutions.
+
+
+Rayleigh-Ritz theorem is another method for eigenvalue solutions; lambda approximation.
+
+                          xQx = x(Q*D*Q)x
+
+                              = (xQ)*D*(Qx)
+ 
+                              = yDy
+
+                              = sum_1_n[ lambda_i*y_i^2 ] 
+
+                              <= 1
+
+                          Rayleigh-Ritz theorem supposes Qx = lambda*x.
+
+                          1 <= xQx
+
+                            <= x*(lambda)*x
+
+                            <= x*x(lambda)
+
+                            = lambda
+
+                          lambda* = 1
+
+                          Also, xQx = y*D*y
+                                    
+                                    = y*(lambda*)*y
+ 
+                                    = y*y
+
+                                 x* = sqrt(y*y/Q)
+
+
+
