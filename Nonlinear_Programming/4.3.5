@@ -1,0 +1,37 @@
+Question 4.3.5 (Constraint Qualifications for Inequality Constraints):
+
+Function: f(x)
+
+Constraint: g(x) <= 0
+
+            F(x) = {d | alpha>0, g(x+alpha*d)<=0 for all alpha }  <---Feasible directions, alpha is conditional step
+
+a) delf(x*)*d, the derivative is greater than (or equal to) zero because a positive limit definition of a derivative.
+
+       delf(x*)*d = lim (alpha->0) [f(x+alpha*d)-f(x)]/alpha >= 0
+
+b) The constraint F(x) describes a feasible direction, limits a step-size, and directs the gradient toward a minumum. 
+   Through Farkas Lemma, if the individal vectors are greater than zero, the sum of vectors too.
+
+         delf(x*)*d >= 0 
+
+         sum [delf(x*)*d ] >= 0
+     
+   With the secondary constraint, if the individual vectors are less than zero, the sum of the vectors too.
+
+         delg(x*)*d <= 0 
+
+         sum [g(x*)*d] <= 0
+
+   The Lagrange equation comes from equating the two inequalities above:
+
+         -sum [delf(x*)*d ] =  mu*sum [g(x*)*d] where mu>=0
+
+          sum [delf(x*)*d ] + mu*sum [g(x*)*d] = 0
+
+c) ....
+
+Rules: Farkas Lemma (Directions in a gradient)
+         If c is the sum of vectors
+         Such that c*y<=0 
+         Nonnegative scalars approximate, c=mu*a+...+mu*a

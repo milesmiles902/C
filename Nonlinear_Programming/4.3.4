@@ -1,0 +1,62 @@
+Question 4.3.4:
+
+Function #1: x_{i+1} = (1-d)x_i + u_i*g*x_i
+
+Function #2: y_{i+1} = (1-d)y_i + (1-u_i)*g*x_i
+
+Constraints: 0 < alpha <= u_i <= beta < 1
+
+             0 < g
+     
+             0 < d < 1
+
+Lagrange equation: L(x,y,d,u,g,lambda,mu,eta,kappa,alpha) = lambda(x_{i+1}) + mu(y_{i+1}) + eta(1-u_i) - kappa*g + alpha(1-d)
+ 
+                                              = lambda((1-d)x_i + u_i*g*x_i) + mu((1-d)y_i + (1-u_i)*g*x_i) + eta(1-u_i) - kappa*g + alpha(1-d)
+
+
+A simpler equation without subscripts         = lambda((1-d)x + u*g*x) + mu((1-d)y + (1-u)*g*x) + eta(1-u) - kappa*g + alpha(1-d)
+
+
+This Lagrange equation has coefficients in front of each function and constraint. The derivates are below:
+
+   dL(x,y,d,u,g,lambda,mu,eta,kappa,alpha)/dx = -d*lambda + g*lambda*u - g*mu*u + g*mu + lambda 
+
+                                  = 0
+
+   dL(x,y,d,u,g,lambda,mu,eta,kappa,alpha)/dy = mu(1-d) 
+
+                                  = 0
+   
+   dL(x,y,d,u,g,lambda,mu,eta,kappa,alpha)/dd = -lambda*x - mu*y - alpha
+
+                                  = 0
+ 
+   dL(x,y,d,u,g,lambda,mu,eta,kappa,alpha)/du = g*x*(lambda-mu) - eta 
+
+                                  = 0
+
+   dL(x,y,d,u,g,lambda,mu,eta,kappa,alpha)/dg = x(lambda*u-mu*u+mu) - kappa
+
+                                  = 0
+
+   dL(x,y,d,u,g,lamb  da,mu,eta,kappa,alpha)/dlambda = x(-d+g*u+1)
+
+                                  = 0
+
+   dL(x,y,d,u,g,lambda,mu,eta,kappa,alpha)/dmu = -d*y+g(x-u*x)+y
+
+                                  = 0
+
+   dL(x,y,d,u,g,lambda,mu,eta,kappa,alpha)/deta = (1-u)
+
+                                  = 0
+
+   u* <= 1, mu* = 0, If x (educators) and y (scientists) start greater than one, then 
+
+                     y*=x(d-g-1)/d         g*=d-1          alpha* = -x(-d+g+x+1)  
+
+                     eta*=dx+g*x^2-gx-x    kappa*=dx-gx+u*x^2-x       lambda*=x
+
+                     u* = (d+1)/g <= 1
+
