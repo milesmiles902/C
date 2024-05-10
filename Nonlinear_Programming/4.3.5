@@ -23,13 +23,65 @@ b) The constraint F(x) describes a feasible direction, limits a step-size, and d
 
          sum [g(x*)*d] <= 0
 
-   The Lagrange equation comes from equating the two inequalities above:
+   The Lagrange equation comes from the above inequalities:
 
          -sum [delf(x*)*d ] =  mu*sum [g(x*)*d] where mu>=0
 
           sum [delf(x*)*d ] + mu*sum [g(x*)*d] = 0
 
-c) ....
+c) 1/2) Part b holds because delg(x*)*d <= 0, as in the second step. 
+
+         Step #1: g(x) = g(x_1 + alpha*d)
+
+         Step #2: g(x) = g(x_2 + alpha*d)
+
+         Step #n: g(x) = g(x_n + alpha*d)
+
+         The steps show linearity.
+    
+         At a minimum: g(x*) = g(x* + alpha*d)
+
+                             = g(x*) + alpha*d
+
+                             = 0 at a minimum
+
+         Therefore, alpha = -g(x*)/d
+
+                          >= 0 because constraint F(x)
+
+                    g(x) <= 0
+
+         delg(x*)*d <= 0 
+
+    3) g(x)<0, fits the previous two lines.
+
+    4) A linear independence for delg(x*) requires g(x) = g(x_n+alpha*d) be independent. When the equations expands,          
+
+         g(x) = g(x_n+alpha*d)
+
+              = g(x_n) + alpha*d
+
+         Any set of real numbers for d is indepdendent and g(x) too.
+
+d) New function: f(x1,x2) = x1 + x2
+ 
+   Constraints: g1(x1,x2) = | -x1^2+x2 if x1>=0
+                            | -x1^4+x2 if x1<=0
+
+                g2(x1,x2) = | x1^4-x2 if x1>=0
+                            | x1^2-x2 if x1<=0
+
+   The Lagrange equation: L(x1,x2,lambda,mu,eta) = lambda*f(x1,x2) + mu*g1(x1,x2) + eta*g2(x1,x2)
+
+   An evaluation at x*=(0,0) by plugging-in the value into L(x1*,x2*,lambda,mu,eta) = 0.
+
+   Variables lambda, mu, and eta are difficult in resolution because symmetry. 
+
+e) New function: f(x)
+   
+   Constraint: delf(x*) != 0 
+
+   An argument from part d is unresolvable Lagrange multipliers because symmetry.
 
 Rules: Farkas Lemma (Directions in a gradient)
          If c is the sum of vectors

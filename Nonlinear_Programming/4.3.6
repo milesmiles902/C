@@ -1,0 +1,23 @@
+Question 4.3.6 (Gordan's Theorem of the Alternative):
+
+Matrix: A
+
+Constraint: Ax < 0
+
+            A*mu  = 0 when mu!=0
+
+By Proposition 4.3.10 and satisfactory conditions, then mu>=0, and Ax<=0.
+
+The columns of A when reduced are linearly independent. A is real in the definition from the book. Also, when A continously differentiates, then the properties hold in a minimax situation.
+
+Without a search, I predict minimax in finance as minimal risk on a risk-basis per term. Maybe an engineer "minimax's" coefficients in structural design with a physical constant for multiple materials. Till this point, my comprehension is without a real-life minimax because other methods compensate, such as regression's coefficients with prior definition in a book. Maybe in the next project of geometric shape regression onto points, I will regress and Lagrange coefficients by minimax.
+
+Rules: Proposition 4.3.10 (Minimax Problems):
+         min{max(f(x))}
+         subject to h(x)=0
+         If each are linearly independent, real, and continously differentiable
+         Then properties stand, such as:
+           1) mu{delf(x*)} + lambda{delh(x*)} = 0
+           2) mu>=0, sum[mu]=1
+           3) f(x*)=max{f(x*)}
+           4) Values nearby x* are positive
