@@ -1,0 +1,146 @@
+Question 4.3.8:
+
+Lagrange Equation: L(x1.x2.mu0,mu1,mu2) = mu0*f(x1,x2) + mu1*g1(x1,x2) + mu2*g2(x1,x2)
+
+a) Function: f(x1,x2) = -x1
+   
+   Constriants: g1(x1,x2) = x2-(1-x1)^3
+                g2(x1,x2) = -x2
+ 
+   The Lagrange equation derivatives for variables are below:
+
+               dL(x1.x2.mu0,mu1,mu2)/dx1 = 3*mu1(1-x1)^2 - mu0
+ 
+                                         = 0
+
+               dL(x1.x2.mu0,mu1,mu2)/dx2 = mu1-mu2
+
+                                         = 0
+
+              dL(x1.x2.mu0,mu1,mu2)/dmu0 = -x1
+
+                                         = 0
+            
+              dL(x1.x2.mu0,mu1,mu2)/dmu1 = -x2-(1-x1)^3
+
+                                         = 0
+                
+              dL(x1.x2.mu0,mu1,mu2)/dmu2 = -x2
+
+                                         = 0
+
+   Solution: (x1*,x2*,mu0*,mu1*,mu2*) = (1,1,1,mu1,mu1+1) 
+
+   The Fritz John condition in the two-dimensional problem above leaves a variable to the author.
+
+b) Function: f(x1,x2) = x1+x2
+
+   Constriants: g1(x1,x2) = x1^2+x2^2-2
+                g2(x1,x2) = -x1^2-x2^2+2
+
+   The Lagrange equation derivatives for variables are below:
+
+               dL(x1.x2.mu0,mu1,mu2)/dx1 = mu0 + 2*x1*(mu1-mu2)
+
+                                         = 0
+
+               dL(x1.x2.mu0,mu1,mu2)/dx2 = mu0 + 2*x2*(mu1-mu2)
+
+                                         = 0
+
+              dL(x1.x2.mu0,mu1,mu2)/dmu0 = x1 + x2
+
+                                         = 0
+            
+              dL(x1.x2.mu0,mu1,mu2)/dmu1 = x1^2 + x2^2 - 2
+
+                                         = 0
+                
+              dL(x1.x2.mu0,mu1,mu2)/dmu2 = -x1^2 - x2^2 + 2
+
+                                         = 0
+
+    Solutions: (x1*,x2*,mu0*,mu1*,mu2*) = (1,-1,0,mu1,mu1)
+
+                                        = (-1,1,0,mu1,mu1)
+
+    The constraint symmetry requires a zero coefficient.
+
+c) Function: f(x1,x2) = x1+x2
+
+   Constriants: g1(x1,x2) = x1^2+x2^2-2
+                g2(x1,x2) = x1^2+x2^2-2
+
+   The Lagrange equation derivatives for variables are below:
+
+               dL(x1.x2.mu0,mu1,mu2)/dx1 = 2*x1*(mu1+mu2) + mu0
+
+                                         = 0
+
+               dL(x1.x2.mu0,mu1,mu2)/dx2 = 2*x2*(mu1+mu2) + mu0
+                
+                                         = 0
+   
+              dL(x1.x2.mu0,mu1,mu2)/dmu0 = x1 + x2
+
+                                         = 0
+
+              dL(x1.x2.mu0,mu1,mu2)/dmu1 = x1^2 + x2^2 - 2
+
+                                         = 0
+
+              dL(x1.x2.mu0,mu1,mu2)/dmu2 = x1^2 + x2^2 - 2
+
+                                         = 0
+
+    Solution: (x1*,x2*,mu0*,mu1*,mu2*) necessitates a guess value as x or y input. Although, the book says no solution for similar examples.  
+
+d) Function: f(x1,x2) = x1+x2
+
+   Constriants: g1(x1,x2) = | -x1^2+x2 if x1>=0
+                            | -x1^4+x2 if x1<=0
+                g2(x1,x2) = |  x1^4-x2 if x1>=0
+                            |  x1^2-x2 if x1<=0
+    
+   The Lagrange equation derivatives for variables are below:
+
+              dL(x1.x2.mu0,mu1,mu2)/dx1 = mu0 - 2*mu1*x1 + 4*mu2*x1^3 if x1>=0
+
+                                        = mu0 - 4*mu1*x1^3 + 2*mu2*x1 if x1<=0
+
+                                         = 0
+   
+              dL(x1.x2.mu0,mu1,mu2)/dx2 = mu0 + mu1 - mu2 if x1>=0
+ 
+                                        = mu0 + mu1 - mu2 if x1<=0
+                
+                                         = 0
+
+              dL(x1.x2.mu0,mu1,mu2)/dmu0 = x1 + x2 if x1>=0
+
+                                         = x1 + x2 if x1<=0
+
+                                         = 0
+
+              dL(x1.x2.mu0,mu1,mu2)/dmu1 = x1^2+x2 if x1>=0
+         
+                                         = x1^4+x2 if x1<=0
+ 
+                                         = 0
+
+              dL(x1.x2.mu0,mu1,mu2)/dmu2 = x1^4 - x2 if x1>=0
+
+                                         = x1^2 - x2 if x1<=0
+
+                                         = 0
+
+   Solutions: (x1*,x2*,mu0*,mu1*,mu2*) = (1,0,2n+1,-5n,-3n) if x1>=0 and n an integer
+
+                                       = (1,0,2n+1,3n,5n) if x1<=0 and n an integer
+
+   Fritz John conditioned a problem with proportional constraints.
+
+Rules: Proposition 4.3.17 (Fritz John condition):
+         In the case, min{f(x)}
+         subject to h(x)=0 and g(x)<=0
+         Then coefficients are possible factors, such as lambda and mu. 

@@ -1,0 +1,28 @@
+Question 4.3.10 (Relation of Fritz John and KKT multipliers)
+
+Function: f(x)
+
+Constraint: h(x) = 0
+ 
+            g(x) <= 0
+
+a) The Fritz John condition applies little because the minimum at zero in a Lagrange equation. Proposition 4.3.5 is helpful in cases of irregular minimum, choppy, or jagged iteration.
+
+b) mu*delf(x*)+sum[lambda**h(x*)] + sum[mu**delg(x*)] = 0, and when mu*=1, Fritz John conditions holds, although less important across the global landscape with other constraints. 
+
+
+Rules: Proposition 4.3.1 (Karush-Kuhn-Tucker Necessary Conditions):
+         If x* is a local minimum
+         When unique multipliers prevail
+         Then dL(x*,lambda*,mu*)/dx = 0
+              mu>=0
+         Also, ydel[dL(x*,lambda*,mu*)/dx]y>=0
+         Then also, for all y, delh(x*)y=0 and delg(x*)y = 0
+
+       Proposition 4.3.5 (Fritz John Necessary Condition):
+         When mu*delf(x*)+sum[lambda**h(x*)] + sum[mu**delg(x*)] = 0
+              mu>=0
+              mu or lambda != 0
+         In every region by x*, lambda**h(x)>0, mu*g(x)>0 and f(x)<f(x*)
+         
+         --Proposition 4.3.5 is unclear. It seems be about an overcompensation near minimum, x*.
