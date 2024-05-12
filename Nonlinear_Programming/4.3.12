@@ -1,0 +1,10 @@
+Question 4.3.12 (An Alternative Fritz John Condition):
+
+Ulterior conditions when (lambda*,mu*)!=(0,0) requires similar function f(x) and g(x) signs as the coefficient. A normal Lagrange equation with derivatives for an unknown coefficient compensate signs.
+
+Rules: Proposition 4.3.5 (Fritz John Necessary Condition):
+         When mu*delf(x*)+sum[lambda**h(x*)] + sum[mu**delg(x*)] = 0
+              mu>=0
+              mu or lambda != 0
+         In every region by x*, lambda**h(x)>0, mu*g(x)>0 and f(x)<f(x*)
+

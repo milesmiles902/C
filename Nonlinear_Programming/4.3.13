@@ -1,0 +1,32 @@
+Question 4.3.13 (Fritz John Conditions for Nondifferentiable Cost):
+
+Function: f(x)
+
+Constraint: h(x)=0
+            g(x)<=0
+
+a) i) The vector: -sum_1_m[lambda**delh(x*)] - sum_1_r[mu**delg(x*)] is a subgradient because x* in Fritz John's first condition.
+   ii) mu not zero works when both -delf(x)*mu>0 and g(x)*mu>0.
+   iii) The third line in Proposition 4.3.5 requires at least one coefficient not zero.
+   iv) Minimum coefficient "neighborhoods" is the fourth line in Proposition 4.3.5 below.
+
+b) Fritz John conditions apply with mu of one, especially for concave functions because the sign of the second derivative.
+
+c) With mu at one, both Propositions 4.3.8 and 4.3.9 become important with the Lagrange equation. A term without a coefficient needs specific function-types for the Lagrange's convergence. 
+
+
+
+Rules:  Proposition 4.3.5 (Fritz John Necessary Condition):
+         When mu*delf(x*)+sum[lambda**h(x*)] + sum[mu**delg(x*)] = 0
+              mu>=0
+              mu or lambda != 0
+         In every region by x*, lambda**h(x)>0, mu*g(x)>0 and f(x)<f(x*)
+
+        Proposition 4.3.8 (Linear Independence/Interior Point Constrain Qualification:
+         When delh(x)*d=0 and delg(x*)*d<0
+         The solution is x*
+
+        Proposition 4.3.9 (Slater Constraint Qualification for Convex Inequalities):
+         When h(x) is linear, but g(x) convex
+         g(x) < 0 for some case
+         The solution becomes x*

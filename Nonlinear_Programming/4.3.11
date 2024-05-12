@@ -1,0 +1,17 @@
+Question 4.3.11:
+
+Function: fx)
+
+Constraint g(x)<=0
+
+The coefficient mu* = 0 for a constraint satisfy Fritz John's condition. 
+
+Fritz's necessary condition also works for mu*>0 when g(x*)=0.
+
+Rules: Preposition 4.3.5 (Fritz John Necessary Condition):
+         When mu*delf(x*)+sum[lambda**h(x*)] + sum[mu**delg(x*)] = 0
+              mu>=0
+              mu or lambda != 0
+         In every region by x*, lambda**h(x)>0, mu*g(x)>0 and f(x)<f(x*)
+
+
