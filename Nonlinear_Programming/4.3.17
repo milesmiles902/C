@@ -1,0 +1,13 @@
+Question 4.3.17 (Feasible Directions for Infinitely Many Constraints):
+
+Function: X = { x | g(x)<=0}
+
+Constraint: g(x) is a Euclidean space
+ 
+            A(x*) = { j | g(x) = 0}
+
+            y is a vector, such that delg(x*)y < 0
+
+A proof about feasible directions being the tangent cone:
+
+    A tangent cone requires a coefficent (or multiplier) onto a function. A steepest descent method, x_k = x_{k-1} + alpha(delf(x)) has a constant coefficent alpha for derivation. An adjustment of steepest descent x_k-x_{k-1} = alpha*(delf(x)) with x_k-x_{k-1} in the range of function X, the tangent multiplier alpha, and delf(x) as the tangent.

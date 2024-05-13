@@ -1,0 +1,9 @@
+Question 4.3.15:
+
+Function: X
+
+Constraint: T(x) = X/||X||, a tangent cone plots slope
+
+a) A closed cone definition is by a multipler or line segment. A closed clone point with a constant coefficient equals another function. Alternatively, a line segment between two points encompass another function in a cone. T(x) is a closed cone because the tangents represent a slope and constant coefficient.
+
+b) Suppose X is convex and in multiple feasible directions. T(x) encloses every feasible direction. As an example, when X is f(x)=x and T(x) = x/||x||, then f(x)=f(x)*T(x) = x.

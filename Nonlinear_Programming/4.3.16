@@ -1,0 +1,16 @@
+Question 4.3.16:
+
+Function: X = {x|g(x)<=0, j=1...r}
+
+Constraint g(x) is real, concave, and differentiable over reals.
+
+Definition: A regular function has element r with other equal elements in range, 1-r. A quasiregular function has element r with other elements in range, 1-r, possible by a multiplicative factor.
+
+X is quasiregular because g(x)'s convexity. Together, the function and constraint satisfy Fritz John's Necessary Conditions.
+
+Rules: Proposition 4.3.5 (Fritz John Necessary Condition):
+         When mu*delf(x*)+sum[lambda**h(x*)] + sum[mu**delg(x*)] = 0
+              mu>=0
+              mu or lambda != 0
+         In every region by x*, lambda**h(x)>0, mu*g(x)>0 and f(x)<f(x*)
+ 
