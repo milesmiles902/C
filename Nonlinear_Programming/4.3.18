@@ -1,0 +1,21 @@
+Question 4.3.18:
+
+A Lagrange equation with the form delf(x*)+lambda**delh(x*)+mu**delg(x*)=0 contains implicit solutions. Each isolated coefficient is an implicit definition about the term and an alternative Lagrange representation. An important fact is the coefficient exists in a domain. For example,
+
+        delf(x*) + lambda**delh(x*) + mu**delg(x*) = 0
+
+        lambda* = -(delf(x*)+mu**delg(x*))/delh(x*) 
+
+In the arrangement above, lambda*'s range is greater than zero, and existant. Propositions 4.3.8 and 4.3.9 are applicable with each isolated coefficient in a Lagrange equation for real function evaluations.
+
+
+Rules: Proposition 4.3.8 (Linear Independence/Interior Point Constrain Qualification:
+         When delh(x)*d=0 and delg(x*)*d<0
+         The solution is x*
+
+        Proposition 4.3.9 (Slater Constraint Qualification for Convex Inequalities):
+         When h(x) is linear, but g(x) convex
+         g(x) < 0 for some case
+         The solution becomes x*
+
+

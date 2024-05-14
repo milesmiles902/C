@@ -1,0 +1,36 @@
+Question 4.3.19 (Boundedness of the Set of Lagrange Multipliers):
+
+Function: f(x)
+
+Constraint: h(x)=0
+     
+            g(x)<=0
+
+A definition: beta^k = lambda^k/||lambda^k||
+
+              gamma^k = mu^k/||mu^k||
+
+Show this is a nonempty set:
+
+       A nonempty set has a cardinality greater than zero. If coefficient lambda and mu in a Langrange equation are existant, then also the nonempty set. These definitions in the problem provide actual coefficients because the denominator is real.
+
+Show this set has a bound:
+
+       The set's (or function's) upper bound is a real number greater than every element. Lagrangian bounds are the sign of each term's derivative, such that delh(x)*d=0 and delg(x)*d<0 for a given set d. This problems constraints define similar concepts.
+
+Show delg(x*)beta + delg(x*)gamm = 0:
+
+       delg(x*)*beta + delg(x*)*gamm = delg(x*)*lambda^k/||lambda^k|| + delg(x*)*mu^k/||mu^k||
+
+                                     = 0 from the constraints
+
+Show that this is a conradiction of the linear indepdendence/interior point constraint:
+
+       The contradiction is between mu*delg(x*) = 0 and delg(x*)*d < 0. When mu is positive, delg(x*) at zero, the second statement delg(x*)*d never crosses into the negative region.
+
+Rules: Proposition 4.3.8 (Constraint Qualification for an Additional Convex Set Constraint):
+         1) There is no nonzero lambda in a Lagrangien when (lambda*delh(x*))(x-x*)>0
+         2) There exists a feasible direction such that delh(x*)=0, and delg(x*)*d<0
+         3) If so, Fritz John condition holds for an irregular convergence at a minimum in a function
+
+

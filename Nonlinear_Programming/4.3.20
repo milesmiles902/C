@@ -1,0 +1,25 @@
+Question 4.3.20 (Pseudonormality, Quasinormality, and Quasiregularity):
+
+Definition: Quasinormal: No set of scalars exist such that:  i) lambda*delh(x*) + mu*delg(x*) = 0
+                                                             ii) mu>=0
+                                                             iii) lambda and mu !=0
+                                                             vi) lambdah(x)>0 and mu*g(x)>0
+
+            Quasiregular: A function has element r with other elements in range, 1-r, possibly the same number or by multiplicative factor.
+
+            Pseudonormal: A set that has a probability relationship between elements
+
+Function: f(x)
+
+Constraint: h1(x) = x2
+            h2(x) = | x1^4*sin(1/x1)-x2  if x1!=0
+                    | 0                  if x1=0
+
+The constraints are continously differentiable by hand, delh1(x) = 0, delh2(x) = 4x1^3sin(1/x1)-x1^2*cos(1/x1) or 0. The vector is quasiregular because repeating zero elements, but not quasinormal or pseudonormal. A quasinormal set requires lambda*delh(x*) = 0, a contradiction when x1!=0 for line (iii) in the definition. Pseudonormal isn't possible because 0% or 100% similar elements in the set.
+
+Rules: Proposition 4.3.5 (Fritz John Necessary Condition):
+         When mu*delf(x*)+sum[lambda**h(x*)] + sum[mu**delg(x*)] = 0
+              mu>=0
+              mu or lambda != 0
+         In every region by x*, lambda**h(x)>0, mu*g(x)>0 and f(x)<f(x*)
+
