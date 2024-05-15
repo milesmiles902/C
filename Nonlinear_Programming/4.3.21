@@ -1,0 +1,30 @@
+Question 4.3.21 (An Alternative Version of the Linear Indepedence Interior Point Constraint Qualification):
+
+Function: f(x)
+
+Constraint: h(x)=0
+            g(x)<=0
+
+Vectors: delh(x*)*d = 0
+ 
+         delg(x*)*d <= 0 
+ 
+         delg(x*)*d < 0
+
+Vectors in the problem require a couple other assumptions for each proposition. The first assumption is h(x) linearity and g(x) a convex function. Lagrange equation format of delf(x*) + lambda**delh(x*)+mu**delgx*) = 0 defines x* as asolution in 4.3.7. Coefficients mu and lambda are real from Proposition 4.3.6 with general outcomes about the sign in h(x), along with g(x). When Proposition 4.3.6 becomes true, so does Proposition 4.3.8, in addition to feasible directions and an irregular minimum in the function, f(x).
+
+Rules: Proposition 4.3.6 (Strengthened Karush-Kuhn-Tucker Conditions):
+         If a Lagrangian model: delf(x*) + lambda**delh(x*)+mu**delgx*) = 0
+         Coefficients mu and lambda are possible
+         Where mu>=0, lambda**h(x)>0, and mu**g(x)>0
+         When satisfactory, f(x) < f(x*) for an x
+
+       Proposition 4.3.7 (Linear/Concave Constraints): 
+         When h is linear and g convex
+         x* is a solution for a Lagrange equation
+
+       Proposition 4.3.8 (Constraint Qualification for an Additional Convex Set Constraint):
+         1) There is no nonzero lambda in a Lagrangien when (lambda*delh(x*))(x-x*)>0
+         2) There exists a feasible direction such that delh(x*)=0, and delg(x*)*d<0
+         3) If so, Fritz John condition holds for an irregular convergence at a minimum in a function
+

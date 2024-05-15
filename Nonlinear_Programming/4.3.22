@@ -1,0 +1,17 @@
+Question 4.3.22 (Enhanced Version of Farkas' Lemma):
+
+Function: c = mu_1*a_1+...+mu_r*a_r
+
+Constraint: a*y > 0
+            a*y <= 0
+
+Figure 4.3.7 shows a geometric interpretation of Farkas' lemma. 
+
+When a set describes a cone: C = {c| c = sum_1_r[mu*a], mu>=0, j=1,...,r}
+
+The argument with Farkas' cone, y is on the line of the cone at c*y=0 when y>=0. Otherwise, y remains inside (y<=0) or outside (y>=0) the cone. There exists a y such that c*y<=0.
+
+Rules: Proposition 4.3.12 (Farkas Lemma):
+         c*y<=0 for all y such that ay<=0
+         If and only if there exists nonegative scalars such that c=mu_1*a_1+...+mu_r*a_r
+
