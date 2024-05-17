@@ -1,0 +1,21 @@
+Question 4.4.2:
+
+Returns: c(A + sum_1_n[s])*x/(s+x) 
+
+Expected Return: c(A + sum_1_n[s])*(sum_1_n[p*x/(s+x)]) - A
+
+Function: sum_1_n[p*x/(s+x)]
+
+Constraint: sum_1_n[x]=A
+
+Optimal Solution: x* = | sqrt(s*p/lambda*)-s  for i=1,...,m*
+                       |        0             for i=m*+1,...,n
+
+What is the scalar (lambda*) for this system of gambling parameters? 
+
+   Lagrangian: L(p,x,s,A,lambda) = sum_1_n[p*x/(s+x)]+lambda*(A-sum_1_n[x])
+
+   Optimal Solution Lagrangian: L(p,x*,s,A,lambda*) = sum_1_n[p*[sqrt(s*p/lambda*)-s]*/(s+[sqrt(s*p/lambda*))-s]]+lambda*(A-sum_1_n[[sqrt(s*p/lambda*)-s]])
+                                                    = 0
+ 
+Answer: The optimal range (p/s >= lambda* >= 0) for the scalar indicates all bets off for total amount in the pot.

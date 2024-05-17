@@ -8,7 +8,7 @@ d_i = Individual demand at outlet i for product units
 
 p_i = Individiual product price at outlet i
 
-What quantity (s) maximizes the revenue? i.e. Each store sells what quantity?
+What quantity (s) maximizes the revenue?
 
   Total revenue = sum_i_n [p_i*s_i]
 
@@ -20,31 +20,31 @@ What quantity (s) maximizes the revenue? i.e. Each store sells what quantity?
 
   Lagrange equation: L(Q, d_i, p_i, s_i, mu, lambda) = mu*sum_i_n [p_i*s_i] + lambda(Q-sum_i_n[d_i])
 
-  Dual Lagrangian: q(p,s,lambda,x) = mu*sum_i_n [p_i*s_i] + lambda*x
+  Dual Lagrangian: q(p,s,mu,lambda,x) = mu*sum_i_n [p_i*s_i] + lambda*x
 
   A solution derivated: 
 
-             dL(Q, d, p, s, lambda, mu, eta)/dp = mu*s
+             dq(p, s, mu, lambda, x)/dp = mu*s
 
-                                                = 0
+                                    = 0
 
-             dL(Q, d, p, s, lambda, mu, eta)/ds = mu*p
+             dq(p, s, mu, lambda, x)/ds = mu*p
 
-                                                = 0
+                                    = 0
 
-             dL(Q, d, p, s, lambda, mu, eta)/dlambda = x
+             dq(p, s, mu, lambda, x)/dlambda = x
 
-                                                     = 0
+                                         = 0
 
-             dL(Q, d, p, s, lambda, mu, eta)/dx = lambda 
+             dq(p, s, mu, lambda, x)/dx = lambda 
 
-                                                 = 0
+                                    = 0
 
-   The item number per store (s) equals the sale price (p).
+   Answer: When items per store (s) equal the sale price (p).
 
-   When without the Dual-Lagrangian, the item amount (s) at each store is zero units with no care in management for store demand.  
+           Also, an item amount (s) of zero units because management denied the regional business demands.  
 
-What is the cutoff price for each store's demand?
+What is the cutoff price for store demand?
 
   Total revenue = sum_i_n [p_i*s_i]
 
@@ -54,9 +54,30 @@ What is the cutoff price for each store's demand?
 
                           p > 0
 
-  Lagrange equation: L(Q, d_i, p_i, s_i, lambda, mu, eta) = sum_i_n [p_i*s_i] + lambda(Q-sum_i_n[d_i]) + eta*(p-y)
+  Lagrange equation: L(Q, d_i, p_i, s_i, mu, lambda, eta) = sum_i_n [p_i*s_i] + lambda(Q-sum_i_n[d_i]) + eta*(p-y)
+
+  Dual Lagrangian: q(p,s,mu,lambda,x,eta,y) = sum_i_n [p_i*s_i] + lambda*x + eta*(p-y)
 
   A solution derivated:
 
-  ...
+             dq(p, s, mu, lambda, x, eta, y)/dp = mu*s + eta
+
+                                                = 0
+
+             dL(p, s, mu, lambda, x, eta, y)/ds = mu*p
+
+                                                = 0
+
+             dL(p, s, mu, lambda, x, eta, y)/dlambda = x
+
+                                                     = 0
+
+             dL(p, s, mu, lambda, x, eta, y)/dx = lambda
+
+                                                 = 0
+
+             dL(p, s, mu, lambda, x, eta, y)/dy = -eta*y
+  
+                                            = 0
+   Answer: The cutoff price (y) is -p/(p-s) with more items per store (s) than price (p).
 

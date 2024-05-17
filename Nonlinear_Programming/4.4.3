@@ -1,0 +1,60 @@
+Question 4.4.3 (Pairs of Dual Linear Programs):
+
+Duality Relations: 1) min_{Ax>=b} [c'x] = max_{Amu=c, mu>=0} [b'mu]
+
+                   2) min_{Ax>=b, x>=0} [c'x] = max_{Amu<=c, mu>=0} [b'mu]
+
+Duality relations mix derivative sequence with same argument and outcome. 
+
+1) min_{Ax>=b} [c'x] = min{c*x+lambda(Ax-b)}
+ 
+                     = c+lambda*A
+
+                     = 0
+
+   max_{Amu=c, mu>=0} [b'mu] = max{b*mu+lambda*(A*mu-c)}
+
+                             = b+lambda*A
+
+                             = 0
+   c+lambda*A = b+lambda*A
+
+2) min_{Ax>=b, x>=0} [c'x] = min{c*x+lambda*(Ax-b)}
+
+                           = c+lambda*A
+
+                           = 0
+
+   max_{Amu<=c, mu>=0} [b'mu] = max{b*mu+lambda*(A*mu-c}}
+
+                              = b+lambda*A
+                  
+                              = 0
+
+   c+lambda*A = b+lambda*A
+
+The complementary slack conditions derivated:
+
+   q(lambda) = inf{sum(c - sum[lambda*e]) + sum[lambda*d]}
+
+   4.98) max{q(lambda)} = max{inf{sum(c - sum[lambda*e]) + sum[lambda*d]}
+
+                        = 0
+
+          max{inf{sum(c - sum[lambda*e])} = 0
+
+                          sum[lambda*e])} = c
+
+   4.99) max{q(lambda)} = max{inf{sum(c - sum[lambda*e]) + sum[lambda*d]}
+
+                        = 0
+
+           max{inf{sum(c - sum[lambda*e])} < 0
+
+                           sum[lambda*e])} < c
+
+Rules: Equation 4.98
+         x*>0 --> sum[lambda**e = c]
+
+       Equation 4.99
+         [lambda*e < c] --> x=0
