@@ -7,7 +7,7 @@ Constraint: x1 + x2 + x3 = 1
 
             x>=0
 
-a) The central path sketch contains a maximum bound of one to three-dimension with a path from the initial conditions toward the boundary.
+a) The central path sketch contains a maximum bound of one to three-dimensions with a path from the initial conditions toward the boundary.
 
 b) Short-step Interior Point Algorithm:
    g++ 5.1.1.cpp -std=c++11
@@ -123,6 +123,7 @@ void makeVector(float* vector){
   }
 }
 
+//A vector pointer
 float *makeVector(int size){
   float* vector = new float[size];
   return vector;
@@ -256,8 +257,8 @@ void evaluateShort(RealFunc f, RealFunc g, RealFuncDerivative d, float x1, float
   //  -Lagrange System, multipler[lambda]   -Lagrange System, multiplier[lambda]
   //
   //  This function solves a system of linear equations with a pre-determined matrix size [3x3]. 
-  //  The method's purpose is when the Lagrange multiplier has no initial solution from function and constraint.  
-  //  Literature defines the problem-type as "Infeasible start algorithms."
+  //  The Lagrange multiplier has no initial solution from the function and constraint.  
+  //  Literature defines this problem-type as "Infeasible start algorithms."
  
  
   for(int i=0;;i++){
