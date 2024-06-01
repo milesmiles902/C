@@ -25,7 +25,6 @@ a/b) The central path sketch contains a maximum bound of one to three-dimensions
 
 using namespace std;
 
-//Alias functions
 typedef function<float(float,float,float)> RealFunc;
 typedef function<float(function<float(float,float,float)>,function<float(float,float,float)>,float,float,float)> RealFuncDerivative;
 
@@ -50,7 +49,7 @@ float computeDerivative(RealFunc f, RealFunc g, float x1, float x2, float x3){
   return L;
 }
 
-//A line minimization: https://en.wikipedia.org/wiki/Line_search
+//Line minimization: https://en.wikipedia.org/wiki/Line_search
 float lineMin(RealFunc f, RealFunc g, float d, float x1, float x2, float x3, float len){
   float x=0,h=0,alpha=0,idx=1,min=0;
       min=f(x1+alpha*d,x2+alpha*d,x3+alpha*d);
@@ -602,8 +601,8 @@ int main(){
   RealFuncDerivative d{computeDerivative};
   float x1=0.8, x2=0.15, x3=0.05, smin=0.1, smax=0.9, n=100, precision = 10e-6;
 
-  cout <<"Function f(x1,x2,x3) = x1 + 2*x2 + 3*x3 )" << endl;
-  cout <<"Constraint: x1+x2+x3=1" << endl;
+  cout <<"Function f(x1,x2,x3) = x1 + 2*x2 + 3*x3" << endl;
+  cout <<"Constraint: x1 + x2 + x3 = 1" << endl;
   cout << endl;
 
   cout <<"Initial x1: " << x1 << endl;
@@ -620,6 +619,7 @@ int main(){
   evaluatePrimal(f,g,d,x1,x2,x3,smin,smax,n,precision); 
   //Predictor-corrector Variant
   evaluatePredictor(f,g,d,x1,x2,x3,smin,smax,n,precision);
+
   cout << "New initial conditions for x1, x2, and x3" << endl;
   x1=0.1;
   x2=0.2;
@@ -638,7 +638,7 @@ int main(){
   //Preditor-corrector Variant
   evaluatePredictor(f,g,d,x1,x2,x3,smin,smax,n,precision);
 
-  cout << "The initial conditions define an early convergence constraint." << endl;
-  cout << "Line minimization also is a reviewable factor." << endl;
+  cout << "The initial conditions define an early convergence." << endl;
+  cout << "Line minimization is also a reviewable factor." << endl;
   return 0; 
 } 
