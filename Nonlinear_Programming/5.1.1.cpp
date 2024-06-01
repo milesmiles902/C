@@ -9,8 +9,8 @@ Constraint: x1 + x2 + x3 = 1
 
 a) The central path sketch contains a maximum bound of one to three-dimensions with a path from the initial conditions toward the boundary.
 
-b) Short-step Interior Point Algorithm:
-   g++ 5.1.1.cpp -std=c++11
+a) Short-step Interior Point Algorithm:
+   g++ 5.1.1.cpp -=c++11
 */
 
 #include <functional>
@@ -23,8 +23,8 @@ b) Short-step Interior Point Algorithm:
 using namespace std;
 
 //Alias functions
-typedef std::function<float(float,float,float)> RealFunc;
-typedef std::function<float(std::function<float(float,float,float)>,std::function<float(float,float,float)>,float,float,float)> RealFuncDerivative;
+typedef function<float(float,float,float)> RealFunc;
+typedef function<float(function<float(float,float,float)>,function<float(float,float,float)>,float,float,float)> RealFuncDerivative;
 
 //Function: f(x)=x1+2*x2+3*x3
 float Funcf(float x1, float x2, float x3){
@@ -40,7 +40,7 @@ float Funcg(float x1, float x2, float x3){
 
 //A function for computing a derivative
 float computeDerivative(RealFunc f, RealFunc g, float x1, float x2, float x3){
-  float h = sqrt(std::numeric_limits<float>::epsilon());
+  float h = sqrt(numeric_limits<float>::epsilon());
   float L = (f(x1+h,x2,x3)-f(x1,x2,x3))/h + (g(x1+h,x2,x3)-g(x1,x2,x3))/h     \
               + (f(x1,x2+h,x3)-f(x1,x2,x3))/h + (g(x1,x2+h,x3)-g(x1,x2,x3))/h  \
               + (f(x1,x2,x3+h)-f(x1,x2,x3))/h + (g(x1,x2,x3+h)-g(x1,x2,x3))/h;
@@ -204,9 +204,9 @@ float* multiply(float** matrix, float* vector1, float* vector2, int rows, int co
   return vector2;
 }
 
-//A short-step interior point method
-void evaluateShort(RealFunc f, RealFunc g, RealFuncDerivative d, float x1, float x2, float x3, float smin, float smax, float theta,float n, float precision){
-  float s=smax,len,dx,ds,dlambda,mu=1,lambda=0,alpha=0;
+//A Short-step path-following method
+void evaluateShort(RealFunc f, RealFunc g, RealFuncDerivative d, float x1, float x2, float x3, float smin, float smax, float n, float precision){
+  float s=smin,len,dx,ds,dlambda,mu=1,lambda=0,alpha=0;
   float r1,r2,r3;
   
   float A[3] = {1,2,3};
@@ -257,16 +257,111 @@ void evaluateShort(RealFunc f, RealFunc g, RealFuncDerivative d, float x1, float
   //  -Lagrange System, multipler[lambda]   -Lagrange System, multiplier[lambda]
   //
   //  This function solves a system of linear equations with a pre-determined matrix size [3x3]. 
-  //  The Lagrange multiplier has no initial solution from the function and constraint.  
+  //  The Lagrange equation has no initial solution because the constraint's initial conditions.  
   //  Literature defines this problem-type as "Infeasible start algorithms."
  
  
   for(int i=0;;i++){
-    if(s>smin){
+    if(s<smin){
+      s=smin;
+    }else if(smin<s && s<smax){
       s = (1-smax/sqrt(n))*s;
+    } else{
+      s=smax;
     }
 
     M[0][1]=(A[0]+A[1]+A[2]);
+    M[0][2]=1;
+    M[1][0]=(A[0]+A[1]+A[2]);
+    M[2][0]=(S[0]+S[1]+S[2]);
+    M[2][2]=(X[0]+X[1]+X[2]);
+
+    b[0] = -(x1+x2+x3-1);
+    b[1] = -(lambda+2*lambda+3*lambda+S[0]+S[1]+S[2]);
+    b[2] = -(s*mu-(x1*S[0]+x2*S[1]+x3*S[2]));
+
+    Am1 = inverseA(M);
+    multiply(Am1,b,X,3,3,3);
+    
+    dx = X[1];
+    dlambda = X[2];
+    ds = X[3];
+
+    mu=(1-alpha*(1-s))*mu; //s*mu
+    len=mu/(8*(smax*smax+n));
+    alpha=1;
+    lambda+=alpha*dlambda;
+    s+=alpha*ds;
+
+    S[0]=s;
+    S[1]=s;
+    S[2]=s;
+
+    //New x1
+    x1+=alpha*dx;
+    //New x2
+    x2+=alpha*dx;
+    //New x3
+    x3+=alpha*dx;
+
+    //When x is less than zero
+    if(x1<0){
+      x1=0;
+    } else if(x2<0){
+      x2=0;
+    } else if(x3<0){
+      x3=0;
+    }
+    //A solution check for convergence
+    if(abs(alpha*dx)<precision){
+      cout <<"Short-step path-following method: " << endl << endl;
+      cout <<"  Iteration total: " << i << endl;
+      cout <<"  Function Minimum x: " << setprecision(6) << "x1:" << x1 << " x2: " << x2 << " x3: " << x3 << endl;
+      cout << endl;
+      return;
+    } 
+  }
+  return;
+}
+
+//Long-step path-following method
+void evaluateLong(RealFunc f, RealFunc g, RealFuncDerivative d, float x1, float x2, float x3, float smin, float smax, float n, float precision){
+  float s=smin,len,dx,ds,dlambda,mu=1,lambda=0,alpha=0;
+  float r1,r2,r3;
+  
+  float A[3] = {1,2,3};
+  float S[3] = {0,0,0};
+
+  float** M = makeMatrix(3);
+  setMatrix(M,3);
+  
+  float *b = makeVector(3); 
+  setVector(b,3);
+  
+  float *X = makeVector(3);
+  setVector(X,3);
+
+  float **Am1 = makeMatrix(3);
+
+  X[0]=0;
+  X[1]=1;
+  X[2]=0;
+
+  //The long-step method is a short-step path-following method, with s=s_{n-1}*mu and no line minimization. 
+  //These algorithms "traverse" a constraint boundary in a Lagrangian system.
+ 
+ 
+  for(int i=0;;i++){
+    if(s<smin){
+      s=smin;
+    } else if(smin<s && s<smax) {
+      s*=mu;
+    } else {
+      s=smax;
+    }
+
+    M[0][1]=(A[0]+A[1]+A[2]);
+    M[0][2]=1;
     M[1][0]=(A[0]+A[1]+A[2]);
     M[2][0]=(S[0]+S[1]+S[2]);
     M[2][2]=(X[0]+X[1]+X[2]);
@@ -309,8 +404,188 @@ void evaluateShort(RealFunc f, RealFunc g, RealFuncDerivative d, float x1, float
     }
     //A solution check for convergence
     if(abs(alpha*dx)<precision){
-      std::cout <<"Iteration total: " << i << endl;
-      std::cout <<"Function Minimum x: " << setprecision(6) << "x1:" << x1 << " x2: " << x2 << " x3: " << x3 << std::endl;
+      cout <<"Long-step path-following method:" << endl << endl;
+      cout <<"  Iteration total: " << i << endl;
+      cout <<"  Function Minimum x: " << setprecision(6) << "x1:" << x1 << " x2: " << x2 << " x3: " << x3 << endl;
+      cout << endl;
+      return;
+    } 
+  }
+  return;
+}
+
+//A Primal-dual Interior Point method
+void evaluatePrimal(RealFunc f, RealFunc g, RealFuncDerivative d, float x1, float x2, float x3, float smin, float smax, float n, float precision){
+  float s=smin,len,dx,ds,dlambda,mu=1,lambda=0,alpha=0;
+  float r1,r2,r3;
+  
+  float A[3] = {1,2,3};
+  float S[3] = {0,0,0};
+
+  float** M = makeMatrix(3);
+  setMatrix(M,3);
+  
+  float *b = makeVector(3); 
+  setVector(b,3);
+  
+  float *X = makeVector(3);
+  setVector(X,3);
+
+  float **Am1 = makeMatrix(3);
+
+  X[0]=0;
+  X[1]=1;
+  X[2]=0;
+
+  //This method modifies a right-side equality (Ax=b) with less details in the slack equation.
+  //These algorithms "traverse" a constraint boundary in a Lagrangian system.
+ 
+ 
+  for(int i=0;;i++){
+    if(s<smin){
+      s=smin;
+    } else if(smin<s && s<smax) {
+      s*=mu;
+    } else {
+      s=smax;
+    }
+
+    M[0][1]=(A[0]+A[1]+A[2]);
+    M[0][2]=1;
+    M[1][0]=(A[0]+A[1]+A[2]);
+    M[2][0]=(S[0]+S[1]+S[2]);
+    M[2][2]=(X[0]+X[1]+X[2]);
+
+    b[0] = 0;
+    b[1] = 0;
+    b[2] = (s*mu-(x1*S[0]+x2*S[1]+x3*S[2]));
+
+    Am1 = inverseA(M);
+    multiply(Am1,b,X,3,3,3);
+    
+    dx = X[1];
+    dlambda = X[2];
+    ds = X[3];
+
+    mu=(1-alpha*(1-s))*mu; //s*mu
+    len=mu/(8*(smax*smax+n));
+    alpha=lineMin(f,g,dx,x1,x2,x3,len);
+    lambda+=alpha*dlambda;
+    s+=alpha*ds;
+
+    S[0]=s;
+    S[1]=s;
+    S[2]=s;
+
+    //New x1
+    x1+=alpha*dx;
+    //New x2
+    x2+=alpha*dx;
+    //New x3
+    x3+=alpha*dx;
+
+    //When x is less than zero
+    if(x1<0){
+      x1=0;
+    } else if(x2<0){
+      x2=0;
+    } else if(x3<0){
+      x3=0;
+    }
+    //A solution check for convergence
+    if(abs(alpha*dx)<precision){
+      cout <<"Primal-dual interior point method:" << endl;
+      cout <<"  Iteration total: " << i << endl;
+      cout <<"  Function Minimum x: " << setprecision(6) << "x1:" << x1 << " x2: " << x2 << " x3: " << x3 << endl;
+      cout << endl;
+      return;
+    } 
+  }
+  return;
+}
+
+//A Predictor-Corrector Interior Point method
+void evaluatePredictor(RealFunc f, RealFunc g, RealFuncDerivative d, float x1, float x2, float x3, float smin, float smax, float n, float precision){
+  float s=smin,len,dx,ds,dlambda,mu=1,lambda=0,alpha=0;
+  float r1,r2,r3;
+  
+  float A[3] = {1,2,3};
+  float S[3] = {0,0,0};
+
+  float** M = makeMatrix(3);
+  setMatrix(M,3);
+  
+  float *b = makeVector(3); 
+  setVector(b,3);
+  
+  float *X = makeVector(3);
+  setVector(X,3);
+
+  float **Am1 = makeMatrix(3);
+
+  X[0]=0;
+  X[1]=1;
+  X[2]=0;
+
+  //The method is akin to the long-step, short-step, and primal-dual equations, except slimmer;
+ 
+  for(int i=0;;i++){
+    if(s<smin){
+      s=smin;
+    } else if(smin<s && s<smax) {
+      s*=mu;
+    } else {
+      s=smax;
+    }
+
+    M[0][1]=(A[0]+A[1]+A[2]);
+    M[0][2]=1;
+    M[1][0]=(A[0]+A[1]+A[2]);
+    M[2][0]=(S[0]+S[1]+S[2]);
+    M[2][2]=(X[0]+X[1]+X[2]);
+
+    b[0] = 0;
+    b[1] = 0;
+    b[2] = (x1*S[0]+x2*S[1]+x3*S[2]);
+
+    Am1 = inverseA(M);
+    multiply(Am1,b,X,3,3,3);
+    
+    dx = X[1];
+    dlambda = X[2];
+    ds = X[3];
+
+    mu=(1-alpha*(1-s))*mu; //s*mu
+    len=mu/(8*(smax*smax+n));
+    alpha=lineMin(f,g,dx,x1,x2,x3,len);
+    lambda+=alpha*dlambda;
+    s+=alpha*ds;
+
+    S[0]=s;
+    S[1]=s;
+    S[2]=s;
+
+    //New x1
+    x1+=alpha*dx;
+    //New x2
+    x2+=alpha*dx;
+    //New x3
+    x3+=alpha*dx;
+
+    //When x is less than zero
+    if(x1<0){
+      x1=0;
+    } else if(x2<0){
+      x2=0;
+    } else if(x3<0){
+      x3=0;
+    }
+    //A solution check for convergence
+    if(abs(alpha*dx)<precision){
+      cout <<"Predictor-corrector interior point method:" << endl;
+      cout <<"  Iteration total: " << i << endl;
+      cout <<"  Function Minimum x: " << setprecision(6) << "x1:" << x1 << " x2: " << x2 << " x3: " << x3 << endl;
+      cout << endl;
       return;
     } 
   }
@@ -322,22 +597,45 @@ int main(){
   RealFunc f{Funcf};
   RealFunc g{Funcg};
   RealFuncDerivative d{computeDerivative};
-  float x1=0.8, x2=0.15, x3=0.05, theta=0.4, smin=0.1, smax=0.9, n=100, precision = 10e-6;
+  float x1=0.8, x2=0.15, x3=0.05, smin=0.1, smax=0.9, n=100, precision = 10e-6;
 
-  std::cout <<"Function f(x1,x2,x3) = x1 + 2*x2 + 3*x3 )" << std::endl;
-  std::cout <<"Constraint: x1+x2+x3=1" << std::endl;
-  std::cout << std::endl;
+  cout <<"Function f(x1,x2,x3) = x1 + 2*x2 + 3*x3 )" << endl;
+  cout <<"Constraint: x1+x2+x3=1" << endl;
+  cout << endl;
 
-  std::cout <<"Initial x1: " << x1 << std::endl;
-  std::cout <<"Initial x2: " << x2 << std::endl;
-  std::cout <<"Initial x3: " << x3 << std::endl;
-  std::cout <<"Initial Precision: " << precision << std::endl;
-  std::cout << std::endl;
+  cout <<"Initial x1: " << x1 << endl;
+  cout <<"Initial x2: " << x2 << endl;
+  cout <<"Initial x3: " << x3 << endl;
+  cout <<"Precision: " << precision << endl;
+  cout << endl;
 
   //Short-step
-  evaluateShort(f,g,d,x1,x2,x3,theta,smin,smax,n,precision);
+  evaluateShort(f,g,d,x1,x2,x3,smin,smax,n,precision);
+  //Long-step
+  evaluateLong(f,g,d,x1,x2,x3,smin,smax,n,precision);
+  //Primal-dual Interior Point
+  evaluatePrimal(f,g,d,x1,x2,x3,smin,smax,n,precision); 
+  //Predictor-corrector Variant
+  evaluatePredictor(f,g,d,x1,x2,x3,smin,smax,n,precision);
+  cout << "New initial conditions for x1, x2, and x3" << endl;
+  x1=0.1;
+  x2=0.2;
+  x3=0.7;
+  cout << endl;
+  cout <<"Initial x1: " << x1 << endl;
+  cout <<"Initial x2: " << x2 << endl;
+  cout <<"Initial x3: " << x3 << endl;
+  cout << endl;
+  //Short-step path-following method:
+  evaluateShort(f,g,d,x1,x2,x3,smin,smax,n,precision);
+  //Long-step path-following method:
+  evaluateLong(f,g,d,x1,x2,x3,smin,smax,n,precision);
+  //Primal-dual interior point method:
+  evaluatePrimal(f,g,d,x1,x2,x3,smin,smax,n,precision);
+  //Preditor-corrector Variant
+  evaluatePredictor(f,g,d,x1,x2,x3,smin,smax,n,precision);
 
-  //Long-step: To-do
-
+  cout << "The initial conditions define an early convergence constraint." << endl;
+  cout << "Line minimization also is a reviewable factor." << endl;
   return 0; 
 } 
