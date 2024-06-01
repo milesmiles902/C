@@ -7,11 +7,14 @@ Constraint: x1 + x2 + x3 = 1
 
             x>=0
 
-a) The central path sketch contains a maximum bound of one to three-dimensions with a path from the initial conditions toward the boundary.
+a/b) The central path sketch contains a maximum bound of one to three-dimensions with a path from the initial conditions toward the boundary.
 
-a) Short-step Interior Point Algorithm:
-   g++ 5.1.1.cpp -=c++11
 */
+
+
+//////////////////////////
+//g++ 5.1.1.cpp -std=c++11
+//////////////////////////
 
 #include <functional>
 #include <iostream>
