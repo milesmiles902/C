@@ -1,0 +1,15 @@
+Question 5.1.3:
+
+Vector: A*X*(Xc-eta*e)/(AX*X*A) <--Lagrange multiplier, lambda (Equation 7.7)
+
+minVector: 
+
+        argmin {A*X*(Xc-eta*e)/(AX*X*A)} = 0
+
+        argmin {Xc-eta*e} = argmin {Xc/eta-e}
+ 
+                          = argmin {Xc/eta-e-A*epsilon/eta} when A*epsilon = eta
+
+                          = argmin {X(c-A*epsilon)/eta-e}
+
+

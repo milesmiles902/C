@@ -1,0 +1,14 @@
+Question 5.1.2:
+
+Equation 5.5: q(x,eta) = Xz/eta-e where X = data
+                                        eta = precision
+                                        z = c-A*lambda = Lagrangian constraint
+                                        e = identity matrix
+
+An x-value, the solution is from Newton's step: x^k  = x - delf(x)/del[delf(x)]
+                                                     = x - delf(x)/del[delf(x)] + lambda*AX*X/eta
+                                                     = x - X*(c-eta/x)/(eta/X^2) + lambda*AX*X/eta
+                                                     = x - X*X(c-eta/x-A*lambda)/eta
+                                                     = x - X*q(x,eta)
+                                        
+A short-step path-following algorithm sets q(x,eta)'s upper-limit. A quick convergence has larger steps. Performance increases with larger q(x,eta).
