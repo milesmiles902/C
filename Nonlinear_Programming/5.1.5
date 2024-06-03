@@ -1,0 +1,42 @@
+Question 5.1.5:
+
+Function: min{ f(x,eta)}
+
+Constraint: Ax=b
+
+Sequence: eta^{k+1} = (1-theta)eta^k  
+              theta = 1/(6*sqrt(n)
+
+
+Lagrangian or penal function: f(x,eta) = <c,x>-eta*sum_1_n [log(x)]
+
+                                       = cx-eta*n
+
+A move left-and-right in the Lagrangian solves the second equation in the problem: cx-f(x,eta) = -eta*n
+
+                                                                                               = e^-r  as listed r = -ln(eta*n)
+                                                                                               
+                                                                                               <= (3/2)e^-r
+
+The first equation requires a substration about r and r^0: r-r^0 >= -ln(n*eta^k)+ln(n*eta^0)
+
+                                                                 >= -ln(1-1/(6sqrt(n)))
+
+                                                                 >= 0 at large n
+
+The remainder r-r^0 >= 0 satisfies the books advice, "k be the smallest integer such that..."
+
+Therefore,     r-r^0 >= 0
+
+                     >= k
+
+And!  (r-r^0)sqrt(n) >= k
+
+The proposition relates to the paper Tseng, 1989. It is also much of the chapter.
+
+Rules: Proposition 5.1.4:
+         When x>0 and Ax=b, and that ||q(x,eta)||>=gamma for some gamma
+         A d in the set (0,sqrt(n))
+         While eta = (1-d/sqrt(n))*eta
+         ||q(x,eta)|| >= (gamma*gamma+d) / (1-d/sqrt(n))
+         Especially when d <= gamma(1-gamma)/(1+gamma)
