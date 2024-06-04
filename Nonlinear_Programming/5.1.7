@@ -1,0 +1,44 @@
+Question 5.1.7 (Dual Central Path):
+
+Function: x*z
+
+Constraint: P(a)*z = P(a)*c
+             
+Central Path: z(eta) in a set argmin{ x*z-sum_1_n[ln(z)] }
+
+Primal vector: A*x=b
+
+A proof why z(eta) = eta*/x(eta):
+
+  The Central Path derivative with a weighted factor, argmin{ x*z-eta*sum_1_n[ln(z)]} = x - eta/z
+
+                                                                                      = 0
+    
+                                                                                    z = x/eta 
+
+A proof showing c'x(eta)-b*lambda(eta)=n*eta, where A*lambda = c-z(eta):
+
+  The dual problem considers a second function and constraint at the current function's minimum or maximum.
+ 
+  From Equation 5.47, P(a)*z = P(a)*c, so z = c. The Central Path funtion then becomes:
+
+        argmin{ x*z-eta*sum_1_n[ln(z)] } = argmin{ x*c-eta*sum_1_n[ln(z)] }
+
+  Added, the dual problem's constraint is argmin {b*lambda} = 0 for the exact equation:
+
+        argmin{ x*c-eta*sum_1_n[ln(z)] } = argmin{ b*lambda }
+
+  As the rearrangement shows from the earlier proof:
+
+        c*x - b*lambda = eta*sum_1_n[ln(z)]
+
+                       = eta*sum_1_n[ln(x/eta)]
+
+                       = eta*n
+
+                       when (x/eta)>>1, much greater than 1
+
+                                              
+
+        
+
