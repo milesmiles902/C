@@ -142,10 +142,34 @@ Convergene Comparison :
      |Method of Multipliers (x1,x2) | (0,3)   |      (0, 2/3)  |      (0,2/12)  |
       
      -Each iteration method for the function f(x1,x2) converges to zero, as with both x1 and x2.
-     -The calculation by hand in part (a) are equivalent to iterative techniques in part (b).
-     -The Augmented Lagrangian extends from linear to quadratic multipliers; two multipliers; a regulizer coefficient, and more.
-     -I used my first real-world Augmented Lagrangian in the separation of Regression vs. Lagrangian applications. They work.
-     
+     -The calculation by hand in part (a) is equivalent to iterative techniques in part (b).
+    
+c) A plot of the function with constraint is f(x1,x2) = (1/2)*x1*x1, with successive points in the x2-plane.
+
+d) The Method of Multipliers with a constant c becomes:
+
+      L(x1,x2,lambda, c) = (1/2)*(x1*x1 - x2*x2) - 3*x2 + lambda^k*x2 
+            
+                         = (1/2)*(x1*x1 - x2*x2) - 3*x2 + (lambda^0+c*x2)*x2
+
+                         = (1/2)*(x1*x1 - x2*x2) - 3*x2 + c*x2*x2
+
+                         = (1/2)*(x1*x1 - (2c+1)x2*x2) - 3*x2
+
+           dL(x1,x2)/dx1 = x1
+
+                         = 0
+
+           dL(x1,x2)/dx2 = (2c+1)x2-3
+
+                         = 0
+
+               (x1*,x2*) = (0, 3/(2c+1))
+
+   The c-value above an error threshold brings x2* tozero, such as x2-3/(2c+1) <= error. Otherwise, a general limit illustrates c near infinity and x2* at zero.
+
+
+
 
 
 
