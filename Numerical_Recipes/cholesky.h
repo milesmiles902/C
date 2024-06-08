@@ -18,7 +18,7 @@ struct Cholesky{
     }
     for (i=0;i<n;i++) for (j=0;j<i;j++) el[j][i] = 0.;
   }
-  void solve(vecDoub_I &b, VecDoub_O &x){
+  void solve(VecDoub_I &b, VecDoub_O &x){
     Int i,k;
     Doub sum;
     if (b.size() != n || x.size() != n) throw("bad lengths in Cholesky");
@@ -65,5 +65,5 @@ struct Cholesky{
     for (Int i=0;i<n;i++) sum += log(el[i][i]);
     return 2.*sum;
   }
-}
+};
 

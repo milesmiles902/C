@@ -1,3 +1,5 @@
+#include "nr3.h"
+#include "cholesky.h"
 struct preGaumixmod{
   static Int mmstat;
   struct Mat_mm : MatDoub {Mat_mm() : MatDoub(mmstat,mmstat) {}};
@@ -11,7 +13,7 @@ struct Gaumixmod : preGaumixmod {
   VecDoub frac,lndets;
   vector<Mat_mm> sig;
   Doub loglike;
-  Gaumixmod(MatDoub &ddata, MatDoub &&mmeans) : preGaumixmod(ddata.ncols()),
+  Gaumixmod(MatDoub &ddata, MatDoub &mmeans) : preGaumixmod(ddata.ncols()),
   nn(ddata.nrows()),kk(mmeans.nrows()),mm(mmstat),data(ddata),means(mmeans),
   resp(nn,kk),frac(kk),lndets(kk),sig(kk){
     Int i,j,k;
@@ -70,6 +72,4 @@ struct Gaumixmod : preGaumixmod {
       }
     }
   }
-}
-
-
+};
