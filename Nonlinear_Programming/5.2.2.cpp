@@ -22,66 +22,71 @@ a) Lagrange function: L(x1,x2,lambda) = f(x1,x2) + lambda*x2
 b) //Multiplier Method 
 */
 
-#include <functional>
-#include <iostream>
-#include <cmath>
-#include <limits>
-#include <vector>
-#include <iomanip>
+////////////////////////////
+////g++ 5.1.1.cpp -std=c++11
+////////////////////////////
+
+#include <functional> //function
+#include <iostream>   //cout
+#include <cmath>      //standard math library, absolute, power, etc
+#include <limits>     //epsilon, h in derivatives
+#include <vector>     //vector, for variables
+#include <iomanip>    //setprecision, for variable prints
 
 using namespace std;
 
+//Function aliases
 typedef function<float(float,float,float)> RealFuncF;
 typedef function<float(float)> RealFuncH;
 typedef function<float(function<float(float,float,float)>,float,float,float)> RealFuncDerivativeF;
 typedef function<float(function<float(float)>,float)> RealFuncDerivativeH;
+typedef function<float(function<float(float)>,float)> RealFuncSecondDerivativeH;
 typedef function<float(function<float(float,float,float)>, \
                        function<float(float)>,             \
-                       function<float(function<float(float,float,float)>,float,float,float)>, 
-                       function<float(function<float(float)>,float)>,
                        float,float,float,float)> RealFuncSecondDerivativeL;
 
+//Function: f(x1,x2) = ( x1*x1 + |x2|^p) )/2 + 2*x2;
 float FuncF(float x1, float x2, float p){
   float val = (x1*x1 + pow(abs(x2),p) )/2 + 2*x2;
   return val;
 }
 
+//Constraint: h(x2) = x2 = 0
 float FuncH(float x2){
-  float val = 0;
-  return val;
+  return x2;
 }
 
+//A derivative of f(x1,x2) = ( x1*x1 + |x2|^p) )/2 + 2*x2;
 float computeDerivativeF(RealFuncF f, float x1, float x2, float p){
   float h = sqrt(numeric_limits<float>::epsilon());
-  float L = (f(x1+h,x2,p)-f(x1,x2,p))/h + (f(x1,x2+h,p)-f(x1,x2,p))/h;
+  float L;
+  if(x1==0 && x2 == 0){
+    L = 0;
+  } else{
+    L = (f(x1+h,x2,p)-f(x1,x2,p))/h + (f(x1,x2+h,p)-f(x1,x2,p))/h;
+  }
   return L;
 }
 
+//A contraint derivative for h(x2) = x2 = 0;
 float computeDerivativeH(RealFuncH H, float x2){
   float h = sqrt(numeric_limits<float>::epsilon());
   float L = (H(x2+h)-H(x2))/h;
   return L;
 }
 
-float computeSecondDerivativedL(RealFuncF f, RealFuncH H, RealFuncDerivativeF df, RealFuncDerivativeH dH, float x1, float x2, float p, float lambda){
+//A contraint second derivative for h(x2) = x2 = 0;
+float computeSecondDerivativeH(RealFuncH H, float x2){
   float h = sqrt(numeric_limits<float>::epsilon());
-  float L = (df(f, x1+h,x2,p)-df(f, x1,x2,p))/h + (df(f, x1,x2+h,p)-df(f, x1,x2,p))/h + lambda*(dH(H, x2+h)-dH(H, x2))/h;
+  float L = (H(x2+h)-2*H(x2)+H(x2-h))/(h*h);
   return L;
 }
 
-//Line minimization: https://en.wikipedia.org/wiki/Line_search
-float lineMin(RealFuncF f, RealFuncH H, float d, float x1, float x2, float p,float lambda){
-  float x=0,h=0,alpha=0,idx=1,min=0;
-      min=f(x1+alpha*d,x2+alpha*d,p)+lambda*H(x2);
-      for(int k=2;k<=100;k++){
-        alpha+=1/100;
-        h=f(x1+alpha*d,x2+alpha*d,p) + lambda*H(x2);
-        if(h<min){
-          min=h;
-          idx=k;
-        }
-      }
-      return idx*1/100;
+//A second derivative for the Lagrangian equation: L(x1,x2,p,lambda) = f(x1,x2) + lambda*h(x2)
+float computeSecondDerivativedL(RealFuncF f, RealFuncH H, float x1, float x2, float p, float lambda){
+  float h = sqrt(numeric_limits<float>::epsilon());
+  float L = (f(x1+h,x2,p)-2*f(x1,x2,p)+f(x1-h,x2,p))/(h*h) + (f(x1,x2+h,p)-2*f(x1,x2,p)+f(x1,x2-h,p))/(h*h) + lambda*(H(x2+h)-2*H(x2)+H(x2-h))/(h*h);
+  return L;
 }
 
 //A matrix double pointer
@@ -156,6 +161,7 @@ float* multiply(float** matrix, float* vector1, float* vector2, int rows, int co
   return vector2;
 }
 
+//Inverse of a matrix
 float **inverseA(float ** A){
   float** cofactor_transposed = makeMatrix(2);
   float** Am1 = makeMatrix(2);
@@ -186,9 +192,10 @@ float **inverseA(float ** A){
   return Am1;
 }
 
-void evaluateMinimum(RealFuncF f, RealFuncH h, RealFuncDerivativeF dF,RealFuncDerivativeH dH,RealFuncSecondDerivativeL ddL, float x1, float x2, float p, float lambda0, float precision){
+//Find the minimum for Multiplier Methods
+void evaluateMinimum(RealFuncF f, RealFuncH h, RealFuncDerivativeF dF,RealFuncDerivativeH dH, RealFuncDerivativeH ddH,RealFuncSecondDerivativeL ddL, float x1, float x2, float p, float lambda0, float precision){
   int c = 1;
-  float determinant, dx=0, alpha=1, dlambda=lambda0;
+  float determinant, dx=0, dlambda=lambda0;
   
   //Multiplier Methods:
   ////////////////////
@@ -197,18 +204,21 @@ void evaluateMinimum(RealFuncF f, RealFuncH h, RealFuncDerivativeF dF,RealFuncDe
   //                |d[delL(x1,x2,p,lambda)]/dx   d[delh(x)]/dx|*|  dx   | = | delL(x1,x2,p,lambda)|
   //                |       d[delh(x)]/dx                0     | |dlambda|   |       h(x)          |
   //
-  // Notes: In Multiplier Methods, a 2x2 matrix has solutions from by a system of equations. 
+  // Notes: In Multiplier Methods, a 2x2 matrix has solutions from a system of equations. 
   //        
-  //        Although, problem cases arise from systems of equations: 
-  //           A) The determinant is zero. The matrix inverse, A^-1, for the solution, x=b*A^-1 has a zero determinant. A system of equations solves with a flag for singular determinants. 
-  //           B) The constraint demonstrates no depedendency between variables, h(x)=x2=0. Solutions increment x-values by a conditional gradient, x_{n+1} = x_{n} + alpha*dx. Without dependency between x2 and x2 in the constraint, the constraint increments unequally by flag. 
-  //           C) Start conditions. A Lagrange multipler in the book, lambda=lambda0+c*h(x), where lambda0 = 0, and h(x)=0 are zero. The system of equations has a linear equation with zeros. 
-  //           D) Sometimes second derivatives in the Lagrangian have no solutions. A sublinear, linear, and superlinear case with absolutes generate zero denominators in the limit derivative, sometimes.
-
-  //I skipped part b's solution because errata and tomorrow's log(Lagrangian) challenge.   
+  //        Although, problem cases arise from Multiplier Methods by system of equations: 
+  //           A) The determinant is zero. The matrix inverse, A^-1, for the solution, x=b*A^-1 has zero in the determinant. A system of equations solution requires a flag for singular determinants. 
+  //           
+  //           B) The constraint demonstrates no dependency between variables, h(x)=x2=0. Without x1 and x2 in the constraint, the x-values increment by select gradient methods prior to implementation.
+  //           
+  //           C) Start conditions. A Multiplier Method in the book, lambda=lambda0+c*h(x), where lambda0 = 0, and h(x)=0 are zero. The system of equations has row with zeros. 
+  //           
+  //           D) Sometimes second derivatives in the Lagrangian have no solutions. A case with absolute symbols in the function generates unusual outcomes.
   
-  float** M = makeMatrix(2);
-  setMatrix(M,2);
+  //           A modified-Newton's step was choice for iteration, x_{n+1} = x_n - dx. 
+
+  float** A = makeMatrix(2);
+  setMatrix(A,2);
   
   float* X = makeVector(2);
   setVector(X,2);
@@ -218,40 +228,49 @@ void evaluateMinimum(RealFuncF f, RealFuncH h, RealFuncDerivativeF dF,RealFuncDe
   
   float **Am1 = makeMatrix (3);
   
-  X[0]=0.1;
+  X[0]=5;
   X[1]=lambda0+c*h(x2);
 
   for(int i=0;;i++){
-    M[0][0]=ddL(f,h,dF,dH,x1,x2,p,X[1]);
-    M[0][1]=dH(h,x2);
-    M[1][0]=dH(h,x2);
-    M[1][1]=0;
+  
+    //Left-hand Matrix
+    A[0][0]=ddL(f,h,x1,x2,p,X[1]);
+    A[0][1]=-ddH(h,x2);
+    A[1][0]=-ddH(h,x2);
+    A[1][1]=0;
+ 
 
+    //Right-hand Matrix
     b[0]= dF(f,x1,x2,p)+X[1]*dH(h,x2);
     b[1] = h(x2);
+   
+    //The determinant 
+    determinant = A[0][0]*A[1][1]-A[1][0]*A[0][1];
     
-    determinant = M[0][0]*M[1][1]-M[1][0]*M[0][1];
+    //A flag for a zero determinant
     if(determinant == 0){
-      X[0]=b[0]/M[0][0];
+      X[0]=b[0]/A[0][0];
       X[1]=lambda0+c*h(x2);
     } else{
-      Am1 = inverseA(M);
+      //Otherwise proceed with a system of equations
+      Am1 = inverseA(A);
       multiply(Am1,b,X,2,2,2);
     }
  
     dx = X[0];
     dlambda = X[1];
 
-    alpha=lineMin(f,h,dF(f,x1,x2,p),x1,x2,p,dlambda);
     //New x1
-    x1-=dx*dF(f,x1,x2,p);
+    x1-=dx;
     //New x2
     x2=0;
+    if(x1<0){ x1 = 0;}
     //A solution check for convergence
-    if(abs(alpha*dF(f,x1,x2,p))<precision){
+    if(abs(dF(f,x1,x2,p))<precision){
+      cout << endl;
       cout <<"Multiplier method with convergence factor (p = "<< p << "):" << endl;
-     // cout <<"  Iteration total: " << i << endl;
-      cout <<"  Function Minimum x: " << setprecision(6) << "x1:" << x1 << " x2: " << x2 << endl;
+      cout <<"  Iteration total: " << i+1 << endl;
+      cout <<"  Function Minimum x: " << setprecision(6) << "x1: " << x1 << " x2: " << x2 << endl;
       cout << endl;
       return;
     } 
@@ -265,32 +284,47 @@ int main(){
   RealFuncH h{FuncH};
   RealFuncDerivativeF dF{computeDerivativeF};
   RealFuncDerivativeH dH{computeDerivativeH};
+  RealFuncDerivativeH ddH{computeSecondDerivativeH};
   RealFuncSecondDerivativeL ddL{computeSecondDerivativedL};
   
   float x1=1, x2=0, lambda0 = 0, p=1.5, precision = 10e-3;
   cout << endl << "Function f(x1,x2,p) = (1/2)(x1^2 + |x2|^p)+2*x2" << endl;
   cout <<"Constraint: x2 = 0" << endl;
   cout << endl;
+  cout <<"/////////////////////////////////////////////////////////" << endl;
+  cout <<"/////////////////////////////////////////////////////////" << endl << endl;
+  cout <<"Initial x1: " << x1 << endl;
+  cout <<"Initial x2: " << x2 << endl;
+  cout <<"Initial p: " << p << endl;
+  cout <<"Precision: " << precision << endl;
+  cout << endl;
 
-  evaluateMinimum(f,h,dF,dH,ddL,x1,x2,p,lambda0,precision);
+  evaluateMinimum(f,h,dF,dH,ddH,ddL,x1,x2,p,lambda0,precision);
 
   p = 2;
+  cout <<"/////////////////////////////////////////////////////////" << endl << endl;
   cout <<"Initial x1: " << x1 << endl;
   cout <<"Initial x2: " << x2 << endl;
   cout <<"Initial p: " << p << endl;
   cout <<"Precision: " << precision << endl;
   cout << endl;
 
-  evaluateMinimum(f,h,dF,dH,ddL,x1,x2,p,lambda0,precision);
+  evaluateMinimum(f,h,dF,dH,ddH,ddL,x1,x2,p,lambda0,precision);
 
   p = 3;
+  cout <<"/////////////////////////////////////////////////////////" << endl << endl;
   cout <<"Initial x1: " << x1 << endl;
   cout <<"Initial x2: " << x2 << endl;
   cout <<"Initial p: " << p << endl;
   cout <<"Precision: " << precision << endl;
   cout << endl;
 
-  evaluateMinimum(f,h,dF,dH,ddL,x1,x2,p,lambda0,precision);
-  
+  evaluateMinimum(f,h,dF,dH,ddH,ddL,x1,x2,p,lambda0,precision);
+  cout <<"/////////////////////////////////////////////////////////" << endl << endl;
+
+  cout <<"The initial conditions from the book produce a zero determinant solution and an exact solution in one-step. Test cases with other initial conditions functioned with the prior code.";  
   return 0; 
-} 
+}
+
+/* Part c) The case when p=1 is a flag in the computeDerivativeF function because a non-continous derivative. Although, the function's slope equals from the left and right. The flag appeared because "not a real number [NaN]" issues.
+ */
