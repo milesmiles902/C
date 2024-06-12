@@ -215,7 +215,7 @@ void evaluateMinimum(RealFuncF f, RealFuncH h, RealFuncDerivativeF dF,RealFuncDe
   //           
   //           D) Sometimes second derivatives in the Lagrangian have no solutions. A case with absolute symbols in the function generates unusual outcomes.
   
-  //           A modified-Newton's step was choice for iteration, x_{n+1} = x_n - dx. 
+  //           A modified-Newton's step was choice for iteration, x_{n+1} = x_n - delL(x1,x2,p,lambda)/d[delL(x1,x2,p,lambda)]/dx 
 
   float** A = makeMatrix(2);
   setMatrix(A,2);
@@ -261,7 +261,7 @@ void evaluateMinimum(RealFuncF f, RealFuncH h, RealFuncDerivativeF dF,RealFuncDe
     dlambda = X[1];
 
     //New x1
-    x1-=dx;
+    x1-=(dF(f,x1,x2,p)+X[1]*dH(h,x2))/ddL(f,h,x1,x2,p,X[1]);
     //New x2
     x2=0;
     if(x1<0){ x1 = 0;}
@@ -287,7 +287,7 @@ int main(){
   RealFuncDerivativeH ddH{computeSecondDerivativeH};
   RealFuncSecondDerivativeL ddL{computeSecondDerivativedL};
   
-  float x1=1, x2=0, lambda0 = 0, p=1.5, precision = 10e-3;
+  float x1=1, x2=0, lambda0 = 0, p=1.5, precision = 10e-5;
   cout << endl << "Function f(x1,x2,p) = (1/2)(x1^2 + |x2|^p)+2*x2" << endl;
   cout <<"Constraint: x2 = 0" << endl;
   cout << endl;
