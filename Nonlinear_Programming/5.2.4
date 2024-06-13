@@ -1,0 +1,112 @@
+Question 5.2.4:
+
+Function: (1/2)*x'Qx,  where Q is symmetric
+
+Subject to: A*x=b      where A[mxn] and rank=m
+
+Penalized Dual Function:
+
+    Normal Lagrangian: L(x,lambda) = (1/2)*x'*Q*x + lambda(Ax-b) + (c/2)(Ax-b)^2
+ 
+    Multiplier methods require:
+
+      1) Optimal solutions for x:
+
+                dL(x,lambda,c)/dx = x*Q + lambda*A + c*A*(Ax-b)
+
+                                  = 0
+
+           dL(x,lambda,c)/dlambda = Ax-b
+
+                                  = 0
+
+                               x* = (A*b*c-A*lambda)/(A*A*c+Q)
+
+      2) An update formula:
+ 
+           lambda^{n+1} = lambda^n + c*h(x)
+
+                        = lambda^n + c*A[(A*b*c-A*lambda)/(A*A*c+Q)] - b]
+
+    Dual Lagrangian: L(x,c) = (1/2)*x'*Q*x + (c/2)(Ax-b)^2
+
+    Taylor Expansion for a penalty function: q(lambda) = q(lambda*) + delq(lambda*)*(lambda-lambda*) + (1/2)*(lambda-lambda*)*del[delq(lambda*)](lambda-lambda*)
+
+                                                        where delq(lambda*) = h(x*)
+ 
+                                                                            = A*x*-b
+
+                                                                            = A*(A*b*c-A*lambda)/(A*A*c+Q)-b
+                              
+                                                                            = 0
+                                     
+                                                         del[delq(lambda*)] = -delh(x)*delh(x)/del[delL(x,lambda))
+
+                                                                            = -A/(A*A*c+Q)
+
+    The Taylor expanded relationship for the penalized function:
+
+                                                         q(lambda) = q(lambda*) - del[delq(lambda*)]
+   
+                                                                   = q(lambda*) - (1/2)*(lambda-lambda*)A(lambda-lambda*)/(A*A*c+Q)
+
+
+a) The update formula above arranged for lambda-lambda*:
+
+              lambda^{n+1} = lambda^n + c*h(x*)
+
+      lambda^{n+1}-lambda* = lambda^n-lambda* + c*h(x)                  
+                     
+                           = lambda^n-lambda* + c*delq(lambda)
+            
+
+   An expansion about delq(lambda) = delq(lambda*) + del[delq(lambda*)]*(lambda-lambda*)
+
+   Therefore, 
+
+      lambda^{n+1} - lambda* = lambda^n-lambda* - c*A/(A*A*c+Q)(lambda^n-lambda*)
+
+                             = (1-c*A*A/(Q+c*A*A))(lambda^n-lambda*
+
+                             = r(lambda^k-lambda*)
+
+                             here r = (1-c*A*A/(Q+c*A*A))
+
+b) Identity matrix: 1/(I+c^k*A*A/Q) = I-c^k*A*A(Q+c*A*A)
+
+                      1/(Q+c^k*A*A) = 1/Q-A*A(1/c^k+A*A/Q)/(Q*Q)
+
+                    A*A/(Q+c^k*A*A) = A*A/Q-A*A(1/c^k+A*A/Q)A*A/(Q*Q)
+
+   Eigenvalues in 1/A become 1/gamma
+
+                 cI+A become c+gamma
+
+   A situation where the eigenvalues derive from A*A/Q, so: A*A/(Q+c^k*A*A) = A*A/Q-A*A(1/c^k+A*A/Q)A*A/(Q*Q)
+                                                  
+                                                                            := 1/gamma-1/gamma*(1/c+1/gamma)*1/gamma
+
+                                                                            := 1/(c+gamma)
+
+   From part a, r then has eigenvalues, as: r = (1-c*A*A/(Q+c*A*A))
+
+                                             := 1-c/(c+gamma)
+
+c) The method converges with positive eigenvalues to lambda* with positive c.
+
+        0 < |gamma(r)| < 1
+
+        0 < |1-c/(c+gamma)| < 1
+
+        0 < c/(c+gamma) < 2
+
+        -2c < -c < 2*gamma
+
+        2c > c > -2*gamma
+
+        c converges to a minimum from 0 to -2*gamma.
+
+      
+
+     
+  
