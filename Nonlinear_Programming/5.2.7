@@ -1,0 +1,47 @@
+Question 5.2.7:
+
+Function: f(x)
+
+Constraint: alpha <= g(x) <= beta
+
+The new method:
+
+  Function: f(x) + sum_1_r [ P(g(x),mu,c)]
+
+  Constraint: x
+
+              where P(g(x),mu,c) = argmin {mu*u+(c/2)*|u|^2}
+
+  Each of these minimizations follows a multiplier method:
+
+    mu^{k+1} = |mu^{k}+c^{k}(g(x)-beta)   mu+c(g(x)-beta)  > 0
+               |mu^{k}+c^{k}(g(x)-alpha)  mu+c(g(x)-alpha) < 0
+               |0                 otherwise
+
+The new method equivalence to the original function and constraint is through an additional constraint:
+
+  Function: f(x)                         <------->   Function: f(x) + sum_1_r [ P(g(x),mu,c)]
+
+  Constraint: alpha <= g(x)-u <= beta    <------->   Constraint: x
+
+An additional term, u describes the summation found within the right-hand side above. In the Lagrange equation, the term is succinct:
+
+  L(x,lambda,u) = f(x) + lambda*(g(x)-u) <------->   L(x,lambda,u) = f(x) + sum_1_r [ P(g(x),mu,c)] + lambda*x
+
+Where lambda*u equals sum_1_r [ P(g(x),mu,c)] in the right-side Lagrangian.
+
+Multiplier methods show similar relationships by lambda^{r+1} = lambda^{r} + (c/2)*h(x)^2.
+
+      lambda*u = lambda^{r+1}*u
+
+               = (lambda^{r} + (c/2)*|u|) * u
+
+               = lambda^{r}*u + (c/2)*|u|^2
+
+               = argmin { mu^{r}*u+(c^{r}/2)*|u|^2 }
+
+               = sum_1_r [ P(g(x),mu,c)]
+
+
+
+

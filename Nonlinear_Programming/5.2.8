@@ -1,0 +1,22 @@
+Question 5.2.8:
+
+The condition number (c) in a Quadratic Penalty Method  tends to infinity and along with the Lagrangian.
+
+  del[delL(x,lambda,c)] = del[delL(x,lambda,c)] + c*delh(x)*delh(x)
+ 
+  lim(c->inf) Max-eigenvalue/min-eigenvalue = lim(c->inf) argmin{z*del[delL(x,lambda,c)]} + c^k*argmin{z*delh(x)*delh(x)} / argmin{z*del[delL(x,lambda,c)]}
+
+                                            = lim(c->inf) 1 + c^k*argmin{z*delh(x)*delh(x)} / argmin{z*del[delL(x,lambda,c)]}
+                                            = infinity
+                                            
+Rules: Quadratic Penalty Method:
+        Function: f(x)
+        Constraint: h(x)
+        L(x,lambda,c) = f(x) + lambda*h(x) + (c/2)||h(x)||^2
+
+       Proposition 5.2.2:
+        ||delL(x,lambda,c)|| <= eta
+        0<c^{k}<c^{k+1}
+        0<eta
+        lambda^{k+1} = lammbda^k + c^k*h(x) --> lambda*
+        
