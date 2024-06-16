@@ -1,0 +1,40 @@
+Question 5.2.10:
+
+Function: f(x)
+
+Constraint: h(x)
+
+Penalty Term: (c/2)*||h(x)||^2 + ||h(x)||^p
+
+               where p > 1
+
+An analogous Proposition 5.2.1:
+  f and h are continuous functions
+  h(x) = 0
+  min {L(x,lambda) = f(x) + lambda*h(x) - (c/2)*||h(x)||^2 - ||h(x)||^p
+  subject to x
+  where 0 < c^{k} < c^{k+1}
+  And c^k goes to infinity
+  Then every limit in x^k isa minimum for f(x)
+
+An analogous Proposition 5.2.2:
+  ||delL(x,lambda,c|| < eta
+  0 < c^{k} < c^{k+1}
+  0 < eta
+  lambda^{k+1} = lambda^k + c^k*h(x) + h(x)^p-1  
+
+Rules: Proposition 5.2.1:
+         f and h are continuous functions
+         h(x) = 0
+         min L(x,lambda)
+         subject to x
+         Where 0 < c^{k} < c^{k+1}
+         And c^k goes to infinity
+         Then every limit in x^k is a minimum for f(x)
+
+       Proposition 5.2.2:
+        ||delL(x,lambda,c)|| <= eta
+        0<c^{k}<c^{k+1}
+        0<eta
+        lambda^{k+1} = lammbda^k + c^k*h(x) --> lambda*
+

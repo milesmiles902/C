@@ -1,0 +1,68 @@
+Question 5.2.11 (Primal-Dual Methods not using a Penalty)
+
+Function: f(x)
+
+Constraint: h(x)
+
+Lagrangian: L(x,lambda) = f(x) + lambda*h(x)
+
+Iteration: lambda^{k+1} = lambda^k + alpha*h(x^k)
+
+            Artifical Problem:                      Primal-Dual:
+
+Function:   f(x) - (alpha/2)||h(x)||^2   <---->     (1/2)*x*Q*x - (alpha)/2||Ax-b||^2
+
+Constraint: h(x)                         <---->     Ax = b
+
+
+A proof why lambda converges to a constant value, lambda*:
+
+      1) Iterative method: lambda^{k+1} = lambda^k + alpha*h(x^k)
+
+      2) Initial Conditions: lambda^k = 0
+
+      3) Optimal solutions for x at k=0:
+
+           dL(x,lambda,c)/dx = x*Q  - alpha*A*(Ax-b)
+
+                                  = 0
+
+           dL(x,lambda,c)/dalpha = -(Ax-b)/2
+
+                                  = 0
+
+                               x* = (alpha*A*b)/(Q-A*A*alpha)
+
+      5) An update formula:
+ 
+           lambda^{n+1} = lambda^n + alpha*h(x)
+
+                        = lambda^n + alpha*(A*(alpha*A*b)/(Q-A*A*alpha)-b)
+
+      6) Lambda's convergence depends on a constant update formula, and the second term in the above line.
+
+           (alpha*A*b)/(Q-A*A*alpha) = (I-alpha*A*A/Q)^-1 - I
+
+      7) From Proposition A.13c, I-alpha*A*A/Q has eigenvalues 1-gam.
+   
+            alpha/gam^{k} = 1/(1-alpha/gam^{k+1})
+
+      8) Each iteration has maximum and minimum steps, so each iterative step bounds by maximimum and minimum eigenvalues.
+
+            gam^{k+1} = gam^k - alpha
+
+      9) A minimum step is zero difference while a maximum from Question 5.2.4, 2*gamma.
+
+            0 < alpha < 2*gam
+
+      10) Eigenvalues bound the maximum and minimums, also iteration's convergence.
+
+Rules: Proposition A.13:
+         A be an nxn matrix
+         a) Eigenvalues for triangular matrices are the diagonal entries
+         b) If S is nonsingular and B=S*A/S, then A and B eigenvalues coincide
+         c) The eigenvalues of cI+A equal c+lambda, with such lambda eigenvalues
+         d) The eigenvalues of A^k are lambda^k
+         e) A nonsingular A has eigenvlues as the recipricol of A
+         f) The eigenvalues of A and A' coincide.
+
