@@ -1,0 +1,56 @@
+Question 5.3.1:
+
+Function: f(x) = 0
+
+Constraints: g1(x) = -x
+
+             g2(x) = 1-x^2
+
+Lagrangian: L(x,c) = f(x)+c*P(x)
+
+                   = c*max{-x, 1-x^2}
+
+Cost function: C(x) = f(x) + c*P(x)
+
+               dC(x)/dx = c*max{-c, -2*x} 
+
+                        = 0
+  
+               dC(x)/dc = max{-x, 1-x^2}
+
+                        = 0
+
+               x* = 0 and (1-sqrt(5))/2
+
+
+Plot: c vs x:
+                               
+     ______________________     Legend
+  2.0|..........|..I.'....*|    ______________________________
+  1.6|          |  I'  ` *`|    |***************   c  =  x    |
+  1.2|          |' I  *    |    |````` and ''''' -2cx = 1-x^2 |
+  0.8|________`'|__I*______|    |---------------   -c = -x    |
+  0.4|'  '  `'  | *I       |    |_______________   -c = -2cx  |
+x 0.0|-----`----*--I-------|    |...............   -x = 1-x^2 |
+ -0.4|......`.*.|..I'..'..'|    |IIIIIIIIIIIIIII   -x = -2cx  |
+ -0.8|      *   |' I       |                    
+ -1.2|    *   `'|` I       |
+ -1.6|  *   '   |  I`      |
+ -2.0|*    '    |  I   `  `|
+    -2.0 -1.0  0.0   1.0   2.0
+  
+
+How-to: the plot generation is from a computer program: 
+
+  A) A plot on desmos.com: -y=1-y^2, y=1+y^2, 2*c*x=1-x^2, y=2*c*X, x=y^2-1, y=-y, -c=-2*c*y, y=(y^2-1)/x where c=1.
+
+  B) A plot on wolframalpha.com: -c = -2x = -x = 1-x^2
+ 
+Rules: Equation 5.79:
+         In a constrained minimum, f+cP
+         P(x) = max{g0(x), g1(x), ... , gr(x)}
+
+       Equation 5.80:
+         In a constrained minima, f+cP
+         g0(x)=0 when P(x) = max{g0(x), g1(x), ... , gr(x)}
+
