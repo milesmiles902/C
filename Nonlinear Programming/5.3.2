@@ -1,7 +1,28 @@
 Question 5.3.2:
 
-Function: f()
+Function: f(x)
 
 Constraint: g(x)<=0
 
+(x*,mu*) satisfies the first order conditions in Proposition 4.3.1. When a Langrangian, L(x,mu*) = f(x)+mu*g(x) has a minimum equal to zero where mu* >= 0.
 
+The Quadratic Problem has a global minimum at (0,mu*), such that:
+
+  Function: f(x) = delf(x*)d + (1/2)*d*H*d
+
+  Constraint: g(x*) + delg(x*)d <= 0
+ 
+  Lagrangian: L(x,mu) = f(x) + mu*(g(x*)+delg(x*)d)
+
+  If x=0, then the Lagrangian is zero and a minimum for the function. While, L(x,mu) = 0, mu* = f(x)/(g(x*)+delg(x*)d) becomes a real solution but without a definitive value. Therefore, the Quadratic Problem has a global minimum at (0,mu*).
+
+Quadratic
+
+Rules: Proposition 4.3.1 (Karush-Kuhn-Tucker Necessary Conditions):
+         If x* is a local minimum
+         When unique multipliers prevail
+         Then dL(x*,lambda*,mu*)/dx = 0
+              mu>=0
+         Also, ydel[dL(x*,lambda*,mu*)/dx]y>=0
+         Then also, for all y, delh(x*)y=0 and delg(x*)y = 0
+ 
