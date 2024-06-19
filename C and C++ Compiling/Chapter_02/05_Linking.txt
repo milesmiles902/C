@@ -1,0 +1,5 @@
+gcc -c main.c functions.c
+gcc main.o functions.o -o demoApp
+gcc main.c functions.c -o demoApp
+objdump -D -M intel main.o
+objdump -D -M intel demoApp

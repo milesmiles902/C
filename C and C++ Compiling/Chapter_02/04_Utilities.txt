@@ -1,0 +1,2 @@
+objdump -D main.o
+objdump -D -M intel main.o

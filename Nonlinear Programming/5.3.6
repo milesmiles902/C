@@ -1,0 +1,48 @@
+Question 5.3.6:
+
+Function: f(x)= (1/6)*x^3
+
+Constraint: x=0
+
+The stationary points with a Penalty Function:
+
+  P(x,lambda) = L(x,lambda) + (1/2)||W(x)delL(x,lambda)||^2 + (c/2)||h(x)||^2
+
+              = f(x) + lambda*h(x) + (1/2)||W(x)delL(x,lambda)||^2 + (c/2)||h(x)||^2
+
+              = (1/6)*x^3 + lambda*x + (1/2)||W(x)delL(x,lambda)||^2 + (c/2)||h(x)||^2
+
+              = (1/6)*x^3 + lambda*x + (1/2)||W(x)(1/2)*x^2||^2 + (c/2)||x||^2
+
+  dP(x,lambda)/dx = d/dx [(1/6)*x^3 + lambda*x + (1/2)||W(x)(1/2)*x^2||^2 + (c/2)||x||^2]
+ 
+                  = x*x/2 + lambda + (x^2*W(x)*W(x)(2*W(x)+3)/(4*(W(x)+1) + c*x
+
+                  = 0
+
+  dP(x,lambda)/dlambda = d/dlambda [(1/6)*x^3 + lambda*x + (1/2)||W(x)(1/2)*x^2||^2 + (c/2)||x||^2]
+
+                       = x
+
+                       = 0
+
+  (x*,lambda*) = (0,0) or (c-1, (-x)*(-x)/2)=(c-1,(1-c)^2/2)
+
+Each solution is a local minimum. Without an exact c-value, a single stationary point represents a global minimum.
+
+Rules: Equation 5.106 (Penalty Function):
+         P(x,lambda) = L(x,lambda) + (1/2)||W(x)delL(x,lambda)||^2 + (c/2)||h(x)||^2
+         where L(x,lambda) = f(x) + lambda*h(x)
+
+       Equation 5.107:
+         W(x) = delh(x)
+
+       Equation 5.108:
+         W(x) = delh(x)/(delh(x)*delh(x))
+
+         where W(x) = |w1(x)|
+                      |w2(x)|
+                      |  .  |
+                      |  .  |
+                      |  .  | 
+                      |wn(x)|

@@ -2,6 +2,10 @@
 
 Cite: W. Richard Stevens and Stephen A. Rago. 2013. Advanced Programming in the UNIX Environment (3rd. ed.). Addison-Wesley Professional.
 
+<ins>C and C++ Compiling</ins>
+
+Cite: Milan Stevanovic. 2014. Advanced C and C++ Compiling (1st. ed.). Apress, USA.
+
 <ins>Git Lessons</ins>
 
 Cite: Miles Taylor (2024)

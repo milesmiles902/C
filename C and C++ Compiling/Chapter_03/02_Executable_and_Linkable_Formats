@@ -1,0 +1,8 @@
+readelf -h regularBuild
+readelf --segments regularBuild
+objdump -j .text -D regularBuild
+
+readelf -h staticBuild
+readelf --segments staticBuild
+objdump -j .text -D staticBuild
+

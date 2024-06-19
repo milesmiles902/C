@@ -1,0 +1,2 @@
+gcc -S -masm=att main.c -o main.s
+gcc -S -masm=intel main.c -o main.s
