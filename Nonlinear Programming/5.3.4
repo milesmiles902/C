@@ -1,0 +1,20 @@
+Question 5.3.4:
+
+Inequality Constrained Problem :               Nondifferentiable Penalty Function:
+
+  Function: f(x)                               Function: f(x) + c*P(x)
+
+  Constraint g(x) <= 0                         Constraint: x is real
+
+When P(X) = max{g0(x), g1(x),...,gr(x)}
+
+The solution (x*,mu*) in Inequality Constrained Problems is the solution for Nondifferentiable Penalty functions. Specifically, the Lagrangian maximum or minimum equate, and also x*, such as: max{ L(x,c) }=max{ L(x,mu) } = max{f(x)+c*g(x)}=max{f(x)+c*P(x)}.
+
+Rules: Proposition 4.3.1:
+         f(x*) is a local minimum
+         When unique multipliers prevail
+         Then dL(x*,lambda*,mu*)/dx = 0
+              mu>=0
+         Also, ydel[dL(x*,lambda*,mu*)/dx]y>=0
+         Then also, for all y, delh(x*)y=0 and delg(x*)y = 0
+

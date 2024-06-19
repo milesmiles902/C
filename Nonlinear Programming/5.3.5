@@ -1,0 +1,31 @@
+Question 5.3.5:
+
+Equation 5.103: 
+
+  Function: delf(x^k)*d + (1/2)*d*H*d
+  
+  Constraint: g(x^k) + delg(x^k)d <= 0
+
+Quadratic Programming (Equation 5.103):          Gradient Descent:
+
+  Function: delf(x^k)*d + (1/2)*d*H*d            Function: x^{k+1} = x^k + alpha^k(xbar^k-x^k)
+
+  Constraint: g(x^k) + delg(x^k)d <= 0           Constraint: xbar^k = [x^k - s^kdelf(x^k)]
+
+  Lagrangian: L(x,c) = f(x)+cP(x)              
+
+The linearization in Quadratic Programming is a Lagrangian:
+
+  L(x,c) = f(x)+c*P(x)
+
+         = delf(x^k)*d + (1/2)*d*H*d + c*(g(x^k) + delg(x^k)d)
+
+         = x^{k+1} - x^k - alpha*(xbar^k-x^k)
+
+         = x^{k+1} - x^k - alpha*(x^k - s^kdelf(x^k) - x^k)
+  
+         = x^{k+1} - x^k + alpha*(s^k*delf(x^k))
+
+           where d=1, H=0, c=alpha, and g(x^k) + delg(x^k)d = s^k*delf(x^k)
+
+The Lagrangian solution is from an equation system or through gradient descent.

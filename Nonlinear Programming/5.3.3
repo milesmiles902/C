@@ -1,0 +1,28 @@
+Question 5.3.3:
+
+Lagrange Multiplier Pair #1:                            Lagrange Multiplier Pair #2:
+
+Function: f(x) = delf(x)*d + (1/2)*d*H*d                Function: f(x) = delf(x)*d +(1/2)*d*H*D + c*eta
+
+Constraint: g(x) + delg(x)*d <= 0                       Constraint: g(x) + delg(x)*d <= eta
+
+            where H is positive definite symmetric
+
+Proof why (d,mu) are global minimums:
+
+  A positive c and H means the Lagrangians equate at the minimum.
+
+  L(x,c) = f(x) + mu*g(x) = delf(x)*d + (1/2)*d*H*d + mu*(g(x) + delg(x)*d)
+
+  L(x,c,eta) = f(x) + c*g(x) = delf(x)*d +(1/2)*d*H*D + c*eta + c*(g(x) + delg(x)*d)
+
+  L(x,c) = L(x,c,eta)
+
+    delf(x)*d + (1/2)*d*H*d + mu*(g(x) + delg(x)*d) = delf(x)*d +(1/2)*d*H*D + c*eta + c*(g(x) + delg(x)*d)
+   
+    mu*(g(x) + delg(x)*d) = c*eta + c*(g(x) + delg(x)*d)
+
+                          = c*(eta+g(x) + delg(x)*d)
+
+   The leftover terms relate the constraints between Lagrangian systems. Also, the terms substitute between each system.
+ 
