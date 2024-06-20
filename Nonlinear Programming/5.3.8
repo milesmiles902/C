@@ -1,0 +1,35 @@
+Question 5.3.8 (Dealing with Singularities)
+  
+A modified Penalty Function:
+
+  P(x,lambda) = L(x,lambda) +(1/2)||delh(x)*dL(x,lambda)/dx||^2 + (1/2)(c+t*||lambda||^2)||h(x)||^2
+
+a) P(x,lambda( is bounded by the function f(x) + (c/2)||h(x)||^2 from below:
+  
+   The modified penalty function resembles the other penalty functions with an absent t. When t=0m the functions bound is no different than previous problems and Equation 5.112. 
+
+b) A differentiable penalty function for P(x,lambda) is:
+
+   dP(x,lambda)/dlambda = d/dlambda(L(x,lambda) +(1/2)||delh(x)*dL(x,lambda)/dx||^2 + (1/2)(c+t*||lambda||^2)||h(x)||^2)
+                        = dL(x,lambda)/dlambda + (1/2)(d/dlambda)(||delh(x)*dL(x,lambda)/dx||^2) + t*lambda*h(x)
+ 
+                        = (1/2)*delh(x)*h(x) + (1+t*lambda)h(x)
+
+c) A contour plot for Figure 5.3.6 with an absent singularity. 
+    
+   Since f(x)=x1 and h(x) = x1^2 + x2^2 - 1
+
+   1) A website https://desmos.com/3d
+
+   2) A plausible substitute in desmos' web-plotter:
+
+      z=\left(\frac{1}{2}\right)\left(2\cdot x+2\cdot y\right)\cdot\left(x^{2}+y^{2}-1\right)+\left(1+t\cdot l\right)\cdot\left(x^{2}+y^{2}-1\right)
+
+   3) The contour demonstrates bounds for both t and lambda. In comparison, the other penalty function differentables that have no dependence to the coefficients. 
+   
+Rules: Equation 5.106:
+         P(x,lambda) = L(x,lambda) + (1/2)||W(x)dL(x,lambda)/dx||^2 + (c/2)||h(x)||^2      
+  
+       Equation 5.112:
+         P(x,lambda) = L(x,lambda) + (c/2)*||h(x)||^2
+                       
