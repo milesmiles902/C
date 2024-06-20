@@ -1,0 +1,43 @@
+Question 5.3.7:
+
+A proof for Proposition 5.3.4 requires truth in each part. The parts are Equation 5.109 and 5.110.
+
+From equation 5.110, P(x,lambda) = L(x,lambda) + (1/2)||W(x)dL(x,lambda)/dx||^2 + (c/2)||h(x)||^2
+
+A derivative in lambda's dimension equates to a derivative in x's dimension.
+
+  dP(x,lambda)/dlambda = dL(x,lambda)/dx + W(x)^2*dL(x,lambda)/dx*del[dL(x,lambda)/dx]/dlambda
+
+                       = h(x) + W(x)^2*[delf(x) + lambda*delh(x)]*del[delf(x) + lambda*delh(x)]]/dlambda
+
+                       = h(x) + W(x)^2[delf(x) + lambda*delh(x)]*delh(x)
+
+                       = h(x) + delh(x)*W(x)*W(x)*dL(x,lambda)/dx
+
+The line above is equation 5.110.
+
+Equation 5.110 caters to a function and constraint with h(x) = 0. Equation 5.110 also caters to a zero value.
+
+While a proof for Equation 5.109 completes Proposition 5.3.4:
+
+  dP(x,lambda)/dx = dL(x,lambda)/dx + W(x)^2*[deldL(x,lambda)/dx] + c*delh(x)*h(x)
+
+                  = dL(x,lambda)/dx + (del[dL(x,lambda)/dx]*W(x) + sum_1_m [delw*dL(x,lambda)/dx])W(x)*dL(x,lambda)/dx + c*delh(x)*h(x)
+
+The second part in Proposition 5.3.4 requires a minimum for the line above. From the constraint, h(x) and f(x*) equal zero at the minimum, along with dP(x,lambda)/dx too.
+
+Each portion from Proposition 5.3.4 fit these two equations.
+
+Rules: Proposition 5.3.4:
+         dL(x*,lambda*)/dx = 0
+         dL(x*,lambda*)/dlambda = 0 
+ 
+       Equation 5.109:
+         P(x,lambda) = L(x,lambda) + (1/2)||W(x)dL(x,lambda)/dx||^2 + (c/2)||h(x)||^2
+         L(x,lambda) = f(x) + lambda*h(x)
+         dP(x,lambda)/dx = dL(x,lambda)/dx + (del[dL(x,lambda)/dx]*W(x) + sum_1_m [delw*dL(x,lambda)/dx])W(x)*dL(x,lambda)/dx + c*delh(x)*h(x)
+
+       Equation 5.110:
+         P(x,lambda) = L(x,lambda) + (1/2)||W(x)dL(x,lambda)/dx||^2 + (c/2)||h(x)||^2
+         L(x,lambda) = f(x) + lambda*h(x)
+         dP(x,lambda)/dlambda = h + delh(x)*W(x)*W(x)*dL(x,lambda)/dx
