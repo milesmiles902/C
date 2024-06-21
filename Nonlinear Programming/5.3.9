@@ -1,0 +1,22 @@
+Question 5.3.9:
+
+Exact Penalty Function:                           Lagrange Multiplier Pair:
+
+Function: f(x) = x1                               delf(x) + (1/2)*d*del[dL(x*,lambda*)/dx]*d
+
+Constraint: h(x) = x1^2 + x2^2 -1 = 0             h(x) + delh(x)*D = 0
+
+Solutions: x* = (-1,0), lambda* = 1/2
+
+The d-step penalty function is:
+
+  f(x+d) + c|h(x+d)| - f(x) - c|h(x)| = f(x) + delf(x)*d + (!/2)*d*del[df(x)/dx]*d + c|h(x) + delh(x)*d + (1/2)*d*del[dh(x)/dx]*d| - f(x) - c|h(x)|
+                                    
+                                      = delf(x)*d + (1/2)*d*del[df(x)/dx]*d + c|delh(x)*d + (1/2)*d*del[dh(x)/dx]*d||
+
+                                      = lambda*h(x) - c|h(x)|  + (1/2)(d*del[df(x)/dx]*d + c|d*del[dh(x)/dx]*d| - 2*d*H*d) 
+                                      = lambda*h(x) - c|h(x)| + (c-lambda*)||d||^2
+
+When c > 2*lambda, the derivative leads to an increase of the exact penalty function f+cP. A sufficiently large value for c as a penalty parameter confines the boundary condition h(x).
+
+
