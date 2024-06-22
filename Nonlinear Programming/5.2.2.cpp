@@ -23,7 +23,7 @@ b) //Multiplier Method
 */
 
 ////////////////////////////
-////g++ 5.1.1.cpp -std=c++11
+////g++ 5.2.2.cpp -std=c++11
 ////////////////////////////
 
 #include <functional> //function
