@@ -1,0 +1,8 @@
+gcc -fPIC <source files> -Wl,--whole-archive -l<static libraries> -o <shlib filename>
+gcc -fPIC <source files> -o <executable-output-file> -Wl,--whole-archive -l<libraries-to-be-entirely-linked-in> -Wl,--no-whole-archive -l<all-other-libraries>
+
+Example:
+
+1) gcc -fPIC -c file1.c file2.c file3.c
+2) ar -rv libfiles.a file1.o file2.o         <--A local whole static library purposed for multiple files
+3) gcc -Wl,--whole-archive libfiles.a -Wl,--no-whole-archive -shared file3.o -o libfiles.so  
