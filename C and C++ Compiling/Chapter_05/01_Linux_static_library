@@ -1,0 +1,3 @@
+gcc -c first.c second.c
+ar rcs libstaticlib.a first.o second.o
+ar -x libstaticlib.a
