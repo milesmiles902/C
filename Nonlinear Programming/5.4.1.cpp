@@ -16,6 +16,7 @@ Question 5.4.1:
 #include <limits>     //epsilon, h in derivatives
 #include <vector>     //vector, for variables
 #include <iomanip>    //setprecision, for variable prints
+#include <string>     //flags
 
 using namespace std;
 
@@ -68,7 +69,8 @@ float computeDerivativeH(RealFuncH H, float x1, float x2){
 //A second derivative for the Lagrangian equation: L(x1,x2,p,lambda) = f(x1,x2) + lambda*h(x2)
 float computeSecondDerivativedL(RealFuncF f, RealFuncH H, float x1, float x2, float lambda){
   float h = sqrt(numeric_limits<float>::epsilon());
-  float L = (f(x1+h,x2)-2*f(x1,x2)+f(x1-h,x2))/(h*h) + (f(x1,x2+h)-2*f(x1,x2)+f(x1,x2-h))/(h*h) + lambda*(((H(x1+h, x2)-2*H(x1,x2)+H(x1-h,x2))/(h*h))+(H(x1, x2+h)-2*H(x1,x2)+H(x1,x2-h))/(h*h));
+  //float L = (f(x1+h,x2)-2*f(x1,x2)+f(x1-h,x2))/(h*h) + (f(x1,x2+h)-2*f(x1,x2)+f(x1,x2-h))/(h*h) + lambda*(((H(x1+h, x2)-2*H(x1,x2)+H(x1-h,x2))/(h*h))+(H(x1, x2+h)-2*H(x1,x2)+H(x1,x2-h))/(h*h));
+  float L = (f(x1+h,x2)-f(x1,x2))/h+(f(x1,x2+h)-f(x1,x2))/h + lambda*(H(x1+h,x2)-H(x1,x2)/h + (H(x1,x2+h)-H(x1,x2))/h);
   return L;
 }
 
@@ -176,7 +178,7 @@ float **inverseA(float ** A){
 }
 
 //Find the minimum for Multiplier Methods
-void evaluateMinimum(RealFuncF f, RealFuncH h, RealFuncDerivativeF dF,RealFuncDerivativeH dH, RealFuncSecondDerivativeL ddL, float x1, float x2, float lambda, float precision){
+float evaluateMinimum(RealFuncF f, RealFuncH h, RealFuncDerivativeF dF,RealFuncDerivativeH dH, RealFuncSecondDerivativeL ddL, float x1, float x2, float lambda, string flag1){
   int c = 1;
   float determinant, dx=0;
   
@@ -188,9 +190,10 @@ void evaluateMinimum(RealFuncF f, RealFuncH h, RealFuncDerivativeF dF,RealFuncDe
   //                |N^k  0 | |dlambda^k|    |       h(x^k)          |
   //
   //                where H^k = del[delL(x,lambda)] and N^k = delh(x)
+  //          
+  // Notes: 1) First Implementation of Newton's method requires a 2x2 matrix with solutions from an equation system. 
+  //        2) The function returns dx^k or dlambda^k
   //
-  // Notes: First Implementation of Newton's method requires a 2x2 matrix with solutions from an equation system. 
-
   float** A = makeMatrix(2);
   setMatrix(A,2);
   
@@ -202,54 +205,106 @@ void evaluateMinimum(RealFuncF f, RealFuncH h, RealFuncDerivativeF dF,RealFuncDe
   
   float **Am1 = makeMatrix (3);
   
-  X[0]=1;
-  X[1]=lambda;
+  X[0]=0;
+  X[1]=0;
+  
+  //Left-hand Matrix
+  A[0][0]=ddL(f,h,x1,x2,lambda);
+  A[0][1]=dH(h,x1,x2);
+  A[1][0]=dH(h,x1,x2);
+  A[1][1]=0;
+    
+  //Right-hand Matrix
+  b[0]= -dF(f,x1,x2)+lambda*dH(h,x1,x2);
+  b[1] = -h(x1,x2);
+
+  //The determinant 
+  determinant = A[0][0]*A[1][1]-A[1][0]*A[0][1];
+  
+  //A flag for a zero determinant
+  if(determinant == 0){
+    X[0]=b[0]/A[0][0];
+    X[1]=lambda;
+  } else{
+    //Otherwise proceed with a system of equations
+    Am1 = inverseA(A);
+    multiply(Am1,b,X,2,2,2); 
+  }
+  
+  if(flag1 == "lambda"){
+    return X[1]; 
+  } else if(flag1 == "x"){
+    return X[0]; 
+  }
+  return 0;
+}
+
+float calculationByHand(float x1, float x2, float lambda, string flag1){
+  // A solution by hand has lambda^{k+1} = 1/(N^k*N^k/H^k)*(h(x^k)-N^k*delf(x^k)/H^k)
+  //                                     = -1
+  //                             
+  //                             x^{k+1} = x^k - delL(x^k,lambda^{k+1})/H^k
+  //                                     = x^k - (x2^k + x1^k + 2*lambda^k)/2
+  //
+  // The matrix calculation reduced by hand on paper for comparison.
+  
+  if(flag1 == "lambda"){
+    return -1;
+  } else if(flag1 == "x"){
+    return (x2+x1+2*lambda)/2;
+  }
+ return -1;
+}
+
+void iterationDriver(RealFuncF f, RealFuncH h, RealFuncDerivativeF dF,RealFuncDerivativeH dH, RealFuncSecondDerivativeL ddL, float x1, float x2, float lambda, float precision){
+  float x1i, x2i, x1k, x2k, lambdakx1, lambdakx2;
+
+  x1i = x1;
+  x2i = x2;
+  lambdakx1 = lambda;
+  lambdakx2 = lambda;
 
   for(int i=0;;i++){
-  
-    //Left-hand Matrix
-    A[0][0]=ddL(f,h,x1,x2,X[1]);
-    A[0][1]=dH(h,x1,x2);
-    A[1][0]=dH(h,x1,x2);
-    A[1][1]=0;
+    lambdakx1 = calculationByHand(x1,x2,lambdakx1,"lambda");
+    x1k = calculationByHand(x1,x2,lambdakx1,"x");
+
+    lambdakx2 = calculationByHand(x1,x2,lambdakx2,"lambda");
+    x2k = calculationByHand(x1,x2,lambdakx2,"x");
+   
+    x1-=x1k;
+    x2-=x2k;
  
-    //Right-hand Matrix
-    b[0]= -dF(f,x1,x2)+X[1]*dH(h,x1,x2);
-    b[1] = -h(x1,x2);
-
-    //The determinant 
-    determinant = A[0][0]*A[1][1]-A[1][0]*A[0][1];
-     
-    //A flag for a zero determinant
-    if(determinant == 0){
-      X[0]=b[0]/A[0][0];
-      X[1]=lambda;
-    } else{
-      //Otherwise proceed with a system of equations
-      Am1 = inverseA(A);
-      multiply(Am1,b,X,2,2,2);
-
+    if(abs(2-x1-x2)< precision){
+      cout << "A pre-evaluated Newton's First Implementation ended in " << i+1 << " iterations." << endl;
+      cout << "x1 is: " << x1 << endl;
+      cout << "x2 is: " << x2 << endl;
+      cout << endl;
+      break;
     }
+  }  
  
-    dx = X[0];
-    //New x1
-    x1+=dx;
-    //New x2
-    x2-=dx;
-    //if(x1<0){ x1 = 0;}
-    //A solution check for convergence
-    if(abs(-dF(f,x1,x2)-2)<precision){
-      cout << endl;
-      cout <<" A first implementation of Newton's method "<< endl;
-      cout << endl;
-      cout <<"  Iteration total: " << i+1 << endl;
-      cout <<"  Function Minimum x: " << setprecision(6) << "x1: " << x1 << " x2: " << x2 << endl;
-      cout << endl;
+  x1 = x1i;
+  x2 = x2i;
+
+  for(int i=0;i<1;i++){
+    lambdakx1=evaluateMinimum(f,h,dF,dH,ddL,x1,x2,lambdakx1,"lambda");
+    x1k=evaluateMinimum(f,h,dF,dH,ddL,x1,x2,lambdakx1,"x");
+
+    lambdakx2=evaluateMinimum(f,h,dF,dH,ddL,x1,x2,lambdakx2,"lambda");
+    x2k=evaluateMinimum(f,h,dF,dH,ddL,x1,x2,lambdakx2,"x");
+
+    x1-=x1k;
+    x2-=x2k;
+
+    if(abs((2-x1-x2))< precision){
+      cout << "An equation system with matrix inversion ended in " << i+1 << " iterations." << endl;
+      cout << "x1 is: " << x1 << endl;
+      cout << "x2 is: " << x2 << endl;
       return;
-    } 
+    }
   }
-  return;
 }
+
 
 //The main with initial conditions
 int main(){
@@ -259,26 +314,18 @@ int main(){
   RealFuncDerivativeH dH{computeDerivativeH};
   RealFuncSecondDerivativeL ddL{computeSecondDerivativedL};
   
-  float x1=1.1, x2=0.9, lambda0 = 0.1, precision = 10e-6;
+  float x1=1.01, x2=0.01, lambda0 = 0.1, precision = 10e-5;
   cout << endl << "Function f(x1,x2,p) = -x1*x2" << endl;
   cout <<"Constraint: x1 + x2 = 2" << endl;
   cout << endl;
   cout <<"/////////////////////////////////////////////////////////" << endl;
   cout <<"/////////////////////////////////////////////////////////" << endl << endl;
-  cout <<"Initial x1: " << x1 << endl;
-  cout <<"Initial x2: " << x2 << endl;
+  cout <<"Initial x1: " << setprecision(3) << x1 << endl;
+  cout <<"Initial x2: " << setprecision(3) << x2 << endl;
   cout <<"Precision: " << precision << endl;
   cout << endl;
 
-  evaluateMinimum(f,h,dF,dH,ddL,x1,x2,lambda0,precision);
+  iterationDriver(f,h,dF,dH,ddL,x1,x2,lambda0,precision);
 
-  cout << "////////////////////////////////////////////////////////////////////////////////////////////////" << endl;
-  cout << "The algorithm completes in one step no matter the initial conditions." << endl;
-  cout << "////////////////////////////////////////////////////////////////////////////////////////////////" << endl;
-  cout << "Issues to fix tomorrow: " << endl;
-  cout << "1) An x-increment from the equation system requires a +/- dx. A backtrace coefficient or conditional gradient descent helps aid the sign without prior knowledge." << endl;
-  cout << "2) The derivative-check had a singularity at the minimumm. The limit derivative requires a flag." << endl;
-  cout << "3) Investigate the matrix inverse, once more, specifically b-vector outputs with five iteratiojns." << endl;
-  cout << "4) Finish typing an approximate implementation for the second part." << endl;
   return 0; 
 }
