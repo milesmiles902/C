@@ -1,0 +1,6 @@
+-fvisibility=hidden : A compiler flag for hiding dynamic library symbols from other dynamic libraries
+
+_attribute_ : An instruction to the linker to allow or not allow symbol export.
+
+#pragma GCC visibility push(hidden) : A paired-declaration for visible or invisible functions at export
+#pragma visibility pop

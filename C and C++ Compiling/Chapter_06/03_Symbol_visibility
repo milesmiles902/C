@@ -1,0 +1,5 @@
+gcc -fPIC -c main.c
+gcc main.o -o libdefaultvisibility.so
+objdump -Ct libdefaultvisibility.so
+
+//The book proposed the command "nm -D " on the dynamic library without accessibility on this OS. The commands above similarly follow chapter 6." 
