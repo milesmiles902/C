@@ -1,5 +1,13 @@
-gcc -fPIC -c main.c
-gcc main.o -o libdefaultvisibility.so
-objdump -Ct libdefaultvisibility.so
+gcc -shared -fPIC -o libdefaultvisibility.so first.c
+nm -D libdefaultvisibility.so
 
-//The book proposed the command "nm -D " on the dynamic library without accessibility on this OS. The commands above similarly follow chapter 6." 
+gcc -shared -fPIC -fvisibility=hidden -o libdefaultvisibility.so first.c
+nm -D libdefaultvisibility.so
+
+gcc -shared -fPIC -fvisibility=hidden -o libcontrolledvisibility.so second.c
+nm -D libcontrolledvisibility.so
+
+strip --strip-symbol mylocalfunction1 libcontrolledvisibility.so 
+strip --strip-symbol mylocalfunction2 libcontrolledvisibility.so 
+strip --strip-symbol mylocalfunction3 libcontrolledvisibility.so 
+
