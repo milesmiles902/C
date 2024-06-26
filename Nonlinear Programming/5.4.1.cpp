@@ -177,11 +177,10 @@ float **inverseA(float ** A){
   return Am1;
 }
 
-//Find the minimum for Multiplier Methods
-float evaluateMinimum(RealFuncF f, RealFuncH h, RealFuncDerivativeF dF,RealFuncDerivativeH dH, RealFuncSecondDerivativeL ddL, float x1, float x2, float lambda, string flag1){
-  int c = 1;
-  float determinant, dx=0;
-  
+//Find the minimum for Newton's First Implementation
+float evaluateFirst(RealFuncF f, RealFuncH h, RealFuncDerivativeF dF,RealFuncDerivativeH dH, RealFuncSecondDerivativeL ddL, float x1, float x2, float lambda, string flag1){
+  float determinant = 0;
+ 
   //A First Implementation of Newton's Method:
   ///////////////////////
   //A solution for: A*x=b 
@@ -264,6 +263,7 @@ void iterationDriver(RealFuncF f, RealFuncH h, RealFuncDerivativeF dF,RealFuncDe
   lambdakx1 = lambda;
   lambdakx2 = lambda;
 
+  //Scratch Paper Calculation - Newton's First Implementation
   for(int i=0;;i++){
     lambdakx1 = calculationByHand(x1,x2,lambdakx1,"lambda");
     x1k = calculationByHand(x1,x2,lambdakx1,"x");
@@ -285,13 +285,16 @@ void iterationDriver(RealFuncF f, RealFuncH h, RealFuncDerivativeF dF,RealFuncDe
  
   x1 = x1i;
   x2 = x2i;
+  lambdakx1 = lambda;
+  lambdakx2 = lambda;
 
-  for(int i=0;i<1;i++){
-    lambdakx1=evaluateMinimum(f,h,dF,dH,ddL,x1,x2,lambdakx1,"lambda");
-    x1k=evaluateMinimum(f,h,dF,dH,ddL,x1,x2,lambdakx1,"x");
+  //Equation System - Newton's First Implementation
+  for(int i=0;;i++){
+    lambdakx1=evaluateFirst(f,h,dF,dH,ddL,x1,x2,lambdakx1,"lambda");
+    x1k=evaluateFirst(f,h,dF,dH,ddL,x1,x2,lambdakx1,"x");
 
-    lambdakx2=evaluateMinimum(f,h,dF,dH,ddL,x1,x2,lambdakx2,"lambda");
-    x2k=evaluateMinimum(f,h,dF,dH,ddL,x1,x2,lambdakx2,"x");
+    lambdakx2=evaluateFirst(f,h,dF,dH,ddL,x1,x2,lambdakx2,"lambda");
+    x2k=evaluateFirst(f,h,dF,dH,ddL,x1,x2,lambdakx2,"x");
 
     x1-=x1k;
     x2-=x2k;
@@ -300,11 +303,10 @@ void iterationDriver(RealFuncF f, RealFuncH h, RealFuncDerivativeF dF,RealFuncDe
       cout << "An equation system with matrix inversion ended in " << i+1 << " iterations." << endl;
       cout << "x1 is: " << x1 << endl;
       cout << "x2 is: " << x2 << endl;
-      return;
+      break;
     }
   }
 }
-
 
 //The main with initial conditions
 int main(){
@@ -314,7 +316,7 @@ int main(){
   RealFuncDerivativeH dH{computeDerivativeH};
   RealFuncSecondDerivativeL ddL{computeSecondDerivativedL};
   
-  float x1=1.01, x2=0.01, lambda0 = 0.1, precision = 10e-5;
+  float x1=1.1, x2=0.0, lambda0 = 0.0, precision = 10e-5;
   cout << endl << "Function f(x1,x2,p) = -x1*x2" << endl;
   cout <<"Constraint: x1 + x2 = 2" << endl;
   cout << endl;

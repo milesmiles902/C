@@ -1,0 +1,24 @@
+Question 5.4.2:
+
+Convergence rate depends on Lipschitz constant:
+
+       |delL(x^{k+1},lambda^{k+1},c) - delL(x^k,lambda^k,c)| = R * |(x^{k+1},lambda^{k+1},c)-(x^k,lambda^k,c)|
+     
+        |delL(x^{k+1},lambda^{k+1},c) - delL(x^k,lambda^k,c)|/|(x^{k+1},lambda^{k+1},c)-(x^k,lambda^k,c)| = R
+
+When R shows linearity for k to k+1, then also for k+1 to k+2.
+
+This thought applies to Equations 5.156-5.157 and 5.159-5.160.
+
+Rules: Proposition 5.4.1:
+         x* = G(x*, lambda*)
+         R = |dG(x*,lambda)/dx      dH(x*,lambda*)/x      |
+             |dG(x*,lambda)/dlambda dH(x*,lambda*)/dlambda|
+         x^{k+1} = G(x*,lambda*) is an attraction
+         lambda^{k+1} = H(x*,lambda*) is an attraction
+         Convergence remains linear
+
+       Equation 5.156: x^{k+1} = x^k - delL(x,lambda,c)/(del[delL(x,lambda)] + c*delh(x)*delh(x))
+       Equation 5.157: lambda^{k+1} = lambda^k + c(h(x)+delh(x)(x^{k+1} - x^k))
+       Equation 5.159: x^{k+1} = x^k - delL(x,lambda,c)/(del[delL(x,lambda,c)])
+       Equation 5.160: lambda^{k+1} = lambda^k + c*h(x)
