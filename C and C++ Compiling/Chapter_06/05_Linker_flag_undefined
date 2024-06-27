@@ -1,0 +1,2 @@
+gcc -fPIC -c first.c -l /usr/include/stdio.h -Wl,--no-undefined -o first.o
+

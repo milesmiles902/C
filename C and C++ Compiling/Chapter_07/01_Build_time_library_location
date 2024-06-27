@@ -1,0 +1,4 @@
+static library filename = lib + <library name> + .a
+
+dynamic library filename = lib + <library name> + .so + <library version information>
+

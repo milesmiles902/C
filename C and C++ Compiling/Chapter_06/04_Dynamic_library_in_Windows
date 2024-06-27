@@ -1,1 +1,14 @@
 dumpbin /EXPORTS milanDLLdemo.dll 
+
+dir *.def
+lib /machine:X86 /def:avcodec-53.def /out:avcodec.lib
+lib /machine:X86 /def:avdevice-53.def /out:avdevice.lib
+lib /machine:X86 /def:avfilter-2.def /out:avfilter.lib
+lib /machine:X86 /def:avformat-53.def /out:avformat.lib
+lib /machine:X86 /def:avutil-51.def /out:avutil.lib
+lib:/machine:X86 /def:postproc-51.def /out:postproc.lib
+lib /machine:X86 /def:swresample-0.def /out:postproc.lib
+lib /machine:X86 /def:swcale-2.def /out:swscale.lib
+
+
+
