@@ -1,0 +1,4 @@
+readelf -d /usr/lib/libz.so
+
+gcc -Wall -fPIC first.c -Wl,-L$pwd -Wl,-llibfoo.so.1 -o demo
+

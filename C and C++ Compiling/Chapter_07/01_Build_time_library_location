@@ -8,3 +8,4 @@ gcc -fPIC -c first.c second.c
 gcc -shared first.o second.o -o libfoo.so.1
 gcc -shared first.o second.o -Wl,-soname,libfoo.so.1 -o libfoo.so.1.0.0
 
+
