@@ -3,8 +3,6 @@ Question 6.1.1:
 Function: f(x1,x2) = x1
 
 Constraint: |x1| + |x2| <= 1
-  
-            g(x1,x2) = 1 - |x1| - |x2|
 
 Set of Optimal Solutions: S = { x | for some x in S, mu1*f(x1,x2) + mu2*g(x1,x2) = c}
                             
@@ -29,14 +27,18 @@ Geometric Multiplier:     1) Lagrangian: L(x1,x2,mu1,mu2) = mu1*x1 + mu2*(1-|x1|
                                                                         = 0
 
                                                       (x1*,x2*,mu1,mu2) = (0, (+/-)1, 0, 0)
-
-Plot: ...finish.
+           x2|1
+Plot:       /|\ /
+           / | \
+        __/__|/_\_x1_
+       -1 \ /|  / 1   
+           \ | /
+         /  \|/
+             |-1
 
 Function: f(x1,x2) = x1
 
 Constraint: |x1| + |x2| <= 1
-
-            g(x1,x2) = 1 - |x1| - |x2|
 
             where |x1| <= 1, and |x2| <= 1
 
@@ -70,7 +72,9 @@ Geometric Multiplier:     1) Lagrangian: L(x1,x2,mu1,mu2,mu3,mu4) = mu1*x1 + mu2
 
                                                      (x1*,x2*,mu1,mu2,mu3,mu4) = (0, (+/-)1, 1, 1, 0 , -1), (0, (+/-)1, -1, -1, 0 , 1)
 
-Plot: ...finish.
+Plot: A 3-D plot is not easy in notepad. So, inside desmos.com/3d type into the left panel: |y|<=1, |x|<=1, z=x, |x|+|y|<=1, and finally, the Lagrangian: z = x + (1-|x|-|y|) - (1-|y|).
+
+      Geometric multipliers find a feasible minimums, but not always an optimal minimum. The graph shows a region within satisfactory conditions. In applicaiton, geometric multipliers derive a minimum, then iterate closer to an exact minimum and boundary conditions.
 
 Rules: Definition 5.1.1:
          For a vector mu = (mu1, mu2, ... , muR}

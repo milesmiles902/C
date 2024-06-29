@@ -1,0 +1,60 @@
+Question 6.1.2:
+
+Function: f(x) = 10x1+3x2
+
+Constraint: 5x1 + x2 >= 4
+ 
+            x1, x2 = 0 or 1
+
+a) A sketch about the set of constraint-cost pairs {(4-5x1-x2, 10x1+3x2 | x1,x2 = 0 or 1}
+
+   A 3D-plot projected onto a 2D-plane:                   ..x2|*\--*         .. = 10x1 + 3x2
+                                                           ...|*.\ *         ** = x1 0 or 1
+                                                         ___..|*--\*__x1_    -- = x2 0 or 1
+                                                             .|*.  \          \ = 4-5x1-x2
+                                                              |*.. *\
+                                                              |*...* \
+b) The dual function sketch:
+ 
+   Lagrangian: L(x,mu) = f(x1,x2) + mu1*g(x) + mu2*x1 + (1-mu2)*x1 + mu3*x2 + (1-mu3)*x2
+ 
+                       = 10x1 + 3x2 + mu1(4-5x1-x2) + mu2*x1 + (1-mu2)*x1 + mu3*x2 + (1-mu3)*x2
+       
+                                                              
+   A 3D-plot projected onto a 2D-plane:                   .`x2|*\--*         .. = 10x1 + 3x2
+                                                           ...|*.\ *         ** = x1 0 or 1
+                                                         ___..`*--\*__x1_    -- = x2 0 or 1
+                                                             .|*.  \          \ = 4-5x1-x2
+                                                              |*`* *\        `` = L(x,mu)
+                                                              |*..`* \
+                                                              
+                                                                
+c) A solution for the coefficient vector, mu = (mu1, mu2, mu3):
+
+   Lagrangian: L(x,mu) = = 10x1 + 3x2 + mu1(4-5x1-x2) + mu2*x1 + (1-mu2)*x1 + mu3*x2 + (1-mu3)*x2
+
+   Minimums:    dL(x,mu)/dx1 = 10 - 5mu1
+                
+                             = 0
+ 
+                dL(x,mu)/dx2 = 3 - mu2 
+                            
+                             = 0
+
+               dL(x,mu)/dmu1 = (4-5x1-x2)
+                            
+                             = 0
+
+               dL(x,mu)/dmu2 = 0
+               
+               dL(x,mu)/dmu3 = 0
+
+               (x1*,x2*) = (x, 4-5x)
+
+               (mu1*,mu2*,mu3*) = (1/2, 3, 0)
+
+Rules: Dual Function (q):
+        q(mu) = inf[L(x,mu)]
+        Also, Dual Functions derive an affine Lagranginan.
+        L(x,mu) = f(x) + mu1*g(x) + (1-mu1)*g(x)
+        OR L(x, a*mu+(1-a)*mu) = a*L(x,mu) + (1-a)*L(x,mu)
