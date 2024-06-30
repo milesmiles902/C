@@ -1,0 +1,10 @@
+Runpath:
+gcc -Wl,-R/home/milan/projects/ -lmilanlibrary --or-- export LD_RUN_PATH=/home/milan/projects:$LD_RUN_PATH
+
+Library path:
+gcc -Wl,-R/home/milan/projects/ -Wl,--enable-new-dtags -lmilanlibrary --or--  export LD_LIBRARY_PATH=/home/milan/projects:$LD_LIBRARY_PATH
+
+ldconfig cache:
+cat /etc/ld.so.conf
+ls -alg /etc/ld.so.conf.d/
+cat /etc/ld.so.cache
