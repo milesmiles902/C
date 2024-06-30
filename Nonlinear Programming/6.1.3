@@ -1,0 +1,35 @@
+Question 6.1.3:
+
+Function: ||z-x||^2
+
+Constraint: Ax = 0
+
+            where A is an mxn matrix
+
+Dual Problem: 
+
+     Lagrangian: L(z,x,mu) = f(z,x) + mu*g(x)
+ 
+                        = ||z-x||^2 + mu*A*x
+
+     Minimums:  dL(z,x,mu)/dz = 2*||z-x||
+
+                               = 0
+  
+                dL(z,x,mu)/dx = -2||z-x|||+mu*A
+
+                               = 0
+ 
+                dL(z,x,mu)/dmu = Ax
+
+                               = 0
+
+                (z*,x*,mu*) = ((A+2)*(x/2),x,2x)
+
+      At minimum, L(z*,x*,mu*) = ||(A+2)*x/2 - x||^2 + 2*x*A*x
+
+                               = (1/4)*A*(A+8)*x^2
+
+                               = (1/4)*sum_1_n[ (A(A+8))*x_i^2 ]
+
+                                 where A(A+8) is the projection onto x.

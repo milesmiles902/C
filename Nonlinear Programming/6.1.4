@@ -1,0 +1,50 @@
+Question 6.1.4:
+
+Minimum distance from the origin to a line in 3-dimensions: 
+
+  Function: (1/2)||x||^2
+
+  Constraint Ax = b    |a b c||x1|=|y|
+                       |1 1 1||x2| |z|
+                              |x3|
+
+  Lagrangian: L(x,lambda) = f(x)+lambda*g(x)
+
+                          = (1/2)||x||^2 + lambda*(Ax-b)
+
+  Minimum distance: min{ L(x,lambda) } = min{ f(x) + lambda*g(x) }
+ 
+                                       = min{ (1/2)||x||^2 + lambda*(Ax-b) }
+
+                                       = (1/2)||x||^2 - b*(Ax-b)
+
+Minimum distance from the origin to a plane in 3-dimensions:
+
+  Function: (1/2)||x||^2
+
+  Constraint: The plane in linear algebra is a line times a constant.
+
+              p*Ax = p*b       p*|a b c||x1|=p*|y|   
+                                 |1 1 1||x2|   |z|
+                                        |x3|
+
+  Lagrangian: L(x,mu) = f(x)+mu*g(x)
+
+                          = (1/2)||x||^2 + mu*(p*Ax-p*b)
+
+  Minimum distance: min{ L(x,mu) } = min{ f(x) + mu*g(x) }
+
+                                   = min{ (1/2)||x||^2 + mu*(p*Ax-p*b) }
+
+                                   = (1/2)||x||^2 - b*(A*x-b)
+
+The minimum distance from the origin to a line is equal to the minimum distance from the origin to a plane with the same line.
+
+
+  
+  
+
+
+  
+
+

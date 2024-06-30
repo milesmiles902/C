@@ -1,0 +1,25 @@
+Question 6.1.5:
+
+Function: x1-x2
+
+Constraints: x1 >= 0
+
+             x2 >= 0
+
+             x1+1 <= 0
+
+             1-x1-x2 <= 0
+
+The problem wants an infeasible linear program. Reasons for the consideration are the constraints and initial conditions. x1 in the constraint list is greater than zero, but also less than or equal to -1. A feasible linear modifies the paramters before iteration begins with slack variables.
+
+Function: x1-x2 + 100*e1 + 100*e2 + 100*e3 + 100*e4
+
+Constraints: m1 + e1 >= 0
+
+             m2 + e2 >= 0
+
+             m1+1 + e3 <= 0
+
+             1-x1-x2 + e4 <= 0
+
+The new slack variables, e1, e2, e3, and e4 shift the initial conditions outside the infeasible boundaries.
