@@ -1,0 +1,33 @@
+Question 6.1.7:
+
+Number of objects: i=1,...,n
+
+Object weights: w_i
+
+Object values: v_i
+
+The weight sum never exceeds A>0
+
+a) Function: sum_1_n [ v_i*x_i ]
+
+   Constraint: sum_1_n[w_i*x_i] <= A
+
+b) The dual problem:
+
+    Function: sum_1_n[v_i*x_i] + mu*(A-sum_1_n[w_i*x_i])
+
+    Constraint: A >=0
+
+c) q* and f* are optimal values for the primal and dual equations.
+
+   f* <= q* + max{v_i}
+ 
+   q*-f* <= max{v_i}
+
+d) f*(k) and q*(k) be optimal primal and dual problems:
+
+   q*-f* <= max{v_i}
+
+   (q*-f*)/f*(k) <= max{v_i}/f*(k)
+
+                 <= max{v_i}/(k*f*)
