@@ -1,0 +1,33 @@
+Question 6.1.13 (Shapley-Folkman Theorem):
+
+Function: y_i = sum_j=1_j=t [a_ij * y_ij]
+
+Constraint: a_ij > 0
+
+            sum[a_ij] = 1
+
+Vector set:    z = (x   ,1,1,...,1)
+ 
+            z_ij = (y_ij,1,0,...,0)
+
+            z_mj = (y_mj,0,0,...,1)
+
+Alternative vector set: z = sum_1_m [ sum_1_n[ a_ij * z_ij ]]
+
+With Caratheodory's Theorem, a summation decomposes into other summations.
+
+       z = sum_1_m [ sum_1_n[ a_ij * z_ij ]]
+
+         = sum_1_m [ sum_1_n[ b_ij * z_ij ]]
+
+         where sum[b_ij] = 1
+
+This idea associates decompositions in linear algebra, basis sets and wavefunctions in quantum mechanics, also, statistical summands.
+
+Other summands in the problem include the original function, y_i.
+
+Rules: Caratheodory's Theorem:
+         a) Every nonzero vector from cone(X) is a representation of linearly independent vectors from X
+         b) Every vector from cone(X) represents a convex combination of no more than n+1 vectors from X
+
+
