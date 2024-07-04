@@ -1,0 +1,15 @@
+Question 6.1.11:
+
+Function: f(x)
+
+Constraint: g(x) <= 0
+
+A duality gap describes the correction factors from additional or consecutive terms. In Geometric multipliers, one, two, or three terms equally fit the systems minimum.
+
+  L(x,mu) = f(x) + mu*g(x) 
+
+          = f(x) + mu1*g(x) + mu2*g(x)
+
+          = f(x) = mu1*g(x) + mu2*g(x) + mu3*g(x)
+
+          where mu = {mu1, mu2} = {mu1, mu2, mu3} 

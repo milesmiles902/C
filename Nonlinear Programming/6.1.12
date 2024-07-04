@@ -1,0 +1,19 @@
+Question 6.1.12 (Extended Regularization):
+
+
+                  System #1                System #2                             
+ 
+  Function:         f(x)                    f(x)
+
+  Constraint:      g(x)<=0                  g(x)<=0, g'(x)<=0
+
+a)  In a dual function, each Lagrangian equals zero at the minimum:
+
+    f(x) + mu*g(x) = f(x) + mu1*g(x) + mu2*g'(x) 
+
+    where set {mu*g(x)} approximates {mu1*g(x), mu2*g(x)}.
+
+b) The geometric multipliers coefficients become a set, such as mu={mu1, mu2,..., mu_n}. In this case, mu = {mu1, mu2}.
+
+
+

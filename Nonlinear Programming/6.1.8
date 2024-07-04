@@ -1,0 +1,29 @@
+Question 6.1.8:
+
+Function: f(x)
+
+Constraint: g_j(x)<=u_j for j=1,...,r
+
+Lagrangian #1: L(x,mu') = f(x) + mu*g(x,u)
+
+                       = f(x) + mu*(g(x)-u)
+
+Lagrangian #2: L(x,mu') = f(x) + mu'*g(x,mu)
+  
+                        = f(x) + mu*(g(x)-u')
+
+Lagrangian #1 - Lagrangian #2 = f(x) + mu'*(g(x)-u) - f(x) + mu*(g(x)-u')
+
+                              >=  mu'(u-u')
+
+             L(x,mu)-L(x,mu') >= mu'(u-u')
+
+Lagrangian #1 - Lagrangian #2 = f(x) + mu~*(g(x)-u) - f(x) + mu~*(g(x)-u')
+
+                              <=  mu~'(u-u')
+
+             L(x,mu~)-L(x,mu~) <= mu~(u-u')
+
+With, 
+      mu'(u-u') <= L(x,mu)-L(x,mu') <= mu~(u-u')
+

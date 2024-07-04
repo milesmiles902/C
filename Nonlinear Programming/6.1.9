@@ -1,0 +1,22 @@
+Question 6.1.9 (Hoffman's Bound):
+
+Function: ||z-x||
+
+Constraint: Ax <= b+y
+
+            where A is an mxn matrix
+                  b is a vector
+
+a) Geometric Multipliers are a Lagrangian with more than one weighted term. 
+
+    f(x,y,z) = f(x*,y*,z*) + sum_1_n [mu_i*g_i(x,y)]
+
+             = sum_1_n[mu_i*(Ax-b-y)]
+
+             = mu_i(y,z)*(Ax-b-y) 
+ 
+               when a geometric multiplier represents a function vector
+
+b) f(x,y,z) = mu_i(y,z)*(Ax-b-y) 
+
+          c = mu_i(y,z)

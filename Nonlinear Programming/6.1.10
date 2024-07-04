@@ -1,0 +1,36 @@
+Question 6.1.10 (Upper Bounds to the Optimal Dual Value):
+
+Function: f(x)
+
+Constraint g(x) <= 0
+
+Primal: f* = inf[f(x)]
+
+Dual:   q* = sup[q(u)]
+
+Priors: 1) xf is feasible
+
+        2) xl is infeasible when g(x)>=0
+
+        3) f(xl) < f(xf)
+
+A set: Gamma = inf{gam >= 0| g(xl) <= -gam*g(xf),j=1,..,r}
+
+A Lagrangian set bounded by slope.
+
+  Lagrangian #1: L(xl,mu') = f(xl) + mu'*g(xl)
+
+  Lagrangian #2: L(xl,mu') = f(xl) + mu'*g(xl)
+ 
+                           <= f(xl) - mu'*gam*g(xf)
+
+  f-f(xl) / f(xf)-f(xl) = gam/(gam+1)
+
+                f-f(xl) = [f(xf)-f(xl)]*gam/(gam+1)
+
+                        = gam*f(xf)/(gam+1) - gam*f(xl)/(gam+1)
+
+                        >= q*
+
+                    q* <= gam*f(xf)/(gam+1) - gam*f(xl)/(gam+1)
+
