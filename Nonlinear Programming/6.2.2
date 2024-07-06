@@ -1,0 +1,27 @@
+Question 6.2.2:
+
+With Equation 6.20 having a constraint, ax-b<=0. Proposition 6.2.3 fits a set, P={x|ax<=b, j=1,...,r}
+
+Lagrangian matches the Nonlinear Farkas' Lemma: L(X,mu) = f(x) + mu*g(x)
+
+                                                        = f(x) + mu*(a*X-b)
+
+The cost function matches a polyhedral with a b-bound as in the P set. A supplantation of Proposition 6.2.1 with no duality gaps.
+
+Where the set P = {x|a*x-b<=0, g=r+1,...,p}
+
+Rules: Proposition 6.2.1 (Strong Duality Theorem - Linear Constraints)
+         When a cost function is polyhedral and real
+         The optimal value is finite
+         Also, no duality gaps in geometric multipliers
+
+       Equation 6.20:
+         Function: f(x)
+         Constraint: x in set X 
+                     e*x-d=0
+                     a*x-b<=0
+
+       Proposition 6.2.3 (Nonlinear Farkas' Lemma)
+         S = {x|ax<=b, j=1,...,r}
+         F(x)>=0
+         F(x)+sum_1_r[mu*(ax-b)]>=0

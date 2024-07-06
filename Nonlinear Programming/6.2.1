@@ -1,0 +1,28 @@
+Question 6.2.1:
+
+Function: sum_0_M [f(x)]
+
+Constraint x_i in the set X, for i=0,1,...,m
+
+The dual problem is:
+
+	Lagrangian: L(x,lambda) = sum_0_M[f(x)] + sum_0_M[lambda_i*x_i]
+
+        Minimal Lagrangian: argmin{L(x,lambda)} = argmin {sum_0_M[f(x)] + sum_0_M[lambda*x]}
+
+                                                = 0
+
+        Dual: q(lambda) = sum_0_M[q(lambda_i)]
+
+        Minimal Dual: argmin{q(lambda)} = argmin{sum_0_M[q(lambda_i)]}
+
+                                        = argmin{q(lambda_0) + sum_1_M[q(lambda_i)]}
+
+                                        = 0
+        Dual Problem: maximize q(lambda_0) + sum_1_M[q(lambda_i)]
+
+                      constraint: lambda_i
+
+The optimal solution for the primal is (x*,lambda*) and also for the dual problem.
+
+
