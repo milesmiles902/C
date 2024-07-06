@@ -1,46 +1,69 @@
-#Import includes
-COMMON_INCLUDES = -I../sharedLib/exports/
+#
+# Import includes
+#
+COMMON_INCLUDES  = -I./exports/ -I../staticLib/exports
 
-#Sources/objects
-SRC_PATH = ./src
-OBJECTS = $(SRC_PATH)/main.o
+#
+# Sources/objects
+#
+SRC_PATH         = ./src
+OBJECTS          = $(SRC_PATH)/testDynamicLinking.o
 
-#Libraries
-SYSLIBRARIES = -lpthreadd -lm -ldl
+#
+# Libraries
+#
+SYSLIBRARIES     = 			 \
+		           -lpthread \
+		           -lm       \
+		           -ldl
 
-SHLIB_BUILD_PATH = ../sharedLib
-DEMO_LIBRARY = -L$(SHLIB_BUILD_PATH) -ldynamiclinkingdemo
-LIBS = $(SYSLIBRARIES) $(DEMO_LIBRARY) -Wl,-Bdynamic
+LIBS             = $(SYSLIBRARIES)
 
-#Outputs
-EXECUTABLE = demoMinusL
+SYSLDFLAGS       = -g
 
-#Compiler
-INCLUDES = $(COMMON_INCLUDES)
-DEBUG_CFLAGS = -Wall -g -Oo
-RELEASE_CFLAGS = -Wall -O2
+#
+# Outputs
+#
+SHAREDLIB       = libdynamiclinkingdemo.so
+EXECUTABLE      = $(SHAREDLIB)
 
-ifeq ($(DEBUG),1)
-CFLAGS = $(DEBUG_CFLAGS) $(INCLUDES)
+#
+# Compiler
+#
+INCLUDES         = $(COMMON_INCLUDES)
+DEBUG_CFLAGS     = -Wall -g -O0
+RELEASE_CFLAGS   = -Wall -O2
+
+ifeq ($(DEBUG), 1)
+CFLAGS           = $(DEBUG_CFLAGS) -fPIC $(INCLUDES)
 else
-CFLAGS = $(RELEASE_CFLAGS) $(INCLUDES)
+CFLAGS           = $(RELEASE_CFLAGS) -fPIC $(INCLUDES)
 endif
 
-COMPILE = g++ $(CFLAGS)
+COMPILE          = g++ $(CFLAGS)
 
-#Liner
-DEMOLIB_PATH = ../deploy
-RUNTIME_LIB_PATH = -Wl,-R$(DEMOLIB_PATH)
+#
+# Linker
+#
+LINK             = g++ -shared
 
-LINK = g++
+#
+# Build procedures/target descriptions
+#
+DEPLOY_PATH      = ../deploy/
 
-#Build procedures/target descriptions
 default: $(EXECUTABLE)
-	%.o: %.c
-	$(COMPILE) -c $c -o $@
+
+%.o: %.c
+	$(COMPILE) -c $< -o $@
+
 $(EXECUTABLE): $(OBJECTS)
-	$(LINK) $(OBJECTS) $(LIBS) $(RUNTIME_LIB_PATH) -o $(EXECUTABLE)
+	$(LINK) $(OBJECTS) $(LIBS) -o $(EXECUTABLE)
+
 clean:
 	rm $(OBJECTS) $(EXECUTABLE)
+
 deploy:
-	make clean; make; patchelf --set-rpath ../deploy:./deploy $(EXECUTABLE); cp $(EXECUTABLE) ../
+	make clean; make; cp $(EXECUTABLE) $(DEPLOY_PATH);
+
+

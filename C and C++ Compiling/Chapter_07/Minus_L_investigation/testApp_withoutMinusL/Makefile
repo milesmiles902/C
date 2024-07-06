@@ -1,46 +1,66 @@
-#Import includes
-COMMON_INCLUDES = -I../sharedLib/exports
+#
+# Import includes
+#
+COMMON_INCLUDES  = -I../sharedLib/exports/
 
-#Sources/objects
-SRC_PATH = ./src
-OBJECTS = $(SRC_PATH)/main.o
+#
+# Sources/objects
+#
+SRC_PATH         = ./src
+OBJECTS          = $(SRC_PATH)/main.o
 
-#Libraries
-SYSLIBRARIES = -lpthread -lm -ldl
+#
+# Libraries
+#
+SYSLIBRARIES     = 			 \
+		           -lpthread \
+		           -lm       \
+		           -ldl
+		           
+DEMOLIB_PATH     = ../deploy
+DEMO_LIBRARY     = ../deploy/libdynamiclinkingdemo.so
+LIBS             = $(SYSLIBRARIES) $(DEMO_LIBRARY) -Wl,-Bdynamic
 
-DEMOLIB_PATH = ../deploy
-# specifying full or partial path may backfire at runetime!!
-DEMO_LIBRARY = ../deploy/libdynamiclinkingdemo.so
-LIBS = $(SYSLIBRARIES) $(DEMO_LIBRARY) -wl,-Bdynamic
+#
+# Outputs
+#
+EXECUTABLE       = demoNoMinusL
 
-#Outputs
-EXECUTABLE = demoNoMinusL
+#
+# Compiler
+#
+INCLUDES         = $(COMMON_INCLUDES)
+DEBUG_CFLAGS     = -Wall -g -O0
+RELEASE_CFLAGS   = -Wall -O2
 
-#COMPILER
-INCLUDES = $(COMMON_INCLUDES)
-DEBUG_CFLAGS = -Wall -g -Oo
-RELEASE_CFLAGS = -Wall -O2
-
-ifeq ($(DEBUG),1)
-CFLAGS = $(DEBUG_CFLAGS) $(INCLUDES)
+ifeq ($(DEBUG), 1)
+CFLAGS           = $(DEBUG_CFLAGS) $(INCLUDES)
 else
-CFLAGS = $(RELEASE_CFLAGS) $(INCLUDES)
-Endif
+CFLAGS           = $(RELEASE_CFLAGS) $(INCLUDES)
+endif
 
-COMPILE = g++ $(CFLAGS)
+COMPILE          = g++ $(CFLAGS)
 
-#Linker
+#
+# Linker
+#
 RUNTIME_LIB_PATH = -Wl,-R$(DEMOLIB_PATH)
-LINK = g++
+LINK             = g++ 
 
-#BUILD procesdures/target descriptsion
+#
+# Build procedures/target descriptions
+#
+
 default: $(EXECUTABLE)
-	%.o: %.c
+
+%.o: %.c
 	$(COMPILE) -c $< -o $@
-$(EXECUTABLE): $(OBJECTS) $(LINK) $(OBJECTS) $(LIBS) $(RUNTIME_LIB_PATH) -o $(EXECUTABLE)
+
+$(EXECUTABLE): $(OBJECTS)
+	$(LINK) $(OBJECTS) $(LIBS) $(RUNTIME_LIB_PATH) -o $(EXECUTABLE)
+
 clean:
 	rm $(OBJECTS) $(EXECUTABLE)
+	
 deploy:
-	make clean;make;patchelf --set-r-path ../deploy:./deploy $(EXECUTABLE); cp $(EXECUTABLE) ../;
-
-
+	make clean; make; patchelf --set-rpath ../deploy:./deploy $(EXECUTABLE); cp $(EXECUTABLE) ../;

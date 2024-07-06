@@ -1,0 +1,9 @@
+cd Minus_L_investigation
+ldd demoMinusL
+
+ldd demoNoMinusL
+
+mkdir ../deploy
+cp ./deploy/libdynamiclinkingdemo.so ../deploy/
+
+ldd demoNoMinusL
