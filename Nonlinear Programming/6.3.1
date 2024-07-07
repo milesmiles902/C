@@ -1,0 +1,45 @@
+Question 6.3.1:
+
+A geometric multiplier from Definition 5.1.1 has mu* = (mu1,...,mur).
+
+The Lagrangian for Definition 5.1.1: 
+
+       L(x,mu) = f(x)+sum_1_r[mu_i*g(x_i)]
+
+A minimum for the Lagrangian in the above line:
+
+       L(x*,mu*) = f(x*)+sum_1_r[mu_i*g(x_i*)]
+
+       L(x*,mu*) - f(x*) = sum_1_r[mu_i*g(x_i*)]
+
+       [L(x*,mu*) - f(x*)]/sum_1_r[g(x_i*)] = sum_1_r[mu_i]
+
+The left-hand side in the prior line needs a positive sign because Definition 5.1.1. The negative numerator requires a negative denominator, as a proof for the problem and Definition 5.1.1.
+
+A converse argument is also true with the geometric multiplier: mu = (mu1, gamma). The zero dual gap between the original vector (mu1,...,mu2) and (mu1,gamma) enables sign comparisons. Specifically, gamma>=0 an gamma*g(x)>=0.
+
+From the Lagrangian already written:
+
+       L(x,mu) = f(x) + sum_1_r[mu_i*g(x_i)]
+
+               = f(x) + mu1*g(x) + gamma*sum_1_r[g(x_i)]
+
+Minimums for the new Lagrangian follow:
+
+       [L(x*,mu*) - f(x*)]/(mu1*g(x) + gamma*sum_1_r[g(x_i)]) = sum_1_r[mu_i]
+
+Where the denominator's positive sign is informally a must.
+              
+Rules: Equation 6.29:
+         minimize f(x)
+         subject to x in set X
+                    g(x)<=0 for j=1,...,r
+      
+       Proposition 6.3.1 (Convexity and Interior Point):
+         When a feasible and optimal f* is finite.
+         In a convex subset over X
+         There is a vector such that g(x)<0
+
+       Definition 5.1.1:
+         A vector mu* = (mu1*,...,mur*) is the geometric multiplier
+         When mu>=0 and f*=L(x,mu*) 

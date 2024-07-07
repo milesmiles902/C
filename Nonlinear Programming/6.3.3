@@ -1,0 +1,27 @@
+Question 6.3.3 (Boundedness of the Set of Lagrange Multipliers for Nonconvex Constraints):
+
+Function: f(x)
+
+Constraint: x in set X
+            g(x)<=0
+
+Local Minimum: x* = argmin{delL(x*,mu)*x}
+
+The set mu*=M* is nonempty with a bound as a proven in Problem 6.3.1 and 6.3.2, 
+
+  Lagrangian: L(x,mu) = L(x,M) = f(x) + sum_1_r[M*g(x_i)]
+
+  A minimal Lagrangian: L(x,M*) = f(x) + sum_1_r[M*g(x_i)]
+
+  The right-hand side in the equation below must be positive, in addition to the left. So, the denominator is negative on the left.
+
+        [L(x*,mu*) - f(x*)]/(mu1*g(x) + gamma*sum_1_r[g(x_i)]) = sum_1_r[mu_i]
+
+Proposition 4.3.12 needs a negative c*y <=0. In this setup,  g(x*)*d <= 0.
+
+Rules: Proposition 4.3.12 (Farkas Lemma):
+         c*y<=0 for all y such that ay<=0
+         If and only if there exists nonegative scalars such that c=mu_1*a_1+...+mu_r*a_r
+
+
+
