@@ -1,0 +1,15 @@
+cd ClientApplication
+cd libFirst
+gcc -Wall -g -O0 -c staticlib.c
+ar -rcs libfirst.a staticlib.o
+
+cd ..
+cd libSecond
+gcc -Wall -g -O0 -c staticlib.c
+ar -rcs libsecond.a staticlib.o
+
+cd ..
+cd ClientApplication
+gcc -Wall -g -O0 -IlibFirst -IlibSecond -c main.c
+gcc main.o -LlibFirst -lfirst -LlibSecond -lsecond -o clientApp
+
