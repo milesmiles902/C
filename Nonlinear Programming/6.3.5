@@ -1,0 +1,34 @@
+Question 6.3.5 (Directional Convexity):
+
+Function: f(x,u)
+
+Constraint: h(x,u) = 0
+
+
+Lagrangian: 
+
+	L(x,u) = f(x,u) + lambda*h(x,u)
+
+Minimal Lagrangian: 
+
+	L(x*,u*) = f*
+
+                 = inf{f(x,u)+lambda*h(x,u)}
+
+Minimal u*: 
+	
+	L(x*,u) = u* 
+ 
+                = inf{f(x*,u) + lambda*h(x*,u)}
+
+The Lagrangian equation is also: 
+
+	delL(x,u) = delf(x*,u*) + lambda*delh(x*,u*)
+
+                  = 0
+
+Rules: Proposition 6.3.1 (Convexity and Interior Point):
+         When a feasible and optimal f* is finite.
+         In a convex subset over X
+         There is a vector such that g(x)<0
+

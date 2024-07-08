@@ -1,0 +1,39 @@
+Question 6.3.7:
+
+Circle Equation: x^2 + y^2 = R^2
+
+Constraint: |x-y| <= R
+
+Graph: https://www.desmos.com/calculator/ivd4nbxnxs
+
+a) Geometric Multiplier: L(x,y,lambda) = f(x,y) + lambda*g(x,y)
+
+                                   = sqrt(x^2+y^2) + sum_1_r[lambda_i*(R-|x-y|)]
+
+   Optimal solution: dL(x,y,lambda)/dx = x/(sqrt(x^2+y^2)) + lambda*(y-x)/|x-y|
+
+                                       = 0 
+
+                     dL(x,y,lambda)/dy = y/(sqrt(x^2+y^2)) + lambda*(x-y)/|x-y|
+
+                                       = 0
+                  
+                     dL(x,y,lambda)/dlambda = R - |x-y|
+
+                                       = 0
+
+                     (x*,y*,lambda*) = (x < 0, 
+                                        y =(-x+2*sqrt{2}*sqrt{-((l^{2}*(-1+2*l^{2})*x^{2})/(-1+4*l^{2})^{2})}-8*sqrt{2}*l^{2}*sqrt{-((l^{2}*(-1+2*l^{2})*x^{2})/(-1+4*l^{2})^{2})}()/(-1+4*l^{2}),
+                                        0<lambda<1/2),
+                                       (x > 0,
+                                        y =(-x-2*sqrt{2}*sqrt{-((l^{2}*(-1+2*l^{2})*x^{2})/(-1+4*l^{2})^{2})}+8*sqrt{2}*l^{2}*sqrt{-((l^{2}*(-1+2*l^{2})*x^{2})/(-1+4*l^{2})^{2})}()/(-1+4*l^{2}),
+                                        0<lambda<1/2)
+
+Graph: https://www.desmos.com/calculator/b9btqlucly
+                          
+b) The Weber point is the constraint in the Lagrangian, sum_1_r[lambda_i*(x-y_i)], also a geometric median
+
+c) Varignon's frames for equal weighted strings matches the form sum_1_r[lambda_i*(x-y_i)].
+
+d) The equal string length representation by Varignon has a solution not in the circle equation. Specifically, x = y. The function and constraint are not necessarily an exact Weber or Varignon's point, together. 
+

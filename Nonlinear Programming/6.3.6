@@ -1,0 +1,13 @@
+Question 6.3.6 (Directional Convexity and Optimal Control):
+
+Function: gN(xN) + sum_0_{N-1}[g_i(x_i,u_i)]
+
+Constraint: x_{i+1} = f_i(x_i,u_i)
+
+Set: {(z,w)|x_{i+1} = f_i(x_i,u_i) + z_i, gN(xN) + sum_0_{N-1}[g_i(x_i,u_i)] <= , u_i}
+
+Hamiltonian function: H(x,u,p) = g(x,u) + p*f(x,u)
+
+A minimal Hamiltonian: u* = min{H(x*,u,p*)}
+
+                          = min{H(x_i*,u,p_{i+1}*)} 
