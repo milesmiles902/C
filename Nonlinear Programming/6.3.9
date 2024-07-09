@@ -1,0 +1,25 @@
+Question 6.3.9 (Duality Gap Example):
+
+Function: e^{x2}
+
+Constraint: ||x||-x1 <= 0
+
+f* represents a minimal Lagrangian. So, below shows the minimal equation:
+
+  Lagrangian: L(x,x1,x2,mu) = e^{x2} + mu*(||x||-x1)
+
+  Minimal Lagrangian: f* = L(x, x1=-x , x2 = 0, mu=2)
+
+                         = 1
+
+A primal-dual abstraction about the Lagrangian remains in other functions at the minimum equate (e.g. argmin{L(x,mu)} = 0 = q(mu)}. The dual equation is :
+ 
+  Dual equation: q(u) = inf{e^{x2} + mu*(||x||-x1)}         
+
+The duality gap is the different between f* and q*: 
+
+  f*-q* = 1 - 0
+
+        = 1
+
+By demonstration, the duality gap between f* and q* appeared because no minimum exists for dL(x,x1,x2,mu)/dx2 = 0. What is a minimum for e^{x2} = 0. The duality gap remains.

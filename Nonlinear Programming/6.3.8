@@ -1,0 +1,11 @@
+Question 6.3.8 (Inconsistent Systems of Convex Inequalities):
+
+Function: y
+
+Constraint: g(x)<y
+            sum_1_r[mu_j] = 1
+            mu*g(x) >= 0
+
+Lagrangian: L(y,x,mu) = y + sum_1_n[mu_i*(g(x)-y)]
+
+The issue is constraint, g(x) < 0 with mu*g(x) >= 0. There are situations when mu = y/(g(x)-y) displays both negative and positive values. Two signs for mu contradicts the initial sentence, mu*g(x)>=0 for g(x)<=0.
