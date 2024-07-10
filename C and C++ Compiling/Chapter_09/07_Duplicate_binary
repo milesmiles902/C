@@ -1,0 +1,24 @@
+cd ClientApplication_binary/libFirst
+gcc -Wall -g -O0 -fPIC -c shlib.c
+gcc -shared shlib.o -Wl,-soname,libfirst.so.1 -o libfirst.so.1.0.0
+ldconfig -n .
+ln -s libfirst.so.1 libfirst.so
+
+cd ../libSecond
+gcc -Wall -g -O0 -fPIC -c shlib.c
+gcc -shared shlib.o -Wl,-soname,libsecond.so.1 -o libsecond.so.1.0.0
+ldconfig -n .
+ln -s libsecond.so.1 libsecond.so
+
+cd ..
+gcc -Wall -g -O0 -IlibFirst -IlibSecond -c main.c
+gcc main.o -Wl,-LlibFirst -Wl,-lfirst -Wl,-LlibSecond -Wl,-lsecond -Wl,-RlibFirst -Wl,-RlibSecond -o clientApp1
+./clientApp1
+
+gcc -Wall -g -O0 -IlibFirst -IlibSecond -c main_differentOrderOfCalls.c
+gcc main_differentOrderOfCalls.o -Wl,-LlibFirst -Wl,-lfirst -Wl,-LlibSecond -Wl,-lsecond -Wl,-RlibFirst -Wl,-RlibSecond -o clientApp2
+./clientApp2
+
+gcc -Wall -g -O0 -IlibFirst -IlibSecond -c main.c
+gcc main.o -Wl,-LlibSecond -Wl,-lsecond -Wl,-LlibFirst -Wl,-lfirst -Wl,-RlibFirst -Wl,-RlibSecond -o clientApp3
+./clientApp3
