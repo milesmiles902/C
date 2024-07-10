@@ -1,0 +1,31 @@
+Question 6.4.1:
+
+Function: sum_1_n[f(x_i)]
+
+Constraint: Ax=b
+
+Monotropic Programming describes a new constraint set e.g. a linear manifold,,duality framework, s;acl varaiable, or interior feasibility.
+
+
+This is an example with a dual problem:
+
+                         Primal:                            Dual:
+Function:             sum_1_n[f(x_i)]                 sum_1_n [g(lambda_i) - b*eta]
+ 
+Constraint:              Ax = b                         lambda = A*eta
+
+
+In the case, A*x=b
+ 
+             A*x*eta = b*eta
+                
+As a constraint, Ax*eta-b*eta = 0
+
+An additional zero term from the contraint added to f(x_i) for f(x_i) + Ax*eta-b*eta
+
+If g(lambda_i) = f(x_i)+A*x*eta, then the dual equation appears as sum_1_n [g(lambda_i) - b*eta], further, the constraint adjustment as A*eta = b = lambda.
+
+
+A Monotropic Programming problem shifts an initial condition, generates a co-dependent term, or aids division by zero in a system of equations. 
+
+

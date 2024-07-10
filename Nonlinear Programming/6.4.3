@@ -1,0 +1,56 @@
+Question 6.4.3 (Smoothing of Nondifferentiables):
+
+Function: g(lambda) = sum{u*lambda-gamma(u)}
+
+Cost Equation: P(t) = inf {gamma(t-u)+(c/2)||u||^2}
+
+a) Moritz Werner Fenchel, a mathematician in geometry and lecturer derived the idea:
+
+   P(t) = inf {gamma(t-u)+(c/2)||u||^2}
+
+   Function: gamma(t-u)
+   Constraint: (c/2)||u||^2
+
+   The horizontal shift in the dual problem is by u*lambda. 
+
+         Function: gamma(t-u)+u*lambda + t*lambda - t*lambda = t*lambda - g(lambda)
+              
+         Constraint: (c/2)||u||^2-u*lambda = (1/2c)||lambda||^2
+
+   P(t) = max{t*lambda-g(lambda)-(1/2c)||lambda||^2
+
+b) A mini-max or max-max problem generates when gamma = max[0,t]:
+
+     P(t) = max{t*lambda-max[0,t](t-u)+u*lambda-(1/2c)||lambda||^2}
+
+   When gamma(t) = |t|, then:
+
+     P(t) = max{t*lambda-|t|(t-u)+u*lambda-(1/2c)||lambda||^2}
+
+   Also, gamma=(s/2)t*t:
+
+     P(t) = max{t*lambda-(s/2)t*t(t-u)+u*lambda-(1/2c)||lambda||^2}
+
+   Lastly, gamma(t) = max{t1,...,tn} is another max-max problem:
+
+     P(t) = max{t*lambda-max[t](t-u)+u*lambda-(1/2c)||lambda||^2}
+
+c) An analogous problem occurs when 
+
+   P(t) = inf{gamma(t-u) + y*u + (c/2)||u||^2}
+
+   Function: gamma(t-u) + y*u
+   Constraint: (c/2)||u||^2
+
+   The horizontal shift in a dual problem by u*lambda:
+ 
+     Function: gamma(t-u) + y*u + u*lambda + t*lambda - t*lambda = t*lambda - g(lambda)
+     Constraint: (c/2)||u||^2 - u*lambda = (1/2c)||lambda||^2
+
+   P(t) = inf { t*lambda - g(lambda) - (1/2c)||lambda||^2}
+           
+Rules: Fenchel Duality Theorem
+         Function: sum_1_n[f(x_i)]
+         Constraint: lambda*x = 0 or -inf
+         Orthogonal subspace: g(lambda) = sum_1_n[lambda*x-f(x_i)]
+         Orthogonal constraint: lambda
