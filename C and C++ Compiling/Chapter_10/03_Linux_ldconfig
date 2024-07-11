@@ -1,0 +1,4 @@
+ls -alg
+mv libtest.so.1.0.0 purposefullChangedName
+ldnfig -l purposefullChangedName
+ls -alg

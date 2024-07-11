@@ -1,0 +1,7 @@
+LIBSIMPLE_1.o {
+  global:
+    first_function; second_function;
+
+  local:
+    *;
+};

@@ -1,0 +1,17 @@
+ls -alg
+touch test.h
+touch test.c
+gcc -fPIC -c test.c -o test.o
+gcc -shared test.o -Wl,-soname,libtest.so.1 -o libtest.so.1.0.0
+ls -alg
+readelf -d libtest.so.1.0.0
+
+ln -s libtest.so.1.0.0 libtest.so
+ls -alg
+
+cd clientBinary
+touch main.c
+gcc -I../ -c main.c -o main.o
+gcc -shared -L../ -ltest main.o -o clientBinary
+ls -alg
+readelf -d clientBinary

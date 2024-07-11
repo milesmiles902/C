@@ -1,0 +1,20 @@
+Filenames:
+library filename = lib + <library name> + .so + <library version information>
+
+Softlinks:
+-Creation: ln -s <filee path> <softlink path?
+-Redirection: ln -s -f <another file> <existing softlink>
+-Remove: rm -rf <softlink path>
+
+--Advantages: User development in a different folder
+
+Library soname vs library filename
+library filename = lib + <library name> +.so + <library complete version information>
+library soname = lib + <library name> +.so + <library major version digits>
+
+--Advantages: Embedded sonames in the binary file
+--Disadvantages: A file embeds version in binary for reference
+
+Software development:
+gcc -shared <inputs> -l:libxyz.so.1 -o <clientBinary>
+gcc -shared <inputs> -lm -ldl -lpthread -lxml2 -lxyz -o <clientBinary>

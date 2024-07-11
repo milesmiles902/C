@@ -1,0 +1,7 @@
+cd Linker_version
+gcc -Wall -g -O0 -fPIC -c simple.c
+gcc -shared simple.o -Wl,--version-script,simpleVersionScript -o libsimple.so.1.0.0
+readelf -S libsimple.so.1.0.0  | grep gnu
+readelf -V libsimple.so.1.0.0
+readelf --symbols libsimple.so.1.0.0 | grep function
+readelf --dyn-syms libsimple.so.1.0.0 | grep function
