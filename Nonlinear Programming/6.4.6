@@ -1,0 +1,25 @@
+Question 6.4.6 (Quadratically Constrained Quadratic Problems):
+
+Function: x*P*x + 2*q*x + r
+Constraint: x*P_i*x + 2*q_i*x + r <= 0 for i=1,..,p
+
+Through completing the square in the function and constraint:
+
+  Function: ||P^{1/2}*x + q/P^{1/2}||^2 + r - q*q/P
+  Constraint: ||P^{1/2}*x + q/P^{1/2}||^2 + r - q*q/P < =0
+
+The function becomes the constraint in the Lagrangian and also a cone by an equivalent square root solutiojn:
+
+  Function: x 
+  Constraint: ||P^{1/2}*x + q/P^{1/2}|| <= x
+              ||P^{1/2}*x + q/P^{1/2}|| <= (q*q/P-r)^{1/2}
+
+Equivalently:
+
+  Function: x
+  Constraint: ||Ax+b|| <= x
+              ||Ax+b|| <= d
+
+Rules: Second Order Cone Programming Problem
+         A cone C = {(x1,...,x2),|xn >= sqrt(x1^2+...+x_{n-1}^2) }
+         The dual cone C = {y|0<=y*x}

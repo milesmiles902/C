@@ -1,0 +1,50 @@
+Question 6.4.7 (Minimizing the Sum or the Maximum of Norms)
+
+            Equation #1             Equation #2
+Function:  sum_1_p [Fx+g]           max [Fx+g]
+Constraint:      x                      x
+
+Equation #1's dual problem:
+
+  Step #1: Constraint transplant
+ 
+           Function: g
+           Constraint: F*x <= 0
+
+  Step #2: Multiplier (z)
+
+           Function: g*z
+           Constraint: F*x*z <= 0
+
+  Step #3: Simplify 
+
+           Function: -g*z
+           Constraint: F*z <= 0
+
+The steps above involved an add and subtract with similar terms. 
+
+Equation #1's cone problem: C = {(x,Fx+g)| Fx+g <= 0}
+
+Equation #2's dual problem:
+
+  Step #1: Constraint transplant
+ 
+           Function: max{g}
+           Constraint: max{F*x} <= 0
+
+  Step #2: Multiplier (z)
+
+           Function: max{g*z}
+           Constraint: max{F*x*z} <= 0
+
+  Step #3: Simplify
+
+           Function: -max{g*z}
+           Constraint: max{F*z} <= 0
+
+Equation #2's cone problem: C = {(x,Fx+g} | max{Fx+g} <= 0}
+
+Rules: Second Order Cone Programming Problem
+         A cone C = {(x1,...,x2),|xn >= sqrt(x1^2+...+x_{n-1}^2) }
+         The dual cone C = {y|0<=y*x}
+
