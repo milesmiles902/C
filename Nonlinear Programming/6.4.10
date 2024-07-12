@@ -1,0 +1,17 @@
+Question 6.4.10 (Convexification of Nonconvx Problems):
+
+Function: f(x)
+
+Constraint: A*x=b
+
+Consider: x^{k+1} = argmin {f(x^k) + (1/2c)||x-x^k||^2}
+
+                  = f(x^k)' - (1/c)||x-x^k||
+
+                  = 0
+
+             f(x)'= (1/c)||x-x^k||
+
+             f(x)'/||x-x^k|| = (1/c)
+
+The system converges toward a constant.
