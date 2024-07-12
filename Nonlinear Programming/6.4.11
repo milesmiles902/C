@@ -4,7 +4,7 @@ Function: f(x)
 
 Constraint: g(x) <= 0
 
-This is a rewrite from Paul Tseng at the University of Washington.
+This is a rewrite from Paul Tseng at a University of Washington.
 
 Proposition: Functions f(x) and g(x) map the reals from -infinity to infinity as convex, proper, and domain lower semicontinous functions. If so, the primal equation is also domain lower and semicontinous.
 
