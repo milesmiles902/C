@@ -1,0 +1,11 @@
+cd Linux_linker_minor_version/sharedLib
+gcc -Wall -g -O0 -fPIC -c simple.c
+gcc -shared simple.o -Wl,--version-script,simpleVersionScript -o libsimple.so
+
+cd ..
+gcc -g -O0 -c -IsharedLib main.c
+gcc main.o -Wl,-LsharedLib -lsimple -Wl,-RsharedLib -o newerApp
+./newerApp
+
+readelf -V ./newerApp
+readelf --dyn-syms ./newerApp

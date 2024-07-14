@@ -1,0 +1,11 @@
+cd Linux_linker_prototype/sharedLib
+gcc -Wall -g -O0 -fPIC -c simple.c
+gcc -shared simple.o -Wl,--version-script,simpleVersionScript -o libsimple.so
+readelf -V libsimple.so
+
+cd ..
+gcc -g -O0 -c -DLIBSIMPLE_VERSION_3_0 -IsharedLib main.c
+gcc main.o -Wl,-LsharedLib -lsimple -Wl,-RsharedLib -o prototype
+
+readelf -V ./prototype
+readelf --dyn-syms ./prototype

@@ -1,0 +1,13 @@
+cd Linux_linker_major_version/sharedLib
+gcc -Wall -g -O0 -fPIC -c simple.c
+gcc -shared simple.o -Wl,--version-script,simpleVersionScript -o libsimple.so
+readelf -V libsimple.so
+readelf --dyn-syms libsimple.so
+nm libsimple.so | grep function
+
+cd ..
+gcc -g -O0 -c -IsharedLib main.c
+gcc main.o -Wl,-LsharedLib -lsimple -Wl,-RsharedLib -o ver2PeerApp
+
+readelf -V ./ver2PeerApp
+readelf --dyn-syms ./ver2PeerApp

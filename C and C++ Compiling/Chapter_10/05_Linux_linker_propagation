@@ -1,6 +1,8 @@
-cd Linker_propagation
+cd Linux_linker_propagation
 gcc -Wall -g -O0 -fPIC -c simple.c
 gcc -shared simple.o -Wl,--version-script,simpleVersionScript -o libsimple.so
 gcc -g -O0 -c -I. main.c
 gcc main.o -Wl,-L./ -lsimple -Wl,-R./ -o firstDemoApp
 readelf -V ./firstDemoApp
+readelf -S ./firstDemoApp
+./firstDemoApp
