@@ -1,0 +1,36 @@
+Question 6.5.2:
+
+Function: 10x1+3x2
+
+Constraint: 5x1 + x2 >=4
+ 
+            x1, x2 are 0 or 1
+
+#########
+Step #1A:
+#########
+  Open Tree: 10x1 + 3x2
+              |      |     
+  Node Y_1: 10*x1    |     
+                     |     
+  Node Y_2:         3*x2   
+  
+  Minimal and Feasible Solutions:
+
+                        Lagrangian L(x1,x2,x3,lambda):      Lower Bound L(x1*,x2*,x3*,lambda*):  Feasibibility (x1*,x2*,x3*,lambda*):
+
+  Node Y_1:             10*x1 + lambda*(4-5x1-x2)                          Infeasible                         Infeasbible
+  
+  Node Y_2:             3*x2 + lambda*(4-5x1-x2)                           Infeasible                         Infeasible
+
+#########
+Step #2A: A stop is my guess to the above problem. Other examples list extensive tables with feasible/infeasible solution rows up till the 20th or 30th answer. This is an early stop.
+#########
+
+Rules: Branch-and-Bound Algorithm 
+         Step 1: Node Y removes from the OPEN tree. For each Y-child, a check involves a lower bound and feasible solution. A lower bound < UPPER places the Y-child in OPEN. A feasible solution < UPPER equates the inequality. 
+         Step 2: If OPEN is nonempty, go to step #1. Otherwise, terminate.
+
+       Notes: The Branch-and-Bound Algorithm sorts minimal solutions into a tree structure by an upper bound or feasible solution comparison. 
+
+

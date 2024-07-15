@@ -2,10 +2,13 @@ Question 6.5.1:
 
 Function: 5*x1 + 2*x2 + x3
 
-Constraint: x1 + 2*2 + 2*x3 >=3
+Constraint: x1 + 2*x2 + 2*x3 >=3
 
-
-Step #1:
+            x1,x2,x3 are 0 or 1
+            
+########
+Step #1A:
+########
   Open Tree: 5*x1 + 2*x2 + x3 
               |      |     |
   Node Y_1: 5*x1     |     |
@@ -16,18 +19,22 @@ Step #1:
   
   Minimal and Feasible Solutions:
 
-               		Lagrangian L(x1,x2,x3,lambda):      Lower Bound L(x1*,x2*,x3*,lambda*):  Feasible Solution (x1*,x2*,x3*,lambda*):
+               		Lagrangian L(x1,x2,x3,lambda):      Lower Bound L(x1*,x2*,x3*,lambda*):  Feasibility (x1*,x2*,x3*,lambda*):
 
-  Node Y_1: 		5*x1 + lambda*(3-x1 - 2*x1 - 2*x3)                          0                                     (0,0,0,0)
+  Node Y_1: 		5*x1 + lambda*(3-x1 - 2*x1 - 2*x3)                          0                           Infeasible
   
-  Node Y_2: 		2*x2 + lambda*(3-x1 - 2*x1 - 2*x3)                          0                                     (0,0,0,0)
+  Node Y_2: 		2*x2 + lambda*(3-x1 - 2*x1 - 2*x3)                          0                           Infeasible
 
-  Node Y_3: 		x3 + lambda*(3-x1 - 2*x1 - 2*x3)                            0                                     (0,0,0,0)
+  Node Y_3: 		x3 + lambda*(3-x1 - 2*x1 - 2*x3)                            0                           Infeasible
 
+########
+Step #2A: Another Step #1 because no change.
+########
 
-Step #2: Another Step #1 moves forward because no change.
+#########
+Step #1B:
+#########
 
-Step #1:
   Open Tree: 5*x1 + 2*x2 + x3
               |            |
   Node Y_1: 5*x1  + 2*x2   |
@@ -36,17 +43,39 @@ Step #1:
 
   Minimal and Feasible Solutions:
 
-		        Lagrangian L(x1,x2,x3,lambda):      Lower Bound L(x1*,x2*,x3*,lambda*):  Feasible Solution (x1*,x2*,x3*,lambda*):
+		        Lagrangian L(x1,x2,x3,lambda):      Lower Bound L(x1*,x2*,x3*,lambda*):  Feasibility (x1*,x2*,x3*,lambda*):
 
-  Node Y_1: 		5*x1 + 2*x2 + lambda*(3-x1 - 2*x1 - 2*x3)               NaN                                   NaN
+  Node Y_1: 		5*x1 + 2*x2 + lambda*(3-x1 - 2*x1 - 2*x3)                 0                         Infeasible
 
-  Node Y_2: 		x3 + lambda*(3-x1 - 2*x1 - 2*x3)                          0                                  (0,0,0,0)
+  Node Y_2: 		x3 + lambda*(3-x1 - 2*x1 - 2*x3)                          0                         Infeasible
 
-Step #2: A Step #1 continues by a re-evaluation because no change.
+########
+Step #2B: Another Step #1 because no change.
+########
 
-#######################
-...something went wrong. The solution requires additional multipliers for the contraints...L(x1,x2,x3,lambda1,lambda2,lambda3,lambda) = 5*x1 + 2*x2 + x3 + lambda1(3-x1-2*x2+2*x3) + lambda2*x1 + lambda3*x2 + lambda4*x3
-#######################
+#########
+Step #1C:
+#########
+
+  Open Tree: 5*x1 + 2*x2 + x3
+              |      |     |
+  Node Y_1: 5*x1     |     |
+                     |     |
+  Node Y_2:         2*x2 + x3
+
+  Minimal and Feasible Solutions:
+
+                        Lagrangian L(x1,x2,x3,lambda):      Lower Bound L(x1*,x2*,x3*,lambda*):  Feasibility (x1*,x2*,x3*,lambda*):
+
+  Node Y_1:             5*x1+ lambda*(3-x1 - 2*x1 - 2*x3)                 0                         Infeasible
+
+  Node Y_2:             2*x2 + x3 + lambda*(3-x1 - 2*x1 - 2*x3)           0                         Infeasible
+
+
+########
+No change. The right and left branches demonstrate infeasible solutions. The upper bound never changed between the first, second, or third iteration, an indication, stop.
+
+An alternative methods adds slack.
 
 Rules: Branch-and-Bound Algorithm 
          Step 1: Node Y removes from the OPEN tree. For each Y-child, a check involves a lower bound and feasible solution. A lower bound < UPPER places the Y-child in OPEN. A feasible solution < UPPER equates the inequality. 
