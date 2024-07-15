@@ -1,13 +1,14 @@
-#include "stdafx.h"
+//#include <stdafx.h>
+#include <windows.h>
 
-HMODULE g_hModule = NULL;
+HMODULE g_hModule = nullptr;
 
-Bool APIENTRY DllMain(HMODULE hModule,
+bool APIENTRY DllMain(HMODULE hModule,
                       DWORD ul_reason_for_call,
                       LPVOID lpReserved){
   switch(ul_reason_for_call){
   case DLL_PROCESS_DETACH:
-  g_hModule = NULL;
+    g_hModule = NULL;
     break;
   case DLL_PROCESS_ATTACH:
     g_hModule = hModule;
