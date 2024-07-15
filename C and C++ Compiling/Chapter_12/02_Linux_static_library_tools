@@ -1,0 +1,13 @@
+gcc -Wall -c first.c second.c third.c fourth.c
+ar -rcs libmystaticlib.a first.o second.o third.o fourth.o
+ls -alg
+ar -t libmystaticlib.a
+ar -d libmystaticlib.a first.o
+ar -t libmystaticlib.a
+
+gcc -Wall -c first.c
+ar -r libmystaticlib.a first.o
+ar -t libmystaticlib.a
+
+
+

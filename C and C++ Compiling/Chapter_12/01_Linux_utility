@@ -1,0 +1,17 @@
+file /usr/bin/gst-inspect*
+size /usr/bin/gst-inspect*
+ldd /usr/bin/gst-inspect*
+objdump -p /usr/bin/gst-inspect*
+readelf -d /usr/bin/gst-inspect* | grep NEEDED
+nm -D /usr/bin/gst-inspect*
+nm -C /usr/bin/gst-inspect*
+objdump -h /usr/bin/gst-inspect*
+objdump -t /usr/bin/gst-inspect*
+objdump -R /usr/bin/gst-inspect*
+objdump -s -j /usr/bin/gst-inspect*
+readelf -h /usr/bin/gst-inspect*
+readelf --segments /usr/bin/gst-inspect*
+
+strace -h
+addr2line -h
+gdb -h

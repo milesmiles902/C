@@ -1,0 +1,7 @@
+LD_DEBUG=help cat
+LD_DEBUG=files gdb -q ./driver
+
+ps -ef | grep firefox
+
+lsof -p $(pgrep firefox)
+
