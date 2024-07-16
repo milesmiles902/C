@@ -1,0 +1,32 @@
+Question 6.5.4 (Monotone Discrete Problems):
+
+Function: f(x)
+
+Constraint: g(x) <= 0
+
+Other functions: f(x + (eta-x)*e) >= f(x)
+                 
+                 g(x + (eta-x)*e) <= g(x)
+ 
+                 g(x+(eta-x)*e) >= g(x)
+
+Where f(x) = sum_1_n[c_i*x_i]
+
+      g(x) = sum_1_n[a_ij*x_j-b_i]
+
+a) Algorithm:
+     Initial x is less than or equal to a minimum, x*
+     For each step x^k
+       If g_i(x^k)<=0 - Terminate
+       Else for random g_i(x^k) > 0
+         Find smallest element such that g_i(x^k + (eta-x^k)e) <=0
+         Set x^{k+1} = x^k + (eta-x^k)*e 
+  
+   The algorithm is well-behaved because a base case (g_i(x^k)<=0), else continuation (g_i(x^k) >0).
+
+b) The algorithm terminates because a feasible solution with base case and continuation. Also, infeasible solutions envoke the base case immediately because negative infinity solutions. 
+
+c) A new parameter, g_i(x)<=0 for a subset of indices means well-behaved behavior for regions in the matri, also, a matrix with analysis regions for other minimization methods
+
+    
+     
