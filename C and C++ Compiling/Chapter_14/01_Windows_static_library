@@ -1,0 +1,3 @@
+dir *.obj
+lib.exe /OUI:mystaticlib.lib
+dir *.lib
