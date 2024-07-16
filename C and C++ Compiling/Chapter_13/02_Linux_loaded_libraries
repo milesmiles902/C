@@ -1,0 +1,6 @@
+g++ -O0 -fPIC -c executableSharedlib.c -o executableSharedLib.o
+g++ -shared -Wl,-e,main executableSharedLib.o -pthread -pthread -lm -ldl -o libdemo2.so.0.0
+ln libdemo2.so.0.0 libdemo2.so
+g++ main.c -g -Wall -ldl -w -Wl,-soname,-llibdemo2.so -Wl,-Bdynamic -Wl,-R./ -o driverApp
+./driverApp 1 2 | grep -A 20 libdemo
+
