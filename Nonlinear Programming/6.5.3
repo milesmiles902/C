@@ -1,0 +1,36 @@
+Question 6.5.3 (Separable Problems with Integer/Simplex Constraints):
+
+Function: sum_1_n[f_j(x_j)]      
+
+Constraint: sum_1_n[x_j]<=A
+
+The minimal for the problem states the next step is optimal.
+
+  Previous step        Next step
+
+  f(x_i) - f(x_i-1) <= f(x_i+1) - f(x_i)
+
+Each next step heads into an optimal solution j=1 is less optimal than j = n.
+
+  f(x_1) - f(x_1-1) <= f(x_2) - f(x_2-1) <= f(x_3) - f(x_3-1) <= ... <= f(x_n) - f(x_n-1)
+
+The Lagrangian forms:
+
+  L(x,lambda) = sum_1_n[f_j(x_j)] - lambda*sum_1_n[x_j]
+
+              = sum_1_n(f(0) + ([f(x_1) - f(x_1-1)]-lambda) + ... + ([f(x_n) - f(x_1-1)]-lambda))
+
+A Lagrangian above zero indicates the previous step was above the maximum and false by the algorithm. A Lagrangian at zero or below sublimates a regular minimum and termination for Ibaraki's algorithm.
+
+Rules: Iterative Algorithm [Ibaraki, T., and Katoh, N, 1988. Resource Allocation Problems: Algorithmic Approaches, M.I.T. Press, Cambridge, MA]
+         Initial conditions: (0,...,0)
+         Feasible Vector (x1,...,xn)
+         Each iterations at index j where x_j < n_j
+           If J is null or sum_j_n[x_j] = A - Terminate
+           Else, find index_max at argmax(f_j(x_j) - f(x_j+1))
+             If argmax(f_j(x_j) - f(x_j+1))<=0 - Terminate
+             Else add one unit to f(x_index_max+1);
+
+Notes: The Iterative Algorithm seems as a Gauss-Jordan Elimination, except single integer increments. A common matrix minimization has additive, subtractive, multiplicative, and divisible rows (or columns). This "Resource Allocation Algorithm" operates by an increment of integer one (or decrement of integer one) toward a minimal matrix.
+
+
