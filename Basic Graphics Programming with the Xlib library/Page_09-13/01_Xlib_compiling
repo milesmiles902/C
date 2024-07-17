@@ -1,0 +1,5 @@
+touch prog.c
+cc prog.c -o prog -lX11
+
+locate Xlib.h
+cc prog.c -o prog -L/usr/include/X11/Xlib.h -lX11

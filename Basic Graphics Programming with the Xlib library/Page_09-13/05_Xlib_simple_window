@@ -1,0 +1,2 @@
+cc simple_window.c -o simple_window -X11
+./simple_window

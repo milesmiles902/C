@@ -1,0 +1,2 @@
+cc basics.c -o basics -lX11
+./basics

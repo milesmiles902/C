@@ -1,0 +1,2 @@
+cc simey.c -o simey -lX11
+./simey
