@@ -2,6 +2,10 @@
 
 Cite: W. Richard Stevens and Stephen A. Rago. 2013. Advanced Programming in the UNIX Environment (3rd. ed.). Addison-Wesley Professional.
 
+<ins>Basic Graphics Programming with the Xlib Library</ins>
+
+Cite: Keren, Guy. 2002. Basic Graphics Programming with the Xlib Library.
+
 <ins>C and C++ Compiling</ins>
 
 Cite: Milan Stevanovic. 2014. Advanced C and C++ Compiling (1st. ed.). Apress, USA.
