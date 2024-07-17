@@ -1,0 +1,37 @@
+Question 6.5.10:
+
+Function: f(x)
+
+Constraint: g(x) <= 0 
+
+Set: Xbar = {x in X | g_{r+1}(x) <= 0,...,g_r(x) <= 0 }
+
+a) The q* <= qbar * <= f*:
+
+   q = inf { f(x) + sum_1_r[mu_i*g_i(x)] }
+
+     <= qbar
+
+   qbar <= min{ f(x) + sum_1_r[mu_i*g_i(x)] }
+
+b) The inequality has no gaps when less than or equal. An inequality gap contains less than or greater than.
+
+c) Function: f(x) = log (x)
+
+   Constraint: x = 1
+
+   q = inf { f(x) + sum_1_r[mu_i*g_i(x)] } 
+
+     = inf { log(x) + sum_1_r[mu_i] }
+
+     = -infinity
+
+     <= qbar
+
+   qbar <= min { f(x) + sum_1_r[mu_i*g_i(x)] }
+
+        <= infinity
+
+        <= f*
+        
+   q <= qbar <= f*
