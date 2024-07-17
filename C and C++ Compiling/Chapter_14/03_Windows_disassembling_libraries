@@ -1,0 +1,8 @@
+dumpbin mystaticlib.lib
+dumpbin /EXPORTS mystaticlib.lib
+dumpbin /HEADERS mystaticlib.lib
+dumpbin /Section:.text$mn mystaticlib.lib
+dumpbin /SECTION:.chks64 mystaticlib.lib
+dumpbin /DISASM mystaticlib.lib
+dumpbin /SYMBOLS mystaticlib.lib
+dumpbin /IMPORTS mystaticlib.lib

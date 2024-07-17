@@ -4,7 +4,7 @@ cd "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Visual Studio 2022\Visu
 & '.\Developer Command Prompt for VS 2022.lnk'
 lib.exe
 
-cd "C:\Users\user\Downloads\C-master (1)\C-master\C and C++ Compiling\Chapter_14"
+cd "C:\Users\user\Downloads\Chapter_14"
 CL /c first.c second.c third.c fourth.c
 lib.exe /OUT:mystaticlib.lib /NOLOGO first.obj second.obj third.obj fourth.obj
 dir
