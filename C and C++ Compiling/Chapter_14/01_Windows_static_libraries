@@ -1,0 +1,23 @@
+With a Visual Studio 2022 installation:
+
+cd "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Visual Studio 2022\Visual Studio Tools\"
+& '.\Developer Command Prompt for VS 2022.lnk'
+lib.exe
+
+cd "C:\Users\user\Downloads\C-master (1)\C-master\C and C++ Compiling\Chapter_14"
+CL /c first.c second.c third.c fourth.c
+lib.exe /OUT:mystaticlib.lib /NOLOGO first.obj second.obj third.obj fourth.obj
+dir
+lib.exe /LIST mystaticlib.lib
+
+lib.exe /REMOVE:first.obj mystaticlib.lib
+lib.exe /LIST mystaticlib.lib
+lib.exe mystaticlib.lib first.obj
+lib.exe /LIST mystaticlib.lib
+
+dir *.obj
+del first.obj
+dir *.obj
+lib.exe /LIST mystaticlib.lib
+lib.exe /EXTRACT:first.obj
+dir *.obj

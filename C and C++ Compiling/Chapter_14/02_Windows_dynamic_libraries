@@ -1,0 +1,12 @@
+With a download and extract: https://github.com/sudo-nautilus/FFmpeg-Builds-Win32/archive/refs/heads/master.zip
+
+cd C:\Users\user\Downloads\ffmpeg-master-latest-win32-gpl-shared\lib
+dir *def
+lib /machine:X86 /def:avcodec-60.def /out:avcodec.lib
+lib /machine:x86 /def:avdevice-60.def /out:avdevice.lib
+lib /machine:x86 /def:avfilter-9.def /out:avfilter.lib
+lib /machine:X86 /def:avformat-60.def /out:avformat.lib
+lib /machine:X86 /def:avutil-58.def /out:avutil.lib
+lib /machine:X86 /def:postproc-57.def /out:postproc.lib
+lib /machine:X86 /def:swresample-4.def /out:swresample
+lib /machine:X86 /def:swscale-7.def /out:swscale.lib
