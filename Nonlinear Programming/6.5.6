@@ -1,0 +1,26 @@
+Question 6.5.6:
+
+Matrix: E = {x| -1,0,1 , colmax(0)<3 }
+
+A Unimodular matrix follows the form:
+ 
+  |sum_#1[e_ij] - sum_#2[e_ij]| <= 1 where e_ij represent a subset in E
+
+Proof by Exhaustion:
+
+            sum_#1[e_ij] Determinant     sum_#2[e_ij] Determinant         Outcome
+  Case #1:             0                             0                      0
+  Case #2:             0                             1                      1
+  Case #3:             1                             0                      1
+  Case #4:             1                             1                      0
+  Case #5:             0                            -1                      1
+  Case #6:            -1                             0                      1
+  Case #7:            -1                            -1                      0
+  Case #8:            -1                             1                   Not possibly by subset rule          
+  Case #9:             1                            -1                   Not possible by subset rule
+
+Rule: Unimodular:
+        Subsets exist when:
+          1) A column has two nonzero entries
+             A) The nonzero entries have same size and unique rows
+             B) The nonzero entries have opposite signs, then same subset
