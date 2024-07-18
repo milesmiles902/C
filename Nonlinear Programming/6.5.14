@@ -1,0 +1,40 @@
+Question 6.5.14 (Integer and Concave Quadratic Programming):
+
+Function #1: a*x
+
+Constraint #2: Ax<=b
+
+                x = {0,1}
+
+Function #2: ax + c*sum[x_i(1-x_i)]
+
+Constraint: A*x <= b
+
+Lagrangian #1: L(x,lambda) = f(x) + lambda*g(x)
+
+                           = a*x + lambda*(Ax-b)
+
+               dL(x,lambda)/dx = a+lambda*A
+
+                               = 0
+
+               dL(x,lambda)/dlambda = (Ax-b)
+
+                                    = 0
+
+               (x*,lambda*) = (b/A,-a/A)
+
+Lagrangian #2: L(x,lambda) = f(x) + lambda*g(x)
+
+                           = a*x+c*sum[x_i(1-x_i)] + lambda(Ax-b)
+
+               dL(x,lambda)/dx = a+c-2*sum[x_i]+lambda*A
+
+                               = 0
+
+               dL(x,lambda)/dlambda = (Ax-b)
+
+                                    = 0
+
+               (x*,lambda*) = (b/A,[2*b-A(a-b)]/(A))
+

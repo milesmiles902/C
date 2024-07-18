@@ -2,6 +2,6 @@ Question 6.5.12 (Bilinear Cost Function):
 
 Cost function: f as a linear function
 
-Regular courses describe upper and lower bound in a function, such as peak apmplitudes in a sinusoidal wave. Other course descriptions, include: maximum and minimum, or infinum and supremum. A set characterizes the same argument by symbol notation.
+Regular courses describe upper and lower bound in a function, such as peak apmplitudes in a sinusoidal wave. Other course descriptions, include: maximum and minimum, infinum and supremum, or commonly, range. A set characterizes the same argument by symbol notation.
 
   X = {x| alpha < x < beta, i=1,...,n} where alpha or beta are the lower and upper bounds.
