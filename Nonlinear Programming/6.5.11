@@ -1,0 +1,19 @@
+Question 6.5.11 (Integer Approximations of Feasible Solutions):
+
+a) Function: sum_i [sum_j [a_ij*x_ij]]
+  
+   Constraint: sum[x_ij] - sum[x_ji] = s
+
+               b_ij <= x_ij <= c_ij
+
+                       x_ij = 0 or 1
+
+   Such, b_ij = floor(x_ij) = 0 
+
+     and c_ij = ceiling(x_ij) = 1.
+
+   Therefore, b_ij-bbar_ij < x_ij-xbar_ij < cij_cbar_ij
+
+                           |x_ij-xbar_ij| < 1
+
+b) A Unimodular problem is similar for many cases. In total, 6 cases show similar models (<=1), rather than (<=1).

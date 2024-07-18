@@ -1,0 +1,71 @@
+Question 6.5.13 (Multicommodity Flow Problems):
+
+Nodes: 1,2,3,4,5,6
+
+A ring:                          
+                               1     
+                              /  \      
+                             6    2       
+                             |    |      
+                             5    3      
+                              \  /                                         
+                                4     
+                                 
+
+Each direction in the ring flows bidirectionally.
+
+Stage I: Node #1 directs a circus peanut to Node #4
+
+Stage II: Node #3 directs 1 unit of circus peanuts to Node #6
+
+Stage III: Node #4 sends 1 whole circus peanut to Node #2
+
+What is the feasible solution?
+
+   Function: ???
+
+   Constraint: ???
+
+   ...
+
+   ...
+                    1 2 3 4 5 6
+   Function:f(x) =  1|X X        |
+                    2|X X X      |
+                    3|  X X X    |
+                    4|    X X X  |
+                    5|      X X X|
+                    6|        X X|
+
+                 = |1 j={i,i-1,i+1}
+                   |0 otherwise
+  
+                 = sum_i=1_6[ sum_j=(i-1)_(i+1) [x_ij] ] 
+
+   Constraint: x = 0 or 1
+
+               x_11 = x_44-1
+
+               x_33 = x_66-1
+
+               x_44 = x_22-1
+
+   Lagrangian: L(x,lambda) = f(x)+lambda*(g(x))
+
+                           = sum_i=1_6[ sum_j=(i-1)_(i+1) [x_ij] ] + lambda*(1-x)
+
+   Minimum for the Lagrangian:
+
+               dL(x,lambda)/dx = 1-lambda
+
+                               = 0
+
+               dL(x,lambda)/dlamba = (1-x)
+            
+               (x*,lambda*) = (0,0)
+
+   The answer matches the author's response, "Show that there is a feasible solution, but there is no feasible integer solution."
+
+   Variable x is not an integer when zero in the multicommodity flow problem.
+
+
