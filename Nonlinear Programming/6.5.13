@@ -52,7 +52,7 @@ What is the feasible solution?
 
    Lagrangian: L(x,lambda) = f(x)+lambda*(g(x))
 
-                           = sum_i=1_6[ sum_j=(i-1)_(i+1) [x_ij] ] + lambda*(1-x)
+                           = sum_i=1_6[ sum_j=(i-1)_(i+1) [x_ij] ] + lambda*(x)
 
    Minimum for the Lagrangian:
 
@@ -60,7 +60,7 @@ What is the feasible solution?
 
                                = 0
 
-               dL(x,lambda)/dlamba = (1-x)
+               dL(x,lambda)/dlamba = x
             
                (x*,lambda*) = (0,0)
 
