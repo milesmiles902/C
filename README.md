@@ -25,3 +25,7 @@ Cite: Numerical Recipes in C (William H. Press, Saul A. Teukolsky, William T. Ve
 <ins>Pattern Recognition and Machine Learning</ins>
 
 Cite: Bishop, Christopher M. Pattern Recognition and Machine Learning. New York :Springer, 2006.
+
+<ins>UEFI Lessons</ins>
+
+Cite: Aladyshev, Konstantin. UEFI-Lessons. 2024. 
