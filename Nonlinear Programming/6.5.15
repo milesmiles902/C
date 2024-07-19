@@ -1,0 +1,37 @@
+Question 6.5.15:
+
+Function #1: f(x) = x*Q*x + a*x
+
+Constraint: x in 0 or 1
+
+Function #2: f(x) = x*Q*x +a*x+c*sum_1_n[x*(1-x)]
+
+Constraint: 0 <= x <= 1
+
+Lagrangian #1:    L(x,lambda) = f(x) + lambda*h(x)
+
+                              = x*Q*x + a*x + lambda*x
+
+              dL(x,lambda)/dx = 2*x*Q + a + lambda
+ 
+                              = 0
+
+              dL(x,lambda)/dlambda = x
+
+                                   = 0
+
+              (x*,lambda*) = (0, a)
+
+Lagrangian #2:    L(x,lambda) = f(x) + lambda*h(x)
+
+                              = x*Q*x + a*x + c*sum_1_n[x(1-x)] + lambda*(x)
+            
+                  dL(x,lambda)/dx = 2*x*Q + a +(1-c)*sum_1_n[x] + lambda(x)
+                                
+                                  = 0
+
+                  dL(x,lambda)/dlambda = x
+
+                                       = 0
+
+                  (x*,lambda*) = (0, a)
