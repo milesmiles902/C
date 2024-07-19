@@ -1,0 +1,3 @@
+cc simple-drawing.c -o simple-drawing -lX11
+./simple-drawing
+

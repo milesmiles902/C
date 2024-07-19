@@ -1,0 +1,3 @@
+cc click.c -o click -lX11
+./click
+

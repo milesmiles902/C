@@ -1,0 +1,3 @@
+cc create.c -o create -lX11
+./create
+
