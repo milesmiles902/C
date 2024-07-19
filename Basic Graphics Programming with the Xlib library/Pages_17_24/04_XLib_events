@@ -1,0 +1,3 @@
+cc events.c -o events -lX11
+./events
+

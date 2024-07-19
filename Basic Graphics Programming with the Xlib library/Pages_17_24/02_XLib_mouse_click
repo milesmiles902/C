@@ -1,0 +1,3 @@
+cc mouse_click.c -o mouse_click -lX11
+./mouse_click
+

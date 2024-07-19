@@ -1,0 +1,3 @@
+cc mouse_movement.c -o mouse_movement -lX11
+./mouse_movement
+
