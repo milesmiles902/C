@@ -1,0 +1,4 @@
+cc window_title.c -o window_title -lX11
+./window_title
+
+
