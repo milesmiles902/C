@@ -1,0 +1,4 @@
+cc texts.c -o texts -lX11
+./texts
+
+

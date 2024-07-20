@@ -1,0 +1,3 @@
+cc fonts.c -o fonts -lX11
+./fonts
+

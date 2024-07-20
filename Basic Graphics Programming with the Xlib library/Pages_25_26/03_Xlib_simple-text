@@ -1,0 +1,4 @@
+cc simple-text.c -o simple-text -lX11
+./simple-text
+
+
