@@ -1,0 +1,54 @@
+Question 7.1.1:
+
+Function: f(x)
+
+Constraint: y >=0
+
+Lagrangian: L(x,mu)
+
+Dual function: q(mu) = inf L(x,mu)
+
+Proof by Deduction: 
+
+       If : Function: f(x1,x2) = x1-x2
+ 
+           Constraint: x1 + x2 - 1 <=0
+
+                       x1>=0; x2>=0
+
+           Lagrangian: L(x1,x2,mu1,mu2,mu3) = f(x1,x2) + mu1*h(x1,x2) + mu2*x1 + mu3*x2
+ 
+                                            = x1 - x2  + mu1*(x1 + x2 - 1) + mu2*x1 + mu3*x2
+
+                       dL(x1,x2,mu1,mu2,mu3)/dx1 = 1 + mu1 + mu2
+
+                                                 = 0
+
+                       dL(x1,x2,mu1,mu2,mu3)/dx2 = -1 + mu1 + mu3
+
+                                                 = 0
+
+                       dL(x1,x2,mu1,mu2,mu3)/dmu1 = x1 + x2 - 1
+
+                                                  = 0
+
+                       dL(x1,x2,mu1,mu2,mu3)/dmu2 = x1
+
+                                                  = 0
+
+                       dL(x1,x2,mu1,mu2,mu3)/dmu3 = x2
+
+                                                  = 0
+
+                       (x1*,x2*,mu1*,mu2*,mu3*) = (0,0,mu1,mu2,mu2+2)
+
+           
+           Minimal Lagrangian: L(x1*,x2*,mu1*,mu2*,mu3*) = -mu1
+
+           Dual Equation: q(mu) = inf(L(x,mu))
+
+     Then: Minimal Dual Equation: dq(mu*)/dmu <=0
+
+           Minimal Dual Equation change: mu*dq(mu*)/dmu = 0
+
+Notes: A dual optimal solution contains duality gaps in nondifferentiable Lagrangians; absolute, discrete, and piecewise functions. 

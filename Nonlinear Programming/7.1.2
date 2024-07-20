@@ -1,0 +1,30 @@
+Question 7.1.2:
+
+Function: sum_1_n[f_i(x_i)]
+
+Constraint x
+
+When x closes an interval: lim [f(x)] = infinity
+
+Dual Equation: q(lambda) = inf{L(x,lambda)}
+
+                     = inf{sum_1_n[f_i(x_i)] + lambda*x}
+
+                     = 0
+
+               sum_1_n[g(lambda)] = inf{sum_1_n[f_i(x_i)] + lambda*x}
+
+                                  = inf{-lambda*x-f_i(x_i)}
+
+Rules: Danskin's Theorem: 
+         A function's max describes directional derivatives
+         a) A function's max f(x) = max(phi(x,z))
+            A function's derivative max f'(x) = max(phi'(x,z))
+            Phi'(x,z) is the directional derivative of phi(x,z)
+            A possible set: z(x) = {zbar | phi(x,zbar) = maxphi(x,z)}
+         b) The directional derivative is differentiable for space
+            Another set: df(x) = conv{delphi(x,z) | z}
+            When directional derivative: phi(x,z) = a*x + b
+            The set: df(x) = conv{a|z}
+ 
+Notes: Danskin's Theorem debates a funcion's derivative at an independent input (e.g. x = 2; f(x=2)=5, f'(x=2)=2, f''(x=2)=10,...,f^n(x=2)=k); What's the set? What about direction?).

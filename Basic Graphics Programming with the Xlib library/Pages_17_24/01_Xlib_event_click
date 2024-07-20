@@ -1,3 +1,0 @@
-cc input_press.c -o input_press -lX11
-./input_press
-
