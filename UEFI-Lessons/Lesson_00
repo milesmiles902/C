@@ -1,1 +1,29 @@
-On a Windows operating system in Powershell (Win+X): shutdown /r /o /f /t 00
+On a Windows operating system in Powershell (Win+X): 
+
+Accessible Drive Path:
+diskpart
+list volume
+select volume {EFI}
+assign letter Z
+exit
+taskkill /im explorer.exe /f
+explorer.exe /nouaccheck
+
+EFI Boot Partition:
+mkdir Z:\EFI\Microsoft\Boot
+xcopy /s C:\Windows\Boot\EFI*.* Z:\EFI\Microsoft\Boot
+z:
+cd EFI\Microsoft\Boot
+bcdedit /createstore BCD
+bcdedit /store BCD /create {bootmgr} /d "Windows Boot Manager"
+bcdedit /store BCD /create /d "My Windows 10" /application osloader
+bcdedit /store BCD /set {bootmgr} default {Your_guid}
+bcdedit /store BCD /set {bootmgr} path \EFI\Microsoft\Boot\bootmgfw.efi
+bcdedit /store BCD /set {bootmgr} displayorder {default}
+bcdedit /store BCD /set {default} device partition=c:
+bcdedit /store BCD /set {default} osdevice partition=c:
+bcdedit /store BCD /set {default} path \Windows\System32\winload.efi
+bcdedit /store BCD /set {default} systemroot \Windows
+shutdown /r /fw
+
+
