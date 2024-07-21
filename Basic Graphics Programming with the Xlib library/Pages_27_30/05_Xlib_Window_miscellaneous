@@ -1,0 +1,3 @@
+cc window_miscellaneous.c -o window_miscellaneous -lX11
+./window_miscellaneous
+

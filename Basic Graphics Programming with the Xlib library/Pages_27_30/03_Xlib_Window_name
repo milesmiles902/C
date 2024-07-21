@@ -1,0 +1,3 @@
+cc window_name.c -o window_name -lX11
+./window_name
+

@@ -1,0 +1,3 @@
+cc simple-wm-hints.c -o simple-wm-hints -lX11
+./simple-wm-hints
+

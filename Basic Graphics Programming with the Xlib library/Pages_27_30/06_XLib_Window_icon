@@ -1,0 +1,3 @@
+cc window_icon.c -o window_icon -lX11
+./window_icon
+
