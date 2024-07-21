@@ -1,0 +1,28 @@
+Question 7.2.1 (Line Search in Dual Ascent Methods):
+
+Function: min f(x)
+
+Dual Function: q(lambda)
+
+Stepsize: alpha* = argmax{q(lambda+alpha*d}
+
+The geometric multiplier for the single-constraint problem below has a line search constant from the previous line.
+
+Function: f(x) + lambda*A*x
+
+Constraint: d(Ax-b) <= 0
+
+The relationship between the function and dual function is a Lagrangian in the form:
+
+  L(x,lambda) = f(x) + lambda*(Ax-b)
+ 
+              = q(lambda)
+
+A linear search modification minimizes the dual function:
+
+  q(lambda+alpha*d) <= q(lambda) + alpha*d
+
+  argmax{q(lambda+alpha*d)} = alpha*
+
+Notes: #1 - The geometric multiplier has a variation with step-wise lambda. Another proof exists.
+       #2 - General line-by-line solutions follow which basic proof? The lemma, proof, lemma, and proof is the next practice. 
