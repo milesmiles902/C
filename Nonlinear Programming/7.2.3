@@ -1,0 +1,34 @@
+Question 7.2.3 (Parititioning the Thevenin Decomposition):
+
+Function: F(x) + G(x)
+
+Constraint: A*x+B*z = d
+
+            G(z) = (1/2)*z*R*z + w*z
+
+Set: Z = {z| B*z = d-A*x, D*z = d}
+
+a) H(d-Ax) = sup {q(lambda)-lambda*(d-Ax)}
+ 
+           = sup {inf{G(z)+lambda*Bz} - lambda*(d-Ax)}
+
+           = min{G(z)}
+
+           = min{(1/2)*z*R*z + w*z}
+
+           = min{(1/2)*(Ax-b)*M*(Ax-b) + gamma*(Ax-b)}
+
+b) H(d-Ax) = M*(Ax-b) + gamma
+ 
+           = 0
+
+   M*(Ax-b) + gamma = | (M_11*A_11 + M_12*A_21 + ... + M_1R*A_R1) + gamma  ...... |
+                      |                      .                            .       |
+                      |                      .                               .    |
+                      |                      .                                  . |
+                      | (M_R1*A_11 + M_R2*A_21 + ... + M_RR*A_R1) + gamma  ...... |
+
+                    = 0
+
+
+
