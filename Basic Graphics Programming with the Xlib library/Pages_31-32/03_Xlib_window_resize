@@ -1,0 +1,3 @@
+cc window_resize.c -o window_resize -lX11
+./window_resize
+

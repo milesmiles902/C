@@ -1,0 +1,3 @@
+cc window_map.c -o window_map -lX11
+./window_map
+

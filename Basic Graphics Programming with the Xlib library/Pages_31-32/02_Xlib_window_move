@@ -1,0 +1,3 @@
+cc window_move.c -o window_move -lX11
+./window_move
+

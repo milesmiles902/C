@@ -1,0 +1,3 @@
+cc window_stack.c -o window_stack -lX11
+./window_stack
+
