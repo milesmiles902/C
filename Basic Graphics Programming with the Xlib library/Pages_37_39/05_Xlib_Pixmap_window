@@ -1,0 +1,4 @@
+cc pixmap_window.c -o pixmap_window -lX11
+./pixmap_window
+
+

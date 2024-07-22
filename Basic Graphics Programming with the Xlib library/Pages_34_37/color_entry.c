@@ -80,8 +80,30 @@ void main(int argc, char* argv[]){
 
   gc = create_gc(display, win, 0);
  
-  //Window stack
+  //Color Entry
 
+  unsigned long pixel;
+  unsigned short red;
+  unsigned short green;
+  unsigned short blue;
+
+  Colormap screen_colormap = DefaultColormap(display, DefaultScreen(display));
+
+  XColor system_color_1, system_color_2;
+  XColor exact_color;
+
+  Status rc = XAllocNamedColor(display, screen_colormap, "red", &system_color_1, &exact_color);
+
+  if(rc==0){
+    fprintf(stderr, "XallocNamedColor - allocation of 'red' color failed.\n");
+  } else {
+    printf("Color entry for 'red' - allocated as (%d,%d,%d) in RGB values.\n", system_color_1.red, system_color_1.green, system_color_1.blue);
+  }
+
+  if(rc ==0){
+    fprintf(stderr, "XAllocColor - allocation of (30000,10000,0) color failed.\n");
+  } 
+ 
   XSelectInput(display, win, ExposureMask);
   XEvent an_event;
   while(1){
@@ -89,12 +111,7 @@ void main(int argc, char* argv[]){
     break;
   }
 
-  XRaiseWindow(display,win);
-  sleep(1);
-  XLowerWindow(display,win);
-  sleep(1);
-  XRaiseWindow(display,win);
-  sleep(1);
+  sleep(2);
   XFlush(display);
   XCloseDisplay(display); 
 }

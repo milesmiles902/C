@@ -1,0 +1,3 @@
+cc color_entry.c -o color_entry -lX11
+./color_entry
+

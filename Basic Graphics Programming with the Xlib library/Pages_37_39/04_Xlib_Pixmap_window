@@ -1,0 +1,4 @@
+cc pixmap_drawing.c -o pixmap_drawing -lX11
+./pixmap_drawing 
+
+

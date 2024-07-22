@@ -80,7 +80,22 @@ void main(int argc, char* argv[]){
 
   gc = create_gc(display, win, 0);
  
-  //Window stack
+  //Window Information
+  
+  XWindowAttributes win_attr;
+ 
+  Status rc = XGetWindowAttributes(display, win, &win_attr);
+  
+  int screen_x, screen_y;
+  Window child_win;
+  Window parent_win;
+  Window root_win;
+  Window *child_windows;
+  int num_child_windows;
+
+  //
+  XQueryTree(display, win, &root_win, &parent_win, &child_windows, &num_child_windows);
+  
 
   XSelectInput(display, win, ExposureMask);
   XEvent an_event;
@@ -89,12 +104,13 @@ void main(int argc, char* argv[]){
     break;
   }
 
-  XRaiseWindow(display,win);
-  sleep(1);
-  XLowerWindow(display,win);
-  sleep(1);
-  XRaiseWindow(display,win);
-  sleep(1);
+  XIconifyWindow(display,win, DefaultScreen(display));
+  XMapWindow(display,win);
+
+  sleep(3);
+  XFree(child_windows);
+  XTranslateCoordinates(display, parent_win, root_win, win_attr.x, win_attr.y, &screen_x, &screen_y, &child_win);
+
   XFlush(display);
   XCloseDisplay(display); 
 }

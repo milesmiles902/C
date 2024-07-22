@@ -1,0 +1,4 @@
+cc bitmap_drawing.c -o bitmap_drawing -lX11
+./bitmap_drawing
+
+

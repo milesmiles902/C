@@ -1,0 +1,3 @@
+cc window-operations.c -o window-operations -lX11
+./window-operations
+

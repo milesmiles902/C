@@ -1,0 +1,3 @@
+cc color_foreground.c -o color_foreground -lX11
+./color_foreground
+

@@ -80,8 +80,13 @@ void main(int argc, char* argv[]){
 
   gc = create_gc(display, win, 0);
  
-  //Window stack
+  //Color Map
 
+  Colormap screen_colormap = DefaultColormap(display, DefaultScreen(display));
+ 
+  Visual* default_visual = DefaultVisual(display, DefaultScreen(display));
+  Colormap my_colormap = XCreateColormap(display, win, default_visual, AllocNone);
+  
   XSelectInput(display, win, ExposureMask);
   XEvent an_event;
   while(1){
@@ -89,12 +94,7 @@ void main(int argc, char* argv[]){
     break;
   }
 
-  XRaiseWindow(display,win);
-  sleep(1);
-  XLowerWindow(display,win);
-  sleep(1);
-  XRaiseWindow(display,win);
-  sleep(1);
+  sleep(2);
   XFlush(display);
   XCloseDisplay(display); 
 }

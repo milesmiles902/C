@@ -1,0 +1,4 @@
+cc bitmap_loading.c -o bitmap_loading -lX11
+./bitmap_loading
+
+

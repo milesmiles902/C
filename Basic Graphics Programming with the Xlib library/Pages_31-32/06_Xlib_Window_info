@@ -1,0 +1,3 @@
+cc window_info.c -o window_info -lX11
+./window_info
+

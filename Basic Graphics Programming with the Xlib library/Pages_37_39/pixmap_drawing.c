@@ -80,21 +80,17 @@ void main(int argc, char* argv[]){
 
   gc = create_gc(display, win, 0);
  
-  //Window stack
+  //Pixmap Drawing
+ 
+  Pixmap pixmap;
+  Window root_win = DefaultRootWindow(display);
+  
+  int depth = DefaultDepth(display, DefaultScreen(display));
 
-  XSelectInput(display, win, ExposureMask);
-  XEvent an_event;
-  while(1){
-    XNextEvent(display, &an_event);  
-    break;
-  }
+  pixmap = XCreatePixmap(display, root_win, 30, 40, depth);
+  XDrawPoint(display,pixmap,gc,15,20);
 
-  XRaiseWindow(display,win);
-  sleep(1);
-  XLowerWindow(display,win);
-  sleep(1);
-  XRaiseWindow(display,win);
-  sleep(1);
+  sleep(2);
   XFlush(display);
   XCloseDisplay(display); 
 }

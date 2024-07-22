@@ -1,0 +1,3 @@
+cc window_iconify.c -o window_iconify -lX11
+./window_iconify
+

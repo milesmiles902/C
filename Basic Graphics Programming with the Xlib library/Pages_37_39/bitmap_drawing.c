@@ -80,21 +80,34 @@ void main(int argc, char* argv[]){
 
   gc = create_gc(display, win, 0);
  
-  //Window stack
+  //Bitmap drawing
+ 
+  Pixmap bitmap;
+  unsigned int bitmap_width, bitmap_height;
 
-  XSelectInput(display, win, ExposureMask);
-  XEvent an_event;
+  int hotspot_x, hotspot_y;
+
+  Window root_win = DefaultRootWindow(display);
+  int rc = XReadBitmapFile(display, root_win, "icon.bmp", &bitmap_width, &bitmap_height, &bitmap, &hotspot_x, &hotspot_y);
+
   while(1){
-    XNextEvent(display, &an_event);  
-    break;
+    switch(rc){
+      case BitmapOpenFailed:
+        fprintf(stderr, "XReadBitmapFile - the file failed 'icon.bmp'.\n");
+        break;
+      case BitmapFileInvalid:
+        fprintf(stderr,
+                "XReadBitmapFile - file '%s' contains a valid bitmap/\n");
+        break;
+      case BitmapNoMemory:
+        fprintf(stderr, "XReadBitmapFile - not enough memory.\n");
+        break;
+      case BitmapSuccess:
+        XCopyPlane(display, bitmap, win, gc, 0, 0, bitmap_width, bitmap_height, 100, 50, 1);
+        break;
+    }
   }
-
-  XRaiseWindow(display,win);
-  sleep(1);
-  XLowerWindow(display,win);
-  sleep(1);
-  XRaiseWindow(display,win);
-  sleep(1);
+  sleep(2);
   XFlush(display);
   XCloseDisplay(display); 
 }

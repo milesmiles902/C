@@ -1,0 +1,3 @@
+cc color_map.c -o color_map -lX11
+./color_map
+

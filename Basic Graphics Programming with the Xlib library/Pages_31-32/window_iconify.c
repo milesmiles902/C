@@ -80,7 +80,7 @@ void main(int argc, char* argv[]){
 
   gc = create_gc(display, win, 0);
  
-  //Window stack
+  //Window iconify
 
   XSelectInput(display, win, ExposureMask);
   XEvent an_event;
@@ -89,12 +89,10 @@ void main(int argc, char* argv[]){
     break;
   }
 
-  XRaiseWindow(display,win);
-  sleep(1);
-  XLowerWindow(display,win);
-  sleep(1);
-  XRaiseWindow(display,win);
-  sleep(1);
+  XIconifyWindow(display,win, DefaultScreen(display));
+  XMapWindow(display,win);
+
+  sleep(3);
   XFlush(display);
   XCloseDisplay(display); 
 }

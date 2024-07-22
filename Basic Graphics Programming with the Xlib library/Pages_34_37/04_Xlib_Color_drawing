@@ -1,0 +1,3 @@
+cc color-drawing.c -o color-drawing -lX11
+./color-drawing
+
