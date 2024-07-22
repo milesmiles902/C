@@ -1,0 +1,26 @@
+Question 7.3.1 (partial Proximal Algorithm):
+
+Function: Q(z) = min {f(x) + 1/(2c)||x-z||^2}
+
+Vector #1: zbar = argmin {f(x) + 1/(2c)*sum_i [x_i-z_i|^2}
+
+Vector Components: zbar_i = |z    i in the set I
+                            |zbar i not in the set i
+
+a) Q(z) = min { f(x) + 1/(2c)||x-z||^2 }
+
+       <= min{ sup{f(x) + 1/(2c)||x-z||^2 }}
+ 
+       <= min{ f(x) + 1/(2c)||x-zbar||^2 }
+
+       <= min {phi(x)}
+
+  where zbar = argmin {phi(x)}
+
+             = f(x) + 1/(2c)||x-zbar||^2 
+
+b) phi(zbar) <= f(zbar) <= phi(z) <= f(z)
+
+   The book suggests a lower output by an average independent variable than the function's normal unaveraged independent variable. A speculative truth. Lemma: 10 Basic functions, Proof: Each function attempted by plot. 
+
+   Other arbitrary cases, uncommon summations and limits such as sum of the natural numbers (e.g. sum_1_infinity [x] = 1 + 2 + 3 + 4 + ... + infinity != infinity).
