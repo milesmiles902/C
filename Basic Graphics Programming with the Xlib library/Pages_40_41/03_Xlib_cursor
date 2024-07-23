@@ -1,0 +1,3 @@
+cc cursor.c -o cursor -lX11
+./cursor
+

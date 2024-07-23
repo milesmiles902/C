@@ -1,0 +1,3 @@
+cc mouse_icon.c -o mouse_icon -lX11
+./cursor
+
