@@ -1,0 +1,44 @@
+Question 7.4.3 (Role of the Penalty Parameter in ADMM)
+
+Function: (1/2)*x^2 + (1/2)(ax)^2
+           
+           = f1(x) + f2(ax)
+
+Three iterative types:    x^{k+1} = a(cz^k-lambda^k)/(1+c*a^2)
+
+                          z^{k+1} = (lambda^k+cax^{k+1})/(1+c)
+
+                          lambda^{k+1} = lambda^k + c(a*x^{k+1} - z^{k+1})
+
+a) The equation above characterizes Proposition 7.4.1 and an Alternating Directional Multiplier Method.
+
+b) When k>=1, lambda equals z. 
+
+     Iteration #0:
+       x^{1} = a(c-1)/(1+c*a^2)
+
+       z^{1} = (1+cax^{1})/(1+c)
+
+       lambda^{1} = 1 + c(a*x^{1} - z^{1})
+
+     Iteration #1:
+
+       x^{2} = a(cz^{1}-lambda^{1})/(1+c*a^2)
+
+             = a(c-1)z^k/(1+ca^2)
+
+       z^{2} = (lambda^{1}+cax^{2})/(1+c)
+
+             = (1+c^2*a^2)z^k/[(1+ca^2)(1+c)]
+
+       lambda^{2} = lambda^{1} + c(a*x^{2} - z^{2})
+
+                  = z^k
+
+c) A plot of the function between 0 and 1. The graph demonstrates a minimum at c=1/|a|: https://www.desmos.com/calculator/scdci0zyet
+
+Rules:  Proposition 7.4.1 (ADMM Convergence):
+          Function: f1(x) + f2(Ax)
+          Subject to: x, Ax
+          When A*A is invertible, then a sequence converges to some primal and dual solution pair.
+
