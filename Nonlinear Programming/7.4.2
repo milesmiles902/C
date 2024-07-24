@@ -1,0 +1,54 @@
+Question 7.4.2 (Convergence Rate of ADMM):
+
+Function: f1(x) + f2(z)    where f1 and f2 are convex quadratic
+
+Constraint: A*x=z        
+
+The Alternating Direction Method of Multipliers (ADMM) converges linearly in large c-coefficient systems. The augmented Lagrangian system with large c-coefficients describe faster converges rates and greater "weight" upon the constraint. From Proposition 3.6.5, the ADMM approaches a finite convergence.
+
+An extension of the result above is with Proposition 5.4.1 in a multi-variable system. An exploratory analysis necessitates a solution in finite number of steps, a unique solution. The unique solution consists of a number of unknowns equal to the equation number, a consistent equation system, and no linear dependence with two or more equations. By Proposition 7.4.1, the definition of ADMM fits two convex functions and respective minima. Unique for two functions, two variables, two convex minima (consistency), and no interdependence. The original extension about convergence with increasing c-coefficients models Proposition 3.6.5 and for each function, f1(x) or f2(Ax) in augmented Lagrangians. A convergent solution pertains in these function systems.
+
+
+Rules: Proposition 4.1.1 Lagrange Multiplier Theorem (Regular):                                                      
+         A) x* is a minimum on f
+         B) h(x)=0
+         C) A lambda vector weights the constraint: 
+              delf(x*) + sum_1_m[ lambda_i*delh(x*)) ] = 0
+         D) The function f and h are twice differentiable and continuous
+              y'*( del[delf(x*)] + sum_1_m[lambda_i*del[delh(x*)]] )*y >= 0
+         E) A subspace I never knew about:
+              V(x*) = {y| delh(x*)*y=0, i=1,...,m}
+
+         Equation 7.47:
+           x^{k+1} = argminL(x,z^k,lambda^k)
+ 
+         Equation 7.48:
+           z^{k+1} = argminL(z^{k+1},z,lambda^{k+1})
+
+         Equation 7.49:
+           lambda^{k+1} = lambda^k + c(Ax^{k+1}-z^{k+1}
+
+         Proposition 5.4.1:
+           x* = G(x*, lambda*)
+           R = |dG(x*,lambda)/dx      dH(x*,lambda*)/x      |
+               |dG(x*,lambda)/dlambda dH(x*,lambda*)/dlambda|
+           x^{k+1} = G(x*,lambda*) is an attraction
+           lambda^{k+1} = H(x*,lambda*) is an attraction
+           Convergence remains linear
+
+         Proposition 7.4.1 (ADMM Convergence):
+           Function: f1(x) + f2(Ax)
+           Subject to: x, Ax
+           When A*A is invertible, then a sequence converges to some primal and dual solution pair.
+
+         Equaition 7.29:
+           lambda^{k+1} = lambda^k c^k(A*x^{k+1} - b)
+
+         Equation 7.30:
+           x^{k+1} = argmin{L(x,lambda^k)}
+
+         Proposition 3.6.5 (Finite Convergence):
+           When f* + beta*d(x) <= f(x)
+           Where d(x) = min||x-x*||
+           Then sum[c^k] = infinity and proximal methods converge
+           If c^0 >= d(x^0)/beta, then the iterations converges in a single iteration 

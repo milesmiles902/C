@@ -1,0 +1,43 @@
+Question 7.4.1:
+
+An augmented Lagrangian derived for Eqution 7.59:
+
+  L(x,lambda) = sum_1_m[f_i(x_i)] + lambda(sum_1_m[A_i*x_i]-b) + (c/2)||sum_1_m[A_i*x_i]-b||^2
+
+Equation 7.66 pertains to an augmented Lagrangians minimum:
+
+  x^{k+1} = argmin {L(x_1^{k+1},...,, x_m^k, lambda)}
+
+          = argmin{f_i(x_i) + (A_i*x_i -z_i^k)*lambda^k + (c/2)||A_i*_i-z_i^k||^2}
+
+A simultaneous and iterative multiplier, Equation 7.71 forumated from similar methods:
+  
+  lambda^{k+1} = lambda^k + (c/m)(sum_1_m[A_i*x_i^{k+1} - b])
+
+The Alternating Direction Methods of Multipliers has an additional term, second variable (z=b), and iterative sequence:
+
+  z_i^{k+1} = argmin {L(x_1^{k+1},...,, x_m^k, lambda)}
+
+            = argmin{f_i(x_i) + (A_i*x_i -z_i^k)*lambda^k + (c/2)||A_i*_i-z_i^k||^2}
+
+            = A_i*x_i^{k+1} + (lambda^k - lambda^{k+1})/c
+
+Rules: (Equation 7.59) 
+
+          Function: sum_1_m[f_i(x_i)]
+
+          Constraint: sum_1_m[A_i*x_i] = b
+
+       (Equation 7.66)
+
+          x_i^{k+1} = argmin{f_i(x_i) + (A_i*x_i -z_i^k)*lambda^k + (c/2)||A_i*_i-z_i^k||^2}
+
+       (Equation 7.67)
+
+          z_i^{k+1} = A_i*x_i^{k+1} + (lambda^k - lambda^{k+1})/c
+ 
+       (Equation 7.71)
+
+          lambda^{k+1} = lambda^k + (c/m)(sum_1_m[A_i*x_i^{k+1} - b])
+
+ 
