@@ -1,0 +1,23 @@
+Question 7.5.1 (Convergence of the Subgradient Method):
+
+Subgradient Method: mu^{k+1} = [mu^k + (s*g)^k]+
+
+                               where s^k = (q*-q(mu^k))/||g^k||^2
+
+a) Equation 7.83, the subgradient method has bounds because the second term's convergence toward zero in the right hand side. The gamma in the secoond term satisfies, 0 < gamma^k < 2 and at an infinite k, nearly 2. The gamma value is an abtract relationship between the constraint, g, in the primal and the dual equation, q. 
+
+  ||mu^k + (s*g)^k - mu*||^2 <= ||mu^k-mu*||^2 - (gamma^k(2-gamma^k)*(q(mu*)-q(mu^k))^2)/||g^k||^2
+
+                             <= ||mu^k-mu*||^2
+
+b) At infinity, q(mu^k) approaches q*. A subgradient inequality, below shows a contraint relationship between the primal equation and dual. A Lagrangian with a constraint qualifies for a primal-dual when a minimumum is present. The multiplier methods on the left has a minimum, along with the right hand for an optimal dual solution. 
+
+   (mu*-mu^k)*g^k >= q(mu*)-q(mu^k)
+
+c) When mu^k is bounded as in Part A, then g^k with similar rea-valued solutions.
+
+Rules: Equation 7.83:
+         ||mu^k + (s*g)^k - mu*||^2 <= ||mu^k-mu*||^2 - (gamma^k(2-gamma^k)*(q(mu*)-q(mu^k))^2)/||g^k||^2
+
+      
+
