@@ -1,3 +1,28 @@
 Question 7.5.2 (A Convergent Variation of the Subgradient Method)
 
+Subgradient method: mu^{k+1} = [mu^k +(s*g)^k]
+
+                               where s^k = (qbar-q(mu^k))/||g^k||^2
+
+a) Lemma: qbar has bounds, q(mu^k) < qbar < q* for the subgradient method's convergence.
+
+   Proof by contrary (contradition): Hypothesis/Premise/Supposition/Truth: A subgradient method has no bounds.
+
+                                     Effect/Conclusion/Outcome: q(mu^k) >= qbar converges a subgradient at large k orinto mu_bar 
+                                     
+b) Lemma: A subgradient method never stops when sum_k=0_inf[(s||g||)^k] = sum_k=0_inf[(qbar-q(mu^k))/||g^k|| = infinity
+
+   Proof by Induction: Base Case: sum_0_0[(s||g||)^k] = sum_0_0[(qbar-q(mu^k))/||g^k|| 
+
+                                                   1  = qbar
+
+                       Next step (k=n): sum_k=0_n[(s||g||)^k] = sum_k=0_n[(qbar-q(mu^k))/||g^k||]
+
+                       Inductive step (k=n+1): sum_k=0_(n+1)[(s||g||)^k] = sum_k=0_(n+1)[(qbar-q(mu^k))/||g^k||]
+
+                                               sum_k=0_n[(s||g||)^k] + (s||g||)^{n+1} = sum_k=0_n[(qbar-q(mu^k))/||g^k||] + (qbar-q(mu^{n+1}))/||g^{n+1}||
+
+                       
+
+
 
