@@ -1,0 +1,39 @@
+Question 7.5.5:
+
+Function: f(x) = x^2
+
+Constraint: x <= 20
+
+Lagrangian: L(x,mu) = f(x) + mu*g(x)
+
+                        = x^2 + mu*(20-x)
+
+Dual Problem: q(mu) = min{L(x,lambda)}
+
+Iteration #1: mu^0 = 0;
+
+              q(mu^0) + (mu-mu^0)g^0 = x^2 + (mu-mu^0)g^0
+
+                                     = x^2 + mu*(20-x)
+
+                                (x*,mu*) = (20, 40)
+
+Iteration #2: mu^1 = 0
+
+              q(mu^{1}) + (mu-mu^{1})g^{1} = x^2 + (mu-mu^1)g^1
+
+                                           = x^2 + (mu-40)*(20-x)
+
+                                  (x*,mu*) = (20,80)
+
+.....
+
+Rules: Cutting Plane Method:
+         When a dual problem:
+           Maximize: q(mu)
+           Subject to: mu
+         The cut plane:
+           Maximize: Q^k(mu) = max{q(mu^0) + (mu-mu^0)g^0,...,q(mu^{k-1}) + (mu-mu^{k-1})g^{k-1})
+           Subject to mu
+
+Notes: The cutting plane method iterates a coefficient in a tangent line around the function for the minimum or maximum "plane."
