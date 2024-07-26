@@ -1,0 +1,30 @@
+Question 7.5.3 (Convergence Rate of the Subgradient Method)
+
+a) The limit as k approaches infinity is sqrt(k)(q*-q(mu^k)) = 0.
+
+   Proof by Deduction:
+
+     Hypothesis: The sqrt(k)(q*-q(mu^k)) = eta
+
+     Outcome: (q*-q(mu^k)) = eta^2/k
+
+              lim[k->inf](q*-q(mu^k)) = lim[k->inf] eta^2/k
+
+                                      = 0
+
+b) When q(mu*) - q(mu^k) >= a||mu*-mu^k||, then Equation 7.83 becomes Lipschitz bounded.
+
+   Proof by Deduction:
+
+     Hypothesis: ||mu^{k+1} - mu*|| <= ||mu^k-mu*||^2 - (q*-q(mu^k))^2/||g^k||^2
+
+     Outcome: ||mu^{k+1} - mu*|| <= ||mu^k-mu*||^2 - a^2||mu^k-mu*||^2/||g^k||^2
+
+              ||mu^{k+1} - mu*|| <= (1-a^2/b^2)*||mu^k-mu*||^2
+
+                                 <= r*||mu^k-mu*||^2
+
+
+Rules: Equation 7.83
+         ||mu^k + (s*g)^k - mu*||^2 <= ||mu^k-mu*||^2 - (gamma^k(2-gamma^k)*(q(mu*)-q(mu^k))^2)/||g^k||^2
+
