@@ -1,0 +1,47 @@
+Question 7.5.7 (Solution of Linear Inequalities) 
+
+C = {mu | a_i*mu-b_i >= 0, i=1,...,m}
+
+Algorithm: mu^{k+1} = mu^k = s^k*a_i
+
+Index of Equality: a_i*mu-b_i >= 0
+
+Iterative Coefficient: s^k = (b_i - a_i*b*mu^k)/||a_i||^2
+
+Lagrangian: L(x,mu) = f(x) + mu*g(x)
+
+                    = f(x^k) + mu^k*g(x^k)
+
+Dual Problem:
+
+  Maximize: q(mu)
+  
+  Subject to: mu
+
+  Function: q(mu) = inf{L(x,mu)} = inf{f(x)+mu*g(x)}
+
+
+Lemma: The dual problem converges to a point C
+
+Proof by Deduction:
+
+  Hypothesis: lim(k->inf)f(x^k) = 0
+
+  Outcome: lim(k->inf)*inf{L(x,mu)} = lim(k->inf)*inf{f(x^k) + mu^k*g(x^k)}
+
+                                    = lim(k->inf)*inf{mu^k*g(x^k)}
+
+                                    = lim(k->inf)*inf{s^k*a_i*(a_k*mu-b_k)}
+
+                                    = lim(k->inf)*inf{(b_i - a_i*b*mu^k)/||a_i||^2*a_i*(a_k*mu-b_k)}
+                                    
+                                    = 0
+
+Rules:  Subgradient-Based Optimization Method
+          Convex Programming Problem:
+            Minimize: f(x)
+            Subject to: x
+          Dual Problem:
+            Maximize: q(mu)
+            Subject to: mu
+            Function: q(mu) = inf{L(x,mu)} = inf{f(x)+mu*g(x)}
