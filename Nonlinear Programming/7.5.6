@@ -1,0 +1,29 @@
+Question 7.5.6 (Coordinate Ascent for Problems with Special Structure):
+
+Dual Problem: q(mu) = Q(mu) + sum_j=1_r[q_j(mu_j)]
+
+Constraint: mu_j >= 0
+
+Lemma: A Coordinate Descent method with Line Minimization is lower or equal to the original iteration.
+
+Proof by Deduction:
+
+  Hypothesis:
+
+    Coordinate Descent with Line Minimization: 
+
+    q(mu,d^k) = Q(mu) + sum_j=1_r[q_j(mu_j) + d^k*mu_j]
+
+  Outcome:
+
+    q(mu,d^k) <= q(mu)
+  
+Rule: Line Minimization Rule:         |    0     |
+                                      |    .     |
+                                      |    0     |
+                              d^k = - |df(x^k)/dx|
+                                      |    0     |
+                                      |    .     |
+                                      |    0     |
+
+
