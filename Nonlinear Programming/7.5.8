@@ -1,0 +1,27 @@
+Question 7.5.8 (Approximate Subgradient Method):
+
+Dual Function: q(mu) >= -inf
+
+Constraint: mu is Real
+
+Subgradient Method: mu^{k+1} = [mu^k + (q(mu*) -q(mu^k))*g^k/||g^k||^2]+
+
+Lemma: ||mu^{k+1} - mu*|| < ||mu^k-mu*|| 
+
+Proof by Equivalence:
+
+  Proof #1 by Deduction:
+
+    Hypothesis: ||mu^k + (s*g)^k - mu*||^2 ||mu^k-mu*||^2 - 2*s^k*(mu*-mu^k)*g^k + (s^k)^2*||g^k||^2
+
+    Outcome: ||mu^k + (s*g)^k - mu*||^2 <= ||mu^k-mu*||^2 - (gamma^k(2-gamma^k)*(q(mu*)-q(mu^k))^2)/||g^k||^2
+
+  Proof #2 by Deduction:
+ 
+    Hypothesis: 0 < gamma^k < 2
+
+    Outcome: ||mu^k + (s*g)^k - mu*||^2 <= ||mu^k-mu*||^2
+
+               ||mu^k + (s*g)^k - mu*|| <= ||mu^k-mu*||
+
+                      ||mu^{k+1}- mu*|| <= ||mu^k-mu*||
