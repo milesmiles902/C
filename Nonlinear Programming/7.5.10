@@ -1,0 +1,38 @@
+Question 7.5.10 (Normalized Subgradient Method):
+
+Dual Function: q(mu)
+
+Constraint: mu is real
+
+Subgradient Method: mu^{k+1} = {mu^k + alpha^k * g^k / ||g^k||}+
+
+a) Lemma: q(mubar) = q(mu^k) and ||mubar-mu*|| < alpha(1+eta)/2
+
+   Proof by Deduction:
+  
+     Hypothesis: alpha^k = alpha 
+
+     Outcome: ||mu^{k+1} - mu*||^2 <= ||mu^k + alpha*g^k/||g^k|| - mu*||^2
+
+                                   <= ||mu^k-mu*||^2 + alpha^2 - 2*alpha(mu*-mu^k)*g^k/||g^k||
+
+                                   <= |mu^k-mu*||^2 - eta*alpha^2
+
+                                   <= |mu^0-mu*||^2 + eta*(k+1)*alpha^2
+
+                 ||mubar - mu*||^2 <= alpha*(1+eta)/2
+
+b) Lemma: The subgradient ||mu^k-mu*|| approaches a minimum and maximum limit.
+
+   Proof by Deduction:
+
+     Hypothesis: alpha^k->0 and sum_k=0_infinity[alpha^k] = infinity
+
+     Outcome #1: lim(k->inf) ||mubar - mu*||^2 <= lim(k->inf) alpha^k*(1+eta)/2
+
+                                               <= 0
+
+     Outcome #2: lim(k->inf) q(mu^k) = lim(k->inf) max {L(x^k,mu^k)}
+                                     
+                                     = lim(k->inf) max q(mu)
+

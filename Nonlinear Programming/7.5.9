@@ -1,0 +1,43 @@
+Question 7.5.9 (Approximate Subgradient Method with Diminishing Stepsize)
+
+Dual function: mu^{k+1} = [mu^k + (s*g)^k]+
+
+Subgradient: sum_k=0_infinity[s^k] = infinity
+
+             (s*||g^2||)^k -> 0
+
+             eta^k >= 0
+
+             eta^k -> 0
+
+a) Lemma: A lower and upper bound presents itself in a subgradient method
+
+Proof by Equivalence:
+
+   Proof by Deduction:
+
+     Hypothesis: ||mu^{k+1}- mu*||^2 <= ||mu^k-mu*||^2 - 2*s^k*(q(mu)-q(mu^k) - eta^k) + (s^k)^2*||g^k||^2
+
+     Outcome: q(mu^k) <= sup{q(mu)} - eta 
+
+                 lim(k->inf)sup{q(mu^k)} <= sup{q(mu)}
+
+   Proof by Deduction:
+
+     Hypothesis: The limit of eta^k approaches zero
+
+     Outcome: sup[q(mu)] - eta <= lim(k->inf)sup{q(mu^k)} <= sup q(mu)
+
+b) Lemma: lim(k->inf)sup{q(mu^k)} = sup{q(mu)}
+
+   Proof by Deduction:
+  
+     Hypothesis: sum_k=0_infinity[s^k] = infinity
+
+                 (s*||g^2||)^k -> infinity
+
+     Outcome:  2*s^k*(q(mu)-q(mu^k) - eta^k) + ||mu^{k+1}- mu*||^2 <= ||mu^k-mu*||^2 + (s^k)^2*||g^k||^2
+
+               infinity + ||mu^{k+1}- mu*||^2 <= ||mu^k-mu*||^2  + infinity
+
+               lim(k->inf)sup{q(mu^k)} = sup{q(mu)}
