@@ -1,0 +1,50 @@
+Question 7.5.11 (Incremental Subgradient Method with Dominishing Stepsize):
+
+Function: q(mu) = sum_1_m[q_i(mu)]
+
+Incremental Subgradient Method: mu^{k+1} = psi^{mu,k}
+
+                                where psi^{i,k} = [psi^{i-1,k} + alpha^k*g^{i,k}]+
+
+                                              g = dq_i(Psi^{i-1,k})/di
+
+Initial Conditions: psi^{0,k} = mu^k
+
+
+a) Lemma: mu^k has bounds with a stepsize alpha^k.
+  
+   Proof by Deduction:
+ 
+     Hypothesis: A sequence of subgradients has a bound: ||g^{i,k}||<=C
+
+     Outcome: ||mu^{k+1} - mu*||^2 <= ||psi^{i,k-1} + alpha*g^k/||g^k|| - mu*||^2
+
+                                   <= ||psi^{i-1,k}-mu*||^2 + (alpha^k)^2*C^2 - 2*alpha(mu*-mu^k)*g^k/||g^k||
+
+                                   <= ||mu^k-mu*||^2
+
+                ||mu^{k+1} - mu*|| <= ||mu^k-mu*||^2
+
+b) Lemma: A minimum (infininum) and maximum (supremum) are possible in a dual gradient method with step size consideration.
+
+   Proof by Deduction:
+
+     Hypothesis: alpha^k->0 and sum_k=0_infinity[alpha^k] = infinity
+
+     Outcome #1: lim(k->inf) ||mubar - mu*||^2 = lim(k->inf) ||psi^{i-1,k}-mu*||^2 + (alpha^k)*C^2 - 2*alpha(mu*-mu^k)*g^k/||g^k||
+
+                                               = 0
+
+     Outcome #2: lim(k->inf) q(mu^k) = lim(k->inf) max {L(x^k,mu^k)}
+                                     
+                                     = max q(mu)
+
+c) Lemma: Dual gradient methods converge with step size constraints by inequalities.
+
+   Proof by Dededuction:
+
+     Hypothesis: sum_k=0_infinity[alpha^k] = infinity and sum_k=0_infinity[alpha^k]^2 < infinity
+
+     Outcome: lim(k->inf) ||mubar - mu*||^2 <= ||psi^{i-1,k}-mu*||^2 + (alpha^k)^2*C^2 
+                                           
+                                             = 0
