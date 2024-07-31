@@ -1,0 +1,24 @@
+Question 7.5.12 (Incremental Subgradient Method with Dynamically Changing Stepsize):
+
+Function: q_i(mu)
+
+Constraint: ||g|| <= C_i
+
+Optimal Solution: Set M*
+
+Stepsize: alpha^k = gamma^k(q*-q(mu^k))/C^2
+
+Lemma: The subgradient method (mu^k) converges to an optimal solution with stepsize contraints.
+
+Proof by Deduction:
+
+  Hypothesis: 0 < gamma_i <= gamma^k <= gamma_u <= 2
+
+  Outcome: ||mu^{k+1} - mu*||^2 <= ||mu^k-mu*||^2 + alpha^{2k}*C^2 -  2*alpha^k*(q(mu)-q(mu^k))
+
+                                <= ||mu^k-mu*||^2 - (gamma^{2k}(q*-q(mu^k))^2 - 2*gamma^k(q(mu)-q(mu^k)))/C^2
+
+                                <= ||mu^k-mu*||^2 - gamma^k*(q*-q(mu^k))^2*(gamma^k - 2)/C^2
+
+                                <= ||mu^k-mu*||^2 ..because the hypothesis bounds,
+          
