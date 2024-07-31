@@ -1,0 +1,32 @@
+Question 7.5.13 (eta-Complementary Slackness and Approximate Subgradients):
+
+Function: sum_1_n[f_i(x_i)]
+
+Constraint: sum_1_n[g_ij(x_i)] <= 0
+
+            alpha_i <= x_i <= beta_i
+
+Proof by Deduction:
+
+  Hypothesis: Left Derivative: 0 <= f_i+(x_i) + sum_1_r[mu_j*g_ij(x_i)] + eta
+
+              Right Derivative: f_i(x_i) + sum_1_r[mu_j*g_ij(x_i)] - eta <= 0
+
+                               where I- = {i|x_i<beta_i} I+ = {i|alpha_i < x_i}
+
+  Outcome: Lagrangian: f(x) + sum_1_r[mu_j*g_ij(x_i)]
+          
+           Dual Equation: q(mu) = sum_1_n[min{f(x) + sum_1_r[mu_j*g_ij(x_i)]}]
+
+           -eta <=  Left Derivative <= Right Derivative <= eta
+
+           -eta <= f_i+(x_i) + sum_1_r[mu_j*g_ij(x_i)] <= f_i(x_i) + sum_1_r[mu_j*g_ij(x_i)] <= eta
+
+           A derivative with bounds from both sides for 
+ 
+             q(mu) + eta*sum_1_n(beta_i-alpha_i) >= sum_1_n[f_i+(x_i) + sum_1_r[mu_j*g_ij(x_i)]]
+
+                                                 >= q(mu)
+
+Notes: The problem shifts a convex function by slack variable eta into finite minimum.
+
