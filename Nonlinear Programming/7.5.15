@@ -1,0 +1,15 @@
+Question 7.5.15 (Outer Approximation Methods)
+
+Function: min {phi(x,y)}
+
+Constraint: x
+
+Set: x^k = argmin {phi(x,y^0), phi(x,y^1),...,phi(x,y^{k-1})}
+
+     y^k = argmax {phi(x^i,y)}
+
+a) The function relates to the cutting plane method because the tangent line in a cut plane, also the arg max or argminmax. 
+
+b) Every limit point of the sequence is an optimal solution because the set x^k's prior minimization before the function. The input x^k describes a tangent line as the input to phi.
+
+c) In a case where y = argmax {phi(x^i,y)} for 0, 1, 2,...i, the original function, min {phi(x,y)} maximizes the post adjustment between a new x and y.
