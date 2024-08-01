@@ -1,0 +1,42 @@
+Question 7.5.14 (Subgradient Methods with Small Errors for Sharp Minima):
+
+Iteration: mu^{k+1} = [mu^k + s^k(g^k+r^k)]+
+
+Error: ||r^k|| <= beta
+
+Convergence: q*-q(mu) >= gamma*min||mu-mu*||
+
+Minimum: q*=max{q(mu)} for some ||g|| <= delta
+
+Primal Equation: q(mu) = min{a_i*x-b_i}
+
+Lemma: The supremum for the primal dual equation at infinity is larger than the minimum from the stepsize.
+
+Proof by Deduction:
+
+  Hypothesis: gamma*min||mu-mu*|| <= q*-q(mu) <= ||mu^k-mu*||^2 + s^{2k}*C^2 + 2*s^k*(q(mu)-q(mu^k))
+
+     Outcome: q*-q(mu) <= ||mu^k-mu*||^2 + s^{2k}*(g^k+r^k)^2 + 2*s^k*(g^k+r^k)(mu^k-mu*)
+
+                       <= ||mu^k-mu*||^2 + s^{2k}*(g^k+r^k)^2 + 2*s^k*g^k*(mu^k-mu*) + 2*s^{2k}*r^k*(mu^k-mu*)
+
+                       <= ||mu^k-mu*||^2 - 2*s^k(q*-q(mu^k)) + 2*s^k*beta*(mu^k-mu*) + s^{2k}(del+beta)^2
+
+                       <= ||mu^k-mu*||^2-2*s^k(gamma-beta)(q*-q(mu^k))/gamma + s^{2k}(del+beta)^2
+
+                       <= ||mu^k-mu*||^2-2*s^k(gamma-beta)/gamma*(s*gamma(del+beta)^2/(2*(gamma-beta))) + s^{2k}(del+beta)^2
+
+                 q(mu) >= q* - (||mu^k-mu*||^2-2*s^k(gamma-beta)/gamma*(s*gamma(del+beta)^2/(2*(gamma-beta)+eta)) + s^{2k}(del+beta)^2)
+
+                 lim(k->inf) q(mu) >= lim(k->inf) q* - (||mu^k-mu*||^2-2*s^k(gamma-beta)/gamma*(s*gamma(del+beta)^2/(2*(gamma-beta)+eta)) + s^{2k}(del+beta)^2)
+
+                 lim(k->inf) q(mu) >= lim(k->inf) q* - 2*s^k(gamma-beta)/gamma
+
+Notes: The problem derives a system where Steepest Descent Methods scalar coefficient (mu) converges at the minimum. Past methods emplace bounds on a function's convergence, while this problem bounds the coefficients convergence. An e
+xample is line minimization's proof for optimal solutions with or without an alpha (as below). 
+
+Rule:  Steepest Descent Method:
+       D^k=1, k=0,1,...,
+       Normalized Negative Gradient: d^k=-delf(x*)/||delf(x^k)||
+       Iteration: x^{k+1} = x^k-alpha*(D^k)*delf(x^k) where d^k=-D^k*del(f^k)
+~                                                                                  
