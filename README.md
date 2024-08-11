@@ -16,7 +16,7 @@ Cite: Taylor, M. (2024)
 
 <ins>Nonlinear Programming (Chapters 1-7)</ins>
 
-Cite: Bertsekas, D. P. (1995). Nonlinear Programming. Belmont, MA. Athena Scientific. 
+Cite: Bertsekas, D. P. (2016). Nonlinear Programming. Belmont, MA. Athena Scientific. 
 
 <ins>Numerical Recipes (Chapters 1-22)</ins>
 
