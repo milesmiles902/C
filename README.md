@@ -26,6 +26,6 @@ Cite: William H. Press, Saul A. Teukolsky, William T. Vetterling and Brian P. Fl
 
 Cite: Bishop, Christopher M. (2006). Pattern Recognition and Machine Learning. New York. Springer.
 
-<ins>UEFI Lessons (Lessons 1-6)</ins>
+<ins>UEFI Lessons (Lessons 0-6)</ins>
 
 Cite: Aladyshev, Konstantin. (2024). UEFI-Lessons.
